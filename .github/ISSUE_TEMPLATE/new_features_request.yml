@@ -1,0 +1,43 @@
+name: 🆕 new feature request
+description: Suggest an idea and show your creativity to add new feature
+title: "[New Feature]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out your new feature issue
+  - type: textarea
+    id: new-feature
+    attributes:
+      label: 🎮 feature Request
+      description: Describe the feature logic and also give a brief about the features of the feature
+      placeholder: add all necessary details required for your new feature
+      value: "feature logic and basic description"
+    validations:
+      required: true
+  - type: textarea
+    id: features
+    attributes:
+      label: Point down the features
+      description: think about your the feature your feature will have
+      placeholder: Please include a summary, also include relevant motivation and context. 
+      value: "feature points"
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Select program in which you are contributing
+      multiple: true
+      options:
+        - GSSoC24
+        - Other
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/GameSphere-MultiPlayer/Community-Page/blob/main/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [CONTRIBUTING GUIDELINE]() of this project.
+          required: true
