@@ -46,8 +46,9 @@ class Game {
 
 	//End Game
 	onPlayerWin() {
+		const playAgainBtn = document.querySelector(".play-again-btn");
+		playAgainBtn.style.display = "block";
 		this.isGameover = true
-
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
@@ -65,7 +66,7 @@ class Game {
 				this.playerTurnBgUI.classList.add("no-win")
 				this.playerTurnBgUI.style.background = "#eaeaea"
 			} else {
-				this.playerNameUI.parentElement.textContent = `${player.name} wins`
+				this.playerNameUI.parentElement.textContent = ${player.name} wins
 				this.playerTurnBgUI.classList.add("win")
 				this.playerTurnBgUI.style.background = player.color
 			}
@@ -125,7 +126,7 @@ class Game {
 	//Add event listeners
 	addEventListener(event, callback) {
 		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
+			console.error(${event} event is not defined)
 			return
 		}
 
@@ -135,7 +136,7 @@ class Game {
 	//Remove event listeners
 	removeEventListener(event, callback) {
 		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
+			console.error(${event} event is not defined)
 			return
 		}
 		this.events[event].splice(this.events[event].indexOf(callback), 1)
@@ -144,7 +145,7 @@ class Game {
 	//Invoke event listeners
 	invokeEvent(event, args) {
 		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
+			console.error(${event} event is not defined)
 			return
 		}
 		this.events[event].forEach((callback) => callback(args))
@@ -158,6 +159,7 @@ class Game {
 			this.invokeEvent("playerSwitch")
 		}
 	}
+
 }
 
 // Declaring Global Variables
