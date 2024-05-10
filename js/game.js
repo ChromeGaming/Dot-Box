@@ -167,7 +167,7 @@ const rowsInput = document.querySelector("#rows")
 const columnsInput = document.querySelector("#columns")
 const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
-const heading = document.querySelector(".heading")
+const heading = document.querySelectorAll(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
 var game = null
 
@@ -186,4 +186,17 @@ startBtn.addEventListener("click", () => {
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
+}
+const playerTurn = document.querySelector(".player-turn")
+const topComp = document.querySelector(".top")
+const board=document.querySelector('.board')
+const form=document.querySelectorAll('.form')
+const exit=document.getElementById('BacktoHome')
+exit.onclick=()=>{
+	playerTurn.style.display="none"
+	topComp.style.display="none"
+	board.style.display="none"
+	settingsUI.style.display = "flex"; 
+	form.style.display="flex";
+    heading.style.display = "flex";
 }
