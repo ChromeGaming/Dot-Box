@@ -187,3 +187,32 @@ startBtn.addEventListener("click", () => {
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
 }
+const muteBtn=document.getElementById('muteBtn')
+const muteIcon=document.querySelector('.fa-volume-xmark')
+const volIcon=document.querySelector('.fa-volume-high')
+muteBtn.onclick=()=>{
+	if(bgMusic.volume>0){
+		bgMusic.volume=0
+		muteIcon.style.display='block'
+		volIcon.style.display="none"
+		volumeSlider.value=0
+	}
+	else{
+		bgMusic.volume=0.1
+		muteIcon.style.display='none'
+		volIcon.style.display="block"
+		volumeSlider.value=0.1
+	}
+}
+const volumeSlider = document.getElementById('volumeSlider');
+volumeSlider.addEventListener('input', () => {
+    bgMusic.volume = volumeSlider.value; 
+	if(volumeSlider.value==0){
+		muteIcon.style.display='block'
+		volIcon.style.display="none"
+	}
+	else{
+		muteIcon.style.display='none'
+		volIcon.style.display="block"
+	}
+});

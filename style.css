@@ -323,3 +323,19 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+#volumeControl{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#volumeSlider{
+	margin: 10px 8px 10px 4px;
+}
+#muteBtn{
+	padding: 2px;
+	font-size: 19px;
+	background-color: transparent;
+	border: none;
+	margin: 10px 16px 10px 2px;
+	cursor: pointer;
+}
