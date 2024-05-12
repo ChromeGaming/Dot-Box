@@ -37,6 +37,8 @@ a {
 	display: grid;
 	width: 60vh;
 	max-height: 60vh;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Default box shadow */
+
 }
 
 @media screen and (max-width: 720px) {
@@ -363,7 +365,6 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-/* styles for pseudo-element before label when checkbox is checked */
 .dark-mode-toggle input[type="checkbox"]:checked + label:before {
     transform: translateX(20px) translateY(-50%);
     background-color: #000;
@@ -413,3 +414,27 @@ body.dark-mode .form-item input {
 body.dark-mode .heading {
     color: white;
 }
+
+
+
+/* dark mode for game after started */
+body.dark-mode .board {
+    background-color: #252422; 
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+
+}
+
+body.dark-mode {
+    background-color: #252422;
+	color: white;
+}
+
+
+body.dark-mode .edge:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .edge:active {
+    background-color: rgba(255, 255, 255, 1); 
+}
+
