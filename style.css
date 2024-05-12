@@ -323,3 +323,93 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
+
+/* styles for dark mode toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* styles for checkbox inside dark mode toggle */
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+/* styles for label inside dark mode toggle */
+.dark-mode-toggle label {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* styles for pseudo-element before label inside dark mode toggle */
+.dark-mode-toggle label:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+    background-color: #f5f3f4;
+    transition: transform 0.3s ease;
+}
+
+/* styles for pseudo-element before label when checkbox is checked */
+.dark-mode-toggle input[type="checkbox"]:checked + label:before {
+    transform: translateX(20px) translateY(-50%);
+    background-color: #000;
+}
+
+/* styles for elements in dark mode settings */
+body.dark-mode .settings {
+    background-color: #252422;
+    color: #f5f3f4;
+}
+
+/* styles for various elements in dark mode */
+body.dark-mode .instructions,
+body.dark-mode .form-item label,
+body.dark-mode .form-item input {
+    color: #f5f3f4;
+}
+
+/* styles for input in dark mode */
+body.dark-mode .form-item input {
+    background-color: #333;
+    color: #f5f3f4;
+}
+
+/* styles for start button */
+.start-btn {
+    background: #333;
+    color: #f5f3f4;
+}
+
+/* hover styles for start button */
+.start-btn:hover {
+    background: rgb(75, 75, 75);
+}
+
+/* active styles for start button */
+.start-btn:active {
+    background: rgb(70, 70, 70);
+}
+
+/* default styles for heading */
+.heading {
+    color: black;
+}
+
+/* styles for heading in dark mode */
+body.dark-mode .heading {
+    color: white;
+}
