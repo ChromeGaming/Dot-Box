@@ -24,9 +24,9 @@ class Game {
 			{ name: "Player 6", color: "orange", filledBoxes: 0 }
 		]
 
-		let p = this.players.length - playersCount
-		for (let i = 0; i < p; i++)
-			this.players.pop()
+		while (this.players.length > playersCount) {
+			this.players.pop();
+	}
 
 		this.currentPlayerIndex = 0
 		this.currentPlayer = this.players[this.currentPlayerIndex]

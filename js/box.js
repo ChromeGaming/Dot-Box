@@ -42,16 +42,30 @@ class Box {
 		edge.fill()
 	}
 
-	fill(color) {
-		if (!this.filled) {
-			this.filled = true
-			this.remainingEdges = 0
-			this.ui.style.background = color
-			this.ui.classList.add("filled")
 
-			Game.instance.invokeEvent("boxFill", this)
+
+
+	
+// AKASH UPDATES START
+	fill() {
+		if (!this.filled) {
+				this.filled = true;
+				this.remainingEdges = 0;
+				// Determine the color based on the current player
+				let color = Game.instance.currentPlayer.name === "Player 1" ? "pink" : "skyblue";
+				this.ui.style.background = color;
+				this.ui.classList.add("filled");
+				this.ui.style.animation = 'pulseBox 1s forwards'; // Continue using the animation for visual feedback
+				Game.instance.invokeEvent("boxFill", this);
 		}
-	}
+}
+
+// AKASH UPDATES END
+
+
+
+
+
 
 	createUI() {
 		const ui = document.createElement("div")

@@ -31,35 +31,28 @@ class Board {
 
 	//Setting up the edge thickness based on the number of boxes. 
 	//We need to set it for Root UI.
-	setEdgeThickness() {
-		//The thickness of the edge depends on the number of boxes
-		let thickness =
-			(Board.BOXES_COUNT <= 25) ? 10 :
-				(Board.BOXES_COUNT <= 100) ? 8 :
-					(Board.BOXES_COUNT <= 200) ? 5 : 3
+	setEdgeThickness() { //AKASH UPDATES START
+		// The thickness of the edge depends on the number of boxes
+		let thickness = (Board.BOXES_COUNT <= 25) ? 10 : (Board.BOXES_COUNT <= 100) ? 8 : (Board.BOXES_COUNT <= 200) ? 5 : 3;
+		document.documentElement.style.setProperty("--edge-thickness", `${thickness}px`);
+} //AKASH UPDATES END
 
-		document.querySelector(":root").style.setProperty("--edge-thikness", `${thickness}px`)
-	}
-
-	//
 	addEdgeClickEventListener() {
 		this.uiRoot.addEventListener("click", (e) => {
-			let click = new Audio('./sounds/click.mp3');
-			click.play();
-			if (!this.isFillingAdjacentBoxes) {
-				if (e.target.classList.contains("edge")) {
-					let edgePosition = e.target.getAttribute("data-position")
-					//Getting the row and column of the box so we can write logic to fill the box later
-					let r = e.target.parentElement.getAttribute("data-row")
-					let c = e.target.parentElement.getAttribute("data-column")
-					let box = this.boxes[r][c]
-					//Getting the edge object from the box
-					let edge = box.getEdge(edgePosition)
-					this.onEdgeClick(box, edge)
+				let click = new Audio('./sounds/click.mp3');
+				click.play();
+				if (!this.isFillingAdjacentBoxes && e.target.classList.contains("edge")) {
+						let edgePosition = e.target.getAttribute("data-position");
+						// Getting the row and column of the box so we can write logic to fill the box later
+						let r = parseInt(e.target.parentElement.getAttribute("data-row"));
+						let c = parseInt(e.target.parentElement.getAttribute("data-column"));
+						let box = this.boxes[r][c];
+						// Getting the edge object from the box
+						let edge = box.getEdge(edgePosition);
+						this.onEdgeClick(box, edge);
 				}
-			}
-		})
-	}
+		});
+}
 	//On click of the edge, we need to fill the edge and check if the adjacent boxes can be filled
 	onEdgeClick(box, edge) {
 		box.fillEdge(edge)
@@ -114,6 +107,7 @@ class Board {
 				this.boxes[r][c] = box
 				this.uiRoot.appendChild(box.ui)
 			}
+			
 
 		//set each box adjacents and inverses
 		for (let r = 0; r < Board.ROWS; r++)

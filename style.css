@@ -323,3 +323,41 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
+
+/*     START AKASH UPDATES       */
+
+/* Animation for drawing edges */
+@keyframes drawEdge {
+	from {
+			background: var(--border-color);
+	}
+	to {
+			background: #111; /* or any other color indicating a filled edge */
+	}
+}
+
+.edge.filled {
+	animation: drawEdge 0.5s forwards;
+}
+
+/* Animation for completing boxes */
+@keyframes pulseBox {
+	0% {
+			transform: scale(1);
+	}
+	75% {
+			transform: scale(1.1);
+			background-color: gold; /* temporary highlight color */
+	}
+	100% {
+			transform: scale(1);
+			background-color: inherit.player; /* revert to original or filled color */
+	}
+}
+
+.box.filled {
+	animation: pulseBox 1s forwards;
+}
+
+/*     END AKASH UPDATES       */

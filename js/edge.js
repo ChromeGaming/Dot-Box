@@ -4,7 +4,6 @@ class Edge {
 		this.box = box
 		this.filled = false
 		this.position = position
-
 		this.ui = this.createUI()
 	}
 	//Getting inverse edge
@@ -13,21 +12,28 @@ class Edge {
 	}
 
 	//Filling edge
-	fill() {
-		if (!this.filled) {
-			this.filled = true
-			this.ui.classList.add("filled")
 
-			Game.instance.invokeEvent("edgeFill", this)
-		}
-	}
+// AKASH UPDATES START
+fill() {
+  if (!this.filled) {
+    this.filled = true;
+    this.ui.classList.add("filled");
+    this.ui.style.animation = 'drawEdge 0.5s forwards'; // Triggering the edge drawing animation
+    Game.instance.invokeEvent("edgeFill", this);
+  }
+}
+// AKASH UPDATES END
+
+
+
+
+
 	//Creating UI
 	createUI() {
-		const user_interface = document.createElement("button")
-		user_interface.setAttribute("data-position", this.position)
-		user_interface.classList.add("edge")
-		user_interface.classList.add(this.position)
-		return user_interface
+		const user_interface = document.createElement("button");
+		user_interface.setAttribute("data-position", this.position);
+		user_interface.classList.add("edge", this.position);
+		return user_interface;
 	}
 
 }
