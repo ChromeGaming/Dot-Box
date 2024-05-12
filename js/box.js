@@ -1,71 +1,59 @@
 class Box {
-
 	constructor(row, column) {
-		this.row = row
-		this.column = column
-
-		this.remainingEdges = 4
+		this.row = row;
+		this.column = column;
+		this.remainingEdges = 4;
 		this.edges = {
 			top: new Edge(this, "top"),
 			right: new Edge(this, "right"),
 			bottom: new Edge(this, "bottom"),
-			left: new Edge(this, "left"),
-		}
+			left: new Edge(this, "left")
+		};
 		this.inverseEdges = {
 			top: null,
 			right: null,
 			bottom: null,
-			left: null,
-		}
-		this.adjacentBoxes = {}
-		this.filled = false
-
-		this.ui = this.createUI()
+			left: null
+		};
+		this.adjacentBoxes = {};
+		this.filled = false;
+		this.ui = this.createUI();
 	}
 
 	getEdge(edgePosition) {
-		return this.edges[edgePosition]
+		return this.edges[edgePosition];
 	}
 
 	getAdjacentBox(edgePosition) {
-		return this.adjacentBoxes[edgePosition]
+		return this.adjacentBoxes[edgePosition];
 	}
 
 	getLastRemainingEdge() {
-		for (const [position, edge] of Object.entries(this.edges))
-			if (!edge.filled) return this.edges[position]
-
-		return null
+		return Object.values(this.edges).find(edge => !edge.filled) || null;
 	}
 
 	fillEdge(edge) {
-		edge.fill()
+		edge.fill();
 	}
 
 	fill(color) {
 		if (!this.filled) {
-			this.filled = true
-			this.remainingEdges = 0
-			this.ui.style.background = color
-			this.ui.classList.add("filled")
-
-			Game.instance.invokeEvent("boxFill", this)
+			this.filled = true;
+			this.remainingEdges = 0;
+			this.ui.style.background = color;
+			this.ui.classList.add("filled");
+			Game.instance.invokeEvent("boxFill", this);
 		}
 	}
 
 	createUI() {
-		const ui = document.createElement("div")
+		const ui = document.createElement("div");
+		ui.classList.add("box");
+		ui.dataset.row = this.row;
+		ui.dataset.column = this.column;
 
-		ui.setAttribute("class", "box")
-		ui.setAttribute("data-row", this.row)
-		ui.setAttribute("data-column", this.column)
+		Object.values(this.edges).forEach(edge => ui.appendChild(edge.ui));
 
-		ui.appendChild(this.edges.top.ui)
-		ui.appendChild(this.edges.right.ui)
-		ui.appendChild(this.edges.bottom.ui)
-		ui.appendChild(this.edges.left.ui)
-
-		return ui
+		return ui;
 	}
-
 }
