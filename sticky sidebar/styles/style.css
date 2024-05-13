@@ -1,0 +1,90 @@
+:root {
+  --color-primary: #191d2b;
+  --color-secondary: #27AE60;
+  --color-white: #FFFFFF;
+  --color-black: #000;
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #dbe1e8;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --br-sm-2: 14px;
+  --box-shadow-1: 0 3px 15px rgba(0,0,0,.3);
+}
+
+
+.controls {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  right: 3%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+}
+
+.controls .control {
+  padding: 1rem;
+  cursor: pointer;
+
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.7rem 0;
+  transition: background-color 0.6s ease, color  0.6s ease;
+  animation: glow-animation 1s infinite alternate; /* Apply animation */
+
+}
+@keyframes glow-animation {
+  0% {
+    box-shadow: 0 0 20px #fff;
+  }
+  50% {
+    box-shadow: 0 0 30px #fff;
+  }
+  100% {
+    box-shadow: 0 0 40px #fff;
+  }
+}
+
+.controls .control i {
+  font-size: 1.2rem;
+
+  pointer-events: none;
+}
+
+.control-1:hover{
+  
+  background-color: #C13584; /* Background color for the glow */
+  color: #333; /* Text color for the glow */
+  animation: none;
+  box-shadow: 0 0 10px 5px #C13584 ; /* Adjust the sp  read and blur radius for the glow */
+}
+.control-2:hover{
+  
+  background-color: #7289DA; /* Background color for the glow */
+  color: #333; /* Text color for the glow */  
+  animation: none;
+  box-shadow: 0 0 10px 5px #7289DA ; /* Adjust the spread and blur radius for the glow */
+}
+.control-3:hover{
+  
+  background-color: #1DA1F2; /* Background color for the glow */
+  color: #333; /* Text color for the glow */
+  animation: none;
+  box-shadow: 0 0 10px 5px #1DA1F2 ; /* Adjust the spread and blur radius for the glow */
+}
+.control-4:hover{
+  
+  background-color: #0077B5; /* Background color for the glow */
+  color: #333; /* Text color for the glow */
+  animation: none;
+  box-shadow: 0 0 10px 5px #0077B5 ; /* Adjust the spread and blur radius for the glow */
+}
