@@ -1,33 +1,34 @@
 class Edge {
-
 	constructor(box, position) {
-		this.box = box
-		this.filled = false
-		this.position = position
-
-		this.ui = this.createUI()
+		this.box = box;
+		this.filled = false;
+		this.position = position;
+		// cached the UI element during initialization
+		this.ui = this.createUI();
 	}
-	//Getting inverse edge
+
+	// getting inverse edge
 	get inverseEdge() {
-		return this.box.inverseEdges[this.position]
+		return this.box.inverseEdges[this.position];
 	}
 
-	//Filling edge
+	// filling edge
 	fill() {
-		if (!this.filled) {
-			this.filled = true
-			this.ui.classList.add("filled")
-
-			Game.instance.invokeEvent("edgeFill", this)
-		}
+		// removed unnecessary check since fill() is only called when filled is false
+		this.filled = true;
+		// using classList.toggle for toggling CSS classes
+		this.ui.classList.toggle("filled", this.filled);
+		// Invoking event
+		Game.instance.invokeEvent("edgeFill", this);
 	}
-	//Creating UI
+
+	// creating UI
 	createUI() {
-		const user_interface = document.createElement("button")
-		user_interface.setAttribute("data-position", this.position)
-		user_interface.classList.add("edge")
-		user_interface.classList.add(this.position)
-		return user_interface
+		// used destructuring assignment for cleaner code
+		const { position } = this;
+		const user_interface = document.createElement("button");
+		user_interface.setAttribute("data-position", position);
+		user_interface.classList.add("edge", position);
+		return user_interface;
 	}
-
 }

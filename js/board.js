@@ -163,17 +163,22 @@ class Board {
 	}
 
 	checkAdjacentadjacentBoxesToFill(box) {
-		for (const [position, adjacentBox] of Object.entries(box.adjacentBoxes)) {
-			if (adjacentBox != null) {
-				if (!adjacentBox.filled && adjacentBox.remainingEdges == 1) {
-					const edge = adjacentBox.getLastRemainingEdge()
-					if (edge != null) {
-						this.onEdgeClick(adjacentBox, edge)
-					}
+		// iterate over the values of adjacentBoxes instead of entries (key-value pairs)
+		for (const adjacentBox of Object.values(box.adjacentBoxes)) {
+			// combine conditions and use optional chaining (?.) for null check
+			if (adjacentBox?.filled === false && adjacentBox.remainingEdges === 1) {
+				// call getLastRemainingEdge() once and store the result in a variable
+				const edge = adjacentBox.getLastRemainingEdge();
+				// check if edge is truthy before calling onEdgeClick
+				if (edge) {
+					// call onEdgeClick with adjacentBox and edge
+					this.onEdgeClick(adjacentBox, edge);
 				}
 			}
 		}
 	}
+	
+	
 
 	fillBoxes() {
 		let fill = new Audio('./sounds/fill.mp3');
