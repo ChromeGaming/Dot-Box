@@ -323,3 +323,28 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
+.mute-btn {
+	background-color: #333;
+	/* Adjust to match your theme color */
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	/* Adjust padding for better visual appearance */
+	border-radius: 5px;
+	/* Add border radius for rounded corners */
+}
+
+.mute-btn i {
+	color: #ffffff;
+	/* Change the color to match your theme */
+	font-size: 24px;
+	/* Adjust the font size as needed */
+	transition: color 0.3s ease;
+	/* Add a smooth color transition on hover */
+}
+
+.mute-btn:hover i {
+	color: #fff;
+	/* Change the color on hover to make it stand out */
+}
