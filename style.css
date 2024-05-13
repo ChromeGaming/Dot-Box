@@ -323,3 +323,28 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
+.homepage {
+	padding-top: 15px;
+}
+
+.play-again-btn {
+    height: 50px;
+    width: 200px;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: lightgreen;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.1s;
+	font-family: monospace;
+	cursor: pointer;
+}
+
+.play-again-btn:hover {
+    background-color: #9eff73;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.play-again-btn:active {
+    transform: translateY(2px);
+}

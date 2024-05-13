@@ -47,26 +47,26 @@
 			<div>
 				<h2>What size of Board do you want? :</h2>
 			</div>
-			
+
 			<div class="form-item">
 				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" value="6" />
 			</div>
-			
+
 			<div class="form-item">
 				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="columns" min="5" max="30" value="6" />
 			</div>
-			
+
 			<div class="form-item">
 				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
 				<input type="number" id="players-count" min="2" max="6" value="2" />
 			</div>
-			
+
 			<button class="start-btn">START</button>
 
 		</div>
-		
+
 
 	</div>
 
@@ -82,6 +82,17 @@
 	<!-- Game Page -->
 	<div class="board" style="margin-top: 154px;"></div>
 
+	<!-- Play again button -->
+	<a href="index.html" onclick="redirectToHomePage()" style="display: none;" class="homepage">
+		<button class="play-again-btn"><b>Play Again</b></button>
+	</a>
+
 </body>
+
+<script>
+	function redirectToHomePage() {
+		window.location.href = "index.html";
+	}
+</script>
 
 </html>

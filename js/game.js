@@ -46,6 +46,9 @@ class Game {
 
 	//End Game
 	onPlayerWin() {
+		const playAgainBtn = document.querySelector(".homepage");
+		playAgainBtn.style.display = "block";
+
 		this.isGameover = true
 
 		bgMusic.pause();
