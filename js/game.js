@@ -84,28 +84,32 @@ class Game {
 
 	//Add players to UI
 	addPlayersUI() {
-		this.players.forEach((player, index) => {
-			const div = document.createElement("div")
-			div.classList.add("player")
-
-			//Maintain filled boxes.
-			const b = document.createElement("b")
-			b.classList.add("filled-boxes")
-			b.textContent = player.filledBoxes
-			b.style.background = player.color
-			this.players[index]["filledBoxesUI"] = b
-
-			//Maintain player name.
-			const span = document.createElement("span")
-			span.textContent = player.name
-
-			div.appendChild(b)
-			div.appendChild(span)
-
-			//Adding score and name to the element
-			this.playersUI.appendChild(div)
+		const fragment = document.createDocumentFragment(); // create a document fragment
+	
+		this.players.forEach((player) => {
+			const div = document.createElement("div");
+			div.classList.add("player");
+	
+			const b = document.createElement("b");
+			b.classList.add("filled-boxes");
+			b.textContent = player.filledBoxes;
+			b.style.background = player.color;
+	
+			// store the reference to the filledBoxes UI element directly in the player object
+			player.filledBoxesUI = b;
+	
+			const span = document.createElement("span");
+			span.textContent = player.name;
+	
+			div.appendChild(b);
+			div.appendChild(span);
+	
+			fragment.appendChild(div); //append the div to the fragment
 		});
+	
+		this.playersUI.appendChild(fragment); // Append all the divs to the playersUI element at once
 	}
+	
 
 	//Update player score UI used while switching player
 	updatePlayerScoreUI() {
@@ -161,29 +165,35 @@ class Game {
 }
 
 // Declaring Global Variables
+const settingsUI = document.querySelector(".settings"); // used const for settingsUI to declare it as constant
 
-const settingsUI = document.querySelector(".settings")
-const rowsInput = document.querySelector("#rows")
-const columnsInput = document.querySelector("#columns")
-const playersInput = document.querySelector("#players-count")
-const startBtn = document.querySelector(".start-btn")
-const heading = document.querySelector(".heading")
+const getElement = (selector) => document.querySelector(selector); //introduced a helper function getElement to reduce repetition of querySelector.
+
+const rowsInput = getElement("#rows");
+const columnsInput = getElement("#columns");
+const playersInput = getElement("#players-count");
+const startBtn = getElement(".start-btn");
+const heading = getElement(".heading");
+
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
-var game = null
+bgMusic.volume = 0.1; //set bgMusic volume outside the event listener since it's a one-time setup.
 
 startBtn.addEventListener("click", () => {
-	bgMusic.volume = 0.1;
-	bgMusic.play();
-	const rows = calculate(rowsInput.value, 5, 30)
-	const columns = calculate(columnsInput.value, 5, 30)
-	const playersCount = calculate(playersInput.value, 2, 6)
+    bgMusic.play();
+    const rows = calculate(rowsInput.value, 5, 30);
+    const columns = calculate(columnsInput.value, 5, 30);
+    const playersCount = calculate(playersInput.value, 2, 6);
 
-
-	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
+    game = new Game(rows, columns, playersCount);
+    hideElements(settingsUI, heading);
 });
 
 function calculate(value, min, max) {
-	return Math.min(Math.max(value, min), max)
+    return Math.min(Math.max(value, min), max);
+}
+
+function hideElements(...elements) {
+    elements.forEach(element => {
+        element.style.display = "none";
+    });
 }
