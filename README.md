@@ -108,7 +108,41 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 
 3. **Winning:** The player with the most boxes owned at the end of the game wins. 
 
-### Features
+
+## Dot Box Game Strategies
+
+### 1. **Claiming Territory** 🏰
+   - **Early Game:** Focus on securing territory to build a strong foundation. 
+   - **Mid to Late Game:** Prioritize closing boxes to prevent opponents from claiming territory.
+
+### 2. **Box Closure** 📦
+   - **Immediate Closure:** Always close a box if possible, unless it would immediately grant your opponent an advantage.
+   - **Forcing Closure:** Try to force your opponent into closing a box that would benefit you more than them.
+
+### 3. **Defensive Play** 🛡️
+   - **Blocking Moves:** Use blocking moves to prevent your opponent from closing boxes or claiming territory.
+   - **Strategic Sacrifice:** Sacrifice a box to prevent your opponent from getting a bigger advantage.
+
+### 4. **Offensive Play** ⚔️
+   - **Box Stealing:** Aim to steal boxes from your opponent by closing boxes that they are about to complete.
+   - **Forcing Mistakes:** Force your opponent into making mistakes by creating complex board states.
+
+### 5. **Control the Center** 🎯
+   - **Strategic Importance:** The center of the board is crucial for controlling the game. Try to maintain a strong presence there.
+   - **Access Points:** Keep control of the access points to the center to limit your opponent's options.
+
+### 6. **Predictive Play** 🔮
+   - **Anticipating Moves:** Try to anticipate your opponent's moves and plan your strategy accordingly.
+   - **Stay Flexible:** Be prepared to adapt your strategy based on your opponent's actions.
+
+### 7. **Endgame Strategies** 🏁
+   - **Counting Boxes:** Keep track of the number of boxes each player has closed to determine the best moves in the endgame.
+   - **Protecting Lead:** If you're ahead, focus on protecting your lead rather than taking risks.
+
+### 8. **Mind Games** 🧠
+   - **Bluffing:** Occasionally make moves that seem advantageous to your opponent but actually benefit you in the long run.
+   - **Psychological Warfare:** Use your opponent's expectations against them to gain an advantage.
+## Features
 - Multiplayer game supporting 2 to 6 players.
 - Strategic gameplay requiring tactical thinking.
 - Customizable board size with rows and columns from 5 to 30.
