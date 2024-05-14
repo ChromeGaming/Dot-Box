@@ -13,6 +13,8 @@
 	<script defer src="./js/box.js"></script>
 	<script defer src="./js/board.js"></script>
 	<script defer src="./js/game.js"></script>
+	<script defer src="./js/dark.js"></script>
+
 
 	<!-- Logo of the game -->
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
@@ -22,6 +24,12 @@
 </head>
 
 <body>
+
+	<div class="dark-mode-toggle">
+		<input type="checkbox" id="dark-mode-toggle-checkbox">
+		<label for="dark-mode-toggle-checkbox"></label>
+	</div>
+
 	<!-- Setting Page -->
 	<div class="settings">
 		<div class="form">
@@ -32,13 +40,11 @@
 
 			<h3 class="instructions-heading">Instructions</h3>
 
-			<p class="instructions">
-				1. Select the number of rows, columns and players. <br>
-				2. The player who has maximum number of boxes on board is the winner. <br>
-				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-				chance
-				consecutively. <br>
-			</p>
+			<ol class="instructions">
+				<li>Select the number of rows, columns, and players.</li>
+				<li>The player who has the maximum number of boxes on the board is the winner.</li>
+				<li>Players will switch after every turn. However, the player who has filled the last box will get one extra chance consecutively.</li>
+			</ol>
 
 		</div>
 
