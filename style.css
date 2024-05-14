@@ -323,3 +323,14 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; 
+}
