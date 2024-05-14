@@ -293,8 +293,9 @@ h1 {
 .settings .form-item input {
 	border-radius: 3px;
 	padding: 0.4rem 0.2rem;
-	font-weight: bold;
-	font-size: larger;
+	font-weight: lighter;
+	font-size: smaller;
+	font-style: italic;
 }
 
 .settings .form-item .details {
