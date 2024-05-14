@@ -20,6 +20,8 @@ body {
 	display: grid;
 	place-items: center;
 	max-height: 100vh;
+	background-color: wheat;
+
 }
 
 a {
@@ -207,7 +209,6 @@ a {
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.864);
 	padding-top: 10px;
-	border-top: solid 1px #f9f9f9;
 }
 
 .player-turn .bg {
@@ -262,7 +263,7 @@ h1 {
 
 .settings {
 	position: absolute;
-	background: #fdfdfd;
+	background: wheat;
 	inset: 0;
 	z-index: 20;
 	display: flex;
@@ -310,7 +311,7 @@ h1 {
 	padding: 0.8rem;
 	font-weight: bold;
 	border: none;
-	background: #333;
+	background: #000;
 	color: #fff;
 	cursor: pointer;
 	letter-spacing: 4px;
