@@ -14,7 +14,7 @@
 
 body {
 	font-family: monospace;
-	background: #f6f6f6;
+	background: #c4bfe9;
 	width: 100vw;
 	height: 100vh;
 	display: grid;
@@ -262,7 +262,7 @@ h1 {
 
 .settings {
 	position: absolute;
-	background: #fdfdfd;
+	background: #d0a3e6;
 	inset: 0;
 	z-index: 20;
 	display: flex;
@@ -299,7 +299,7 @@ h1 {
 
 .settings .form-item .details {
 	font-style: italic;
-	color: #999;
+	color: #131313cf;
 	font-size: 15px;
 
 }
