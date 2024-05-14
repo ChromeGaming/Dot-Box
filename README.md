@@ -92,3 +92,24 @@ ________________________________________________________________________________
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 
 **Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
+
+__________________________________________________________________________________________________________________________________________________________________
+## 🎮 Gaming Rule
+
+The game is very simple and easy to play, it's a multiplayer game where each player gets one chance to play alternatively. The goal is to maximize the number of boxes owned. The game continues until no box is left unoccupied. 
+
+### How to Play
+1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
+
+2. **Gameplay:** 
+   - Players take turns marking one side of a square on the board.
+   - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
+   - The game requires strategic thinking to maximize the number of boxes owned.
+
+3. **Winning:** The player with the most boxes owned at the end of the game wins. 
+
+### Features
+- Multiplayer game supporting 2 to 6 players.
+- Strategic gameplay requiring tactical thinking.
+- Customizable board size with rows and columns from 5 to 30.
+- Dynamic gameplay where players earn extra chances for completing squares.
