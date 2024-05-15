@@ -169,7 +169,7 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
-var game = null
+var game = null;
 
 startBtn.addEventListener("click", () => {
 	bgMusic.volume = 0.1;
@@ -186,4 +186,24 @@ startBtn.addEventListener("click", () => {
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
+}
+
+
+
+var game = null;
+
+function startGame() {
+	const rows = parseInt(document.getElementById('rows').value);
+	const columns = parseInt(document.getElementById('columns').value);
+	const playersCount = parseInt(document.getElementById('players-count').value);
+
+	if (isNaN(rows) || isNaN(columns) || isNaN(playersCount) || rows < 5 || rows > 30 || columns < 5 || columns > 30 || playersCount < 2 || playersCount > 6) {
+		alert('Please enter valid values for rows, columns between 5 and 30. players between 2 to 6');
+		window.location.reload();
+		return; // Don't start the game if inputs are invalid
+	}
+}
+
+function exitGame() {
+	window.location.reload();
 }

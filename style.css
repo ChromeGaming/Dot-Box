@@ -343,3 +343,21 @@ h1 {
 		height: 100%;
 	}
 }
+
+
+.exit-btn {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	padding: 10px 20px;
+	background-color: #ff0000;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.exit-btn:hover {
+	background-color: #cc0000;
+}
