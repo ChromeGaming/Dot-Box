@@ -19,6 +19,16 @@
   <img src="https://img.shields.io/github/last-commit/GameSphere-MultiPlayer/Dot-Box?style=for-the-badge" />
   </div>
 
+
+Embark on a thrilling journey of strategic domination with Dot-Box, the ageless game that captivates individuals of various age groups. As simple as uniting the dots might appear, beneath its modest surface lies a battleground of intelligence and trickery.
+
+In Dot-Box, each player takes their chance drawing lines amidst dots, gradually making boxes. But beware: every finished box is a stride nearer to conquest for your adversary. The stress rises with each line sketched, as players maneuver the delicate equilibrium between expanding their domain and scheming for their opponent.
+
+What truly makes Dot-Box thrilling is its fusion of straightforwardness and profundity. Simple to understand yet tricky to command, it gratifies anticipation, calculation, and strategic elegance. Every step is a premeditated gamble, every choice a trial of your tactical insightfulness.
+
+
+
+
   # How to make a PR in a Project 🟢
 
 If you are interested to contribute in this project how to start contribute
