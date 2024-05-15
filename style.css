@@ -273,6 +273,29 @@ h1 {
 	height: 100%;
 }
 
+.settings .info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	width: 100%;
+	max-width: 550px;
+	padding: 1rem;
+	font-size: 20px;
+	padding-left: 7%;
+}
+
+.settings .PlayerTextBox {
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	width: 100%;
+	max-width: 550px;
+	padding: 1rem;
+	font-size: 20px;
+	padding-left: 7%;
+}
+
+
 .settings .form {
 	display: flex;
 	flex-direction: column;
