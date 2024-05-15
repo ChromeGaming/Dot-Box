@@ -160,8 +160,40 @@ a {
 	background: #111;
 	pointer-events: none;
 	z-index: 10;
+	animation: drawEdge 0.5s forwards;
+}
+/*     START AKASH UPDATES       */
+
+/* Animation for drawing edges */
+@keyframes drawEdge {
+	from {
+		background: var(--border-color);
+	}
+	to {
+		background: #111; /* or any other color indicating a filled edge */
+	}
 }
 
+/* Animation for completing boxes */
+@keyframes pulseBox {
+	0% {
+		transform: scale(1);
+	}
+	75% {
+		transform: scale(1.1);
+		background-color: gold; /* temporary highlight color */
+	}
+	100% {
+		transform: scale(1);
+		background-color: inherit; /* revert to original or filled color */
+	}
+}
+
+.box.filled {
+	animation: pulseBox 1s forwards;
+}
+
+/*     END AKASH UPDATES       */
 .players {
 	position: absolute;
 	z-index: 10;
@@ -225,10 +257,6 @@ a {
 	font-weight: bold;
 }
 
-.player-turn .name {
-	color: rgb(0, 0, 0);
-	font-weight: bold;
-}
 
 @keyframes pulseAnim {
 	from {
@@ -324,40 +352,23 @@ h1 {
 	background: rgb(70, 70, 70);
 }
 
-
-/*     START AKASH UPDATES       */
-
-/* Animation for drawing edges */
-@keyframes drawEdge {
-	from {
-			background: var(--border-color);
-	}
-	to {
-			background: #111; /* or any other color indicating a filled edge */
+.back{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+}
+@media(min-aspect-ratio:16/9){
+	.back{
+		width: 100%;
+		height: auto;
 	}
 }
-
-.edge.filled {
-	animation: drawEdge 0.5s forwards;
-}
-
-/* Animation for completing boxes */
-@keyframes pulseBox {
-	0% {
-			transform: scale(1);
-	}
-	75% {
-			transform: scale(1.1);
-			background-color: gold; /* temporary highlight color */
-	}
-	100% {
-			transform: scale(1);
-			background-color: inherit.player; /* revert to original or filled color */
+@media(max-aspect-ratio:16/9){
+	.back{
+		width: auto;
+		height: 100%;
 	}
 }
-
-.box.filled {
-	animation: pulseBox 1s forwards;
-}
-
-/*     END AKASH UPDATES       */
