@@ -307,21 +307,26 @@ h1 {
 .settings button {
 	margin-top: 0.4rem;
 	border-radius: 3px;
-	padding: 0.8rem;
 	font-weight: bold;
+	padding: 0.6rem;
+	font-size: 18px; /* Decreased font-size */
 	border: none;
 	background: #333;
 	color: #fff;
 	cursor: pointer;
-	letter-spacing: 4px;
+	letter-spacing: 2px; /* Reduced letter spacing */
+	transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .settings button:hover {
 	background: rgb(75, 75, 75);
+	transform: scale(1.05); /* Slightly increase size on hover */
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
 }
 
 .settings button:active {
 	background: rgb(70, 70, 70);
+	transform: scale(1); /* Reset size on active */
 }
 .back{
 	position: absolute;
@@ -330,7 +335,7 @@ h1 {
 	top: 0;
 	bottom: 0;
 	z-index: -1;
-}
+}	
 @media(min-aspect-ratio:16/9){
 	.back{
 		width: 100%;
@@ -341,5 +346,18 @@ h1 {
 	.back{
 		width: auto;
 		height: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.settings .form {
+		font-size: 18px; /* Adjust font-size for smaller screens */
+		padding-left: 5%;
+	}
+
+	.settings button {
+		padding: 0.5rem; /* Further decreased padding for smaller screens */
+		font-size: 16px; /* Further decreased font-size for smaller screens */
+		letter-spacing: 1px; /* Adjust letter spacing for readability */
 	}
 }

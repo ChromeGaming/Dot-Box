@@ -69,7 +69,7 @@ To push your changes, run the following command in your terminal:
     git push origin <your-branch-name>
     ```
 
-9. Create a PR.
+9. Create a PR(Pull Request).
 
 __________________________________________________________________________________________________________________________________________________________________
 

@@ -1,7 +1,21 @@
 class Game {
 	static instance //Singleton instance of Game class
 
-	constructor(rows, columns, playersCount) {
+	constructor(rows, columns, playersCount, playerNames) {
+
+ 
+ // Initialize players with custom names
+ this.players = [];
+ for (let i = 0; i < playersCount; i++) {
+	 const playerName = playerNames[i] || `Player ${i + 1}`;
+	 const playerColor = this.getPlayerColor(i);
+	 this.players.push({ name: playerName, color: playerColor, filledBoxes: 0 });
+ }
+
+
+
+
+
 		if (Game.instance == null) Game.instance = this
 
 		this.playersUI = document.querySelector(".players")
@@ -14,26 +28,14 @@ class Game {
 			playerSwitch: [],
 			playerWin: [],
 		}
-
-		this.players = [
-			{ name: "Player 1", color: "pink", filledBoxes: 0 },
-			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-			{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-			{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-			{ name: "Player 6", color: "orange", filledBoxes: 0 }
-		]
-
-		let p = this.players.length - playersCount
-		for (let i = 0; i < p; i++)
-			this.players.pop()
+        
 
 		this.currentPlayerIndex = 0
 		this.currentPlayer = this.players[this.currentPlayerIndex]
 
 		this.board = new Board(rows, columns)
 
-		this.isGameover = false
+		this.isGameover = false;
 
 		this.addPlayersUI()
 		this.updatePlayerNameUI()
@@ -43,6 +45,15 @@ class Game {
 		this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
 		this.addEventListener("playerWin", () => this.onPlayerWin())
 	}
+
+	
+	getPlayerColor(index) {
+        const colors = ["pink", "skyblue", "lightgreen", "magenta", "yellow", "orange"];
+        return colors[index % colors.length];
+    }
+
+
+
 
 	//End Game
 	onPlayerWin() {
@@ -61,14 +72,18 @@ class Game {
 
 			//Check for winner
 			if (this.players.every((p) => p.filledBoxes == play)) {
-				this.playerNameUI.parentElement.textContent = "Nobody wins"
-				this.playerTurnBgUI.classList.add("no-win")
+				this.playerNameUI.parentElement.textContent = "Nobody wins";
+				this.playerTurnBgUI.classList.add("no-win");
 				this.playerTurnBgUI.style.background = "#eaeaea"
 			} else {
 				this.playerNameUI.parentElement.textContent = `${player.name} wins`
 				this.playerTurnBgUI.classList.add("win")
 				this.playerTurnBgUI.style.background = player.color
 			}
+			setTimeout(()=>{
+             alert("If you want to play again, please reload the game. ")
+			},2000)
+			
 		}, 500);
 	}
 
@@ -84,6 +99,7 @@ class Game {
 
 	//Add players to UI
 	addPlayersUI() {
+		this.playersUI.innerHTML = ''; // Clear previous players UI added extra		
 		this.players.forEach((player, index) => {
 			const div = document.createElement("div")
 			div.classList.add("player")
@@ -155,9 +171,27 @@ class Game {
 		if (!this.isGameover) {
 			this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length
 			this.currentPlayer = this.players[this.currentPlayerIndex]
+			
+			this.updatePlayerNameUI(); // Update player name UI
+			
 			this.invokeEvent("playerSwitch")
 		}
 	}
+
+	resetUI() {
+        // Clear player-related UI
+        this.playersUI.innerHTML = '';
+        this.playerNameUI.innerText = '';
+        this.playerTurnBgUI.style.background = '';
+
+        // Hide the game UI elements
+        document.querySelector(".game-container").style.display = "none";
+
+        // Show the settings UI elements
+        settingsUI.style.display = "block";
+        heading.style.display = "block";
+    }
+	
 }
 
 // Declaring Global Variables
@@ -179,9 +213,18 @@ startBtn.addEventListener("click", () => {
 	const playersCount = calculate(playersInput.value, 2, 6)
 
 
-	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
+	    // Prompt for player names  extra added
+		const playerNames = [];
+		for (let i = 1; i <= playersCount; i++) {
+			const playerName = prompt(`Enter name for Player ${i}:`);
+			playerNames.push(playerName || `Player ${i}`); // Use default name if empty
+		}
+	
+
+		settingsUI.style.display = "none";
+		heading.style.display = "none";
+		
+		game = new Game(rows, columns, playersCount, playerNames);	
 });
 
 function calculate(value, min, max) {
