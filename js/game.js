@@ -3,7 +3,7 @@ class Game {
 
 	constructor(rows, columns, playersCount, playerNames) {
 
- 
+
  // Initialize players with custom names
  this.players = [];
  for (let i = 0; i < playersCount; i++) {
@@ -11,12 +11,7 @@ class Game {
 	 const playerColor = this.getPlayerColor(i);
 	 this.players.push({ name: playerName, color: playerColor, filledBoxes: 0 });
  }
-
-
-
-
-
-		if (Game.instance == null) Game.instance = this
+ if (Game.instance == null) Game.instance = this
 
 		this.playersUI = document.querySelector(".players")
 		this.playerNameUI = document.querySelector(".player-turn .name")
@@ -28,15 +23,10 @@ class Game {
 			playerSwitch: [],
 			playerWin: [],
 		}
-        
-
 		this.currentPlayerIndex = 0
 		this.currentPlayer = this.players[this.currentPlayerIndex]
-
 		this.board = new Board(rows, columns)
-
 		this.isGameover = false;
-
 		this.addPlayersUI()
 		this.updatePlayerNameUI()
 
@@ -52,9 +42,6 @@ class Game {
         return colors[index % colors.length];
     }
 
-
-
-
 	//End Game
 	onPlayerWin() {
 		this.isGameover = true
@@ -62,11 +49,9 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
-
 		setTimeout(() => {
 			let play = this.players[0].filledBoxes
 
@@ -83,7 +68,6 @@ class Game {
 			setTimeout(()=>{
              alert("If you want to play again, please reload the game. ")
 			},2000)
-			
 		}, 500);
 	}
 
@@ -191,7 +175,6 @@ class Game {
         settingsUI.style.display = "block";
         heading.style.display = "block";
     }
-	
 }
 
 // Declaring Global Variables
