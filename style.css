@@ -323,6 +323,7 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
 footer {
     position: fixed;
     left: 0;
@@ -334,3 +335,24 @@ footer {
     padding: 10px 0;
     z-index: 1000; 
 }
+.back{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+}
+@media(min-aspect-ratio:16/9){
+	.back{
+		width: 100%;
+		height: auto;
+	}
+}
+@media(max-aspect-ratio:16/9){
+	.back{
+		width: auto;
+		height: 100%;
+	}
+}
+
