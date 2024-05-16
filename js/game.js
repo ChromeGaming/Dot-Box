@@ -149,7 +149,23 @@ class Game {
 		}
 		this.events[event].forEach((callback) => callback(args))
 	}
-
+	restartGame() {
+		if (game) {
+			// Reset the game settings UI visibility
+			settingsUI.style.display = "block";
+			heading.style.display = "block";
+	
+			// Hide the restart button
+			restartButton.style.display = "none";
+	
+			// Remove the existing game instance
+			game = null;
+	
+			// Stop background music if playing
+			bgMusic.pause();
+			bgMusic.currentTime = 0;
+		}
+	}
 	//Switch player
 	switchPlayer() {
 		if (!this.isGameover) {
@@ -161,7 +177,9 @@ class Game {
 }
 
 // Declaring Global Variables
-
+const restart =document.getElementById('restartButton').addEventListener('click', function() {
+    restartGame();
+});
 const settingsUI = document.querySelector(".settings")
 const rowsInput = document.querySelector("#rows")
 const columnsInput = document.querySelector("#columns")
