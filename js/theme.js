@@ -37,5 +37,3 @@ document.getElementById('theme-button').addEventListener('click', () => {
         themeOptions.style.visibility = 'hidden';
     }
 });
-
-
