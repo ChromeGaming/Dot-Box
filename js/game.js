@@ -186,25 +186,6 @@ startBtn.addEventListener("click", () => {
         document.getElementById('theme-button').style.display = 'none';
 });
 
-        const backgroundVideo = document.getElementById('background-video');
-        const toggleButton = document.getElementById('toggle-background');
-        const backgroundVideos = [
-            './background/back3.mp4',
-            './background/back4.mp4',
-            './background/back5.mp4'
-        ];
-        let currentIndex = 1; // Start from index 1, which is back4
-
-        // Function to toggle background video
-        function toggleBackground() {
-            currentIndex = (currentIndex + 1) % backgroundVideos.length;
-            backgroundVideo.src = backgroundVideos[currentIndex];
-            backgroundVideo.play();
-        }
-
-        // Add event listener to toggle background button
-        toggleButton.addEventListener('click', toggleBackground);
-
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
 }
