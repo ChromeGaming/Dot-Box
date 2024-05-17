@@ -1,3 +1,39 @@
+const settingsUI = document.querySelector(".settings")
+const rowsInput = document.querySelector("#rows")
+const columnsInput = document.querySelector("#columns")
+const playersInput = document.querySelector("#players-count")
+const startBtn = document.querySelector(".start-btn")
+const heading = document.querySelector(".heading")
+const bgMusic = new Audio('./sounds/bgMusic.mp3');
+var game = null
+
+startBtn.addEventListener("click", () => {
+    const rowsValue = parseInt(rowsInput.value);
+    const columnsValue = parseInt(columnsInput.value);
+    const playersCountValue = parseInt(playersInput.value);
+
+    if (rowsValue < 5 || rowsValue > 30 || isNaN(rowsValue)) {
+        alert('Invalid input for rows. Please enter a number between 5 and 30.');
+    } else if (columnsValue < 5 || columnsValue > 30 || isNaN(columnsValue)) {
+        alert('Invalid input for columns. Please enter a number between 5 and 30.');
+    } else if (playersCountValue < 2 || playersCountValue > 6 || isNaN(playersCountValue)) {
+        alert('Invalid input for players count. Please enter a number between 2 and 6.');
+    } else {
+        bgMusic.volume = 0.1;
+        bgMusic.play();
+        const rows = calculate(rowsInput.value, 5, 30);
+        const columns = calculate(columnsInput.value, 5, 30);
+        const playersCount = calculate(playersInput.value, 2, 6);
+        game = new Game(rows, columns, playersCount);
+        settingsUI.style.display = "none";
+        heading.style.display = "none";
+    }
+});
+
+
+function calculate(value, min, max) {
+	return Math.min(Math.max(value, min), max)
+}
 class Game {
 	static instance //Singleton instance of Game class
 
@@ -51,7 +87,7 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
+
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
@@ -158,32 +194,4 @@ class Game {
 			this.invokeEvent("playerSwitch")
 		}
 	}
-}
-
-// Declaring Global Variables
-
-const settingsUI = document.querySelector(".settings")
-const rowsInput = document.querySelector("#rows")
-const columnsInput = document.querySelector("#columns")
-const playersInput = document.querySelector("#players-count")
-const startBtn = document.querySelector(".start-btn")
-const heading = document.querySelector(".heading")
-const bgMusic = new Audio('./sounds/bgMusic.mp3');
-var game = null
-
-startBtn.addEventListener("click", () => {
-	bgMusic.volume = 0.1;
-	bgMusic.play();
-	const rows = calculate(rowsInput.value, 5, 30)
-	const columns = calculate(columnsInput.value, 5, 30)
-	const playersCount = calculate(playersInput.value, 2, 6)
-
-
-	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
-});
-
-function calculate(value, min, max) {
-	return Math.min(Math.max(value, min), max)
 }
