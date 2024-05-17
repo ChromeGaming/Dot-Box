@@ -65,6 +65,40 @@ a {
 	background-blend-mode: soft-light;
 }
 
+.styled-button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.styled-button:hover {
+    background-color: #666;
+}
+
+.styled-button:active {
+    background-color: #000000;
+    transform: translateY(2px);
+}
+
+.exit-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #000000;
+    color: white; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+
 @keyframes fillAnim {
 	from {
 		transform: scale(1);

@@ -160,8 +160,6 @@ class Game {
 	}
 }
 
-// Declaring Global Variables
-
 const settingsUI = document.querySelector(".settings")
 const rowsInput = document.querySelector("#rows")
 const columnsInput = document.querySelector("#columns")
@@ -169,7 +167,18 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
-var game = null
+var game = null;
+
+
+document.addEventListener("DOMContentLoaded", () => {
+	const exitButton = document.getElementById("exit-btn");
+
+    exitButton.addEventListener("click", () => {
+        if (window.confirm("Are you sure you want to exit?")) {
+            location.reload();
+        }
+    });
+});
 
 startBtn.addEventListener("click", () => {
 	bgMusic.volume = 0.1;
