@@ -213,11 +213,12 @@ a {
 .player-turn .bg {
 	background: #999;
 	padding: 0.5rem 1rem;
-	width: 100%;
+	width: 320px;
 	min-width: 100px;
-	max-width: 200px;
+	max-width: 500px;
 	text-align: center;
 	border-radius: 1rem;
+	height: 80px;
 }
 
 .player-turn .bg.win {
@@ -342,4 +343,19 @@ h1 {
 		width: auto;
 		height: 100%;
 	}
+}
+
+.player-turn .bg {
+    padding: 0.2rem 0.4rem;
+    border-radius: 1.2rem;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.timer {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: red;
 }

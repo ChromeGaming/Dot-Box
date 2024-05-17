@@ -1,163 +1,199 @@
 class Game {
-	static instance //Singleton instance of Game class
+    static instance // Singleton instance of Game class
 
-	constructor(rows, columns, playersCount) {
-		if (Game.instance == null) Game.instance = this
+    constructor(rows, columns, playersCount) {
+        if (Game.instance == null) Game.instance = this
 
-		this.playersUI = document.querySelector(".players")
-		this.playerNameUI = document.querySelector(".player-turn .name")
-		this.playerTurnBgUI = document.querySelector(".player-turn .bg")
+        this.playersUI = document.querySelector(".players")
+        this.playerNameUI = document.querySelector(".player-turn .name")
+        this.playerTurnBgUI = document.querySelector(".player-turn .bg")
 
-		this.events = {
-			edgeFill: [],
-			boxFill: [],
-			playerSwitch: [],
-			playerWin: [],
-		}
+        // Create timer element
+        this.timerElement = document.createElement('span')
+        this.timerElement.classList.add('timer')
+        this.playerTurnBgUI.appendChild(this.timerElement)
 
-		this.players = [
-			{ name: "Player 1", color: "pink", filledBoxes: 0 },
-			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-			{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-			{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-			{ name: "Player 6", color: "orange", filledBoxes: 0 }
-		]
+        this.events = {
+            edgeFill: [],
+            boxFill: [],
+            playerSwitch: [],
+            playerWin: [],
+        }
 
-		let p = this.players.length - playersCount
-		for (let i = 0; i < p; i++)
-			this.players.pop()
+        this.players = [
+            { name: "Player 1", color: "pink", filledBoxes: 0 },
+            { name: "Player 2", color: "skyblue", filledBoxes: 0 },
+            { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
+            { name: "Player 4", color: "magenta", filledBoxes: 0 },
+            { name: "Player 5", color: "yellow", filledBoxes: 0 },
+            { name: "Player 6", color: "orange", filledBoxes: 0 }
+        ]
 
-		this.currentPlayerIndex = 0
-		this.currentPlayer = this.players[this.currentPlayerIndex]
+        let p = this.players.length - playersCount
+        for (let i = 0; i < p; i++)
+            this.players.pop()
 
-		this.board = new Board(rows, columns)
+        this.currentPlayerIndex = 0
+        this.currentPlayer = this.players[this.currentPlayerIndex]
 
-		this.isGameover = false
+        this.board = new Board(rows, columns)
 
-		this.addPlayersUI()
-		this.updatePlayerNameUI()
+        this.isGameover = false
+        this.turnDuration = 10 // duration of each turn in seconds
+        this.timer = null
+        this.timeRemaining = this.turnDuration
 
-		//Adding event listeners for filling box, switching player and winning
-		this.addEventListener("boxFill", () => this.onBoxFill())
-		this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
-		this.addEventListener("playerWin", () => this.onPlayerWin())
-	}
+        this.addPlayersUI()
+        this.updatePlayerNameUI()
 
-	//End Game
-	onPlayerWin() {
-		this.isGameover = true
+        // Adding event listeners for filling box, switching player, and winning
+        this.addEventListener("boxFill", () => this.onBoxFill())
+        this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
+        this.addEventListener("playerWin", () => this.onPlayerWin())
 
-		bgMusic.pause();
-		let winSound = new Audio('./sounds/win.mp3');
-		winSound.play();
-		
-		const player = this.players.reduce((prev, current) => {
-			return prev.filledBoxes > current.filledBoxes ? prev : current
-		});
+        this.startTimer() // Start the timer for the first player
+    }
 
-		setTimeout(() => {
-			let play = this.players[0].filledBoxes
+    // Timer functions
+    startTimer() {
+        this.timeRemaining = this.turnDuration
+        this.updateTimerUI()
 
-			//Check for winner
-			if (this.players.every((p) => p.filledBoxes == play)) {
-				this.playerNameUI.parentElement.textContent = "Nobody wins"
-				this.playerTurnBgUI.classList.add("no-win")
-				this.playerTurnBgUI.style.background = "#eaeaea"
-			} else {
-				this.playerNameUI.parentElement.textContent = `${player.name} wins`
-				this.playerTurnBgUI.classList.add("win")
-				this.playerTurnBgUI.style.background = player.color
-			}
-		}, 500);
-	}
+        this.timer = setInterval(() => {
+            this.timeRemaining--
+            this.updateTimerUI()
 
-	onPlayerSwitch() {
-		this.updatePlayerNameUI();
-	}
+            if (this.timeRemaining <= 0) {
+                this.stopTimer()
+                this.switchPlayer()
+            }
+        }, 1000)
+    }
 
-	//If a box if filled, increament players score with number of boxes filled by him/her and update UI
-	onBoxFill() {
-		this.currentPlayer.filledBoxes++
-		this.updatePlayerScoreUI();
-	}
+    stopTimer() {
+        clearInterval(this.timer)
+    }
 
-	//Add players to UI
-	addPlayersUI() {
-		this.players.forEach((player, index) => {
-			const div = document.createElement("div")
-			div.classList.add("player")
+    updateTimerUI() {
+        this.timerElement.textContent = `Time left: ${this.timeRemaining}s`
+    }
 
-			//Maintain filled boxes.
-			const b = document.createElement("b")
-			b.classList.add("filled-boxes")
-			b.textContent = player.filledBoxes
-			b.style.background = player.color
-			this.players[index]["filledBoxesUI"] = b
+    // End Game
+    onPlayerWin() {
+        this.isGameover = true
 
-			//Maintain player name.
-			const span = document.createElement("span")
-			span.textContent = player.name
+        bgMusic.pause()
+        let winSound = new Audio('./sounds/win.mp3')
+        winSound.play()
 
-			div.appendChild(b)
-			div.appendChild(span)
+        const player = this.players.reduce((prev, current) => {
+            return prev.filledBoxes > current.filledBoxes ? prev : current
+        })
 
-			//Adding score and name to the element
-			this.playersUI.appendChild(div)
-		});
-	}
+        setTimeout(() => {
+            let play = this.players[0].filledBoxes
 
-	//Update player score UI used while switching player
-	updatePlayerScoreUI() {
-		this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes
-	}
+            // Check for winner
+            if (this.players.every((p) => p.filledBoxes == play)) {
+                this.playerNameUI.parentElement.textContent = "Nobody wins"
+                this.playerTurnBgUI.classList.add("no-win")
+                this.playerTurnBgUI.style.background = "#eaeaea"
+            } else {
+                this.playerNameUI.parentElement.textContent = `${player.name} wins`
+                this.playerTurnBgUI.classList.add("win")
+                this.playerTurnBgUI.style.background = player.color
+            }
+        }, 500)
+    }
 
-	//Update player name UI used while switching player
-	updatePlayerNameUI() {
-		this.playerNameUI.innerText = this.currentPlayer.name
-		this.playerTurnBgUI.style.background = this.currentPlayer.color
-	}
+    onPlayerSwitch() {
+        this.updatePlayerNameUI()
+        this.startTimer() // Start the timer for the new player
+    }
 
-	eventExist(event) {
-		return this.events.hasOwnProperty(event)
-	}
+    // If a box is filled, increment the player's score and update UI
+    onBoxFill() {
+        this.currentPlayer.filledBoxes++
+        this.updatePlayerScoreUI()
+    }
 
-	//Add event listeners
-	addEventListener(event, callback) {
-		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
-			return
-		}
+    // Add players to UI
+    addPlayersUI() {
+        this.players.forEach((player, index) => {
+            const div = document.createElement("div")
+            div.classList.add("player")
 
-		this.events[event].push(callback)
-	}
+            // Maintain filled boxes.
+            const b = document.createElement("b")
+            b.classList.add("filled-boxes")
+            b.textContent = player.filledBoxes
+            b.style.background = player.color
+            this.players[index]["filledBoxesUI"] = b
 
-	//Remove event listeners
-	removeEventListener(event, callback) {
-		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
-			return
-		}
-		this.events[event].splice(this.events[event].indexOf(callback), 1)
-	}
+            // Maintain player name.
+            const span = document.createElement("span")
+            span.textContent = player.name
 
-	//Invoke event listeners
-	invokeEvent(event, args) {
-		if (!this.eventExist(event)) {
-			console.error(`${event} event is not defined`)
-			return
-		}
-		this.events[event].forEach((callback) => callback(args))
-	}
+            div.appendChild(b)
+            div.appendChild(span)
 
-	//Switch player
-	switchPlayer() {
-		if (!this.isGameover) {
-			this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length
-			this.currentPlayer = this.players[this.currentPlayerIndex]
-			this.invokeEvent("playerSwitch")
-		}
-	}
+            // Adding score and name to the element
+            this.playersUI.appendChild(div)
+        })
+    }
+
+    // Update player score UI used while switching player
+    updatePlayerScoreUI() {
+        this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes
+    }
+
+    // Update player name UI used while switching player
+    updatePlayerNameUI() {
+        this.playerNameUI.innerText = this.currentPlayer.name
+        this.playerTurnBgUI.style.background = this.currentPlayer.color
+    }
+
+    eventExist(event) {
+        return this.events.hasOwnProperty(event)
+    }
+
+    // Add event listeners
+    addEventListener(event, callback) {
+        if (!this.eventExist(event)) {
+            console.error(`${event} event is not defined`)
+            return
+        }
+
+        this.events[event].push(callback)
+    }
+
+    // Remove event listeners
+    removeEventListener(event, callback) {
+        if (!this.eventExist(event)) {
+            console.error(`${event} event is not defined`)
+            return
+        }
+        this.events[event].splice(this.events[event].indexOf(callback), 1)
+    }
+
+    // Invoke event listeners
+    invokeEvent(event, args) {
+        if (!this.eventExist(event)) {
+            console.error(`${event} event is not defined`)
+            return
+        }
+        this.events[event].forEach((callback) => callback(args))
+    }
+
+    // Switch player
+    switchPlayer() {
+        if (!this.isGameover) {
+            this.stopTimer()
+            this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length
+            this.currentPlayer = this.players[this.currentPlayerIndex]
+            this.invokeEvent("playerSwitch")
+        }
+    }
 }
 
 // Declaring Global Variables
@@ -168,22 +204,21 @@ const columnsInput = document.querySelector("#columns")
 const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
-const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const bgMusic = new Audio('./sounds/bgMusic.mp3')
 var game = null
 
 startBtn.addEventListener("click", () => {
-	bgMusic.volume = 0.1;
-	bgMusic.play();
-	const rows = calculate(rowsInput.value, 5, 30)
-	const columns = calculate(columnsInput.value, 5, 30)
-	const playersCount = calculate(playersInput.value, 2, 6)
+    bgMusic.volume = 0.1
+    bgMusic.play()
+    const rows = calculate(rowsInput.value, 5, 30)
+    const columns = calculate(columnsInput.value, 5, 30)
+    const playersCount = calculate(playersInput.value, 2, 6)
 
-
-	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
-});
+    game = new Game(rows, columns, playersCount)
+    settingsUI.style.display = "none"
+    heading.style.display = "none"
+})
 
 function calculate(value, min, max) {
-	return Math.min(Math.max(value, min), max)
+    return Math.min(Math.max(value, min), max)
 }
