@@ -47,3 +47,8 @@
     border-radius: 10px;
     color: white;
 }
+
+.theme-option.selected {
+    border: 2px solid #00f;
+    background-color: rgba(0, 0, 255, 0.1);
+}
