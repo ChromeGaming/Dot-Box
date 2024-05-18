@@ -343,3 +343,7 @@ h1 {
 		height: 100%;
 	}
 }
+
+.typewriter::placeholder  {
+  font-family: monospace;
+}
