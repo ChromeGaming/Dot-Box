@@ -1,93 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="style.css" />
-
-	<!-- JavaScript files -->
-	<script defer src="./js/edge.js"></script>
-	<script defer src="./js/box.js"></script>
-	<script defer src="./js/board.js"></script>
-	<script defer src="./js/game.js"></script>
-
-	<!-- Logo of the game -->
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-
-	<!-- Title of the game -->
-	<title>Dots & Boxes Game</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./js/edge.js"></script>
+    <script defer src="./js/box.js"></script>
+    <script defer src="./js/board.js"></script>
+    <script defer src="./js/game.js"></script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>Dots & Boxes Game</title>
 </head>
-
 <body>
-	
-	<!-- Setting Page -->
-	<div class="settings">
-		<video autoplay loop muted plays-inline class="back">
-			<source src="./back.mp4" type="video/mp4">
-		</video>
-		<div class="form">
-			<h1 class="heading"
-				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
-				▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
-			</h1>
+    <div class="settings">
+        <video autoplay loop muted plays-inline class="back">
+            <source src="./back.mp4" type="video/mp4">
+        </video>
+        <div class="form">
+            <h1 class="heading" style="font-family: 'Lucida Sans', sans-serif; color:rgb(52, 76, 100);">
+                ▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color: rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+            </h1>
+            <h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
+            <p class="instructions" style="color: rgb(52, 76, 100);">
+                1. Select the number of rows, columns, and players. <br>
+                2. The player who has the maximum number of boxes on the board is the winner. <br>
+                3. Players will switch after every turn, but the player who filled the last box gets an extra turn. <br>
+            </p>
+        </div>
+        <div class="form">
+            <div>
+                <h2 style="color: rgb(52, 76, 100);">What size of Board do you want?</h2>
+            </div>
+            <div class="form-item">
+                <label for="rows" style="color: rgb(52, 76, 100);">Rows: <span class="details">(between 5 and 30)</span></label>
+                <input type="number" id="rows" min="5" max="30" value="6" />
+            </div>
+            <div class="form-item">
+                <label for="columns" style="color: rgb(52, 76, 100);">Columns: <span class="details">(between 5 and 30)</span></label>
+                <input type="number" id="columns" min="5" max="30" value="6" />
+            </div>
+            <div class="form-item">
+                <label for="players-count" style="color: rgb(52, 76, 100);">Players: <span class="details">(between 2 and 6)</span></label>
+                <input type="number" id="players-count" min="2" max="6" value="2" />
+            </div>
+            <button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+        </div>
+    </div>
 
-			<h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
-
-			<p class="instructions" style="color: rgb(52, 76, 100);">
-				1. Select the number of rows, columns and players. <br>
-				2. The player who has maximum number of boxes on board is the winner. <br>
-				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-				chance
-				consecutively. <br>
-			</p>
-
-		</div>
-
-		<!-- Form page -->
-		<div class="form">
-			<div>
-				<h2 style="color: rgb(52, 76, 100);">What size of Board do you want? :</h2>
-			</div>
-			
-			<div class="form-item">
-				<label for="rows" style="color: rgb(52, 76, 100);">Rows : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="rows" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="columns" style="color: rgb(52, 76, 100);">Columns : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="columns" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="players-count" style="color: rgb(52, 76, 100);">Players : <span class="details">(between 2 and 6)</span></label>
-				<input type="number" id="players-count" min="2" max="6" value="2" />
-			</div>
-			
-			<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
-
-		</div>
-		
-
-	</div>
-
-	<!-- Players -->
-	<div class="players" style="margin-top: 50px;"></div>
-
-	<div class="player-turn">
-		<div class="bg" style="margin-top: 60px;">
-			<span class="name">PlayerX</span>'s turn
-		</div>
-	</div>
-
-	<!-- Game Page -->
-	<div class="board" style="margin-top: 154px;"></div>
-
+    <div class="players" style="margin-top: 50px;"></div>
+    <div class="player-turn">
+        <div class="bg" style="margin-top: 60px;">
+            <span class="name">PlayerX</span>'s turn
+        </div>
+    </div>
+    <div class="board" style="margin-top: 154px;"></div>
+    <div class="ranking" style="margin-top: 50px;">
+        <h2>Player Rankings</h2>
+        <table id="ranking-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Boxes Filled</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
 </body>
-
 </html>
-<!--Video by <a href="https://pixabay.com/users/blendertimer-9538909/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=80645">Daniel Roberts</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=80645">Pixabay</a>
-</a>-->
