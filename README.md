@@ -92,3 +92,58 @@ ________________________________________________________________________________
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 
 **Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
+
+__________________________________________________________________________________________________________________________________________________________________
+## 🎮 Gaming Rule
+
+The game is very simple and easy to play, it's a multiplayer game where each player gets one chance to play alternatively. The goal is to maximize the number of boxes owned. The game continues until no box is left unoccupied. 
+
+### How to Play
+1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
+
+2. **Gameplay:** 
+   - Players take turns marking one side of a square on the board.
+   - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
+   - The game requires strategic thinking to maximize the number of boxes owned.
+
+3. **Winning:** The player with the most boxes owned at the end of the game wins. 
+
+
+## Dot Box Game Strategies
+
+### 1. **Claiming Territory** 🏰
+   - **Early Game:** Focus on securing territory to build a strong foundation. 
+   - **Mid to Late Game:** Prioritize closing boxes to prevent opponents from claiming territory.
+
+### 2. **Box Closure** 📦
+   - **Immediate Closure:** Always close a box if possible, unless it would immediately grant your opponent an advantage.
+   - **Forcing Closure:** Try to force your opponent into closing a box that would benefit you more than them.
+
+### 3. **Defensive Play** 🛡️
+   - **Blocking Moves:** Use blocking moves to prevent your opponent from closing boxes or claiming territory.
+   - **Strategic Sacrifice:** Sacrifice a box to prevent your opponent from getting a bigger advantage.
+
+### 4. **Offensive Play** ⚔️
+   - **Box Stealing:** Aim to steal boxes from your opponent by closing boxes that they are about to complete.
+   - **Forcing Mistakes:** Force your opponent into making mistakes by creating complex board states.
+
+### 5. **Control the Center** 🎯
+   - **Strategic Importance:** The center of the board is crucial for controlling the game. Try to maintain a strong presence there.
+   - **Access Points:** Keep control of the access points to the center to limit your opponent's options.
+
+### 6. **Predictive Play** 🔮
+   - **Anticipating Moves:** Try to anticipate your opponent's moves and plan your strategy accordingly.
+   - **Stay Flexible:** Be prepared to adapt your strategy based on your opponent's actions.
+
+### 7. **Endgame Strategies** 🏁
+   - **Counting Boxes:** Keep track of the number of boxes each player has closed to determine the best moves in the endgame.
+   - **Protecting Lead:** If you're ahead, focus on protecting your lead rather than taking risks.
+
+### 8. **Mind Games** 🧠
+   - **Bluffing:** Occasionally make moves that seem advantageous to your opponent but actually benefit you in the long run.
+   - **Psychological Warfare:** Use your opponent's expectations against them to gain an advantage.
+## Features
+- Multiplayer game supporting 2 to 6 players.
+- Strategic gameplay requiring tactical thinking.
+- Customizable board size with rows and columns from 5 to 30.
+- Dynamic gameplay where players earn extra chances for completing squares.
