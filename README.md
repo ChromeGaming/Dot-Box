@@ -39,6 +39,7 @@ Dot-Box is a game where players take turns drawing lines between dots to create 
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
     </div>
     <br>
+
     - If a player completes the fourth side of a 1x1 box, they claim the box and get another turn.
     <br>
     <div align="center">
@@ -49,6 +50,7 @@ Dot-Box is a game where players take turns drawing lines between dots to create 
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
     </div>
     <br>
+    
     - The game continues until all possible boxes are completed.
     - The player who completes the most boxes wins.
     <br>
