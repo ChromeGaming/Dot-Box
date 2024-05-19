@@ -102,7 +102,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
 <br>
 <div align="center">
-<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
+<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/fb98db10-6b1f-4fdc-9a40-7a3d385746fc" />
 </div>
 <br>
 2. **Gameplay:** - Players take turns marking one side of a square on the board.
@@ -117,12 +117,12 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
    
 <br>
     <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/295fb82e-ce27-4357-8ff9-ee5f02bf2325" />
 <br>
 <br>
   </div>   
     <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/8265e640-08ce-48e0-bc17-1bff29c62e32" />
     </div>
 <br>
     
@@ -132,7 +132,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
    
     <br>
     <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/0e77e365-3f75-4060-96ef-22d92045ddc6" />
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/75f4eefc-509d-4b01-ab11-e876af2689d9" />
     </div>
     <br>
 
