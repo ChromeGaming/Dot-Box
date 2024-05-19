@@ -107,19 +107,19 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 <br>
 2. **Gameplay:** 
    - Players take turns marking one side of a square on the board.
-<br>
+   <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
     </div>
     <br>
     
    - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
-<br>
+     <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
     <br>
       
-    <br>  
+  <br>  
     </div>   
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
