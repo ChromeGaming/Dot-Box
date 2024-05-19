@@ -25,6 +25,7 @@ Dot-Box is a game where players take turns drawing lines between dots to create 
 
 ## How to Play
 1. **Setup**: Select the number of rows, columns, and players.
+<br>
 <div align="center">
 <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
 </div>
@@ -42,6 +43,7 @@ Dot-Box is a game where players take turns drawing lines between dots to create 
     <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
+    <br>
     </div>   
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
@@ -53,7 +55,7 @@ Dot-Box is a game where players take turns drawing lines between dots to create 
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/0e77e365-3f75-4060-96ef-22d92045ddc6" />
     </div>
-
+    <br>
   # How to make a PR in a Project 🟢
 
 If you are interested to contribute in this project how to start contribute
