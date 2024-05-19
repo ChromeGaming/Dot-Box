@@ -100,7 +100,6 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 
 ### How to Play
 1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
-
 <br>
 <div align="center">
 <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
@@ -120,11 +119,13 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
     <br>
+      
     </div>   
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
     </div>
     <br>
+    
    - The game requires strategic thinking to maximize the number of boxes owned.
 
 4. **Winning:** The player with the most boxes owned at the end of the game wins.
