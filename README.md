@@ -19,6 +19,41 @@
   <img src="https://img.shields.io/github/last-commit/GameSphere-MultiPlayer/Dot-Box?style=for-the-badge" />
   </div>
 
+# Dot-Box Game
+
+Dot-Box is a game where players take turns drawing lines between dots to create boxes. The player who completes the most boxes wins. It's a simple yet strategic game enjoyed by people of all ages.
+
+## How to Play
+1. **Setup**: Select the number of rows, columns, and players.
+<div align="center">
+<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
+</div>
+<br>
+2. **Objective**: The player who has the maximum number of boxes on the board is the winner.
+
+3. **Gameplay**:
+    - Players take turns to draw a single horizontal or vertical line between two adjacent dots.
+    <br>
+    <div align="center">
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
+    </div>
+    <br>
+    - If a player completes the fourth side of a 1x1 box, they claim the box and get another turn.
+    <br>
+    <div align="center">
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
+    </div>   
+    <div align="center">
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
+    </div>
+    <br>
+    - The game continues until all possible boxes are completed.
+    - The player who completes the most boxes wins.
+    <br>
+    <div align="center">
+    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/0e77e365-3f75-4060-96ef-22d92045ddc6" />
+    </div>
+
   # How to make a PR in a Project 🟢
 
 If you are interested to contribute in this project how to start contribute
@@ -92,58 +127,3 @@ ________________________________________________________________________________
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 
 **Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
-
-__________________________________________________________________________________________________________________________________________________________________
-## 🎮 Gaming Rule
-
-The game is very simple and easy to play, it's a multiplayer game where each player gets one chance to play alternatively. The goal is to maximize the number of boxes owned. The game continues until no box is left unoccupied. 
-
-### How to Play
-1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
-
-2. **Gameplay:** 
-   - Players take turns marking one side of a square on the board.
-   - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
-   - The game requires strategic thinking to maximize the number of boxes owned.
-
-3. **Winning:** The player with the most boxes owned at the end of the game wins. 
-
-
-## Dot Box Game Strategies
-
-### 1. **Claiming Territory** 🏰
-   - **Early Game:** Focus on securing territory to build a strong foundation. 
-   - **Mid to Late Game:** Prioritize closing boxes to prevent opponents from claiming territory.
-
-### 2. **Box Closure** 📦
-   - **Immediate Closure:** Always close a box if possible, unless it would immediately grant your opponent an advantage.
-   - **Forcing Closure:** Try to force your opponent into closing a box that would benefit you more than them.
-
-### 3. **Defensive Play** 🛡️
-   - **Blocking Moves:** Use blocking moves to prevent your opponent from closing boxes or claiming territory.
-   - **Strategic Sacrifice:** Sacrifice a box to prevent your opponent from getting a bigger advantage.
-
-### 4. **Offensive Play** ⚔️
-   - **Box Stealing:** Aim to steal boxes from your opponent by closing boxes that they are about to complete.
-   - **Forcing Mistakes:** Force your opponent into making mistakes by creating complex board states.
-
-### 5. **Control the Center** 🎯
-   - **Strategic Importance:** The center of the board is crucial for controlling the game. Try to maintain a strong presence there.
-   - **Access Points:** Keep control of the access points to the center to limit your opponent's options.
-
-### 6. **Predictive Play** 🔮
-   - **Anticipating Moves:** Try to anticipate your opponent's moves and plan your strategy accordingly.
-   - **Stay Flexible:** Be prepared to adapt your strategy based on your opponent's actions.
-
-### 7. **Endgame Strategies** 🏁
-   - **Counting Boxes:** Keep track of the number of boxes each player has closed to determine the best moves in the endgame.
-   - **Protecting Lead:** If you're ahead, focus on protecting your lead rather than taking risks.
-
-### 8. **Mind Games** 🧠
-   - **Bluffing:** Occasionally make moves that seem advantageous to your opponent but actually benefit you in the long run.
-   - **Psychological Warfare:** Use your opponent's expectations against them to gain an advantage.
-## Features
-- Multiplayer game supporting 2 to 6 players.
-- Strategic gameplay requiring tactical thinking.
-- Customizable board size with rows and columns from 5 to 30.
-- Dynamic gameplay where players earn extra chances for completing squares.
