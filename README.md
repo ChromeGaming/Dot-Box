@@ -116,7 +116,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     </div>
     <br>
 
- - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
+- If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
    
 <br>
     <div align="center">
