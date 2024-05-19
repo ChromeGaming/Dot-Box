@@ -228,7 +228,7 @@ a {
 }
 
 .player-turn .bg.win {
-	animation: 1s pulseAnim 0s infinite;
+	animation: pulseAnim 2.5s infinite ease-in-out;
 	font-weight: bold;
 }
 
@@ -240,14 +240,19 @@ a {
 @keyframes pulseAnim {
 	from {
 		transform: scale(1);
+		opacity: 1;
 	}
 
-	40% {
+	50% {
 		transform: scale(1.2);
+		opacity: 0.8;
+		box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+		background-color: rgb(255, 215, 52);
 	}
 
 	to {
 		transform: scale(1);
+		opacity: 1;
 	}
 }
 
