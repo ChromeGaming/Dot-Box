@@ -199,6 +199,8 @@ startBtn.addEventListener("click", () => {
 	game = new Game(rows, columns, playersCount)
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
+        document.getElementById('theme-options').style.display = 'none';
+        document.getElementById('theme-button').style.display = 'none';
 });
 
 function calculate(value, min, max) {
