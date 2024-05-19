@@ -118,13 +118,13 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
-    <br>
-      
+<br>
+<br>
   </div>   
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
     </div>
-    <br>
+<br>
     
    - The game requires strategic thinking to maximize the number of boxes owned.
 
