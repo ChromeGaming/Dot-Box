@@ -301,7 +301,6 @@ h1 {
 	font-style: italic;
 	color: #999;
 	font-size: 15px;
-
 }
 
 .settings button {
@@ -323,7 +322,7 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
-.back{
+.back {
 	position: absolute;
 	right: 0;
 	left: 0;
@@ -331,14 +330,14 @@ h1 {
 	bottom: 0;
 	z-index: -1;
 }
-@media(min-aspect-ratio:16/9){
-	.back{
+@media (min-aspect-ratio: 16/9) {
+	.back {
 		width: 100%;
 		height: auto;
 	}
 }
-@media(max-aspect-ratio:16/9){
-	.back{
+@media (max-aspect-ratio: 16/9) {
+	.back {
 		width: auto;
 		height: 100%;
 	}
@@ -360,4 +359,13 @@ h1 {
 
 .mute-btn:hover i {
 	color: #fff;
+}
+
+/* The message box is shown when the user clicks on the input field */
+.warning {
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
 }
