@@ -57,7 +57,7 @@ a {
 .box.filled::after {
 	position: absolute;
 	z-index: 40;
-	background: rgb(255, 255, 255);
+	background: #fff;
 	opacity: 0;
 	content: "";
 	width: 100%;
@@ -96,12 +96,12 @@ a {
 }
 
 .edge:hover {
-	background: rgb(189, 189, 189);
+	background: #bdbdbd;
 	z-index: 10;
 }
 
 .edge:active {
-	background: rgb(170, 170, 170);
+	background: #aaa;
 	z-index: 10;
 }
 
@@ -131,7 +131,6 @@ a {
 
 .edge.bottom {
 	transform: translateY(50%);
-	top: none;
 	bottom: 0;
 	left: 0;
 }
@@ -185,10 +184,11 @@ a {
 	text-align: center;
 	width: 28px;
 	margin-right: 4px;
-	background-color: rgb(136, 136, 136);
+	background-color: #888;
 	border: solid 3px #111;
 	border-radius: 3px;
-	color: rgba(0, 0, 0, 0.922);
+	color: #000;
+	opacity: 0.922;
 }
 
 @media screen and (max-width: 600px) {
@@ -211,7 +211,8 @@ a {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	color: rgba(0, 0, 0, 0.864);
+	color: #000;
+	opacity: 0.864;
 	padding-top: 10px;
 
 }
@@ -232,7 +233,7 @@ a {
 }
 
 .player-turn .name {
-	color: rgb(0, 0, 0);
+	color: #000;
 	font-weight: bold;
 }
 
@@ -288,9 +289,8 @@ h1 {
 	gap: 1.4rem;
 	width: 100%;
 	max-width: 550px;
-	padding: 1rem;
+	padding: 1rem 7%;
 	font-size: 20px;
-	padding-left: 7%;
 }
 
 .settings .form-item {
@@ -326,11 +326,11 @@ h1 {
 }
 
 .settings button:hover {
-	background: rgb(75, 75, 75);
+    background: #4b4b4b;
 }
 
 .settings button:active {
-	background: rgb(70, 70, 70);
+    background: #464646;
 }
 
 /* Background Image */
