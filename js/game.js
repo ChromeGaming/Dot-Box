@@ -1,9 +1,8 @@
 class Game {
+	static pointcard = {};
 	static instance //Singleton instance of Game class
-
 	constructor(rows, columns, playersCount) {
 		if (Game.instance == null) Game.instance = this
-
 		this.playersUI = document.querySelector(".players")
 		this.playerNameUI = document.querySelector(".player-turn .name")
 		this.playerTurnBgUI = document.querySelector(".player-turn .bg")
@@ -16,18 +15,19 @@ class Game {
 		}
 
 		this.players = [
-			{ name: "Player 1", color: "pink", filledBoxes: 0 },
-			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-			{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-			{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-			{ name: "Player 6", color: "orange", filledBoxes: 0 }
+			{ name: "Player 1", color: "pink", filledBoxes: 0, point: 0},
+			{ name: "Player 2", color: "skyblue", filledBoxes: 0, point: 0 },
+			{ name: "Player 3", color: "lightgreen", filledBoxes: 0, point: 0 },
+			{ name: "Player 4", color: "magenta", filledBoxes: 0, point: 0 },
+			{ name: "Player 5", color: "yellow", filledBoxes: 0, point: 0 },
+			{ name: "Player 6", color: "orange", filledBoxes: 0, point: 0 }
 		]
 
 		let p = this.players.length - playersCount
 		for (let i = 0; i < p; i++)
 			this.players.pop()
-
+		for(let i = 0; i < playersCount; i++)
+			Game.pointcard[`Player ${i+1}`] = 0;
 		this.currentPlayerIndex = 0
 		this.currentPlayer = this.players[this.currentPlayerIndex]
 
@@ -45,7 +45,7 @@ class Game {
 	}
 
 	//End Game
-	onPlayerWin() {
+	onPlayerWin(rows, columns) {
 		this.isGameover = true
 
 		bgMusic.pause();
@@ -56,7 +56,7 @@ class Game {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
 
-		setTimeout(() => {
+		setTimeout((rows, column) => {
 			let play = this.players[0].filledBoxes
 
 			//Check for winner
@@ -65,9 +65,21 @@ class Game {
 				this.playerTurnBgUI.classList.add("no-win")
 				this.playerTurnBgUI.style.background = "#eaeaea"
 			} else {
-				this.playerNameUI.parentElement.textContent = `${player.name} wins`
+				let str = "";
+				Object.keys(Game.pointcard).forEach((x) =>{
+					str = str+`${x}: ${Game.pointcard[x]}<br>`
+				});
+				str = str+'<button class="next-btn" style="background-color:rgb(87, 123, 141);">Next Round</button>';
+				this.playerNameUI.parentElement.innerHTML = `${player.name} wins` + `<br> ${str}`
+				document.querySelector(".next-btn").addEventListener("click", () => {
+					if(roundgame > 0){
+						roundgame--;
+						this.board = new Board(rows, columns)
+					}
+				})
 				this.playerTurnBgUI.classList.add("win")
 				this.playerTurnBgUI.style.background = player.color
+				Game.pointcard[player.name]++;
 			}
 		}, 500);
 	}
@@ -185,6 +197,7 @@ const columnsInput = document.querySelector("#columns")
 const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
+let roundgame = document.querySelector('#round-count').value;
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
 var game = null
 
@@ -199,6 +212,8 @@ startBtn.addEventListener("click", () => {
 	game = new Game(rows, columns, playersCount)
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
+        document.getElementById('theme-options').style.display = 'none';
+        document.getElementById('theme-button').style.display = 'none';
 });
 
 function calculate(value, min, max) {

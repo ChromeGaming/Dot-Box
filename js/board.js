@@ -2,6 +2,7 @@ class Board {
 	static ROWS   //number of rows
 	static COLUMNS   //number of columns
 	static BOXES_COUNT //number of boxes
+	static rounds
 
 	constructor(rows, columns) {
 		Board.ROWS = rows
