@@ -51,7 +51,7 @@ a {
 .box {
 	position: relative;
 	aspect-ratio: 1/1;
-	transition: background 500ms;
+	transition: background 500ms ease-out;
 }
 
 .box.filled::after {
@@ -93,6 +93,7 @@ a {
 	cursor: pointer;
 	border-radius: 1rem;
 	background: var(--border-color);
+	transition: background 200ms ease;
 }
 
 .edge:hover {
@@ -225,6 +226,7 @@ a {
 	max-width: 200px;
 	text-align: center;
 	border-radius: 1rem;
+	transition: background 200ms ease, transform 200ms ease;
 }
 
 .player-turn .bg.win {
@@ -328,6 +330,7 @@ h1 {
 	color: #fff;
 	cursor: pointer;
 	letter-spacing: 4px;
+	transition: background 200ms ease;
 }
 
 .settings button:hover {
