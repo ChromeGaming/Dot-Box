@@ -207,7 +207,7 @@ a {
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.864);
 	padding-top: 10px;
-	border-top: solid 1px #f9f9f9;
+
 }
 
 .player-turn .bg {
@@ -342,4 +342,22 @@ h1 {
 		width: auto;
 		height: 100%;
 	}
+}
+
+.mute-btn {
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.mute-btn i {
+	color: #ffffff;
+	font-size: 24px;
+	transition: color 0.3s ease;
+}
+
+.mute-btn:hover i {
+	color: #fff;
 }
