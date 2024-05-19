@@ -105,11 +105,11 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
 </div>
 <br>
-2. **Gameplay:**
+
+2. **Gameplay:** 
 
 - Players take turns marking one side of a square on the board.
 
-   <br>
    <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
