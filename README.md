@@ -115,8 +115,8 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
     </div>
     <br>
-    
--- If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
+
+- If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
    
 <br>
     <div align="center">
@@ -129,7 +129,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     </div>
 <br>
     
--- The game requires strategic thinking to maximize the number of boxes owned.
+- The game requires strategic thinking to maximize the number of boxes owned.
 
 3. **Winning:** The player with the most boxes owned at the end of the game wins.
    
