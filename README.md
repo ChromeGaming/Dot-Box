@@ -102,7 +102,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
 <br>
 <div align="center">
-<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/fb98db10-6b1f-4fdc-9a40-7a3d385746fc" />
+<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
 </div>
 <br>
 2. **Gameplay:** - Players take turns marking one side of a square on the board.
