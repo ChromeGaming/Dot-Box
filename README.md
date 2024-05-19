@@ -106,7 +106,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 </div>
 <br>
 
-3. **Gameplay:** 
+2. **Gameplay:** 
    - Players take turns marking one side of a square on the board.
      <br>
     <div align="center">
@@ -129,7 +129,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     
    - The game requires strategic thinking to maximize the number of boxes owned.
 
-4. **Winning:** The player with the most boxes owned at the end of the game wins.
+3. **Winning:** The player with the most boxes owned at the end of the game wins.
     <br>
     <div align="center">
     <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/0e77e365-3f75-4060-96ef-22d92045ddc6" />
@@ -137,7 +137,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
     <br>
 
 
-## Dot Box Game Strategies
+## Dot Box Game Strategies♟️
 
 ### 1. **Claiming Territory** 🏰
    - **Early Game:** Focus on securing territory to build a strong foundation. 
@@ -170,6 +170,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 ### 8. **Mind Games** 🧠
    - **Bluffing:** Occasionally make moves that seem advantageous to your opponent but actually benefit you in the long run.
    - **Psychological Warfare:** Use your opponent's expectations against them to gain an advantage.
+     
 ## Features
 - Multiplayer game supporting 2 to 6 players.
 - Strategic gameplay requiring tactical thinking.
