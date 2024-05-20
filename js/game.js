@@ -51,7 +51,7 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
+
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
@@ -189,6 +189,22 @@ const bgMusic = new Audio('./sounds/bgMusic.mp3');
 var game = null
 
 startBtn.addEventListener("click", () => {
+	const rowsValue = parseInt(rowsInput.value);
+	const columnsValue = parseInt(columnsInput.value);
+	const playersValue = parseInt(playersInput.value);
+	// Validate the input values
+	if (rowsValue < 5 || rowsValue > 30 || isNaN(rowsValue)) {
+		alert("!!! Invalid Input, Number of rows must be between 5 and 30.");
+		return;
+	}
+	if (columnsValue < 5 || columnsValue > 30 || isNaN(columnsValue)) {
+		alert("!!! Invalid Input, Number of columns must be between 5 and 30.");
+		return;
+	}
+	if (playersValue < 2 || playersValue > 6 || isNaN(playersValue)) {
+		alert("!!! Invalid Input, Number of players must be between 2 and 6.");
+		return;
+	}
 	bgMusic.volume = 0.1;
 	bgMusic.play();
 	const rows = calculate(rowsInput.value, 5, 30)
@@ -199,8 +215,8 @@ startBtn.addEventListener("click", () => {
 	game = new Game(rows, columns, playersCount)
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
-        document.getElementById('theme-options').style.display = 'none';
-        document.getElementById('theme-button').style.display = 'none';
+	document.getElementById('theme-options').style.display = 'none';
+	document.getElementById('theme-button').style.display = 'none';
 });
 
 function calculate(value, min, max) {
