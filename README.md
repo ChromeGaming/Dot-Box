@@ -21,7 +21,7 @@
 
   # How to make a PR in a Project 🟢
 
-If you are interested to contribute in this project how to start contribute
+If you are interested to contribute in this project, this is how to start contribute ( note: all PRs opened for GSSOC should point to the develop branch ) 
 <!-- in detail -->
 
 1. Fork the repo and while forking uncheck the box " Copy the master branch only " and it should be like this:
