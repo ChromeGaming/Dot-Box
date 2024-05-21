@@ -24,7 +24,7 @@
 If you are interested to contribute in this project, this is how to start contribute ( note: all PRs opened for GSSOC should point to the develop branch ) 
 <!-- in detail -->
 
-1. Fork the repo and while forking uncheck the box " Copy the master branch only " and it should be like this:
+1. Fork the repo and while forking uncheck the box " Copy the master branch only " and it should be like this: <br>
    ![alt text](<Screenshot 2024-05-21 202707.png>)
 
 2. After forking, clone the repo to your local machine.
@@ -77,7 +77,7 @@ To push your changes, run the following command in your terminal:
     git push origin <your-branch-name>
     ```
 
-10. Create a PR and make sure your base branch is `develop`:
+10. Create a PR and make sure your base branch is `develop`: <br>
  ![alt text](<Screenshot 2024-05-21 205520.png>)
 
 __________________________________________________________________________________________________________________________________________________________________
