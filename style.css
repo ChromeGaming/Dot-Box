@@ -361,3 +361,8 @@ h1 {
 .mute-btn:hover i {
 	color: #fff;
 }
+.error {
+    color: red;
+    font-size: 16px;
+    display: none;
+}
