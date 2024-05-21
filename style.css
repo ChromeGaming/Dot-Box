@@ -345,6 +345,11 @@ h1 {
 	}
 }
 
+
+.typewriter::placeholder  {
+  font-family: monospace;
+  font-size: 16px;
+}
 .mute-btn {
 	background-color: #333;
 	border: none;
