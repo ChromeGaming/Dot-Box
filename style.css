@@ -207,7 +207,7 @@ a {
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.864);
 	padding-top: 10px;
-	border-top: solid 1px #f9f9f9;
+
 }
 
 .player-turn .bg {
@@ -345,6 +345,7 @@ h1 {
 	}
 }
 
+
 .player-turn .bg {
     padding: 0.2rem 0.4rem;
     border-radius: 1.2rem;
@@ -359,3 +360,21 @@ h1 {
     font-size: 1.2rem;
     color: red;
 }
+.mute-btn {
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.mute-btn i {
+	color: #ffffff;
+	font-size: 24px;
+	transition: color 0.3s ease;
+}
+
+.mute-btn:hover i {
+	color: #fff;
+}
+
