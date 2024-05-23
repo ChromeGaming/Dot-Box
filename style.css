@@ -2,7 +2,7 @@
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
-    --edge-thikness: 5px;
+    --edge-thickness: 5px;
 }
 
 * {
@@ -103,13 +103,13 @@ a {
 
 .edge.left,
 .edge.right {
-    width: var(--edge-thikness);
+    width: var(--edge-thickness);
     height: var(--edge-length);
 }
 
 .edge.top,
 .edge.bottom {
-    height: var(--edge-thikness);
+    height: var(--edge-thickness);
     width: var(--edge-length);
 }
 
@@ -422,18 +422,18 @@ h1 {
 }
 
 .exit-btn {
-	position: fixed;
-	top: 10px;
-	left: 10px;
-	padding: 10px 20px;
-	background-color: #ff0000;
-	color: #ffffff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .exit-btn:hover {
-	background-color: #cc0000;
+    background-color: #cc0000;
 }

@@ -160,6 +160,23 @@ class Game {
 	}
 }
 
+// Selecting the mute button and icon
+const muteBtn = document.querySelector(".mute-btn");
+const muteIcon = document.querySelector(".mute-btn i");
+
+// Event listener for mute button
+muteBtn.addEventListener("click", () => {
+	if (bgMusic.paused) {
+		bgMusic.play();
+		muteIcon.classList.remove("fa-volume-off"); // Remove mute icon
+		muteIcon.classList.add("fa-volume-up");    // Add unmute icon
+	} else {
+		bgMusic.pause();
+		muteIcon.classList.remove("fa-volume-up");  // Remove unmute icon
+		muteIcon.classList.add("fa-volume-off");   // Add mute icon
+	}
+});
+
 // Declaring Global Variables
 
 const settingsUI = document.querySelector(".settings")
@@ -182,6 +199,8 @@ startBtn.addEventListener("click", () => {
 	game = new Game(rows, columns, playersCount)
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
+        document.getElementById('theme-options').style.display = 'none';
+        document.getElementById('theme-button').style.display = 'none';
 });
 
 function calculate(value, min, max) {
