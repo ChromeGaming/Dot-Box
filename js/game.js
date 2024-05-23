@@ -186,12 +186,12 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const rowsWarning = document.querySelector("#rows-warning");
+const columnsWarning = document.querySelector("#columns-warning");
+const playersWarning = document.querySelector("#players-warning");
 var game = null
 
 // get warning elements
-const rowsWarning = document.getElementById("rows-warning");
-const columnsWarning = document.getElementById("columns-warning");
-const playersWarning = document.getElementById("players-warning");
 const warnings = [rowsWarning, columnsWarning, playersWarning];
 
 // Add event listeners to input fields to remove warnings when user starts entering input again
@@ -210,26 +210,30 @@ playersInput.addEventListener("focus", () => {
 startBtn.addEventListener("click", () => {
 
 	// Get values of inputs
-	const rows = rowsInput.value;
-	const columns = columnsInput.value;
-	const playersCount = playersInput.value;
+	const rows = parseInt(rowsInput.value);
+	const columns = parseInt(columnsInput.value);
+	const playersCount = parseInt(playersInput.value);
 
 	const inputValues = [rows, columns, playersCount];
-	
+
 	// getting validity of inputs
 	let validGame = validateForm(inputValues);
 
 	// If any input is invalid, prevent starting the game
-	if (validGame) {
+	if (validGame === true) {
 		// Set background music volume and play
 		bgMusic.volume = 0.1;
 		bgMusic.play();
-		// Start the game with valid input
+
+		//start game with valid inputs
 		game = new Game(rows, columns, playersCount);
 		settingsUI.style.display = "none";
 		heading.style.display = "none";
+		document.getElementById("theme-options").style.display = "none";
+		document.getElementById("theme-button").style.display = "none";
 	}
 });
+
 
 function validateForm(inputValues) {
 	let valid = true;
