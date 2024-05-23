@@ -2,112 +2,134 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="theme.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<!-- JavaScript files -->
-	<script defer src="./js/edge.js"></script>
-	<script defer src="./js/box.js"></script>
-	<script defer src="./js/board.js"></script>
-	<script defer src="./js/game.js"></script>
-	<script defer src="./js/theme.js"></script>
+    <!-- JavaScript files -->
+    <script defer src="./js/edge.js"></script>
+    <script defer src="./js/box.js"></script>
+    <script defer src="./js/board.js"></script>
+    <script defer src="./js/game.js"></script>
+    <script defer src="./js/theme.js"></script>
 
-	<!-- Logo of the game -->
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <!-- Logo of the game -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
-	<!-- Title of the game -->
-	<title>Dots & Boxes Game</title>
+    <!-- Title of the game -->
+    <title>Dots & Boxes Game</title>
 </head>
 
 <body>
-	
-	<!-- Setting Page -->
-	<div class="settings">
-		<video autoplay loop muted plays-inline class="back">
-			<source src="./back.mp4" type="video/mp4">
-		</video>
-		<div class="form">
-		<div class="overlay-container">
-			<h1 class="heading"
-				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
-				▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
-			</h1>
+    <!-- Setting Page -->
+    <div class="settings">
+        <video autoplay loop muted plays-inline class="back">
+            <source src="./back.mp4" type="video/mp4">
+        </video>
+        <div class="form">
+            <div class="overlay-container">
+                <h1 class="heading" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
+                    ▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+                </h1>
 
-			<h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
+                <h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
 
-			<p class="instructions" style="color: rgb(211, 211, 211);">
-				<br>
-				1. Select the number of rows, columns and players. <br>
-				2. The player who has maximum number of boxes on board is the winner. <br>
-				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-				chance
-				consecutively. <br>
-			</p>
+                <p class="instructions" style="color: rgb(211, 211, 211);">
+                    <br>
+                    1. Select Game Settings:
+                    <br>
+                    Choose the number of rows, columns, and players. <br><br>
 
+                    2. Determine the Winner:
+                    <br>
+                    The player with the most completed boxes at the end wins. <br><br>
+
+                    3. Turn Sequence:
+                    <br>
+                    Players alternate turns. If a player completes a box, they get an extra turn. <br>
+                </p>
+            </div>
         </div>
-		</div>
-		<div class="overlay-container">
-		<!-- Form page -->
-		<div class="form">
+        <div class="overlay-container">
+            <!-- Form page -->
+            <div class="form">
+                <div>
+                    <h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
+                </div>
 
-			<div>
-				<h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
-			</div>
-			
-			<div class="form-item">
-				<label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="rows" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="columns" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
-				<input type="number" id="players-count" min="2" max="6" value="2" />
-			</div>
-			
-			<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+                <div class="form-item">
+                    <label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
+                    <input type="number" id="rows" min="5" max="30" value="6" />
+                </div>
 
-		</div>
-		</div>
+                <div class="form-item">
+                    <label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
+                    <input type="number" id="columns" min="5" max="30" value="6" />
+                </div>
 
-	</div>
+                <div class="form-item">
+                    <label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
+                    <input type="number" id="players-count" min="2" max="6" value="2" />
+                </div>
 
-	<!-- Players -->
-	<div class="players" style="margin-top: 50px;"></div>
-
-	<div class="player-turn">
-		<div class="bg" style="margin-top: 60px;">
-			<span class="name">PlayerX</span>'s turn
-		</div>
-	</div>
-
-	<!-- Game Page -->
-	<div class="board" style="margin-top: 154px;"></div>
-	<div>
-	<button id="theme-button" class="theme-btn">Change Theme</button>
-    <div id="theme-options" class="hidden">
-        <button class="theme-option" data-video="back.mp4">Starry Night</button>
-        <button class="theme-option" data-video="back2.mp4">Aurora</button>
-        <button class="theme-option" data-video="back3.mp4">Waterfall</button>
-		<button class="theme-option" data-video="back4.mp4">Garden</button>
-		<button class="theme-option" data-video="back5.mp4">Beach</button> 
+                <button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+            </div>
+        </div>
     </div>
-   <!-- Background Videos -->
-   <video autoplay loop muted plays-inline class="back" id="background-video">
-	<source src="./background/back4.mp4" type="video/mp4">
-</video>
 
-	<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+    <!-- Help Section -->
+    <div class="help-section">
+        <h3 class="help-heading" style="color: white; background-color: rgb(87, 123, 141);">Help</h3>
+        <p class="help-content" style="color: rgb(211, 211, 211);">
+            <br>
+            <strong>How to Play:</strong> <br>
+            Dots and Boxes is a strategy game where players take turns drawing lines between dots. The goal is to complete more boxes than your opponent. When you draw the fourth side of a box, you claim that box and get an extra turn.
+            <br><br>
+            <strong>Game Settings:</strong> <br>
+            Use the settings menu to choose the number of rows, columns, and players. You can play with up to 6 players.
+            <br><br>
+            <strong>Winning the Game:</strong> <br>
+            The player who completes the most boxes when the grid is filled wins the game.
+            <br><br>
+            <strong>Strategies:</strong> <br>
+            - Try to avoid creating opportunities for your opponent to complete a box. <br>
+            - Plan your moves ahead and think strategically about which lines to draw. <br>
+            - Aim to create chains of boxes that you can complete in a single turn.
+            <br><br>
+            For more detailed rules and strategies, refer to the game's rulebook or visit our website.
+        </p>
+    </div>
 
+    <!-- Players -->
+    <div class="players" style="margin-top: 50px;"></div>
+
+    <div class="player-turn">
+        <div class="bg" style="margin-top: 60px;">
+            <span class="name">PlayerX</span>'s turn
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div class="board" style="margin-top: 154px;"></div>
+    <div>
+        <button id="theme-button" class="theme-btn">Change Theme</button>
+        <div id="theme-options" class="hidden">
+            <button class="theme-option" data-video="back.mp4">Starry Night</button>
+            <button class="theme-option" data-video="back2.mp4">Aurora</button>
+            <button class="theme-option" data-video="back3.mp4">Waterfall</button>
+            <button class="theme-option" data-video="back4.mp4">Garden</button>
+            <button class="theme-option" data-video="back5.mp4">Beach</button>
+        </div>
+        <!-- Background Videos -->
+        <video autoplay loop muted plays-inline class="back" id="background-video">
+            <source src="./background/back4.mp4" type="video/mp4">
+        </video>
+
+        <button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
 </body>
 
 </html>
