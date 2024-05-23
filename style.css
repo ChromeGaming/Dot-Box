@@ -361,3 +361,12 @@ h1 {
 .mute-btn:hover i {
 	color: #fff;
 }
+
+/* The message box is shown when the user clicks on the input field */
+.warning {
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
+}
