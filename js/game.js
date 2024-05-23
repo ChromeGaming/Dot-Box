@@ -212,7 +212,26 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const rowsWarning = document.querySelector("#rows-warning");
+const columnsWarning = document.querySelector("#columns-warning");
+const playersWarning = document.querySelector("#players-warning");
 var game = null
+
+// get warning elements
+const warnings = [rowsWarning, columnsWarning, playersWarning];
+
+// Add event listeners to input fields to remove warnings when user starts entering input again
+rowsInput.addEventListener("focus", () => {
+	rowsWarning.style.display = "none";
+});
+
+columnsInput.addEventListener("focus", () => {
+	columnsWarning.style.display = "none";
+});
+
+playersInput.addEventListener("focus", () => {
+	playersWarning.style.display = "none";
+});
 
 startBtn.addEventListener("click", () => {
     bgMusic.volume = 0.1;
@@ -230,4 +249,48 @@ startBtn.addEventListener("click", () => {
 
 function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max)
+
+	// Get values of inputs
+	const rows = parseInt(rowsInput.value);
+	const columns = parseInt(columnsInput.value);
+	const playersCount = parseInt(playersInput.value);
+
+	const inputValues = [rows, columns, playersCount];
+
+	// getting validity of inputs
+	let validGame = validateForm(inputValues);
+
+	// If any input is invalid, prevent starting the game
+	if (validGame === true) {
+		// Set background music volume and play
+		bgMusic.volume = 0.1;
+		bgMusic.play();
+
+		//start game with valid inputs
+		game = new Game(rows, columns, playersCount);
+		settingsUI.style.display = "none";
+		heading.style.display = "none";
+		document.getElementById("theme-options").style.display = "none";
+		document.getElementById("theme-button").style.display = "none";
+	}
+});
+
+
+function validateForm(inputValues) {
+	let valid = true;
+
+	for (let i = 0; i < 3; i++) {
+		let value = inputValues[i];
+		let warning = warnings[i];
+
+		let min = (i===2) ? 2 : 5;
+		let max = (i===2) ? 6 : 30;
+
+		if (value == null || value < min || value > max) {
+			warning.style.display = "block";
+			valid = false;
+		}
+	}
+
+	return valid;
 }
