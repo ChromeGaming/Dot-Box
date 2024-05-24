@@ -5,6 +5,7 @@
     --edge-thikness: 5px;
 }
 
+/* Global styles */
 * {
     padding: 0;
     margin: 0;
@@ -42,6 +43,7 @@ a {
     bottom: 1%;
 }
 
+/* Board */
 .board {
     background: #fcfcfc;
     display: grid;
@@ -55,6 +57,7 @@ a {
     }
 }
 
+/* Box */
 .box {
     position: relative;
     aspect-ratio: 1/1;
@@ -109,6 +112,59 @@ a {
 .edge:active {
     background: rgb(170, 170, 170);
     z-index: 10;
+    aspect-ratio: 1 / 1;
+    transition: background 500ms ease-out;
+}
+
+.box.filled::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300%;
+    height: 300%;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.3;
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+    animation: fillAnim 1.2s ease-in-out forwards;
+}
+
+@keyframes fillAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.1;
+    }
+    90% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0; /* Fade out at the end */
+    }
+}
+
+/* Edge */
+.edge {
+	appearance: none;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	border-radius: 1rem;
+	background: var(--border-color);
+	transition: background 200ms ease;
+}
+
+.edge:hover {
+	background: #bdbdbd;
+	z-index: 10;
+}
+
+.edge:active {
+	background: #aaa;
+	z-index: 10;
 }
 
 .edge.left,
@@ -140,6 +196,9 @@ a {
     top: none;
     bottom: 0;
     left: 0;
+	transform: translateY(50%);
+	bottom: 0;
+	left: 0;
 }
 
 .edge.left {
@@ -172,6 +231,7 @@ a {
     z-index: 10;
 }
 
+/* Players */
 .players {
     position: absolute;
     z-index: 10;
@@ -194,6 +254,15 @@ a {
     border: solid 3px #111;
     border-radius: 3px;
     color: rgba(0, 0, 0, 0.922);
+	display: inline-block;
+	text-align: center;
+	width: 28px;
+	margin-right: 4px;
+	background-color: #888;
+	border: solid 3px #111;
+	border-radius: 3px;
+	color: #000;
+	opacity: 0.922;
 }
 
 @media screen and (max-width: 600px) {
@@ -206,6 +275,7 @@ a {
     }
 }
 
+/* Player Turn */
 .player-turn {
     font-size: 1rem;
     z-index: 10;
@@ -251,8 +321,61 @@ a {
     to {
         transform: scale(1);
     }
+	font-size: 1rem;
+	z-index: 10;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: #000;
+	opacity: 0.864;
+	padding-top: 10px;
+
 }
 
+.player-turn .bg {
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	min-width: 100px;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 1rem;
+	transition: background 200ms ease, transform 200ms ease;
+}
+
+.player-turn .bg.win {
+	animation: pulseAnim 2.5s infinite ease-in-out;
+	font-weight: bold;
+}
+
+.player-turn .name {
+	color: #000;
+	font-weight: bold;
+}
+
+@keyframes pulseAnim {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1.2);
+		opacity: 0.8;
+		box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+		background-color: rgb(255, 215, 52);
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Headings */
 h1 {
     margin-top: -30px;
     text-align: center;
@@ -263,12 +386,14 @@ h1 {
     width: 100%;
 }
 
+/* Instructions */
 .instructions {
     width: 100%;
     justify-content: center;
     max-height: 100%;
 }
 
+/* Settings */
 .settings {
     position: absolute;
     background: #fdfdfd;
@@ -291,6 +416,13 @@ h1 {
     padding: 1rem;
     font-size: 20px;
     padding-left: 7%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	width: 100%;
+	max-width: 550px;
+	padding: 1rem 7%;
+	font-size: 20px;
 }
 
 .settings .form-item {
@@ -339,6 +471,34 @@ h1 {
     top: 0;
     bottom: 0;
     z-index: -1;
+	margin-top: 0.4rem;
+	border-radius: 3px;
+	padding: 0.8rem;
+	font-weight: bold;
+	border: none;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
+	transition: background 200ms ease;
+}
+
+.settings button:hover {
+    background: #4b4b4b;
+}
+
+.settings button:active {
+    background: #464646;
+}
+
+/* Background Image */
+.back{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
 }
 
 @media(min-aspect-ratio:16/9) {
@@ -355,11 +515,13 @@ h1 {
     }
 }
 
-
 .typewriter::placeholder  {
   font-family: monospace;
   font-size: 16px;
 }
+
+/* Mute Button */
+
 .mute-btn {
     background-color: #333;
     border: none;
