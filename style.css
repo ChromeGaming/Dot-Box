@@ -5,6 +5,7 @@
 	--edge-thikness: 5px;
 }
 
+/* Global styles */
 * {
 	padding: 0;
 	margin: 0;
@@ -33,6 +34,7 @@ a {
 	bottom: 1%;
 }
 
+/* Board */
 .board {
 	background: #fcfcfc;
 	display: grid;
@@ -46,43 +48,44 @@ a {
 	}
 }
 
+/* Box */
 .box {
-	position: relative;
-	aspect-ratio: 1/1;
-	transition: background 500ms;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    transition: background 500ms ease-out;
 }
 
 .box.filled::after {
-	position: absolute;
-	z-index: 40;
-	background: rgb(255, 255, 255);
-	opacity: 0;
-	content: "";
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	animation: 800ms fillAnim 0s 1;
-	background-blend-mode: soft-light;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300%;
+    height: 300%;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.3;
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+    animation: fillAnim 1.2s ease-in-out forwards;
 }
 
 @keyframes fillAnim {
-	from {
-		transform: scale(1);
-		opacity: 0.3;
-	}
-
-	30% {
-		transform: scale(0.5);
-		opacity: 0.6;
-	}
-
-	to {
-		transform: scale(1);
-		opacity: 0.3;
-	}
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.1;
+    }
+    90% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0; /* Fade out at the end */
+    }
 }
 
+/* Edge */
 .edge {
 	appearance: none;
 	position: absolute;
@@ -90,15 +93,16 @@ a {
 	cursor: pointer;
 	border-radius: 1rem;
 	background: var(--border-color);
+	transition: background 200ms ease;
 }
 
 .edge:hover {
-	background: rgb(189, 189, 189);
+	background: #bdbdbd;
 	z-index: 10;
 }
 
 .edge:active {
-	background: rgb(170, 170, 170);
+	background: #aaa;
 	z-index: 10;
 }
 
@@ -128,7 +132,6 @@ a {
 
 .edge.bottom {
 	transform: translateY(50%);
-	top: none;
 	bottom: 0;
 	left: 0;
 }
@@ -163,6 +166,7 @@ a {
 	z-index: 10;
 }
 
+/* Players */
 .players {
 	position: absolute;
 	z-index: 10;
@@ -181,10 +185,11 @@ a {
 	text-align: center;
 	width: 28px;
 	margin-right: 4px;
-	background-color: rgb(136, 136, 136);
+	background-color: #888;
 	border: solid 3px #111;
 	border-radius: 3px;
-	color: rgba(0, 0, 0, 0.922);
+	color: #000;
+	opacity: 0.922;
 }
 
 @media screen and (max-width: 600px) {
@@ -197,6 +202,7 @@ a {
 	}
 }
 
+/* Player Turn */
 .player-turn {
 	font-size: 1rem;
 	z-index: 10;
@@ -206,7 +212,8 @@ a {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	color: rgba(0, 0, 0, 0.864);
+	color: #000;
+	opacity: 0.864;
 	padding-top: 10px;
 
 }
@@ -219,32 +226,39 @@ a {
 	max-width: 200px;
 	text-align: center;
 	border-radius: 1rem;
+	transition: background 200ms ease, transform 200ms ease;
 }
 
 .player-turn .bg.win {
-	animation: 1s pulseAnim 0s infinite;
+	animation: pulseAnim 2.5s infinite ease-in-out;
 	font-weight: bold;
 }
 
 .player-turn .name {
-	color: rgb(0, 0, 0);
+	color: #000;
 	font-weight: bold;
 }
 
 @keyframes pulseAnim {
 	from {
 		transform: scale(1);
+		opacity: 1;
 	}
 
-	40% {
+	50% {
 		transform: scale(1.2);
+		opacity: 0.8;
+		box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+		background-color: rgb(255, 215, 52);
 	}
 
 	to {
 		transform: scale(1);
+		opacity: 1;
 	}
 }
 
+/* Headings */
 h1 {
 	margin-top: -30px;
 	text-align: center;
@@ -255,12 +269,14 @@ h1 {
 	width: 100%;
 }
 
+/* Instructions */
 .instructions {
 	width: 100%;
 	justify-content: center;
 	max-height: 100%;
 }
 
+/* Settings */
 .settings {
 	position: absolute;
 	background: #fdfdfd;
@@ -280,9 +296,8 @@ h1 {
 	gap: 1.4rem;
 	width: 100%;
 	max-width: 550px;
-	padding: 1rem;
+	padding: 1rem 7%;
 	font-size: 20px;
-	padding-left: 7%;
 }
 
 .settings .form-item {
@@ -315,15 +330,18 @@ h1 {
 	color: #fff;
 	cursor: pointer;
 	letter-spacing: 4px;
+	transition: background 200ms ease;
 }
 
 .settings button:hover {
-	background: rgb(75, 75, 75);
+    background: #4b4b4b;
 }
 
 .settings button:active {
-	background: rgb(70, 70, 70);
+    background: #464646;
 }
+
+/* Background Image */
 .back{
 	position: absolute;
 	right: 0;
@@ -345,11 +363,13 @@ h1 {
 	}
 }
 
-
 .typewriter::placeholder  {
   font-family: monospace;
   font-size: 16px;
 }
+
+/* Mute Button */
+
 .mute-btn {
 	background-color: #333;
 	border: none;
