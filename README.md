@@ -21,11 +21,10 @@
 
   # How to make a PR in a Project 🟢
 
-If you are interested to contribute in this project, this is how to start contribute ( note: all PRs opened for GSSOC should point to the develop branch ) 
+If you are interested to contribute in this project how to start contribute
 <!-- in detail -->
 
-1. Fork the repo and while forking uncheck the box " Copy the master branch only " and it should be like this: <br>
-   ![alt text](<Screenshot 2024-05-21 202707.png>)
+1. Fork the repo.
 
 2. After forking, clone the repo to your local machine.
 To clone the repo to your local machine, run the following command in your terminal:
@@ -41,44 +40,36 @@ To add a remote upstream, run the following command in your terminal:
     git remote add upstream https://github.com/Durgesh4993/Dot-Box/
     ```
 
-4. First, ensure you are on the `develop` branch.
-To switch on `develop` branch.
-
-   ```bash
-   git checkout develop
-   ```
-
-5. Create a new branch.
+4. Create a new branch.
 To create a new branch, run the following command in your terminal:
     
     ```bash
     git checkout -b <your-branch-name>
     ```
 
-6. Make changes in source code.
+5. Make changes in source code.
 
-7. Add your changes
+6. Add your changes
 To add your changes, run the following command in your terminal:
     
     ```bash
     git add <File1 changed> <File2 changed> ...
     ```
-8. Commit your changes.
+7. Commit your changes.
 To commit your changes, run the following command in your terminal:
     
     ```bash
     git commit -m "<your-commit-message>"
     ```
 
-9. Push your changes.
+8. Push your changes.
 To push your changes, run the following command in your terminal:
     
     ```bash
     git push origin <your-branch-name>
     ```
 
-10. Create a PR and make sure your base branch is `develop`: <br>
- ![alt text](<Screenshot 2024-05-21 205520.png>)
+9. Create a PR.
 
 __________________________________________________________________________________________________________________________________________________________________
 
@@ -88,7 +79,7 @@ ________________________________________________________________________________
 
 2. Make sure you are on the "Current Repository" view. If not, go to "File" and select "Add Local Repository" to add your repository.
 
-3. In the "Current Repository" view, ensure you are on the branch `develop` to submit a pull request for. If you're not on the correct branch, use the "Branch" menu to switch to the correct branch.
+3. In the "Current Repository" view, ensure you are on the branch that you want to submit a pull request for. If you're not on the correct branch, use the "Branch" menu to switch to the correct branch.
 
 4. Once you're on the correct branch, make your changes and commit them to the branch. You can do this by clicking the "+" button in the upper-left corner of the GitHub Desktop window, making your changes, and then entering a commit message.
 
@@ -96,7 +87,7 @@ ________________________________________________________________________________
 
 6. Now, go to the GitHub website, navigate to your fork of the repository, and you should see a button to "Compare & pull request" between your fork and the original repository, click on it.
 
-7. On the pull request page, you can review your changes and add any additional information, such as a title and a description, that you want to include with your pull request. Make sure base branch is develop, that is `base:develop`
+7. On the pull request page, you can review your changes and add any additional information, such as a title and a description, that you want to include with your pull request.
 
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 

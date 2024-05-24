@@ -260,7 +260,6 @@ h1 {
 }
 
 .settings {
-<<<<<<< main
     position: absolute;
     background: #fdfdfd;
     inset: 0;
@@ -282,27 +281,6 @@ h1 {
     padding: 1rem;
     font-size: 20px;
     padding-left: 7%;
-=======
-	position: absolute;
-	background: #fdfdfd;
-	inset: 0;
-	z-index: 20;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	overflow: auto;
-}
-
-.settings .form {
-	display: flex;
-	flex-direction: column;
-	gap: 1.4rem;
-	max-width: 550px;
-	padding: 1rem;
-	font-size: 20px;
-	padding-left: 7%;
->>>>>>> main
 }
 
 .settings .form-item {
@@ -319,15 +297,9 @@ h1 {
 }
 
 .settings .form-item .details {
-<<<<<<< main
     font-style: italic;
     color: #999;
     font-size: 15px;
-=======
-	font-style: italic;
-	color: #999;
-	font-size: 15px;
->>>>>>> main
 }
 
 .settings button {
@@ -447,15 +419,4 @@ h1 {
 
 #ranking thead th {
     padding: 10px;
-}
-	color: #fff;
-}
-
-/* The message box is shown when the user clicks on the input field */
-.warning {
-	display: none;
-	font-size: 18px;
-	color: red;
-	position: relative;
-	padding: 5px;
 }
