@@ -25,53 +25,6 @@
   <img src="https://img.shields.io/github/last-commit/GameSphere-MultiPlayer/Dot-Box?style=for-the-badge" />
   </div>
 
-<<<<<<< HEAD
-# Dot-Box Game
-
-Dot-Box is a game where players take turns drawing lines between dots to create boxes. The player who completes the most boxes wins. It's a simple yet strategic game enjoyed by people of all ages.
-
-## How to Play
-1. **Setup**: Select the number of rows, columns, and players.
-<br>
-<div align="center">
-<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
-</div>
-<br>
-2. **Objective**: The player who has the maximum number of boxes on the board is the winner.
-
-3. **Gameplay**:
-    - Players take turns to draw a single horizontal or vertical line between two adjacent dots.
-    <br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
-    </div>
-    <br>
-
-    - If a player completes the fourth side of a 1x1 box, they claim the box and get another turn.
-    <br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/455eb6d9-546a-4b37-b829-11bb979dba19" />
-    <br>
-    </div>   
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/eb038dc9-a063-41c1-bef6-9a32aef4463d" />
-    </div>
-    <br>
-    
-    - The game continues until all possible boxes are completed.
-    - The player who completes the most boxes wins.
-    <br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/0e77e365-3f75-4060-96ef-22d92045ddc6" />
-    </div>
-    <br>
-  # How to make a PR in a Project 🟢
-
-If you are interested to contribute in this project how to start contribute
-<!-- in detail -->
-
-1. Fork the repo.
-=======
 <hr>
 
   ## 🎮 Gaming Rule
@@ -79,14 +32,20 @@ If you are interested to contribute in this project how to start contribute
 The game is very simple and easy to play, it's a multiplayer game where each player gets one chance to play alternatively. The goal is to maximize the number of boxes owned. The game continues until no box is left unoccupied. 
 
 ### How to Play
+
 1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
+   ![alt text](<Screenshot 1.png>)
 
 2. **Gameplay:** 
    - Players take turns marking one side of a square on the board.
+   ![alt text](<Screenshot 2.png>)
    - If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
+   ![alt text](<Screenshot 3.png>)
+   ![alt text](<Screenshot 4.png>)
    - The game requires strategic thinking to maximize the number of boxes owned.
 
 3. **Winning:** The player with the most boxes owned at the end of the game wins.
+   ![alt text](<Screenshot 5.png>)
 
 <hr>
 
@@ -142,7 +101,6 @@ If you are interested to contribute in this project, this is how to start contri
 
 1. Fork the repo and while forking uncheck the box " Copy the master branch only " and it should be like this: <br>
    ![alt text](<Screenshot 2024-05-21 202707.png>)
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 
 2. After forking, clone the repo to your local machine.
 To clone the repo to your local machine, run the following command in your terminal:
@@ -158,9 +116,6 @@ To add a remote upstream, run the following command in your terminal:
     git remote add upstream https://github.com/Durgesh4993/Dot-Box/
     ```
 
-<<<<<<< HEAD
-4. Create a new branch.
-=======
 4. First, ensure you are on the `develop` branch.
 To switch on `develop` branch.
 
@@ -169,55 +124,36 @@ To switch on `develop` branch.
    ```
 
 5. Create a new branch.
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 To create a new branch, run the following command in your terminal:
     
     ```bash
     git checkout -b <your-branch-name>
     ```
 
-<<<<<<< HEAD
-5. Make changes in source code.
-
-6. Add your changes
-=======
 6. Make changes in source code.
 
 7. Add your changes
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 To add your changes, run the following command in your terminal:
     
     ```bash
     git add <File1 changed> <File2 changed> ...
     ```
-<<<<<<< HEAD
-7. Commit your changes.
-=======
 8. Commit your changes.
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 To commit your changes, run the following command in your terminal:
     
     ```bash
     git commit -m "<your-commit-message>"
     ```
 
-<<<<<<< HEAD
-8. Push your changes.
-=======
 9. Push your changes.
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 To push your changes, run the following command in your terminal:
     
     ```bash
     git push origin <your-branch-name>
     ```
 
-<<<<<<< HEAD
-9. Create a PR.
-=======
 10. Create a PR and make sure your base branch is `develop`: <br>
  ![alt text](<Screenshot 2024-05-21 205520.png>)
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 
 __________________________________________________________________________________________________________________________________________________________________
 
@@ -227,11 +163,7 @@ ________________________________________________________________________________
 
 2. Make sure you are on the "Current Repository" view. If not, go to "File" and select "Add Local Repository" to add your repository.
 
-<<<<<<< HEAD
-3. In the "Current Repository" view, ensure you are on the branch that you want to submit a pull request for. If you're not on the correct branch, use the "Branch" menu to switch to the correct branch.
-=======
 3. In the "Current Repository" view, ensure you are on the branch `develop` to submit a pull request for. If you're not on the correct branch, use the "Branch" menu to switch to the correct branch.
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 
 4. Once you're on the correct branch, make your changes and commit them to the branch. You can do this by clicking the "+" button in the upper-left corner of the GitHub Desktop window, making your changes, and then entering a commit message.
 
@@ -239,62 +171,13 @@ ________________________________________________________________________________
 
 6. Now, go to the GitHub website, navigate to your fork of the repository, and you should see a button to "Compare & pull request" between your fork and the original repository, click on it.
 
-<<<<<<< HEAD
-7. On the pull request page, you can review your changes and add any additional information, such as a title and a description, that you want to include with your pull request.
-=======
 7. On the pull request page, you can review your changes and add any additional information, such as a title and a description, that you want to include with your pull request. Make sure base branch is develop, that is `base:develop`
->>>>>>> c24930267a42740eaa322666450a0591241fa631
 
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 
 **Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
-<<<<<<< HEAD
-=======
 
 __________________________________________________________________________________________________________________________________________________________________
-
-The game is very simple and easy to play, it's a multiplayer game where each player gets one chance to play alternatively. The goal is to maximize the number of boxes owned. The game continues until no box is left unoccupied. 
-
-### How to Play
-1. **Setup:** At the start of the game, choose the number of squares you want to have by specifying the number of rows and columns. The range is from 5 to 30 for both rows and columns. Also, specify the number of players, which can be from 2 to 6.
-<br>
-<div align="center">
-<img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/e87f4e39-b6b8-4829-804b-acb3c4115149" />
-</div>
-<br>
-
-2. **Gameplay:**
-
-- Players take turns marking one side of a square on the board.
-
-   <br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/36021757-7897-4aa1-b40f-6cadc792d544" />
-    </div>
-    <br>
-
-- If a side completes a square along with previous marks, the player gets the box and an extra chance to play.
-   
-<br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/295fb82e-ce27-4357-8ff9-ee5f02bf2325" />
-<br>
-<br>
-  </div>   
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/8265e640-08ce-48e0-bc17-1bff29c62e32" />
-    </div>
-<br>
-    
-- The game requires strategic thinking to maximize the number of boxes owned.
-
-3. **Winning:** The player with the most boxes owned at the end of the game wins.
-   
-    <br>
-    <div align="center">
-    <img src="https://github.com/GameSphere-MultiPlayer/Dot-Box/assets/146121869/75f4eefc-509d-4b01-ab11-e876af2689d9" />
-    </div>
-    <br>
 
 <!-- Open Source Programs -->
   <div>
@@ -306,6 +189,7 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 ![Community](https://github.com/GameSphere-MultiPlayer/Physi-c-Tech/assets/98798977/e79af9da-814e-487e-8a9a-85947384d3b2)
 
 <hr>
+
 
 <!-- Code of conduct -->
 <div>
@@ -331,19 +215,8 @@ This project is licensed under the [MIT License](./LICENSE)
 
 Thank you for contributing to our project! Your help is greatly appreciated in making Dot-Box even better. 😊
 
-### 8. **Mind Games** 🧠
-   - **Bluffing:** Occasionally make moves that seem advantageous to your opponent but actually benefit you in the long run.
-   - **Psychological Warfare:** Use your opponent's expectations against them to gain an advantage.
-     
-## Features
-- Multiplayer game supporting 2 to 6 players.
-- Strategic gameplay requiring tactical thinking.
-- Customizable board size with rows and columns from 5 to 30.
-- Dynamic gameplay where players earn extra chances for completing squares.
 <center>
 <a href="https://github.com/GameSphere-MultiPlayer/Dot-Box/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=GameSphere-MultiPlayer/Dot-Box" />
 </a>
 </center>
-
->>>>>>> c24930267a42740eaa322666450a0591241fa631
