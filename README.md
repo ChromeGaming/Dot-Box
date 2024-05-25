@@ -227,8 +227,6 @@ The game is very simple and easy to play, it's a multiplayer game where each pla
 
 <hr>
 
-## Dot Box Game Strategies♟️
-
 <!-- Code of conduct -->
 <div>
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
