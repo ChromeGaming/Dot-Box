@@ -7,32 +7,123 @@
 
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="theme.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- JavaScript files -->
 	<script defer src="./js/edge.js"></script>
 	<script defer src="./js/box.js"></script>
 	<script defer src="./js/board.js"></script>
 	<script defer src="./js/game.js"></script>
+	<script defer src="./js/theme.js"></script>
 
 	<!-- Logo of the game -->
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
 	<!-- Title of the game -->
 	<title>Dots & Boxes Game</title>
+	<style>
+		.preloader {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  background: black; 
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 9999; /* Ensure the preloader is above all other content */
+		}
+		.circle {
+  width: 200px; 
+  height: 200px;
+  background-color: black;
+  border-radius: 50%;
+  animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
+  box-shadow: 0 0 20px 10px black; /* Adjusted shadow values */
+}
+
+.circle:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgb(87, 123, 141);
+    animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
+}
+
+.circle:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgb(59, 141, 182);
+    animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
+}
+
+@keyframes circleAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowingBorder {
+  0% {
+    box-shadow: 0 0 20px 10px rgb(36, 138, 188); /* Adjusted shadow values */
+  }
+  50% {
+    box-shadow: 0 0 40px 20px rgb(62, 135, 171); /* Adjusted shadow values */
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgb(87, 123, 141); /* Adjusted shadow values */
+  }
+}
+	  </style>
 </head>
 
 <body>
+	<div class="preloader">
+		<div class="circle"></div>
+	</div>
+	<script>
+		window.addEventListener("load", () => {
+    const preloader = document.querySelector(".preloader");
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+    // Wait for the transition to complete before removing the preloader
+    setTimeout(() => {
+      preloader.remove();
+    }, 1000); // Adjust the timeout duration as needed
+  });
+	</script>
 	<!-- Setting Page -->
 	<div class="settings">
+		<video autoplay loop muted plays-inline class="back">
+			<source src="./back.mp4" type="video/mp4">
+		</video>
 		<div class="form">
+		<div class="overlay-container">
 			<h1 class="heading"
-				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-				▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
+				▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
 			</h1>
 
-			<h3 class="instructions-heading">Instructions</h3>
+			<h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
 
-			<p class="instructions">
+			<p class="instructions" style="color: rgb(211, 211, 211);">
+				<br>
 				1. Select the number of rows, columns and players. <br>
 				2. The player who has maximum number of boxes on board is the winner. <br>
 				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
@@ -40,33 +131,44 @@
 				consecutively. <br>
 			</p>
 
+        </div>
 		</div>
-
+		<div class="overlay-container">
 		<!-- Form page -->
 		<div class="form">
+
 			<div>
-				<h2>What size of Board do you want? :</h2>
+				<h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
 			</div>
 			
 			<div class="form-item">
-				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+				<label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" placeholder="Enter number of rows:" />
+				<span id="rows-warning" class="warning">
+					Please enter a number between 5 and 30.
+				</span>
 			</div>
 			
 			<div class="form-item">
-				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+				<label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="columns" min="5" max="30" placeholder="Enter number of columns:" />
+				<span id="columns-warning" class="warning">
+					Please enter a number between 5 and 30.
+				</span>
 			</div>
 			
 			<div class="form-item">
-				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+				<label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
 				<input type="number" id="players-count" min="2" max="6" placeholder="Enter number of players:" />
+				<span id="players-warning" class="warning">
+					Please enter a number between 2 and 6.
+				</span>
 			</div>
 			
-			<button class="start-btn">START</button>
+			<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
 
 		</div>
-		
+		</div>
 
 	</div>
 
@@ -81,6 +183,21 @@
 
 	<!-- Game Page -->
 	<div class="board" style="margin-top: 154px;"></div>
+	<div>
+	<button id="theme-button" class="theme-btn">Change Theme</button>
+    <div id="theme-options" class="hidden">
+        <button class="theme-option" data-video="back.mp4">Starry Night</button>
+        <button class="theme-option" data-video="back2.mp4">Aurora</button>
+        <button class="theme-option" data-video="back3.mp4">Waterfall</button>
+		<button class="theme-option" data-video="back4.mp4">Garden</button>
+		<button class="theme-option" data-video="back5.mp4">Beach</button> 
+    </div>
+   <!-- Background Videos -->
+   <video autoplay loop muted plays-inline class="back" id="background-video">
+	<source src="./background/back4.mp4" type="video/mp4">
+</video>
+
+	<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
 
 </body>
 
