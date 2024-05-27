@@ -29,6 +29,21 @@ class Board {
 		Game.instance.addEventListener("boxFill", (box) => this.onBoxFill(box))
 	}
 
+	createEmptyBoard() {
+        const board = [];
+        for (let i = 0; i < this.rows; i++) {
+            board.push([]);
+            for (let j = 0; j < this.columns; j++) {
+                board[i].push(0);
+            }
+        }
+        return board;
+    }
+
+    resetBoard() {
+        this.boardState = this.createEmptyBoard();
+    }
+
 	//Setting up the edge thickness based on the number of boxes. 
 	//We need to set it for Root UI.
 	setEdgeThickness() {

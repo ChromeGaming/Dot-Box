@@ -368,3 +368,31 @@ h1 {
 	position: relative;
 	padding: 5px;
 }
+.controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+	bottom: 4%;
+    left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 20px;
+	background-image: linear-gradient(to right, #b63555, #c06e6e);
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.controls button:hover {
+	background-image: linear-gradient(to right, #bdbfc2, #0b0b0c);
+    transform: scale(1.05); 
+}

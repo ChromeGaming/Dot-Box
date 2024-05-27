@@ -158,6 +158,7 @@ class Game {
 			this.invokeEvent("playerSwitch")
 		}
 	}
+	
 }
 
 // Selecting the mute button and icon
@@ -231,6 +232,11 @@ startBtn.addEventListener("click", () => {
 		heading.style.display = "none";
 		document.getElementById("theme-options").style.display = "none";
 		document.getElementById("theme-button").style.display = "none";
+		// Show the "Start Again" and "Exit" buttons
+        document.querySelector('.start-again-btn').classList.remove('hidden');
+        document.querySelector('.exit-btn').classList.remove('hidden');
+		document.querySelector('.mute-btn').classList.remove('hidden');
+		
 	}
 });
 
@@ -252,4 +258,14 @@ function validateForm(inputValues) {
 	}
 
 	return valid;
-}
+};
+const startAgainBtn = document.querySelector('.start-again-btn');
+const exitBtn = document.querySelector('.exit-btn');
+// Event listener for the Start button
+startAgainBtn.addEventListener('click', () => {
+    window.location.reload(); // Reload the page
+});
+// Event listener for the Exit button
+exitBtn.addEventListener('click', () => {
+	window.location.reload();
+});
