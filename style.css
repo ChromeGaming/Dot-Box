@@ -294,6 +294,12 @@ h1 {
     padding: 0.4rem 0.2rem;
     font-weight: bold;
     font-size: larger;
+
+	border-radius: 3px;
+	padding: 0.4rem 0.2rem;
+	font-weight: lighter;
+	font-size: smaller;
+	font-style: italic;
 }
 
 .settings .form-item .details {
@@ -419,4 +425,11 @@ h1 {
 
 #ranking thead th {
     padding: 10px;
+/* The message box is shown when the user clicks on the input field */
+.warning {
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
 }
