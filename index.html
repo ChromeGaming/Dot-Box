@@ -90,6 +90,7 @@
     box-shadow: 0 0 20px 10px rgb(87, 123, 141); /* Adjusted shadow values */
   }
 }
+
 	  </style>
 </head>
 
@@ -136,13 +137,14 @@
 		<div class="overlay-container">
 		<!-- Form page -->
 		<div class="form">
+			<h1 style="color: rgb(168, 141, 236);">DOT & BOX Game</h1>
 
 			<div>
-				<h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
+				<h2 style="color: rgb(127, 141, 158);">What size of Board do you want? :</h2>
 			</div>
 			
 			<div class="form-item">
-				<label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
+				<label for="rows" style="color: rgb(194, 164, 164);">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" placeholder="Enter number of rows:" />
 				<span id="rows-warning" class="warning">
 					Please enter a number between 5 and 30.
@@ -150,7 +152,7 @@
 			</div>
 			
 			<div class="form-item">
-				<label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
+				<label for="columns" style="color: rgb(194, 166, 166);">Columns : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="columns" min="5" max="30" placeholder="Enter number of columns:" />
 				<span id="columns-warning" class="warning">
 					Please enter a number between 5 and 30.
@@ -158,7 +160,7 @@
 			</div>
 			
 			<div class="form-item">
-				<label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
+				<label for="players-count" style="color: rgb(219, 188, 188);">Players : <span class="details">(between 2 and 6)</span></label>
 				<input type="number" id="players-count" min="2" max="6" placeholder="Enter number of players:" />
 				<span id="players-warning" class="warning">
 					Please enter a number between 2 and 6.
@@ -193,11 +195,15 @@
 		<button class="theme-option" data-video="back5.mp4">Beach</button> 
     </div>
    <!-- Background Videos -->
-   <video autoplay loop muted plays-inline class="back" id="background-video">
+   <!-- <video autoplay loop muted plays-inline class="back" id="background-video">
 	<source src="./background/back4.mp4" type="video/mp4">
-</video>
+</video> -->
+     <div class="footer">
+		<h3>&copy All Right Reserved</h3>
+	</div>
 
 	<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+	
 
 </body>
 

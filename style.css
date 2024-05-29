@@ -48,7 +48,7 @@ a {
 .box {
 	position: relative;
 	aspect-ratio: 1/1;
-	transition: background 500ms;
+	transition: 500ms;
 }
 
 .box.filled::after {
@@ -367,4 +367,10 @@ h1 {
 	color: red;
 	position: relative;
 	padding: 5px;
+}
+.footer {
+	background-color: #f6f6f6;
+	width: 50%;
+	height: 10px;
+	color: #000;
 }
