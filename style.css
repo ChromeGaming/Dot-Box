@@ -2,7 +2,7 @@
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
-    --edge-thickness: 5px;
+    --edge-thikness: 5px;
 }
 
 * {
@@ -103,13 +103,13 @@ a {
 
 .edge.left,
 .edge.right {
-    width: var(--edge-thickness);
+    width: var(--edge-thikness);
     height: var(--edge-length);
 }
 
 .edge.top,
 .edge.bottom {
-    height: var(--edge-thickness);
+    height: var(--edge-thikness);
     width: var(--edge-length);
 }
 
@@ -265,18 +265,16 @@ h1 {
     inset: 0;
     z-index: 20;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-right: 10%;
-    width: 100%;
-    height: 100%;
+    overflow: auto;
 }
 
 .settings .form {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    width: 100%;
     max-width: 550px;
     padding: 1rem;
     font-size: 20px;
@@ -292,8 +290,9 @@ h1 {
 .settings .form-item input {
     border-radius: 3px;
     padding: 0.4rem 0.2rem;
-    font-weight: bold;
-    font-size: larger;
+    font-weight: lighter;
+    font-size: smaller;
+    font-style: italic;
 }
 
 .settings .form-item .details {
@@ -363,6 +362,15 @@ h1 {
     color: #fff;
 }
 
+/* The message box is shown when the user clicks on the input field */
+.warning {
+    display: none;
+    font-size: 18px;
+    color: red;
+    position: relative;
+    padding: 5px;
+}
+
 /* Rankings table styles */
 .rankings {
     position: absolute;
@@ -404,36 +412,61 @@ h1 {
 
 #ranking {
     border-collapse: collapse;
-    width: 50%;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 90%;
+    max-width: 600px;
 }
 
-#ranking thead {
+#ranking th, #ranking td {
+    text-align: left;
+    padding: 8px;
+}
+
+#ranking th {
     background-color: #4CAF50;
     color: white;
-    text-align: left;
 }
 
-#ranking thead th {
-    padding: 10px;
+#ranking tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ranking tr:hover {
+    background-color: #ddd;
+}
+
+#ranking td:first-child {
+    font-weight: bold;
+}
+
+#ranking th:first-child {
+    border-top-left-radius: 10px;
+}
+
+#ranking th:last-child {
+    border-top-right-radius: 10px;
+}
+
+#ranking tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+#ranking tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
 }
 
 .exit-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: #ff0000;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	padding: 10px 20px;
+	background-color: #ff0000;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 .exit-btn:hover {
-    background-color: #cc0000;
+	background-color: #cc0000;
 }
