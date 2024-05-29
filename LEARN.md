@@ -2,6 +2,7 @@
 
 Welcome to the Dot-Box Game project! This guide will help you understand the game, its rules, and how to make the most of this project. Whether you're a beginner or an experienced developer, we hope you find this project engaging and educational.
 
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Game Rules](#game-rules)
