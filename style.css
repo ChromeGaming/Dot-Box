@@ -11,6 +11,14 @@
 	box-sizing: border-box;
 	text-decoration: none;
 }
+.start-btn:hover {
+    background-color: grey;
+    color: #f6f6f6;
+    border: 1px solid #f6f6f6; 
+    transition: background-color 0.3s, color 0.3s, border 0.3s; 
+}
+
+
 
 body {
 	font-family: monospace;
