@@ -77,7 +77,7 @@ class Game {
         this.updatePlayerNameUI();
     }
 
-    // If a box if filled, increment player's score with number of boxes filled by him/her and update UI
+    // If a box is filled, increment player's score with number of boxes filled by him/her and update UI
     onBoxFill() {
         this.currentPlayer.filledBoxes++
         this.updatePlayerScoreUI();
@@ -212,38 +212,73 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const rowsWarning = document.querySelector("#rows-warning");
+const columnsWarning = document.querySelector("#columns-warning");
+const playersWarning = document.querySelector("#players-warning");
 var game = null
 
-startBtn.addEventListener("click", () => {
-    bgMusic.volume = 0.1;
-    bgMusic.play();
-    const rows = calculate(rowsInput.value, 5, 30)
-    const columns = calculate(columnsInput.value, 5, 30)
-    const playersCount = calculate(playersInput.value, 2, 6)
+// Get warning elements
+const warnings = [rowsWarning, columnsWarning, playersWarning];
 
-    game = new Game(rows, columns, playersCount)
-    settingsUI.style.display = "none"
-    heading.style.display = "none"
-    document.getElementById('theme-options').style.display = 'none';
-    document.getElementById('theme-button').style.display = 'none';
+// Add event listeners to input fields to remove warnings when user starts entering input again
+rowsInput.addEventListener("focus", () => {
+    rowsWarning.style.display = "none";
 });
 
-function calculate(value, min, max) {
-    return Math.min(Math.max(value, min), max)
-}
+columnsInput.addEventListener("focus", () => {
+    columnsWarning.style.display = "none";
+});
 
-function startGame() {
-    const rows = parseInt(document.getElementById('rows').value);
-    const columns = parseInt(document.getElementById('columns').value);
-    const playersCount = parseInt(document.getElementById('players-count').value);
+playersInput.addEventListener("focus", () => {
+    playersWarning.style.display = "none";
+});
 
-    if (isNaN(rows) || isNaN(columns) || isNaN(playersCount) || rows < 5 || rows > 30 || columns < 5 || columns > 30 || playersCount < 2 || playersCount > 6) {
-        alert('Please enter valid values for rows, columns between 5 and 30. players between 2 to 6');
-        window.location.reload();
-        return; // Don't start the game if inputs are invalid
+startBtn.addEventListener("click", () => {
+
+    // Get values of inputs
+    const rows = parseInt(rowsInput.value);
+    const columns = parseInt(columnsInput.value);
+    const playersCount = parseInt(playersInput.value);
+
+    const inputValues = [rows, columns, playersCount];
+
+    // Getting validity of inputs
+    let validGame = validateForm(inputValues);
+
+    // If any input is invalid, prevent starting the game
+    if (validGame === true) {
+        // Set background music volume and play
+        bgMusic.volume = 0.1;
+        bgMusic.play();
+
+        // Start game with valid inputs
+        game = new Game(rows, columns, playersCount);
+        settingsUI.style.display = "none";
+        heading.style.display = "none";
+        document.getElementById("theme-options").style.display = "none";
+        document.getElementById("theme-button").style.display = "none";
     }
+});
+
+function validateForm(inputValues) {
+    let valid = true;
+
+    for (let i = 0; i < 3; i++) {
+        let value = inputValues[i];
+        let warning = warnings[i];
+
+        let min = (i === 2) ? 2 : 5;
+        let max = (i === 2) ? 6 : 30;
+
+        if (value == null || value < min || value > max) {
+            warning.style.display = "block";
+            valid = false;
+        }
+    }
+
+    return valid;
 }
 
 function exitGame() {
     window.location.reload();
-}
+};
