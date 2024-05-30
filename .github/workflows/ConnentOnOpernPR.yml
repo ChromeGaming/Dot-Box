@@ -1,0 +1,29 @@
+name: PR Comment
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Comment on PR
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { context, github } = require('@actions/github');
+            const prNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const message = 'Thanks for opening this pull request! We will review it soon.';
+
+            github.issues.createComment({
+              owner,
+              repo,
+              issue_number: prNumber,
+              body: message
+            });
