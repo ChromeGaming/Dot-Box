@@ -1,0 +1,25 @@
+name: Auto Greeting
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add a greeting comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueComment = `Hey @${context.payload.issue.user.login}! 👋 \n\n 👉 Thanks for opening this issue. We appreciate your contribution and will look into it as soon as possible. \n 👉 Don’t forget to star our [Dot-Box](https://github.com/GameSphere-MultiPlayer/Dot-Box) and Follow Us on GitHub \n 👉 Make sure you join our [Discord](https://discord.gg/rZb46cCMmK), we have created separate channels for all projects`;
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: issueComment
+            });
