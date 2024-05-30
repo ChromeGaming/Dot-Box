@@ -162,6 +162,23 @@ class Game {
 	}
 }
 
+// Selecting the mute button and icon
+const muteBtn = document.querySelector(".mute-btn");
+const muteIcon = document.querySelector(".mute-btn i");
+
+// Event listener for mute button
+muteBtn.addEventListener("click", () => {
+	if (bgMusic.paused) {
+		bgMusic.play();
+		muteIcon.classList.remove("fa-volume-off"); // Remove mute icon
+		muteIcon.classList.add("fa-volume-up");    // Add unmute icon
+	} else {
+		bgMusic.pause();
+		muteIcon.classList.remove("fa-volume-up");  // Remove unmute icon
+		muteIcon.classList.add("fa-volume-off");   // Add mute icon
+	}
+});
+
 // Declaring Global Variables
 players = ["","","","","",""]
 const settingsUI = document.querySelector(".settings")
@@ -172,6 +189,7 @@ const readyBtn = document.querySelector(".ready-btn")
 const startBtn = document.querySelector(".true-start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
+
 
 var game = null
 
@@ -204,6 +222,95 @@ startBtn.addEventListener("click", () => {
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
+=======
+var game = null;
+const rowsWarning = document.querySelector("#rows-warning");
+const columnsWarning = document.querySelector("#columns-warning");
+const playersWarning = document.querySelector("#players-warning");
+var game = null
+
+
+// get warning elements
+const warnings = [rowsWarning, columnsWarning, playersWarning];
+
+// Add event listeners to input fields to remove warnings when user starts entering input again
+rowsInput.addEventListener("focus", () => {
+	rowsWarning.style.display = "none";
+});
+
+columnsInput.addEventListener("focus", () => {
+	columnsWarning.style.display = "none";
+});
+
+playersInput.addEventListener("focus", () => {
+	playersWarning.style.display = "none";
+});
+
+startBtn.addEventListener("click", () => {
+
+	// Get values of inputs
+	const rows = parseInt(rowsInput.value);
+	const columns = parseInt(columnsInput.value);
+	const playersCount = parseInt(playersInput.value);
+
+	const inputValues = [rows, columns, playersCount];
+
+	// getting validity of inputs
+	let validGame = validateForm(inputValues);
+
+	// If any input is invalid, prevent starting the game
+	if (validGame === true) {
+		// Set background music volume and play
+		bgMusic.volume = 0.1;
+		bgMusic.play();
+
+		//start game with valid inputs
+		game = new Game(rows, columns, playersCount);
+		settingsUI.style.display = "none";
+		heading.style.display = "none";
+		document.getElementById("theme-options").style.display = "none";
+		document.getElementById("theme-button").style.display = "none";
+	}
+});
+
+
+function validateForm(inputValues) {
+	let valid = true;
+
+	for (let i = 0; i < 3; i++) {
+		let value = inputValues[i];
+		let warning = warnings[i];
+
+		let min = (i===2) ? 2 : 5;
+		let max = (i===2) ? 6 : 30;
+
+		if (value == null || value < min || value > max) {
+			warning.style.display = "block";
+			valid = false;
+		}
+	}
+
+	return valid;
+}
+
+
+
+var game = null;
+
+function startGame() {
+	const rows = parseInt(document.getElementById('rows').value);
+	const columns = parseInt(document.getElementById('columns').value);
+	const playersCount = parseInt(document.getElementById('players-count').value);
+
+	if (isNaN(rows) || isNaN(columns) || isNaN(playersCount) || rows < 5 || rows > 30 || columns < 5 || columns > 30 || playersCount < 2 || playersCount > 6) {
+		alert('Please enter valid values for rows, columns between 5 and 30. players between 2 to 6');
+		window.location.reload();
+		return; // Don't start the game if inputs are invalid
+	}
+}
+
+function exitGame() {
+	window.location.reload();
 }
 
 

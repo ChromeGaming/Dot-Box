@@ -20,6 +20,8 @@ body {
 	display: grid;
 	place-items: center;
 	max-height: 100vh;
+	background-color: wheat;
+
 }
 
 a {
@@ -37,6 +39,8 @@ a {
 	display: grid;
 	width: 60vh;
 	max-height: 60vh;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Default box shadow */
+
 }
 
 @media screen and (max-width: 720px) {
@@ -207,7 +211,7 @@ a {
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.864);
 	padding-top: 10px;
-	border-top: solid 1px #f9f9f9;
+
 }
 
 .player-turn .bg {
@@ -262,15 +266,21 @@ h1 {
 
 .settings {
 	position: absolute;
-	background: #fdfdfd;
+	background: wheat;
 	inset: 0;
 	z-index: 20;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+
+	align-items: space-between;
 	margin-right: 10%;
 	width: 100%;
 	height: 100%;
+
+	align-items: center;
+	overflow: auto;
+
 }
 
 .settings .info {
@@ -297,10 +307,10 @@ h1 {
 
 
 .settings .form {
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
-	width: 100%;
 	max-width: 550px;
 	padding: 1rem;
 	font-size: 20px;
@@ -316,15 +326,15 @@ h1 {
 .settings .form-item input {
 	border-radius: 3px;
 	padding: 0.4rem 0.2rem;
-	font-weight: bold;
-	font-size: larger;
+	font-weight: lighter;
+	font-size: smaller;
+	font-style: italic;
 }
 
 .settings .form-item .details {
 	font-style: italic;
-	color: #999;
+	color: #000;
 	font-size: 15px;
-
 }
 
 .settings button {
@@ -333,7 +343,7 @@ h1 {
 	padding: 0.8rem;
 	font-weight: bold;
 	border: none;
-	background: #333;
+	background: #000;
 	color: #fff;
 	cursor: pointer;
 	letter-spacing: 4px;
@@ -346,6 +356,156 @@ h1 {
 .settings button:active {
 	background: rgb(70, 70, 70);
 }
+
+/* styles for dark mode toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* styles for checkbox inside dark mode toggle */
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+/* styles for label inside dark mode toggle */
+.dark-mode-toggle label {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* styles for pseudo-element before label inside dark mode toggle */
+.dark-mode-toggle label:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+    background-color: #f5f3f4;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label:before {
+    transform: translateX(20px) translateY(-50%);
+    background-color: #000;
+}
+
+/* styles for elements in dark mode settings */
+body.dark-mode .settings {
+    background-color: #252422;
+    color: #f5f3f4;
+}
+
+/* styles for various elements in dark mode */
+body.dark-mode .instructions,
+body.dark-mode .form-item label,
+body.dark-mode .form-item input {
+    color: #f5f3f4;
+}
+
+/* styles for input in dark mode */
+body.dark-mode .form-item input {
+    background-color: #333;
+    color: #f5f3f4;
+}
+
+/* styles for start button */
+.start-btn {
+    background: #333;
+    color: #f5f3f4;
+}
+
+/* hover styles for start button */
+.start-btn:hover {
+    background: rgb(75, 75, 75);
+}
+
+/* active styles for start button */
+.start-btn:active {
+    background: rgb(70, 70, 70);
+}
+
+/* default styles for heading */
+.heading {
+    color: black;
+}
+
+/* styles for heading in dark mode */
+body.dark-mode .heading {
+    color: white;
+}
+
+
+
+/* dark mode for game after started */
+body.dark-mode .board {
+    background-color: #252422; 
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+
+}
+
+body.dark-mode {
+    background-color: #252422;
+	color: white;
+}
+
+
+body.dark-mode .edge:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .edge:active {
+    background-color: rgba(255, 255, 255, 1); 
+}
+=======
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
 .back{
 	position: absolute;
 	right: 0;
@@ -365,4 +525,49 @@ h1 {
 		width: auto;
 		height: 100%;
 	}
+}
+
+
+.exit-btn {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	padding: 10px 20px;
+	background-color: #ff0000;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.exit-btn:hover {
+	background-color: #cc0000;
+}
+.mute-btn {
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.mute-btn i {
+	color: #ffffff;
+	font-size: 24px;
+	transition: color 0.3s ease;
+}
+
+.mute-btn:hover i {
+	color: #fff;
+}
+
+/* The message box is shown when the user clicks on the input field */
+.warning {
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
+
 }
