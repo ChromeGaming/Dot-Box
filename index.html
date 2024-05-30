@@ -7,12 +7,19 @@
 
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+	<link rel="stylesheet" href="theme.css" />
+	<link rel="stylesheet" href="sticky sidebar/styles/style.css">
 
 	<!-- JavaScript files -->
 	<script defer src="./js/edge.js"></script>
 	<script defer src="./js/box.js"></script>
 	<script defer src="./js/board.js"></script>
 	<script defer src="./js/game.js"></script>
+	<script defer src="./js/theme.js"></script>
+	<script defer src="sticky sidebar/app.js"></script>
 
 	<!-- Logo of the game -->
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
@@ -22,8 +29,23 @@
 </head>
 
 <body>
+	<div class="preloader">
+		<div class="circle"></div>
+	</div>
+	<script>
+		window.addEventListener("load", () => {
+		    const preloader = document.querySelector(".preloader");
+		    preloader.style.opacity = "0";
+		    preloader.style.visibility = "hidden";
+		    // Wait for the transition to complete before removing the preloader
+		    setTimeout(() => {
+		      preloader.remove();
+		    }, 1000); // Adjust the timeout duration as needed
+		});
+	</script>
 	<!-- Setting Page -->
 	<div class="settings">
+
 		<div class="form margin-top: 100px">
 			<h1 class="heading"
 				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
@@ -63,23 +85,57 @@
 			<div class="form-item">
 				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="columns" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-				<input type="number" id="players-count" min="2" max="6" value="2" />
-			</div>
-			
-			<button class="start-btn">START</button>
+
+		<video autoplay loop muted plays-inline class="back">
+			<source src="./back.mp4" type="video/mp4">
+		</video>
+		<div class="form">
 
 		</div>
-		
+		<!-- Start of the sticky side bar for socials -->
+		<div class="controls">
+			<li class="control control-1" data-id="instagram"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>	
+			<li class="control control-2" data-id="discord"><a href="#"><i class="fa-brands fa-discord"></i></a></li>	
+			<li class="control control-3" data-id="twitter"><a href="https://twitter.com/durgesh4993"><i class="fa-brands fa-x-twitter"></i></a></li>	
+			<li class="control control-4" data-id="linkedin"><a href="https://www.linkedin.com/in/durgesh4993/"><i class="fa-brands fa-linkedin"></i></a></li>	
+	    </div>
+		<!-- End of the sticky side bar for socials -->
 
+		<div class="overlay-container">
+			<!-- Form page -->
+			<div class="form">
+				<div>
+					<h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
+				</div>
+				
+				<div class="form-item">
+					<label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
+					<input type="number" id="rows" min="5" max="30" value="6" />
+					<span id="rows-warning" class="warning">
+						Please enter a number between 5 and 30.
+					</span>
+				</div>
+				
+				<div class="form-item">
+					<label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
+					<input type="number" id="columns" min="5" max="30" value="6" />
+					<span id="columns-warning" class="warning">
+						Please enter a number between 5 and 30.
+					</span>
+				</div>
+				
+				<div class="form-item">
+					<label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
+					<input type="number" id="players-count" min="2" max="6" value="2" />
+					<span id="players-warning" class="warning">
+						Please enter a number between 2 and 6.
+					</span>
+				</div>
+				
+				<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+
+			</div>
+		</div>
 	</div>
 		<!-- Players -->
 	<div class="players" style="margin-top: 20px;"></div>
@@ -107,6 +163,25 @@
 </footer>
 
 
+	<!-- Game Page -->
+	<div class="board" style="margin-top: 154px;"></div>
+	<div>
+		<button id="theme-button" class="theme-btn">Change Theme</button>
+		<div id="theme-options" class="hidden">
+			<button class="theme-option" data-video="back.mp4">Starry Night</button>
+			<button class="theme-option" data-video="back2.mp4">Aurora</button>
+			<button class="theme-option" data-video="back3.mp4">Waterfall</button>
+			<button class="theme-option" data-video="back4.mp4">Garden</button>
+			<button class="theme-option" data-video="back5.mp4">Beach</button> 
+		</div>
+		<!-- Background Videos -->
+		<video autoplay loop muted plays-inline class="back" id="background-video">
+			<source src="./background/back4.mp4" type="video/mp4">
+		</video>
+
+
+		<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+	</div>
 </body>
 
 </html>
