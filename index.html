@@ -26,75 +26,6 @@
 
 	<!-- Title of the game -->
 	<title>Dots & Boxes Game</title>
-	<style>
-		.preloader {
-		  position: fixed;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		  background: black; 
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  z-index: 9999; /* Ensure the preloader is above all other content */
-		}
-		.circle {
-		  width: 200px; 
-		  height: 200px;
-		  background-color: black;
-		  border-radius: 50%;
-		  animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
-		  box-shadow: 0 0 20px 10px black; /* Adjusted shadow values */
-		}
-
-		.circle:before {
-		    content: "";
-		    position: absolute;
-		    top: 5px;
-		    left: 5px;
-		    right: 5px;
-		    bottom: 5px;
-		    border-radius: 50%;
-		    border: 3px solid transparent;
-		    border-top-color: rgb(87, 123, 141);
-		    animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
-		}
-
-		.circle:after {
-		    content: "";
-		    position: absolute;
-		    top: 15px;
-		    left: 15px;
-		    right: 15px;
-		    bottom: 15px;
-		    border-radius: 50%;
-		    border: 3px solid transparent;
-		    border-top-color: rgb(59, 141, 182);
-		    animation: circleAnimation 2s infinite linear, glowingBorder 2s infinite linear;
-		}
-
-		@keyframes circleAnimation {
-		  0% {
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    transform: rotate(360deg);
-		  }
-		}
-
-		@keyframes glowingBorder {
-		  0% {
-		    box-shadow: 0 0 20px 10px rgb(36, 138, 188); /* Adjusted shadow values */
-		  }
-		  50% {
-		    box-shadow: 0 0 40px 20px rgb(62, 135, 171); /* Adjusted shadow values */
-		  }
-		  100% {
-		    box-shadow: 0 0 20px 10px rgb(87, 123, 141); /* Adjusted shadow values */
-		  }
-		}
-	</style>
 </head>
 
 <body>
@@ -118,24 +49,7 @@
 			<source src="./back.mp4" type="video/mp4">
 		</video>
 		<div class="form">
-			<div class="overlay-container">
-				<h1 class="heading"
-					style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
-					▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
-				</h1>
 
-				<h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
-
-				<p class="instructions" style="color: rgb(211, 211, 211);">
-					<br>
-					1. Select the number of rows, columns and players. <br>
-					2. The player who has maximum number of boxes on board is the winner. <br>
-					3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-					chance
-					consecutively. <br>
-				</p>
-
-			</div>
 		</div>
 		<!-- Start of the sticky side bar for socials -->
 		<div class="controls">
