@@ -357,6 +357,8 @@ h1 {
 	background: rgb(70, 70, 70);
 }
 
+.back {
+
 /* styles for dark mode toggle */
 .dark-mode-toggle {
     position: fixed;
@@ -514,14 +516,14 @@ body.dark-mode .edge:active {
 	bottom: 0;
 	z-index: -1;
 }
-@media(min-aspect-ratio:16/9){
-	.back{
+@media (min-aspect-ratio: 16/9) {
+	.back {
 		width: 100%;
 		height: auto;
 	}
 }
-@media(max-aspect-ratio:16/9){
-	.back{
+@media (max-aspect-ratio: 16/9) {
+	.back {
 		width: auto;
 		height: 100%;
 	}
