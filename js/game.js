@@ -51,7 +51,7 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
+
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
@@ -162,26 +162,22 @@ class Game {
 
 // Declaring Global Variables
 
-const settingsUI = document.querySelector(".settings")
-const rowsInput = document.querySelector("#rows")
-const columnsInput = document.querySelector("#columns")
-const playersInput = document.querySelector("#players-count")
-const startBtn = document.querySelector(".start-btn")
-const heading = document.querySelector(".heading")
+const rowsInput = Number(localStorage.getItem("rows"));
+const columnsInput = Number(localStorage.getItem("columns"));
+const playersInput = Number(localStorage.getItem("players"));
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
 var game = null
 
-startBtn.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
 	bgMusic.play();
-	const rows = calculate(rowsInput.value, 5, 30)
-	const columns = calculate(columnsInput.value, 5, 30)
-	const playersCount = calculate(playersInput.value, 2, 6)
-
+	
+	const rows = calculate(rowsInput, 5, 30)
+	const columns = calculate(columnsInput, 5, 30)
+	const playersCount = calculate(playersInput, 2, 6)
 
 	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
+
 });
 
 function calculate(value, min, max) {
