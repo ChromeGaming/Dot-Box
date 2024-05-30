@@ -20,6 +20,8 @@ body {
 	display: grid;
 	place-items: center;
 	max-height: 100vh;
+	background-color: wheat;
+
 }
 
 a {
@@ -209,7 +211,7 @@ a {
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.864);
 	padding-top: 10px;
-	border-top: solid 1px #f9f9f9;
+
 }
 
 .player-turn .bg {
@@ -264,22 +266,28 @@ h1 {
 
 .settings {
 	position: absolute;
-	background: #fdfdfd;
+	background: wheat;
 	inset: 0;
 	z-index: 20;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+
+	align-items: space-between;
 	margin-right: 10%;
 	width: 100%;
 	height: 100%;
+
+	align-items: center;
+	overflow: auto;
+
 }
 
 .settings .form {
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
-	width: 100%;
 	max-width: 550px;
 	padding: 1rem;
 	font-size: 20px;
@@ -295,15 +303,15 @@ h1 {
 .settings .form-item input {
 	border-radius: 3px;
 	padding: 0.4rem 0.2rem;
-	font-weight: bold;
-	font-size: larger;
+	font-weight: lighter;
+	font-size: smaller;
+	font-style: italic;
 }
 
 .settings .form-item .details {
 	font-style: italic;
-	color: #999;
+	color: #000;
 	font-size: 15px;
-
 }
 
 .settings button {
@@ -312,7 +320,7 @@ h1 {
 	padding: 0.8rem;
 	font-weight: bold;
 	border: none;
-	background: #333;
+	background: #000;
 	color: #fff;
 	cursor: pointer;
 	letter-spacing: 4px;
@@ -435,4 +443,91 @@ body.dark-mode .edge:hover {
 
 body.dark-mode .edge:active {
     background-color: rgba(255, 255, 255, 1); 
+}
+=======
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+.back{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+}
+@media(min-aspect-ratio:16/9){
+	.back{
+		width: 100%;
+		height: auto;
+	}
+}
+@media(max-aspect-ratio:16/9){
+	.back{
+		width: auto;
+		height: 100%;
+	}
+}
+
+.mute-btn {
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.mute-btn i {
+	color: #ffffff;
+	font-size: 24px;
+	transition: color 0.3s ease;
+}
+
+.mute-btn:hover i {
+	color: #fff;
+}
+
+/* The message box is shown when the user clicks on the input field */
+.warning {
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
+
 }
