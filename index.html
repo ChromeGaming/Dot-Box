@@ -45,6 +45,47 @@
 	</script>
 	<!-- Setting Page -->
 	<div class="settings">
+
+		<div class="form margin-top: 100px">
+			<h1 class="heading"
+				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+				▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+			</h1>
+
+			<h3 class="instructions-heading">Instructions</h3>
+
+			<p class="instructions">
+				1. Select the number of rows, columns and players. <br>
+				2. The player who has maximum number of boxes on board is the winner. <br>
+				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
+				chance
+				consecutively. <br>
+			</p>
+
+		</div>
+		
+	<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Dots & Boxes Game. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+
+		<!-- Form page -->
+		<div class="form">
+			<div>
+				<h2>What size of Board do you want? :</h2>
+			</div>
+			
+			<div class="form-item">
+				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+				<input type="number" id="rows" min="5" max="30" value="6" />
+
 		<video autoplay loop muted plays-inline class="back">
 			<source src="./back.mp4" type="video/mp4">
 		</video>
@@ -92,18 +133,35 @@
 				</div>
 				
 				<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+
 			</div>
 		</div>
 	</div>
-
-	<!-- Players -->
-	<div class="players" style="margin-top: 50px;"></div>
+		<!-- Players -->
+	<div class="players" style="margin-top: 20px;"></div>
 
 	<div class="player-turn">
-		<div class="bg" style="margin-top: 60px;">
+		<div class="bg" style="margin-top: 10px;">
 			<span class="name">PlayerX</span>'s turn
 		</div>
 	</div>
+   
+<!-- Game Page -->
+	<div class="board" style="margin-top: 130px; margin-bottom: 154px;"></div>
+
+
+	<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Dots & Boxes Game. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+
 
 	<!-- Game Page -->
 	<div class="board" style="margin-top: 154px;"></div>
@@ -120,6 +178,7 @@
 		<video autoplay loop muted plays-inline class="back" id="background-video">
 			<source src="./background/back4.mp4" type="video/mp4">
 		</video>
+
 
 		<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
 	</div>
