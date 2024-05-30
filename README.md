@@ -158,50 +158,44 @@ ________________________________________________________________________________
 
 7. On the pull request page, you can review your changes and add any additional information, such as a title and a description, that you want to include with your pull request.
 
-8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
-
-**Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
-
-__________________________________________________________________________________________________________________________________________________________________
-
-<!-- Open Source Programs -->
-  <div>
-    <h2><img src="https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/blob/master/Emojis/Hand%20gestures/Flexed%20Biceps.png?raw=true" width="35" height="35" >Open Source Programs</h2>
-  </div>
-
-  This project is part of GirlScript Summer of Code. We welcome contributions from the community to help enhance Dot-Box.
-  
+# __Dots and Boxes Game__
 ![Community](https://github.com/GameSphere-MultiPlayer/Physi-c-Tech/assets/98798977/e79af9da-814e-487e-8a9a-85947384d3b2)
 
-<hr>
 
+---
 
-<!-- Code of conduct -->
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
-</div>
+<br>
 
-Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+## **Description 📃**
+- It is a multiplayer game.
+- Based on the lines connected, the boxes would be coloured.
+- The one with maximum number of boxes would be the winner.
 
-<hr>
+<br>
 
-<!-- License -->
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License</h2>
-</div>
+## **Functionalities 🎮**
+- It is a multiplayer game.
+- The player has to select the lines. The one with the line at the last would fill the connecting boxes.
+- The player with the maximum boxes covered would be the winner.
+- The size of the board can be adjustable by user.
+- Players will switch after every turn. But the player who has filled the last box, will get one extra chance consecutively.
 
-This project is licensed under the [MIT License](./LICENSE)
+<br>
 
-<hr>
- <!-- Cotributors -->
-<div>
-  <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35"> Contributors</h2>
-</div>
+## **How to play? 🕹️**
 
-Thank you for contributing to our project! Your help is greatly appreciated in making Dot-Box even better. 😊
+- User has to click on edge in such a way that it will maximise the number of boxes based on the lines connected and the number of adjacent boxes.
 
-<center>
-<a href="https://github.com/GameSphere-MultiPlayer/Dot-Box/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GameSphere-MultiPlayer/Dot-Box" />
-</a>
-</center>
+<br>
+
+## **Screenshots 📸**
+
+![Screenshot](https://github.com/GameSphere-MultiPlayer/GameSphere/assets/114330097/0dbdfbc6-7a84-48e4-ad34-2185f790a146)
+
+<br>
+
+## **Working video 📹**
+
+https://github.com/GameSphere-MultiPlayer/GameSphere/assets/114330097/293120ab-b1f0-48a8-af15-c05d49c65763
+
+<br>

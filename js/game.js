@@ -230,4 +230,18 @@ startBtn.addEventListener("click", () => {
 
 function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max)
+	bgMusic.volume = 0.1;
+	bgMusic.play();
+	const rows = calculate(rowsInput.value, 5, 30)
+	const columns = calculate(columnsInput.value, 5, 30)
+	const playersCount = calculate(playersInput.value, 2, 6)
+
+
+	game = new Game(rows, columns, playersCount)
+	settingsUI.style.display = "none"
+	heading.style.display = "none"
+});
+
+function calculate(value, min, max) {
+	return Math.min(Math.max(value, min), max)
 }
