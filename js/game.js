@@ -1,13 +1,15 @@
+
 class Game {
 	static instance //Singleton instance of Game class
 
-	constructor(rows, columns, playersCount) {
+	constructor(rows, columns, playersCount,  timeLimit) {
 		if (Game.instance == null) Game.instance = this
 
 		this.playersUI = document.querySelector(".players")
 		this.playerNameUI = document.querySelector(".player-turn .name")
 		this.playerTurnBgUI = document.querySelector(".player-turn .bg")
-
+		this.timerInterval=document.querySelector(".time");
+	
 		this.events = {
 			edgeFill: [],
 			boxFill: [],
@@ -35,17 +37,23 @@ class Game {
 
 		this.isGameover = false
 
+		this.timeLimit = timeLimit; // Time limit in milliseconds
+        
+
 		this.addPlayersUI()
-		this.updatePlayerNameUI()
+		this.updatePlayerNameUI()		
 
 		//Adding event listeners for filling box, switching player and winning
 		this.addEventListener("boxFill", () => this.onBoxFill())
 		this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
 		this.addEventListener("playerWin", () => this.onPlayerWin())
+
+		this.updateTimer(() => this.switchPlayer());
 	}
 
 	//End Game
 	onPlayerWin() {
+		
 		this.isGameover = true
 
 		bgMusic.pause();
@@ -150,12 +158,44 @@ class Game {
 		this.events[event].forEach((callback) => callback(args))
 	}
 
+	updateTimer() {
+		clearInterval(timerInterval); // Clear any existing interval
+		
+		const timerElement = document.querySelector('.time');
+		let seconds = 0;
+		let minutes = 1; 
+		
+		// Update the timer every second
+		timerInterval= setInterval(() => {
+			if (minutes === 0 && seconds === 0) {
+				clearInterval(timerInterval); 
+				timelimitBtn.classList.add('active');
+				setTimeout(() => {
+					timelimitBtn.classList.remove('active');
+					updateTimer();
+				}, 3000);
+				this.switchPlayer();
+			} else {
+				if (seconds === 0) {
+					minutes--;
+					seconds = 59;
+				} else {
+					seconds--;
+				}
+				const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+				timerElement.textContent = formattedTime;
+			}
+		}, 1000);
+		}
+		
+		
 	//Switch player
 	switchPlayer() {
 		if (!this.isGameover) {
 			this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length
 			this.currentPlayer = this.players[this.currentPlayerIndex]
 			this.invokeEvent("playerSwitch")
+			this.updateTimer();
 		}
 	}
 }
@@ -177,13 +217,48 @@ startBtn.addEventListener("click", () => {
 	const rows = calculate(rowsInput.value, 5, 30)
 	const columns = calculate(columnsInput.value, 5, 30)
 	const playersCount = calculate(playersInput.value, 2, 6)
-
-
-	game = new Game(rows, columns, playersCount)
-	settingsUI.style.display = "none"
-	heading.style.display = "none"
+	
+	const timeLimit=60000;
+    
+		game = new Game(rows, columns, playersCount,timeLimit)
+		
+		settingsUI.style.display = "none"
+		heading.style.display = "none"
 });
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
 }
+
+ // Function to update the timer
+const timelimitBtn= document.querySelector('.timelimit');
+let timerInterval= document.querySelector('.time')
+function updateTimer() {
+	clearInterval(timerInterval);
+	
+	const timerElement = document.querySelector('.time');
+	let seconds = 0;
+	let minutes = 1; 
+	timerInterval= setInterval(() => {
+		if (minutes === 0 && seconds === 0) {
+			clearInterval(timerInterval); 
+			timelimitBtn.classList.add('active');
+			setInterval(() => {
+				timelimitBtn.classList.remove('active');
+				updateTimer();
+			},3000);
+			this.switchPlayer();
+		} else {
+			if (seconds === 0) {
+				minutes--;
+				seconds = 59;
+			} else {
+				seconds--;
+			}
+			const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+			timerElement.textContent = formattedTime;
+		}
+	}, 1000);
+	}
+
+	
