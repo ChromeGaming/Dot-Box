@@ -14,7 +14,7 @@
 
 body {
     font-family: monospace;
-    background: #f6f6f6;
+    background: rgb(213, 87, 106);
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -33,7 +33,7 @@ a {
 }
 
 .board {
-    background: #fcfcfc;
+    background: rgb(252, 78, 104);
     display: grid;
     width: 60vh;
     max-height: 60vh;
@@ -261,7 +261,7 @@ h1 {
 
 .settings {
     position: absolute;
-    background: #fdfdfd;
+    background: rgb(213, 87, 106);
     inset: 0;
     z-index: 20;
     display: flex;
@@ -307,18 +307,18 @@ h1 {
     padding: 0.8rem;
     font-weight: bold;
     border: none;
-    background: #333;
+    background: rgb(114, 0, 8);
     color: #fff;
     cursor: pointer;
     letter-spacing: 4px;
 }
 
 .settings button:hover {
-    background: rgb(75, 75, 75);
+    background: rgb(196, 2, 15);
 }
 
 .settings button:active {
-    background: rgb(70, 70, 70);
+    background: rgb(114, 0, 8);
 }
 
 .back {
@@ -459,7 +459,7 @@ h1 {
     top: 10px;
     left: 10px;
     padding: 10px 20px;
-    background-color: #ff0000;
+    background: rgb(114, 0, 8);
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -468,5 +468,5 @@ h1 {
 }
 
 .exit-btn:hover {
-    background-color: #cc0000;
+    background: rgb(196, 2, 15);
 }
