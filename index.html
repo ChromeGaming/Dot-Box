@@ -1,125 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="style.css" />
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="style.css" />
+		<!-- JavaScript files -->
+		<script defer src="./js/edge.js"></script>
+		<script defer src="./js/box.js"></script>
+		<script defer src="./js/board.js"></script>
+		<script defer src="./js/game.js"></script>
 
-	<!-- JavaScript files -->
-	<script defer src="./js/edge.js"></script>
-	<script defer src="./js/box.js"></script>
-	<script defer src="./js/board.js"></script>
-	<script defer src="./js/game.js"></script>
+		<!-- Logo of the game -->
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
-	<!-- Logo of the game -->
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<!-- Title of the game -->
+		<title>Dots & Boxes Game</title>
+	</head>
 
-	<!-- Title of the game -->
-	<title>Dots & Boxes Game</title>
-</head>
+	<body>
+		<!-- Setting Page -->
+		<div class="settings">
+			<div class="form">
+				<h1
+					class="heading"
+					style="
+						font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+							'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+					"
+				>
+					▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+				</h1>
 
-<body>
-	<!-- Setting Page -->
-	<div class="settings">
-		<div class="form">
-			<h1 class="heading"
-				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-				▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
-			</h1>
+				<h3 class="instructions-heading">Instructions</h3>
 
-			<h3 class="instructions-heading">Instructions</h3>
+				<p class="instructions">
+					1. Select the number of rows, columns and players. <br />
+					2. The player who has maximum number of boxes on board is the winner.
+					<br />
+					3. Players will switch after every turn. But the player who has filled
+					the last box, will get one extra chance consecutively. <br />
+				</p>
+			</div>
 
-			<p class="instructions">
-				1. Select the number of rows, columns and players. <br>
-				2. The player who has maximum number of boxes on board is the winner. <br>
-				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-				chance
-				consecutively. <br>
+			<!-- Form page -->
+			<div class="form">
+				<div>
+					<h2>What size of Board do you want? :</h2>
+				</div>
+
+				<div class="form-item">
+					<label for="rows"
+						>Rows : <span class="details">(between 5 and 30)</span></label
+					>
+					<input type="number" id="rows" min="5" max="30" value="6" />
+				</div>
+
+				<div class="form-item">
+					<label for="columns"
+						>Columns : <span class="details">(between 5 and 30)</span></label
+					>
+					<input type="number" id="columns" min="5" max="30" value="6" />
+				</div>
+
+				<div class="form-item">
+					<label for="players-count"
+						>Players : <span class="details">(between 2 and 6)</span></label
+					>
+					<input type="number" id="players-count" min="2" max="6" value="2" />
+				</div>
+
+				<button class="start-btn">START</button>
+			</div>
+
+			<p class="author">
+				Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
 			</p>
+		</div>
+		<!-- Exit button -->
+		<button class="exit-btn" onclick="exitGame()">Exit</button>
 
+		<!-- Players -->
+		<div class="players" style="margin-top: 50px"></div>
+
+		<div class="player-turn">
+			<div class="bg" style="margin-top: 60px">
+				<span class="name">PlayerX</span>'s turn
+			</div>
 		</div>
 
-		<!-- Form page -->
-		<div class="form">
-			<div>
-				<h2>What size of Board do you want? :</h2>
-			</div>
-			
-			<div class="form-item">
-				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="rows" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="columns" min="5" max="30" value="6" />
-			</div>
-			
-			<div class="form-item">
-				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-				<input type="number" id="players-count" min="2" max="6" value="2" />
-			</div>
-			
-			<button class="start-btn">START</button>
+		<!-- Game Page -->
 
+		<!-- Menu -->
+		<div id="menu">
+			<button id="home-btn" class="menu-btn">Home</button>
+			<button id="leaderboard-btn" class="menu-btn">Leaderboard</button>
+			<button id="tournament-btn" class="menu-btn">Tournament</button>
+			<button id="settings-btn" class="menu-btn">Settings</button>
 		</div>
-		
-		<p class="author">
-			Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
-		</p>
+		<div class="board" style="margin-top: 154px"></div>
 
-	</div>
- <!-- Exit button -->
- <button class="exit-btn" onclick="exitGame()">Exit</button>
-
-	<!-- Players -->
-	<div class="players" style="margin-top: 50px;"></div>
-
-	<div class="player-turn">
-		<div class="bg" style="margin-top: 60px;">
-			<span class="name">PlayerX</span>'s turn
+		<div class="rankings">
+			<table>
+				<thead>
+					<tr>
+						<th>Rank</th>
+						<th>Player</th>
+						<th>Boxes Filled</th>
+					</tr>
+				</thead>
+				<tbody id="ranking-body">
+					<!-- Rankings will be dynamically updated here -->
+				</tbody>
+			</table>
 		</div>
-	</div>
 
-	<!-- Game Page -->
-<div class="board" style="margin-top: 154px;"></div>
+		<div>
+			<button id="theme-button" class="theme-btn">Change Theme</button>
+			<div id="theme-options" class="hidden">
+				<button class="theme-option" data-video="back.mp4">Starry Night</button>
+				<button class="theme-option" data-video="back2.mp4">Aurora</button>
+				<button class="theme-option" data-video="back3.mp4">Waterfall</button>
+				<button class="theme-option" data-video="back4.mp4">Garden</button>
+				<button class="theme-option" data-video="back5.mp4">Beach</button>
+			</div>
+		</div>
 
-<div class="rankings">
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Player</th>
-                <th>Boxes Filled</th>
-            </tr>
-        </thead>
-        <tbody id="ranking-body">
-            <!-- Rankings will be dynamically updated here -->
-        </tbody>
-    </table>
-</div>
+		<!-- Background Videos -->
+		<video autoplay loop muted plays-inline class="back" id="background-video">
+			<source src="./background/back4.mp4" type="video/mp4" />
+		</video>
 
-<div>
-    <button id="theme-button" class="theme-btn">Change Theme</button>
-    <div id="theme-options" class="hidden">
-        <button class="theme-option" data-video="back.mp4">Starry Night</button>
-        <button class="theme-option" data-video="back2.mp4">Aurora</button>
-        <button class="theme-option" data-video="back3.mp4">Waterfall</button>
-        <button class="theme-option" data-video="back4.mp4">Garden</button>
-        <button class="theme-option" data-video="back5.mp4">Beach</button>
-    </div>
-</div>
-
-<!-- Background Videos -->
-<video autoplay loop muted plays-inline class="back" id="background-video">
-    <source src="./background/back4.mp4" type="video/mp4">
-</video>
-
-<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
-  
-</body>
-
+		<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+	</body>
 </html>
