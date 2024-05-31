@@ -1,3 +1,54 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Function to initialize the game
+    function initializeGame(rows, columns, playersCount) {
+        console.log('Game initialized');
+        game = new Game(rows, columns, playersCount);
+    }
+
+    // Function to restart the game
+    function restartGame() {
+        console.log('Game restarted');
+        // Clear the game UI
+        clearGameBoard();
+        // Reinitialize the game
+        initializeGame(game.board.rows, game.board.columns, game.players.length);
+    }
+
+    // Function to clear the game board UI
+    function clearGameBoard() {
+        // Clear all game-related UI elements
+        const playersUI = document.querySelector(".players");
+        const playerNameUI = document.querySelector(".player-turn .name");
+        const playerTurnBgUI = document.querySelector(".player-turn .bg");
+
+        playersUI.innerHTML = '';
+        playerNameUI.innerText = '';
+        playerTurnBgUI.style.background = '';
+    }
+
+    // Event listener for theme options
+    document.querySelectorAll('.theme-option').forEach(button => {
+        button.addEventListener('click', function() {
+            var video = this.getAttribute('data-video');
+            console.log('Selected video:', video);
+            // Add your video handling logic here
+        });
+    });
+
+    // Event listener for the restart button
+    document.getElementById('restart').addEventListener('click', function() {
+        restartGame();
+    });
+
+    // Get initial values from inputs
+    const rows = parseInt(rowsInput.value);
+    const columns = parseInt(columnsInput.value);
+    const playersCount = parseInt(playersInput.value);
+
+    // Initialize the game on page load with initial values
+    initializeGame(rows, columns, playersCount);
+});
+
 class Game {
     static instance // Singleton instance of Game class
 
@@ -52,7 +103,7 @@ class Game {
         bgMusic.pause();
         let winSound = new Audio('./sounds/win.mp3');
         winSound.play();
-        
+
         const player = this.players.reduce((prev, current) => {
             return prev.filledBoxes > current.filledBoxes ? prev : current
         });
@@ -282,3 +333,4 @@ function validateForm(inputValues) {
 function exitGame() {
     window.location.reload();
 };
+

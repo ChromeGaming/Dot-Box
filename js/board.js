@@ -29,7 +29,7 @@ class Board {
 		Game.instance.addEventListener("boxFill", (box) => this.onBoxFill(box))
 	}
 
-	//Setting up the edge thickness based on the number of boxes. 
+	//Setting up the edge thickness based on the number of boxes.
 	//We need to set it for Root UI.
 	setEdgeThickness() {
 		//The thickness of the edge depends on the number of boxes
@@ -60,6 +60,7 @@ class Board {
 			}
 		})
 	}
+
 	//On click of the edge, we need to fill the edge and check if the adjacent boxes can be filled
 	onEdgeClick(box, edge) {
 		box.fillEdge(edge)

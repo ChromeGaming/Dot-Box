@@ -344,23 +344,6 @@ h1 {
     }
 }
 
-.mute-btn {
-    background-color: #333;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.mute-btn i {
-    color: #ffffff;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.mute-btn:hover i {
-    color: #fff;
-}
 
 /* The message box is shown when the user clicks on the input field */
 .warning {
@@ -371,102 +354,53 @@ h1 {
     padding: 5px;
 }
 
-/* Rankings table styles */
-.rankings {
-    position: absolute;
-    top: 200px; /* Adjust as necessary */
-    right: 10px; /* Adjust as necessary */
-    background: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.rankings table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-.rankings th, .rankings td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
 
-.rankings th {
-    background-color: #4CAF50;
-    color: white;
-}
+/* style.css */
 
-.rankings td {
-    background-color: #f9f9f9;
-}
 
-/* Additional styling for the overall container */
-#ranking-container {
+
+#theme-options {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 10px; /* Adds space between buttons */
+    margin: 10px 0;
 }
 
-#ranking {
-    border-collapse: collapse;
-    width: 90%;
-    max-width: 600px;
-}
-
-#ranking th, #ranking td {
-    text-align: left;
-    padding: 8px;
-}
-
-#ranking th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#ranking tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#ranking tr:hover {
-    background-color: #ddd;
-}
-
-#ranking td:first-child {
-    font-weight: bold;
-}
-
-#ranking th:first-child {
-    border-top-left-radius: 10px;
-}
-
-#ranking th:last-child {
-    border-top-right-radius: 10px;
-}
-
-#ranking tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-
-#ranking tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-}
-
-.exit-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+.theme-option {
+    flex-wrap: wrap;
     padding: 10px 20px;
-    background-color: #ff0000;
-    color: #ffffff;
-    border: none;
+    background-color: pink;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    flex: 1; /* Ensures buttons are evenly spaced */
+    text-align: center; /* Centers the text inside the buttons */
 }
 
-.exit-btn:hover {
-    background-color: #cc0000;
+.theme-option:hover {
+    background-color: #ddd;
+}
+#theme-button{
+    color: blue;
+    font-size: 20px;
+    margin-top: 30px;
+
+}
+#restart {
+    margin: 15px 0; /* Sets 15px margin on top and bottom, 0 on left and right */
+    padding: 10px 20px;
+    background-color: pink;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    text-align: center; /* Centers the text inside the buttons */
+}
+
+#restart:hover {
+    background-color: grey;
 }
