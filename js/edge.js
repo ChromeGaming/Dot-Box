@@ -13,10 +13,11 @@ class Edge {
 	}
 
 	//Filling edge
-	fill() {
+		fill() {
+		const player=document.querySelector(".name").textContent
 		if (!this.filled) {
 			this.filled = true
-			this.ui.classList.add("filled")
+			player==="Player 1"? this.ui.classList.add("Player_1"):player==="Player 2"?this.ui.classList.add("Player_2"):player==="Player 3"?this.ui.classList.add("Player_3"):player==="Player 4"?this.ui.classList.add("Player_4"):player==="Player 5"?this.ui.classList.add("Player_5"):this.ui.classList.add("Player_6")
 
 			Game.instance.invokeEvent("edgeFill", this)
 		}
