@@ -155,11 +155,16 @@ a {
     transform: scale(0.7, 3);
 }
 
-.edge.filled {
-    background: #111;
+.Player_1,.Player_2,.Player_3,.Player_4,.Player_5,.Player_6{
     pointer-events: none;
     z-index: 10;
 }
+.Player_1{background: pink;}
+.Player_2{background: skyblue;}
+.Player_3{background: lightgreen;}
+.Player_4{background: magenta;}
+.Player_5{background: yellow;}
+.Player_6{background: orange;}
 
 .players {
     position: absolute;
