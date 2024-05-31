@@ -226,6 +226,18 @@ startBtn.addEventListener("click", () => {
     heading.style.display = "none"
     document.getElementById('theme-options').style.display = 'none';
     document.getElementById('theme-button').style.display = 'none';
+
+	bgMusic.volume = 0.1;
+	bgMusic.play();
+	const rows = calculate(rowsInput.value, 5, 30)
+	const columns = calculate(columnsInput.value, 5, 30)
+	const playersCount = calculate(playersInput.value, 2, 6)
+
+
+	game = new Game(rows, columns, playersCount)
+	settingsUI.style.display = "none"
+	heading.style.display = "none"
+
 });
 
 function calculate(value, min, max) {

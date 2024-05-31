@@ -128,6 +128,7 @@ a {
 .edge.bottom {
     transform: translateY(50%);
     top: none;
+
     bottom: 0;
     left: 0;
 }
@@ -207,6 +208,9 @@ a {
     justify-content: center;
     color: rgba(0, 0, 0, 0.864);
     padding-top: 10px;
+
+    border-top: solid 1px #f9f9f9;
+
 }
 
 .player-turn .bg {
@@ -270,6 +274,10 @@ h1 {
     margin-right: 10%;
     width: 100%;
     height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
 }
 
 .settings .form {
@@ -277,6 +285,7 @@ h1 {
     flex-direction: column;
     gap: 1.4rem;
     width: 100%;
+
     max-width: 550px;
     padding: 1rem;
     font-size: 20px;
@@ -294,6 +303,9 @@ h1 {
     padding: 0.4rem 0.2rem;
     font-weight: bold;
     font-size: larger;
+    font-weight: lighter;
+    font-size: smaller;
+    font-style: italic;
 }
 
 .settings .form-item .details {
@@ -363,6 +375,14 @@ h1 {
     color: #fff;
 }
 
+/* The message box is shown when the user clicks on the input field */
+.warning {
+    display: none;
+    font-size: 18px;
+    color: red;
+    position: relative;
+    padding: 5px;
+}
 /* Rankings table styles */
 .rankings {
     position: absolute;
@@ -419,4 +439,61 @@ h1 {
 
 #ranking thead th {
     padding: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+
+#ranking th, #ranking td {
+    text-align: left;
+    padding: 8px;
+}
+
+#ranking th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#ranking tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ranking tr:hover {
+    background-color: #ddd;
+}
+
+#ranking td:first-child {
+    font-weight: bold;
+}
+
+#ranking th:first-child {
+    border-top-left-radius: 10px;
+}
+
+#ranking th:last-child {
+    border-top-right-radius: 10px;
+}
+
+#ranking tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+#ranking tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.exit-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.exit-btn:hover {
+    background-color: #cc0000;
 }
