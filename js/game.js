@@ -51,7 +51,7 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
+
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
@@ -269,3 +269,70 @@ startAgainBtn.addEventListener('click', () => {
 exitBtn.addEventListener('click', () => {
 	window.location.reload();
 });
+const rowsError = document.querySelector("#rows-error");
+const columnsError = document.querySelector("#columns-error");
+const playersError = document.querySelector("#players-error");
+startBtn.addEventListener("click", () => {
+	const rowsValue = parseInt(rowsInput.value);
+	const columnsValue = parseInt(columnsInput.value);
+	const playersValue = parseInt(playersInput.value);
+	let isValid = true;
+	// Validate the input values
+	// Inside the validation section of the startBtn click event listener:
+	if (rowsValue < 5 || rowsValue > 30 || isNaN(rowsValue)) {
+		rowsError.textContent = "Number of rows must be between 5 and 30.";
+		rowsError.style.display = "block"; // Display the error message
+		isValid = false;
+	} else {
+		rowsError.style.display = "none"; // Hide the error message when valid
+	}
+
+	// Validate columns input
+	if (columnsValue < 5 || columnsValue > 30 || isNaN(columnsValue)) {
+		columnsError.textContent = "Number of columns must be between 5 and 30.";
+		columnsError.style.display = "block";
+		isValid = false;
+	} else {
+		columnsError.style.display = "none";
+	}
+
+	// Validate players input
+	if (playersValue < 2 || playersValue > 6 || isNaN(playersValue)) {
+		playersError.textContent = "Number of players must be between 2 and 6.";
+		playersError.style.display = "block";
+		isValid = false;
+	} else {
+		playersError.style.display = "none";
+	}
+	// isValid = true;
+	if (isValid) {
+		bgMusic.volume = 0.1;
+		bgMusic.play();
+		const rows = calculate(rowsInput.value, 5, 30);
+		const columns = calculate(columnsInput.value, 5, 30);
+		const playersCount = calculate(playersInput.value, 2, 6);
+
+		game = new Game(rows, columns, playersCount);
+		settingsUI.style.display = "none";
+		heading.style.display = "none";
+		document.getElementById('theme-options').style.display = 'none';
+		document.getElementById('theme-button').style.display = 'none';
+	}
+});
+
+rowsInput.addEventListener("input", () => {
+	rowsError.style.display = "none";
+});
+
+columnsInput.addEventListener("input", () => {
+	columnsError.style.display = "none";
+});
+
+playersInput.addEventListener("input", () => {
+	playersError.style.display = "none";
+});
+
+
+function calculate(value, min, max) {
+	return Math.min(Math.max(value, min), max)
+}
