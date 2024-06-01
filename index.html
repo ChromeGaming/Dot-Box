@@ -7,15 +7,12 @@
 
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="theme.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- JavaScript files -->
 	<script defer src="./js/edge.js"></script>
 	<script defer src="./js/box.js"></script>
 	<script defer src="./js/board.js"></script>
 	<script defer src="./js/game.js"></script>
-	<script defer src="./js/theme.js"></script>
 
 	<!-- Logo of the game -->
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
@@ -25,23 +22,17 @@
 </head>
 
 <body>
-	
 	<!-- Setting Page -->
 	<div class="settings">
-		<video autoplay loop muted plays-inline class="back">
-			<source src="./back.mp4" type="video/mp4">
-		</video>
 		<div class="form">
-		<div class="overlay-container">
 			<h1 class="heading"
-				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
-				▁ ▂ ▄ ▅ ▆ ▇ █ <span style="color:  rgb(87, 166, 161);">MAXIMISE</span> BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
+				style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+				▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
 			</h1>
 
-			<h3 class="instructions-heading" style="color: white; background-color: rgb(87, 123, 141);">Instructions</h3>
+			<h3 class="instructions-heading">Instructions</h3>
 
-			<p class="instructions" style="color: rgb(211, 211, 211);">
-				<br>
+			<p class="instructions">
 				1. Select the number of rows, columns and players. <br>
 				2. The player who has maximum number of boxes on board is the winner. <br>
 				3. Players will switch after every turn. But the player who has filled the last box, will get one extra
@@ -49,37 +40,40 @@
 				consecutively. <br>
 			</p>
 
-        </div>
 		</div>
-		<div class="overlay-container">
+
 		<!-- Form page -->
 		<div class="form">
-
 			<div>
-				<h2 style="color: rgb(211, 211, 211);">What size of Board do you want? :</h2>
+				<h2>What size of Board do you want? :</h2>
 			</div>
 			
 			<div class="form-item">
-				<label for="rows" style="color: rgb(211, 211, 211);">Rows : <span class="details">(between 5 and 30)</span></label>
+				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" value="6" />
 			</div>
 			
 			<div class="form-item">
-				<label for="columns" style="color: rgb(211, 211, 211);">Columns : <span class="details">(between 5 and 30)</span></label>
+				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="columns" min="5" max="30" value="6" />
 			</div>
 			
 			<div class="form-item">
-				<label for="players-count" style="color: rgb(211, 211, 211);">Players : <span class="details">(between 2 and 6)</span></label>
+				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
 				<input type="number" id="players-count" min="2" max="6" value="2" />
 			</div>
 			
-			<button class="start-btn" style="background-color:rgb(87, 123, 141);">START</button>
+			<button class="start-btn">START</button>
 
 		</div>
-		</div>
+		
+		<p class="author">
+			Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
+		</p>
 
 	</div>
+ <!-- Exit button -->
+ <button class="exit-btn" onclick="exitGame()">Exit</button>
 
 	<!-- Players -->
 	<div class="players" style="margin-top: 50px;"></div>
@@ -91,23 +85,31 @@
 	</div>
 
 	<!-- Game Page -->
-	<div class="board" style="margin-top: 154px;"></div>
-	<div>
-	<button id="theme-button" class="theme-btn">Change Theme</button>
-    <div id="theme-options" class="hidden">
-        <button class="theme-option" data-video="back.mp4">Starry Night</button>
-        <button class="theme-option" data-video="back2.mp4">Aurora</button>
-        <button class="theme-option" data-video="back3.mp4">Waterfall</button>
-		<button class="theme-option" data-video="back4.mp4">Garden</button>
-		<button class="theme-option" data-video="back5.mp4">Beach</button> 
-    </div>
-   <!-- Background Videos -->
-   <video autoplay loop muted plays-inline class="back" id="background-video">
-	<source src="./background/back4.mp4" type="video/mp4">
+<div class="board" style="margin-top: 154px;"></div>
+
+<div class="rankings">
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Boxes Filled</th>
+            </tr>
+        </thead>
+        <tbody id="ranking-body">
+            <!-- Rankings will be dynamically updated here -->
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Background Videos -->
+<video autoplay loop muted plays-inline class="back" id="background-video">
+    <source src="./background/back4.mp4" type="video/mp4">
 </video>
 
-	<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
-
+<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+  
 </body>
 
 </html>
