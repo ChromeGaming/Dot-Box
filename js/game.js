@@ -43,6 +43,37 @@ class Game {
 		this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
 		this.addEventListener("playerWin", () => this.onPlayerWin())
 	}
+	resetGame() {
+		// Reset game properties
+		this.isGameover = false;
+		this.currentPlayerIndex = 0;
+		this.currentPlayer = this.players[this.currentPlayerIndex];
+
+		// Reset players' filled boxes
+		this.players.forEach(player => player.filledBoxes = 0);
+
+		// Reset the board
+		this.board.resetBoard();
+
+		// Update UI
+		this.updatePlayerNameUI();
+		this.updatePlayerScoreUI();
+		this.updateRankingsUI();
+
+		// Show settings UI and heading again
+		settingsUI.style.display = "block";
+		heading.style.display = "block";
+		document.getElementById("theme-options").style.display = "block";
+		document.getElementById("theme-button").style.display = "block";
+
+		// Stop any running audio
+		bgMusic.pause();
+		bgMusic.currentTime = 0;
+
+		// Optionally play background music
+		bgMusic.play();
+	}
+
 
 	//End Game
 	onPlayerWin() {
@@ -132,6 +163,7 @@ class Game {
 		this.events[event].push(callback)
 	}
 
+
 	//Remove event listeners
 	removeEventListener(event, callback) {
 		if (!this.eventExist(event)) {
@@ -183,6 +215,16 @@ startBtn.addEventListener("click", () => {
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
 });
+document.addEventListener("DOMContentLoaded", () => {
+	const restartBtn = document.querySelector(".restart-btn");
+
+	restartBtn.addEventListener("click", () => {
+		if (game) {
+			game.resetGame();
+		}
+	});
+});
+
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)

@@ -83,6 +83,36 @@ class Game {
         this.updatePlayerScoreUI();
         this.updateRankingsUI(); // Update the rankings whenever a box is filled
     }
+    resetGame() {
+        // Reset game properties
+        this.isGameover = false;
+        this.currentPlayerIndex = 0;
+        this.currentPlayer = this.players[this.currentPlayerIndex];
+
+        // Reset players' filled boxes
+        this.players.forEach(player => player.filledBoxes = 0);
+
+        // Reset the board
+        this.board.resetBoard();
+
+        // Update UI
+        this.updatePlayerNameUI();
+        this.updatePlayerScoreUI();
+        this.updateRankingsUI();
+
+        // Show settings UI and heading again
+        settingsUI.style.display = "block";
+        heading.style.display = "block";
+        document.getElementById("theme-options").style.display = "block";
+        document.getElementById("theme-button").style.display = "block";
+
+        // Stop any running audio
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+
+        // Optionally play background music
+        bgMusic.play();
+    }
 
     // Add players to UI
     addPlayersUI() {
@@ -259,6 +289,16 @@ startBtn.addEventListener("click", () => {
         document.getElementById("theme-button").style.display = "none";
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const restartBtn = document.querySelector(".restart-btn");
+
+    restartBtn.addEventListener("click", () => {
+        if (game) {
+            game.resetGame();
+        }
+    });
+});
+
 
 function validateForm(inputValues) {
     let valid = true;

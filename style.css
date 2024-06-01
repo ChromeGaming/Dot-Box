@@ -475,3 +475,27 @@ h1 {
 .exit-btn:hover {
     background-color: #cc0000;
 }
+/* Styles for the exit and restart buttons */
+.restart-btn {
+    background-color: #ff6666; /* Red background */
+    color: white; /* White text */
+    border: none;
+    position: absolute;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    padding: 10px 20px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline-block element */
+    font-size: 16px; /* Font size */
+     /* Some margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 12px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.restart-btn:hover {
+    background-color: #ff3333; /* Darker red on hover */
+}
+

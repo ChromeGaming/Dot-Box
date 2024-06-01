@@ -40,6 +40,19 @@ class Board {
 
 		document.querySelector(":root").style.setProperty("--edge-thikness", `${thickness}px`)
 	}
+	resetBoard() {
+		// Clear the board UI
+		this.uiRoot.innerHTML = '';
+
+		// Reset board properties
+		this.boxes = new Array(Board.ROWS).fill(null).map(() => new Array(Board.COLUMNS).fill(null));
+		this.adjacentBoxesToFill = [];
+		this.isFillingAdjacentBoxes = false;
+		this.filledBoxes = 0;
+
+		// Regenerate the board
+		this.generate();
+	}
 
 	//
 	addEdgeClickEventListener() {
