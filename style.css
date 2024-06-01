@@ -20,6 +20,10 @@ body {
     display: grid;
     place-items: center;
     max-height: 100vh;
+    -webkit-user-select: none; 
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+     user-select: none; 
 }
 
 a {
