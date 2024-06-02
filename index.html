@@ -80,8 +80,10 @@
 			</p>
 		</div>
 		<!-- Exit button -->
-		<button class="exit-btn" onclick="exitGame()">Exit</button>
-
+		<!-- (BUG : resolved by harshcodesit) -->
+		<form action="#" method="post">
+			<button class="exit-btn" onclick="exitGame()">Exit</button>
+		</form>
 		<!-- Players -->
 		<div class="players" style="margin-top: 50px"></div>
 
@@ -115,17 +117,6 @@
 					<!-- Rankings will be dynamically updated here -->
 				</tbody>
 			</table>
-		</div>
-
-		<div>
-			<button id="theme-button" class="theme-btn">Change Theme</button>
-			<div id="theme-options" class="hidden">
-				<button class="theme-option" data-video="back.mp4">Starry Night</button>
-				<button class="theme-option" data-video="back2.mp4">Aurora</button>
-				<button class="theme-option" data-video="back3.mp4">Waterfall</button>
-				<button class="theme-option" data-video="back4.mp4">Garden</button>
-				<button class="theme-option" data-video="back5.mp4">Beach</button>
-			</div>
 		</div>
 
 		<!-- Background Videos -->
