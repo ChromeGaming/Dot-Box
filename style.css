@@ -39,6 +39,12 @@ a {
     max-height: 60vh;
 }
 
+p.author{
+    position: absolute;
+    top:97%;
+    bottom:0%;
+}
+
 @media screen and (max-width: 720px) {
     .board {
         width: 80vw;
@@ -276,7 +282,7 @@ h1 {
     flex-direction: column;
     gap: 1.4rem;
     max-width: 550px;
-    padding: 1rem;
+    padding: 0.9rem;
     font-size: 20px;
     padding-left: 7%;
 }
