@@ -1,5 +1,4 @@
 class Box {
-
 	constructor(row, column) {
 		this.row = row
 		this.column = column
@@ -38,17 +37,17 @@ class Box {
 		return null
 	}
 
+	
 	fillEdge(edge) {
 		edge.fill()
 	}
-
 	fill(color) {
 		if (!this.filled) {
 			this.filled = true
 			this.remainingEdges = 0
 			this.ui.style.background = color
 			this.ui.classList.add("filled")
-
+			
 			Game.instance.invokeEvent("boxFill", this)
 		}
 	}
