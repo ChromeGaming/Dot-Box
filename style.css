@@ -34,17 +34,18 @@ a {
     
 }
 
+/* changes made in the footer */
+p.author{
+    position: absolute;
+    top: 96.5%;
+    bottom:0.01%;
+  }
+  
 .board {
     background: #fcfcfc;
     display: grid;
     width: 60vh;
     max-height: 60vh;
-}
-
-p.author{
-  position: absolute;
-  top: 96.5%;
-  bottom:0.01%;
 }
 
 
