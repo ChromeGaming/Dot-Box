@@ -33,10 +33,10 @@ a {
 }
 
 .board {
-    background: #fcfcfc;
-    display: grid;
-    width: 60vh;
-    max-height: 60vh;
+	background: #fcfcfc;
+	display: grid;
+	width: 75vh;
+	max-height: 75vh;
 }
 
 @media screen and (max-width: 720px) {
@@ -167,16 +167,16 @@ a {
 .Player_6{background: orange;}
 
 .players {
-    position: absolute;
-    z-index: 10;
-    font-size: 1rem;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.4rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
+	/* position: absolute; */
+	z-index: 10;
+	font-size: 1rem;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.4rem;
+	display: flex;
+	justify-content: center;
+	gap: 1.2rem;
 }
 
 .player .filled-boxes {
@@ -201,17 +201,16 @@ a {
 }
 
 .player-turn {
-    font-size: 1rem;
-    z-index: 10;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.864);
-    padding-top: 10px;
-    border-top: solid 1px #f9f9f9;
+	font-size: 1rem;
+	z-index: 10;
+	/* position: relative; */
+	/* top: 52px; */
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.864);
+  margin: 1rem 0rem;
 }
 
 .player-turn .bg {
@@ -265,15 +264,16 @@ h1 {
 }
 
 .settings {
-    position: absolute;
-    background: #fdfdfd;
-    inset: 0;
-    z-index: 20;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
+	position: absolute;
+	/* background: #fdfdfd; */
+	inset: 0;
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10%;
+	width: 100%;
+	height: 100%;
 }
 
 .settings .form {
@@ -323,155 +323,72 @@ h1 {
 }
 
 .settings button:active {
-    background: rgb(70, 70, 70);
+	background: rgb(70, 70, 70);
 }
 
-.back {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
-
-@media(min-aspect-ratio:16/9) {
-    .back {
-        width: 100%;
-        height: auto;
-    }
+#myVideo2 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
-
-@media(max-aspect-ratio:16/9) {
-    .back {
-        width: auto;
-        height: 100%;
-    }
-}
-
-.mute-btn {
-    background-color: #333;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.mute-btn i {
-    color: #ffffff;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.mute-btn:hover i {
-    color: #fff;
-}
-
-/* The message box is shown when the user clicks on the input field */
-.warning {
-    display: none;
-    font-size: 18px;
-    color: red;
-    position: relative;
-    padding: 5px;
-}
-
-/* Rankings table styles */
-.rankings {
-    position: absolute;
-    top: 200px; /* Adjust as necessary */
-    right: 10px; /* Adjust as necessary */
-    background: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.rankings table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.rankings th, .rankings td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.rankings th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.rankings td {
-    background-color: #f9f9f9;
-}
-
-/* Additional styling for the overall container */
-#ranking-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#ranking {
-    border-collapse: collapse;
-    width: 90%;
-    max-width: 600px;
-}
-
-#ranking th, #ranking td {
-    text-align: left;
-    padding: 8px;
-}
-
-#ranking th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#ranking tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#ranking tr:hover {
-    background-color: #ddd;
-}
-
-#ranking td:first-child {
+  
+  
+  .settings .form-item select{
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
     font-weight: bold;
+    font-size: large;
+  }
+
+  select{
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+    margin: 1rem 0rem;
+  }
+
+
+.score{
+  background-color: rgba(96, 87, 87, 0.822);
+  padding: 50px;
+  border: #111;
+  border-radius: 10px;
 }
 
-#ranking th:first-child {
-    border-top-left-radius: 10px;
+.flex{
+  width: 70%;
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
 }
-
-#ranking th:last-child {
-    border-top-right-radius: 10px;
+.flex-btn{
+  display: flex; 
+  justify-content: space-around;
 }
-
-#ranking tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
+.flex-btn button{
+  margin-top: 0.4rem;
+	border-radius: 3px;
+	padding: 0.8rem;
+	font-weight: bold;
+	border: none;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
 }
-
-#ranking tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-}
-
-.exit-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: #ff0000;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.exit-btn:hover {
-    background-color: #cc0000;
+.flex-btn button:hover {
+	background: rgb(75, 75, 75);
 }
