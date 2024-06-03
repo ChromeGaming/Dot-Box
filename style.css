@@ -310,21 +310,41 @@ h1 {
     margin-top: 0.4rem;
     border-radius: 3px;
     padding: 0.8rem;
-    font-weight: bold;
-    border: none;
-    background: #333;
+    font-size: large;
+    font-weight: 660;
+    background: #000000;
     color: #fff;
     cursor: pointer;
     letter-spacing: 4px;
+    transition: all 0.5s;
+    border: solid 3px transparent;
+    position: relative;
+    z-index: 1;
+}
+.settings button::before{
+    content:"";
+    position: absolute;
+    background-color: white;
+    
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.8s;
+}
+.settings button:hover::before{
+    transform: scaleX(1);
+}
+.settings button:hover{
+    border: solid 3px #000000;
+    color: black;
 }
 
-.settings button:hover {
-    background: rgb(75, 75, 75);
-}
 
-.settings button:active {
-    background: rgb(70, 70, 70);
-}
+
 
 .back {
     position: absolute;
