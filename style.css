@@ -30,6 +30,8 @@ a {
     position: absolute;
     font-size: 1.2rem;
     bottom: 1%;
+    
+    
 }
 
 .board {
@@ -39,12 +41,12 @@ a {
     max-height: 60vh;
 }
 
-/*Changes made in footer*/
 p.author{
-    position: absolute;
-    top:97%;
-    bottom:0%;
+  position: absolute;
+  top: 96.5%;
+  bottom:0.01%;
 }
+
 
 @media screen and (max-width: 720px) {
     .board {
