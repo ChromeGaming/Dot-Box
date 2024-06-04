@@ -6,7 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Fuggles&family=Mooli&family=Oswald:wght@600&family=Roboto:wght@100;300&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="style.css" />
+
+
 
 	<!-- JavaScript files -->
 	<script defer src="./js/edge.js"></script>
@@ -47,36 +56,93 @@
 			<div>
 				<h2>What size of Board do you want? :</h2>
 			</div>
-			
+
 			<div class="form-item">
 				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="rows" min="5" max="30" value="6" />
 			</div>
-			
+
 			<div class="form-item">
 				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
 				<input type="number" id="columns" min="5" max="30" value="6" />
 			</div>
-			
+
 			<div class="form-item">
 				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
 				<input type="number" id="players-count" min="2" max="6" value="2" />
 			</div>
-			
+
 			<button class="start-btn">START</button>
 
 		</div>
-		
+
 		<p class="author">
 			Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
 		</p>
 
+		<!-- Footer -->
+		<!-- (FEATURE : resolved by Lavanya) -->
+		<footer class="footer">
+			<div class="foot-panel2">
+				<ul>
+					<p>Our Pages</p>
+					<a href="#">Home</a>
+					<a href="#">Game Rules</a>
+					<a href="#">Leaderboard</a>
+					<a href="#">Contact</a>
+					<a href="#">Profile</a>
+				</ul>
+
+				<ul>
+					<p>Exclusive Offers</p>
+					<a href="#">Gaming Discounts</a>
+					<a href="#">Limited-Time Tournaments</a>
+					<a href="#">Special Event Access</a>
+					<a href="#">Membership Benefits</a>
+
+				</ul>
+
+				<!-- <ul>
+					<p>Payment Options</p>
+					<a href="#">Secure Checkout</a>
+					<a href="#">Credit/Debit Cards</a>
+					<a href="#">Online Payment</a>
+					<a href="#">Mobile Wallets</a>
+					<a href="#">Contactless Payments</a>
+				</ul> -->
+
+				<form id="contactForm">
+					<h3>Contact Us!</h3>
+					<input type="email" id="email" name="email" placeholder="Your Email" required>
+					<textarea id="message" name="message" placeholder="Your Message" required></textarea>
+					<button id="butt" type="submit">Send Message</button>
+				</form>
+
+			</div>
+
+			<div class="foot_panel4">
+				<div class="pages">
+					<h4>Follow Us</h4>
+					<div class="social-icons">
+						<a class="fa-brands fa-facebook" href="https://facebook.com" target="_blank"></a>
+						<a class="fa-brands fa-instagram" href="https://instagram.com" target="_blank"></a>
+						<a class="fa-brands fa-twitter" href="https://twitter.com" target="_blank"></a>
+					</div>
+					<p>Stay connected with us on social media for the latest updates, strategies, and gaming news.</p>
+					<div class="copyright">
+						&copy; 2024 Dots & Boxes Championship. All Rights Reserved. | Developed by <span id="author">
+							Contributors </span>
+					</div>
+				</div>
+			</div>
+		</footer>
+
 	</div>
- <!-- Exit button --> 
- <!-- (BUG : resolved by harshcodesit) -->
- <form action="#" method="post">
- <button class="exit-btn" onclick="exitGame()">Exit</button>
-</form>
+	<!-- Exit button -->
+	<!-- (BUG : resolved by harshcodesit) -->
+	<form action="#" method="post">
+		<button class="exit-btn" onclick="exitGame()">Exit</button>
+	</form>
 	<!-- Players -->
 	<div class="players" style="margin-top: 50px;"></div>
 
@@ -87,31 +153,31 @@
 	</div>
 
 	<!-- Game Page -->
-<div class="board" style="margin-top: 154px;"></div>
+	<div class="board" style="margin-top: 154px;"></div>
 
-<div class="rankings">
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Player</th>
-                <th>Boxes Filled</th>
-            </tr>
-        </thead>
-        <tbody id="ranking-body">
-            <!-- Rankings will be dynamically updated here -->
-        </tbody>
-    </table>
-</div>
+	<div class="rankings">
+		<table>
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Player</th>
+					<th>Boxes Filled</th>
+				</tr>
+			</thead>
+			<tbody id="ranking-body">
+				<!-- Rankings will be dynamically updated here -->
+			</tbody>
+		</table>
+	</div>
 
 
-<!-- Background Videos -->
-<video autoplay loop muted plays-inline class="back" id="background-video">
-    <source src="./background/back4.mp4" type="video/mp4">
-</video>
+	<!-- Background Videos -->
+	<video autoplay loop muted plays-inline class="back" id="background-video">
+		<source src="./background/back4.mp4" type="video/mp4">
+	</video>
 
-<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
-  
+	<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
+
 </body>
 
 </html>

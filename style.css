@@ -10,6 +10,7 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
+    background-color:  white;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
     max-height: 100vh;
 }
 
+
 a {
     color: #333;
 }
@@ -30,6 +32,7 @@ a {
     position: absolute;
     font-size: 1.2rem;
     bottom: 1%;
+    margin-top: 30px;
 }
 
 .board {
@@ -273,8 +276,9 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    /* Remove overflow: auto; */
 }
+
 
 .settings .form {
     display: flex;
@@ -474,4 +478,95 @@ h1 {
 
 .exit-btn:hover {
     background-color: #cc0000;
+}
+/* Footer Styles */
+.footer {
+    color: black;
+    text-align: center;
+padding-top: 80px;
+margin-top: 85px;
+}
+.foot-panel2{
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+.footer ul p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer ul a {
+    color: gradient;
+    text-decoration: none;
+    display: block;
+    margin: 5px 5px;
+    transition: color 0.3s;
+}
+
+.footer ul a:hover {
+    color: #ff6600;
+}
+
+#contactForm {
+    text-align: left;
+    max-width: 300px;
+}
+
+#contactForm h3 {
+    margin-bottom: 5px;
+}
+
+#contactForm input, #contactForm textarea, #contactForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#contactForm input, #contactForm textarea {
+    background-color: #444;
+    color: #fff;
+}
+
+#contactForm button {
+    background-color: #ff6600;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contactForm button:hover {
+    background-color: #ff4500;
+}
+/* Social icons styling */
+.social-icons {
+    margin-top: 20px; /* Add margin above the social icons */
+}
+
+.social-icons a {
+    color: black;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #ff6600;
+}
+.copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bbb;
+}
+@media (max-width: 768px) {
+    .footer .foot-panel2, .footer .foot_panel4 {
+        flex-direction: column;
+        align-items: center;
+    }
 }
