@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Stylesheet -->
-		<link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- JavaScript files -->
-		<script defer src="./js/edge.js"></script>
-		<script defer src="./js/box.js"></script>
-		<script defer src="./js/board.js"></script>
-		<script defer src="./js/game.js"></script>
+  <link rel="stylesheet" href="style.css" />
 
-		<!-- Logo of the game -->
-		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <script defer src="./js/edge.js"></script>
+  <script defer src="./js/box.js"></script>
+  <script defer src="./js/board.js"></script>
+  <script defer src="./js/game.js"></script>
 
-		<!-- Title of the game -->
-		<title>Dots & Boxes Game</title>
-	</head>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
-	<body>
-		<!-- Preloader -->
+  <title>Dots & Boxes Game</title>
+</head>
+<body>
+  		<!-- Preloader -->
 		<div class="preloader">
 			<div class="cube-loader">
 				<div class="cube-top"></div>
@@ -34,101 +30,77 @@
 			</div>
 		</div>
 
-		<!-- Setting Page -->
-		<div class="settings">
-			<div class="form">
-				<h1
-					class="heading"
-					style="
-						font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-							'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-					"
-				>
-					▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁
-				</h1>
 
-				<h3 class="instructions-heading">Instructions</h3>
+  <div class="settings">
+    <video autoplay muted class="video" loop id="myVideo">
+      <source src="./assets/default.mp4" type="video/mp4">
+    </video>
 
-				<p class="instructions">
-					1. Select the number of rows, columns and players. <br />
-					2. The player who has maximum number of boxes on board is the winner.
-					<br />
-					3. Players will switch after every turn. But the player who has filled
-					the last box, will get one extra chance consecutively. <br />
-				</p>
-			</div>
+    <div class="form">
+      <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
 
-			<!-- Form page -->
-			<div class="form">
-				<div>
-					<h2>What size of Board do you want? :</h2>
-				</div>
+      <h3 class="instructions-heading">Instructions</h3>
 
-				<div class="form-item">
-					<label for="rows"
-						>Rows : <span class="details">(between 5 and 30)</span></label
-					>
-					<input type="number" id="rows" min="5" max="30" value="6" />
-				</div>
+      <p class="instructions">
+        1. Select the number of rows, columns and players. <br>
+        2. The player who has maximum number of boxes on board is the winner. <br>
+        3. Players will switch after every turn. But the player who has filled the last box, will get one extra
+        chance consecutively. <br>
+      </p>
+    </div>
 
-				<div class="form-item">
-					<label for="columns"
-						>Columns : <span class="details">(between 5 and 30)</span></label
-					>
-					<input type="number" id="columns" min="5" max="30" value="6" />
-				</div>
+    <div class="form">
+      <div class="form-item">
+        <label for="theme-select">Select Theme:</label>
+        <select id="theme-select">
+          <option value="default">Default</option>
+          <option value="2">Theme 1</option>
+          <option value="3">Theme 2</option>
+        </select>
+      </div>
 
-				<div class="form-item">
-					<label for="players-count"
-						>Players : <span class="details">(between 2 and 6)</span></label
-					>
-					<input type="number" id="players-count" min="2" max="6" value="2" />
-				</div>
+      <div class="form-item">
+        <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+        <input type="number" id="rows" min="5" max="30" value="6" />
+      </div>
 
-				<button class="start-btn">START</button>
-			</div>
+      <div class="form-item">
+        <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+        <input type="number" id="columns" min="5" max="30" value="6" />
+      </div>
 
-			<p class="author">
-				Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
-			</p>
-		</div>
-		<!-- Exit button -->
-		<!-- (BUG : resolved by harshcodesit) -->
-		<form action="#" method="post">
-			<button class="exit-btn" onclick="exitGame()">Exit</button>
-		</form>
-		<!-- Players -->
-		<div class="players" style="margin-top: 50px"></div>
+      <div class="form-item">
+        <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+        <input type="number" id="players-count" min="2" max="6" value="2" />
+      </div>
 
-		<div class="player-turn">
-			<div class="bg" style="margin-top: 60px">
-				<span class="name">PlayerX</span>'s turn
-			</div>
-		</div>
+      <button class="start-btn">START</button>
+    </div>
 
-		<!-- Game Page -->
-		<div class="board" style="margin-top: 154px"></div>
+    <p class="author">
+      Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
+    </p>
+  </div>
 
-		<div class="rankings">
-			<table>
-				<thead>
-					<tr>
-						<th>Rank</th>
-						<th>Player</th>
-						<th>Boxes Filled</th>
-					</tr>
-				</thead>
-				<tbody id="ranking-body">
-					<!-- Rankings will be dynamically updated here -->
-				</tbody>
-			</table>
-		</div>
 
-		<!-- Background Videos -->
-		<video autoplay loop muted plays-inline class="back" id="background-video">
-			<source src="./background/back4.mp4" type="video/mp4" />
-		</video>
+  <div class="flex">
+    <div class="board"></div>
+    <div class="score">
+      <div class="players"></div>
+      <video autoplay muted class="video" loop id="myVideo2">
+        <source src="./assets/default.mp4" type="video/mp4">
+      </video>
+      <div class="player-turn">
+        <div class="bg">
+          <span class="name">PlayerX</span>'s turn
+        </div>
+      </div>
 
-		<button class="mute-btn"><i class="fa fa-volume-up fa-2x"></i></button>
-	</body>
+      <div class="flex-btn">
+        <button>Mute</button>
+        <button>Restart</button>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
