@@ -43,6 +43,7 @@ class Game {
 		this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
 		this.addEventListener("playerWin", () => this.onPlayerWin())
 	}
+
 	resetGame() {
 		// Reset game properties
 		this.isGameover = false;
@@ -74,7 +75,6 @@ class Game {
 		bgMusic.play();
 	}
 
-
 	//End Game
 	onPlayerWin() {
 		this.isGameover = true
@@ -82,7 +82,7 @@ class Game {
 		bgMusic.pause();
 		let winSound = new Audio('./sounds/win.mp3');
 		winSound.play();
-		
+
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
@@ -163,7 +163,6 @@ class Game {
 		this.events[event].push(callback)
 	}
 
-
 	//Remove event listeners
 	removeEventListener(event, callback) {
 		if (!this.eventExist(event)) {
@@ -201,6 +200,8 @@ const playersInput = document.querySelector("#players-count")
 const startBtn = document.querySelector(".start-btn")
 const heading = document.querySelector(".heading")
 const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const muteButton = document.querySelector(".flex-btn button:first-child"); // Selects the first button within the .flex-btn class
+const restartButton = document.querySelector(".flex-btn button:last-child"); // Selects the last button within the .flex-btn class
 var game = null
 
 startBtn.addEventListener("click", () => {
@@ -210,11 +211,11 @@ startBtn.addEventListener("click", () => {
 	const columns = calculate(columnsInput.value, 5, 30)
 	const playersCount = calculate(playersInput.value, 2, 6)
 
-
 	game = new Game(rows, columns, playersCount)
 	settingsUI.style.display = "none"
 	heading.style.display = "none"
 });
+
 document.addEventListener("DOMContentLoaded", () => {
 	const restartBtn = document.querySelector(".restart-btn");
 
@@ -225,6 +226,32 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
+const video = document.getElementById('myVideo');
+const video2 = document.getElementById('myVideo2');
+
+const themeSelect = document.getElementById('theme-select');
+
+themeSelect.addEventListener('change', () => {
+	const selectedTheme = themeSelect.value;
+	video.src = `./assets/${selectedTheme}.mp4`; // Update video source based on theme
+	video2.src = `./assets/${selectedTheme}.mp4`; // Update video source based on theme
+});
+
+muteButton.addEventListener("click", () => {
+	if (bgMusic.paused) { // Check if music is paused
+		bgMusic.volume = 0.1;
+		bgMusic.play();
+		muteButton.textContent = "Mute"; // Update to "Mute" on play
+
+	} else {
+		bgMusic.pause();
+		muteButton.textContent = "Unmute"; // Update to "Mute" on play
+	}
+});
+
+restartButton.addEventListener("click", () => {
+	window.location.reload();
+});
 
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
