@@ -1,4 +1,5 @@
 
+
 class Game {
 	static instance //Singleton instance of Game class
 
