@@ -262,4 +262,3 @@ function updateTimer() {
 	}, 1000);
 	}
 
-	
