@@ -225,6 +225,7 @@ a {
     max-width: 200px;
     text-align: center;
     border-radius: 1rem;
+    box-shadow:0px 1px 4px rgba(6, 6, 6, 0.829);
 }
 
 .player-turn .bg.win {
@@ -283,17 +284,20 @@ h1 {
 .settings .form {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
-    max-width: 550px;
+    justify-content: center;
+    max-width: 475px;
     padding: 1rem;
     font-size: 20px;
-    padding-left: 7%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .settings .form-item {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    width:260px;
+    
 }
 
 .settings .form-item input {
@@ -306,7 +310,7 @@ h1 {
 
 .settings .form-item .details {
     font-style: italic;
-    color: #999;
+    color: #3e3e3e;
     font-size: 15px;
 }
 
@@ -366,10 +370,11 @@ h1 {
 
 
 .score{
-  background-color: rgba(96, 87, 87, 0.822);
+  background-color: rgba(231, 181, 55, 0.979);
   padding: 50px;
   border: #111;
   border-radius: 10px;
+  box-shadow:0px 5px 15px rgba(6, 6, 6, 0.829);
 }
 
 .flex{
@@ -395,4 +400,34 @@ h1 {
 }
 .flex-btn button:hover {
 	background: rgb(75, 75, 75);
+}
+
+.whole-background{
+    display:flex;
+    gap:1rem;
+    background-color:  rgba(231, 181, 55, 0.979);
+    /*background-color: rgba(6, 159, 103, 0.957);*/
+    border-radius: 10px;
+    padding:10px 20px;
+    box-shadow:0px 5px 15px rgba(6, 6, 6, 0.829);
+}
+.right-background{
+    padding: 20px 50px;
+    border-radius:10px;
+    max-width: 350px;
+    transition:background-color 0.5s ease;
+}
+
+.right-background:hover{
+    background-color: rgba(236, 66, 109, 0.329);
+}
+
+.hover-effect-1:hover{
+    background-color: rgba(236, 66, 109, 0.329);
+}
+.hover-effect-2:hover{
+    background-color: rgba(218, 216, 219, 0.612);
+}
+.hover-effect-3:hover{
+    background-color: rgba(117, 214, 179, 0.817);
 }

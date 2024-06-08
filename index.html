@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,53 +16,66 @@
 
   <title>Dots & Boxes Game</title>
 </head>
+
 <body>
   <div class="settings">
     <video autoplay muted class="video" loop id="myVideo">
       <source src="./assets/default.mp4" type="video/mp4">
     </video>
 
-    <div class="form">
-      <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
 
-      <h3 class="instructions-heading">Instructions</h3>
+    <div class="whole-background">
+      <div class="form">
+        <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
 
-      <p class="instructions">
-        1. Select the number of rows, columns and players. <br>
-        2. The player who has maximum number of boxes on board is the winner. <br>
-        3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-        chance consecutively. <br>
-      </p>
+        <h3 class="instructions-heading">Instructions</h3>
+
+        <p class="instructions">
+          1. Select the number of rows, columns and players. <br>
+          2. The player who has maximum number of boxes on board is the winner. <br>
+          3. Players will switch after every turn. But the player who has filled the last box, will get one extra
+          chance consecutively. <br>
+        </p>
+      </div>
+
+
+
+      <div class="form">
+        <div class="right-background">
+          <div class="form-item">
+
+            <label for="theme-select">Select Theme:</label>
+            <select id="theme-select">
+              <option value="default">Default</option>
+              <option value="2">Theme 1</option>
+              <option value="3">Theme 2</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+            <input type="number" id="rows" min="5" max="30" value="6" />
+          </div>
+          <br>
+
+          <div class="form-item">
+            <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+            <input type="number" id="columns" min="5" max="30" value="6" />
+          </div>
+          <br>
+
+          <div class="form-item">
+            <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+            <input type="number" id="players-count" min="2" max="6" value="2" />
+          </div>
+          <br>
+          <button class="start-btn">START</button>
+
+
+        </div>
+      </div>
+
     </div>
-
-    <div class="form">
-      <div class="form-item">
-        <label for="theme-select">Select Theme:</label>
-        <select id="theme-select">
-          <option value="default">Default</option>
-          <option value="2">Theme 1</option>
-          <option value="3">Theme 2</option>
-        </select>
-      </div>
-
-      <div class="form-item">
-        <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-        <input type="number" id="rows" min="5" max="30" value="6" />
-      </div>
-
-      <div class="form-item">
-        <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-        <input type="number" id="columns" min="5" max="30" value="6" />
-      </div>
-
-      <div class="form-item">
-        <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-        <input type="number" id="players-count" min="2" max="6" value="2" />
-      </div>
-
-      <button class="start-btn">START</button>
-    </div>
-
     <p class="author">
       Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
     </p>
@@ -88,4 +102,5 @@
     </div>
   </div>
 </body>
+
 </html>
