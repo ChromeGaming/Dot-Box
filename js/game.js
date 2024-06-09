@@ -197,6 +197,31 @@
     const selectedTheme = themeSelect.value;
     video.src = `./assets/${selectedTheme}.mp4`; // Update video source based on theme
     video2.src = `./assets/${selectedTheme}.mp4`; // Update video source based on theme
+
+    var element=document.querySelector(".whole-background");
+    var element2=document.querySelector(".right-background");
+    var element3=document.querySelector(".score");
+
+
+    if(selectedTheme==2){
+      element.style.backgroundColor = "rgba(241, 41, 34, 0.957)";
+      element2.classList.remove('hover-effect-1','hover-effect-2', 'hover-effect-3');
+      element2.classList.add('hover-effect-2');
+      element3.style.backgroundColor = "rgba(241, 41, 34, 0.957)";
+
+    }
+    else if(selectedTheme==3){
+      element.style.backgroundColor = "rgba(79, 163, 221, 0.950)";
+      element2.classList.remove('hover-effect-1','hover-effect-2', 'hover-effect-3');
+      element2.classList.add('hover-effect-3');
+      element3.style.backgroundColor = "rgba(79, 163, 221, 0.950)";
+    }
+    else{
+      element.style.backgroundColor = "rgba(231, 181, 55, 0.979)";
+      element2.classList.remove('hover-effect-1','hover-effect-2', 'hover-effect-3');
+      element2.classList.add('hover-effect-1');
+      element3.style.backgroundColor = "rgba(231, 181, 55, 0.979)";
+    }
   });
 
 // Menu buttons
