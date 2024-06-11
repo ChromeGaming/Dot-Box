@@ -176,6 +176,7 @@
 
 
   startBtn.addEventListener("click", () => {
+    loading();
     bgMusic.volume = 0.1;
     bgMusic.play();
     const rows = calculate(rowsInput.value, 5, 30)
@@ -248,3 +249,17 @@
   function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max)
   }
+
+// Preloader script
+document.addEventListener("DOMContentLoaded", () => {
+	loading();
+});
+
+function loading() {
+	document.querySelector(".preloader").style.display = "flex";
+	setTimeout(function () {
+		document.querySelector(".preloader").style.display = "none";
+	}, 2000);
+}
+
+
