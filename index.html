@@ -1,108 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="style.css" />
+		<script defer src="./js/edge.js"></script>
+		<script defer src="./js/box.js"></script>
+		<script defer src="./js/board.js"></script>
+		<script defer src="./js/game.js"></script>
+		<script defer src="./js/validation.js"></script>
 
-  <script defer src="./js/edge.js"></script>
-  <script defer src="./js/box.js"></script>
-  <script defer src="./js/board.js"></script>
-  <script defer src="./js/game.js"></script>
-  <script defer src="./js/validation.js"></script>
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<title>Dots & Boxes Game</title>
+	</head>
 
-  <title>Dots & Boxes Game</title>
-</head>
+	<body>
+		<!-- Preloader -->
+		<div class="preloader">
+			<div class="cube-loader">
+				<div class="cube-top"></div>
+				<div class="cube-wrapper">
+					<span style="--i: 0" class="cube-span"></span>
+					<span style="--i: 1" class="cube-span"></span>
+					<span style="--i: 2" class="cube-span"></span>
+					<span style="--i: 3" class="cube-span"></span>
+				</div>
+			</div>
+		</div>
 
-<body>
-  <div class="settings">
-    <video autoplay muted class="video" loop id="myVideo">
-      <source src="./assets/default.mp4" type="video/mp4">
-    </video>
+		<div class="settings">
+			<video autoplay muted class="video" loop id="myVideo">
+				<source src="./assets/default.mp4" type="video/mp4" />
+			</video>
 
+			<div class="whole-background">
+				<div class="form">
+					<h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
 
-    <div class="whole-background">
-      <div class="form">
-        <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
+					<h3 class="instructions-heading">Instructions</h3>
 
-        <h3 class="instructions-heading">Instructions</h3>
+					<p class="instructions">
+						1. Select the number of rows, columns and players. <br />
+						2. The player who has maximum number of boxes on board is the
+						winner. <br />
+						3. Players will switch after every turn. But the player who has
+						filled the last box, will get one extra chance consecutively. <br />
+					</p>
+				</div>
 
-        <p class="instructions">
-          1. Select the number of rows, columns and players. <br>
-          2. The player who has maximum number of boxes on board is the winner. <br>
-          3. Players will switch after every turn. But the player who has filled the last box, will get one extra
-          chance consecutively. <br>
-        </p>
-      </div>
+				<div class="form">
+					<div class="right-background">
+						<div class="form-item">
+							<label for="theme-select">Select Theme:</label>
+							<select id="theme-select">
+								<option value="default">Default</option>
+								<option value="2">Theme 1</option>
+								<option value="3">Theme 2</option>
+							</select>
+						</div>
 
+						<div class="form-item">
+							<label for="rows"
+								>Rows : <span class="details">(between 5 and 30)</span></label
+							>
+							<input type="number" id="rows" min="5" max="30" value="6" />
+						</div>
+						<br />
 
+						<div class="form-item">
+							<label for="columns"
+								>Columns :
+								<span class="details">(between 5 and 30)</span></label
+							>
+							<input type="number" id="columns" min="5" max="30" value="6" />
+						</div>
+						<br />
 
-      <div class="form">
-        <div class="right-background">
-          <div class="form-item">
+						<div class="form-item">
+							<label for="players-count"
+								>Players : <span class="details">(between 2 and 6)</span></label
+							>
+							<input
+								type="number"
+								id="players-count"
+								min="2"
+								max="6"
+								value="2"
+							/>
+						</div>
+						<br />
+						<button class="start-btn">START</button>
+						<p id="validation-message" style="color: red; display: none">
+							Please insert valid values
+						</p>
+					</div>
+				</div>
+			</div>
+			<p class="author">
+				Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
+			</p>
+		</div>
 
-            <label for="theme-select">Select Theme:</label>
-            <select id="theme-select">
-              <option value="default">Default</option>
-              <option value="2">Theme 1</option>
-              <option value="3">Theme 2</option>
-            </select>
-          </div>
+		<div class="flex">
+			<div class="board"></div>
+			<div class="score">
+				<div class="players"></div>
+				<video autoplay muted class="video" loop id="myVideo2">
+					<source src="./assets/default.mp4" type="video/mp4" />
+				</video>
+				<div class="player-turn">
+					<div class="bg"><span class="name">PlayerX</span>'s turn</div>
+				</div>
 
-          <div class="form-item">
-            <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-            <input type="number" id="rows" min="5" max="30" value="6" />
-          </div>
-          <br>
-
-          <div class="form-item">
-            <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-            <input type="number" id="columns" min="5" max="30" value="6" />
-          </div>
-          <br>
-
-          <div class="form-item">
-            <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-            <input type="number" id="players-count" min="2" max="6" value="2" />
-          </div>
-          <br>
-          <button class="start-btn">START</button>
-          <p id="validation-message" style="color: red; display: none;">Please insert valid values</p>
-
-
-        </div>
-      </div>
-
-    </div>
-    <p class="author">
-      Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
-    </p>
-  </div>
-
-
-  <div class="flex">
-    <div class="board"></div>
-    <div class="score">
-      <div class="players"></div>
-      <video autoplay muted class="video" loop id="myVideo2">
-        <source src="./assets/default.mp4" type="video/mp4">
-      </video>
-      <div class="player-turn">
-        <div class="bg">
-          <span class="name">PlayerX</span>'s turn
-        </div>
-      </div>
-
-      <div class="flex-btn">
-        <button>Mute</button>
-        <button>Restart</button>
-      </div>
-    </div>
-  </div>
-</body>
-
+				<div class="flex-btn">
+					<button>Mute</button>
+					<button>Restart</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
