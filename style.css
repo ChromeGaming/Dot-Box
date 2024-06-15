@@ -2,7 +2,7 @@
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
-    --edge-thikness: 5px;
+    --edge-thickness: 5px;
 }
 
 * {
@@ -20,9 +20,6 @@ body {
     display: grid;
     place-items: center;
     max-height: 100vh;
-    -webkit-user-select: none; 
-    -moz-user-select: none;    
-    -ms-user-select: none;     
     user-select: none; 
 }
 
@@ -34,13 +31,15 @@ a {
     position: absolute;
     font-size: 1.2rem;
     bottom: 1%;
+    text-align: center;
+    width: 100%;
 }
 
 .board {
-	background: #fcfcfc;
-	display: grid;
-	width: 75vh;
-	max-height: 75vh;
+    background: #fcfcfc;
+    display: grid;
+    width: 75vh;
+    max-height: 75vh;
 }
 
 @media screen and (max-width: 720px) {
@@ -107,13 +106,13 @@ a {
 
 .edge.left,
 .edge.right {
-    width: var(--edge-thikness);
+    width: var(--edge-thickness);
     height: var(--edge-length);
 }
 
 .edge.top,
 .edge.bottom {
-    height: var(--edge-thikness);
+    height: var(--edge-thickness);
     width: var(--edge-length);
 }
 
@@ -159,28 +158,33 @@ a {
     transform: scale(0.7, 3);
 }
 
-.Player_1,.Player_2,.Player_3,.Player_4,.Player_5,.Player_6{
+.Player_1,
+.Player_2,
+.Player_3,
+.Player_4,
+.Player_5,
+.Player_6 {
     pointer-events: none;
     z-index: 10;
 }
-.Player_1{background: pink;}
-.Player_2{background: skyblue;}
-.Player_3{background: lightgreen;}
-.Player_4{background: magenta;}
-.Player_5{background: yellow;}
-.Player_6{background: orange;}
+
+.Player_1 { background: pink; }
+.Player_2 { background: skyblue; }
+.Player_3 { background: lightgreen; }
+.Player_4 { background: magenta; }
+.Player_5 { background: yellow; }
+.Player_6 { background: orange; }
 
 .players {
-	/* position: absolute; */
-	z-index: 10;
-	font-size: 1rem;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 0.4rem;
-	display: flex;
-	justify-content: center;
-	gap: 1.2rem;
+    z-index: 10;
+    font-size: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
 }
 
 .player .filled-boxes {
@@ -205,16 +209,14 @@ a {
 }
 
 .player-turn {
-	font-size: 1rem;
-	z-index: 10;
-	/* position: relative; */
-	/* top: 52px; */
-	left: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	color: rgba(0, 0, 0, 0.864);
-  margin: 1rem 0rem;
+    font-size: 1rem;
+    z-index: 10;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.864);
+    margin: 1rem 0;
 }
 
 .player-turn .bg {
@@ -225,7 +227,7 @@ a {
     max-width: 200px;
     text-align: center;
     border-radius: 1rem;
-    box-shadow:0px 1px 4px rgba(6, 6, 6, 0.829);
+    box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
 }
 
 .player-turn .bg.win {
@@ -253,32 +255,31 @@ a {
 }
 
 h1 {
-    margin-top: -30px;
     text-align: center;
-    margin: 0;
     color: #111;
     z-index: 100;
     padding-bottom: 10px;
     width: 100%;
+    font-size: 1.5rem;
 }
 
 .instructions {
     width: 100%;
     justify-content: center;
     max-height: 100%;
+    font-size: 1rem;
 }
 
 .settings {
-	position: absolute;
-	/* background: #fdfdfd; */
-	inset: 0;
-	z-index: 20;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 10%;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10%;
+    width: 100%;
+    height: 100%;
 }
 
 .settings .form {
@@ -297,7 +298,6 @@ h1 {
     flex-direction: column;
     gap: 0.2rem;
     width: 260px;
-    
 }
 
 .settings .form-item input {
@@ -331,83 +331,71 @@ h1 {
 }
 
 .settings button:active {
-	background: rgb(70, 70, 70);
+    background: rgb(70, 70, 70);
 }
 
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-}
-#myVideo2 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-}
-  
-.settings .form-item select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
+#myVideo, #myVideo2 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
 
-select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
-  width: 100%;
-  margin: 1rem 0rem;
+.settings .form-item select, select {
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+    margin: 1rem 0;
 }
 
 .score {
-  background-color: rgba(231, 181, 55, 0.979);
-  padding: 50px;
-  border: #111;
-  border-radius: 10px;
-  box-shadow:0px 5px 15px rgba(6, 6, 6, 0.829);
+    background-color: rgba(231, 181, 55, 0.979);
+    padding: 20px;
+    border: #111;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
 }
 
 .flex {
-  width: 70%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .flex-btn {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
 }
 
 .flex-btn button {
-  margin-top: 0.4rem;
-  border-radius: 3px;
-  padding: 0.8rem;
-  font-weight: bold;
-  border: none;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 4px;
+    margin-top: 0.4rem;
+    border-radius: 3px;
+    padding: 0.8rem;
+    font-weight: bold;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 4px;
 }
 
 .flex-btn button:hover {
-  background: rgb(75, 75, 75);
+    background: rgb(75, 75, 75);
 }
 
 .whole-background {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     background-color: rgba(231, 181, 55, 0.979);
-    /*background-color: rgba(6, 159, 103, 0.957);*/
     border-radius: 10px;
     padding: 10px 20px;
     box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
@@ -424,18 +412,6 @@ select {
     background-color: rgba(236, 66, 109, 0.329);
 }
 
-.hover-effect-1:hover {
-    background-color: rgba(236, 66, 109, 0.329);
-}
-
-.hover-effect-2:hover {
-    background-color: rgba(218, 216, 219, 0.612);
-}
-
-.hover-effect-3:hover {
-    background-color: rgba(117, 214, 179, 0.817);
-}
-
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -447,22 +423,51 @@ select {
 }
 
 .error-message {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #ff4d4d;
-  font-family: 'Arial', sans-serif;
-  text-align: left;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ff4d4d;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
 }
 
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+@media (max-width: 750px) {
+    .settings .form {
+        padding: 0.5rem;
+    }
+
+    .settings .form-item {
+        width: 100%;
+    }
+
+    .board {
+        width: 90vw;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .score {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .flex-btn {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .whole-background{
+        flex-direction: column;
+    }
 }
