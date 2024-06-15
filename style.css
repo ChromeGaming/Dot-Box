@@ -1,4 +1,3 @@
-/* Default settings */
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
@@ -34,13 +33,15 @@ a {
     position: absolute;
     font-size: 1.2rem;
     bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .board {
-	background: #fcfcfc;
-	display: grid;
-	width: 75vh;
-	max-height: 75vh;
+    background: #fcfcfc;
+    display: grid;
+    width: 80vh;
+    max-height: 80vh;
 }
 
 @media screen and (max-width: 720px) {
@@ -159,28 +160,28 @@ a {
     transform: scale(0.7, 3);
 }
 
-.Player_1,.Player_2,.Player_3,.Player_4,.Player_5,.Player_6{
+.Player_1, .Player_2, .Player_3, .Player_4, .Player_5, .Player_6 {
     pointer-events: none;
     z-index: 10;
 }
-.Player_1{background: pink;}
-.Player_2{background: skyblue;}
-.Player_3{background: lightgreen;}
-.Player_4{background: magenta;}
-.Player_5{background: yellow;}
-.Player_6{background: orange;}
+
+.Player_1 { background: pink; }
+.Player_2 { background: skyblue; }
+.Player_3 { background: lightgreen; }
+.Player_4 { background: magenta; }
+.Player_5 { background: yellow; }
+.Player_6 { background: orange; }
 
 .players {
-	/* position: absolute; */
-	z-index: 10;
-	font-size: 1rem;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 0.4rem;
-	display: flex;
-	justify-content: center;
-	gap: 1.2rem;
+    z-index: 10;
+    font-size: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
 }
 
 .player .filled-boxes {
@@ -205,16 +206,14 @@ a {
 }
 
 .player-turn {
-	font-size: 1rem;
-	z-index: 10;
-	/* position: relative; */
-	/* top: 52px; */
-	left: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	color: rgba(0, 0, 0, 0.864);
-  margin: 1rem 0rem;
+    font-size: 1rem;
+    z-index: 10;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.864);
+    margin: 1rem 0rem;
 }
 
 .player-turn .bg {
@@ -225,7 +224,7 @@ a {
     max-width: 200px;
     text-align: center;
     border-radius: 1rem;
-    box-shadow:0px 1px 4px rgba(6, 6, 6, 0.829);
+    box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
 }
 
 .player-turn .bg.win {
@@ -269,16 +268,14 @@ h1 {
 }
 
 .settings {
-	position: absolute;
-	/* background: #fdfdfd; */
-	inset: 0;
-	z-index: 20;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 10%;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .settings .form {
@@ -297,7 +294,6 @@ h1 {
     flex-direction: column;
     gap: 0.2rem;
     width: 260px;
-    
 }
 
 .settings .form-item input {
@@ -331,83 +327,84 @@ h1 {
 }
 
 .settings button:active {
-	background: rgb(70, 70, 70);
+    background: rgb(70, 70, 70);
 }
 
 #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
+
 #myVideo2 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
-  
+
 .settings .form-item select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
+    font-weight: bold;
+    font-size: large;
 }
 
 select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
-  width: 100%;
-  margin: 1rem 0rem;
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+    margin: 1rem 0rem;
 }
 
 .score {
-  background-color: rgba(231, 181, 55, 0.979);
-  padding: 50px;
-  border: #111;
-  border-radius: 10px;
-  box-shadow:0px 5px 15px rgba(6, 6, 6, 0.829);
+    background-color: rgba(231, 181, 55, 0.979);
+    padding: 50px;
+    border: #111;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+    max-width: 40%;
 }
 
 .flex {
-  width: 70%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .flex-btn {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .flex-btn button {
-  margin-top: 0.4rem;
-  border-radius: 3px;
-  padding: 0.8rem;
-  font-weight: bold;
-  border: none;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 4px;
+    margin-top: 0.4rem;
+    border-radius: 3px;
+    padding: 0.8rem;
+    font-weight: bold;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 4px;
 }
 
 .flex-btn button:hover {
-  background: rgb(75, 75, 75);
+    background: rgb(75, 75, 75);
 }
 
 .whole-background {
     display: flex;
     gap: 1rem;
     background-color: rgba(231, 181, 55, 0.979);
-    /*background-color: rgba(6, 159, 103, 0.957);*/
     border-radius: 10px;
     padding: 10px 20px;
     box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
@@ -421,11 +418,12 @@ select {
 }
 
 .right-background:hover {
-    background-color: rgba(236, 66, 109, 0.329);
+    background-color: rgba(193, 114, 10, 0.329);
+    color: white;
 }
 
 .hover-effect-1:hover {
-    background-color: rgba(236, 66, 109, 0.329);
+    background-color: rgba(207, 132, 151, 0.329);
 }
 
 .hover-effect-2:hover {
@@ -447,22 +445,265 @@ select {
 }
 
 .error-message {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #ff4d4d;
-  font-family: 'Arial', sans-serif;
-  text-align: left;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ff4d4d;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 767px) {
+    .flex {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .board {
+        width: 90%;
+    }
+
+    .score {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .players {
+        width: 100%;
+    }
+
+    .mute-btn, .restart-btn {
+        width: 10rem;
+    }
+
+    .heading {
+        font-size: 1.3rem;
+    }
+
+    .whole-background {
+        flex-direction: column;
+        align-items: center;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .form {
+        width: 100%;
+        padding: 0;
+    }
+
+    .form h1, .form h3, .form p {
+        color: white;
+    }
+
+    .settings .form-item {
+        width: 100%;
+    }
+
+    .right-background {
+        padding: 1rem;
+        max-width: 100%;
+        background-color: rgba(231, 181, 55, 0.979);
+        box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+    }
+
+    .settings {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .author {
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .form .instructions, .form .instructions-heading { 
+        font-size: 0.9rem;
+    }
+
+    .form .form-item, label {
+        font-size: 0.9rem;
+    }
+
+    .settings .form {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 394px) {
+    .settings {
+        font-size: 0.5rem;
+    }
+
+    .whole-background {
+        width: 100%;
+    }
+
+    .heading {
+        font-size: 0.9rem;
+    }
+
+    .form .instructions, .form .instructions-heading { 
+        font-size: 0.8rem;
+    }
+
+    .form .form-item, label, #theme-select {
+        font-size: 0.8rem;
+    }
+
+    .settings .form {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .author {
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .mute-btn, .restart-btn {
+        width: 8rem;
+    }
+
+    .score {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 325px) {
+    .whole-background {
+        width: 100%;
+    }
+
+    .heading {
+        font-size: 0.8rem;
+    }
+
+    .settings .form {
+        padding: 5px;
+    }
+
+    .form .instructions, .form .instructions-heading { 
+        font-size: 0.6rem;
+    }
+
+    .form .form-item, label, #theme-select {
+        font-size: 0.6rem;
+    }
+
+    .author {
+        font-size: 0.5rem;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .flex {
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1rem;
+    }
+
+    .board {
+        margin-top: 10px;
+        max-width: 90%;
+        max-height: 60%;
+    }
+
+    .mute-btn, .restart-btn {
+        width: 7rem;
+    }
+
+    .score {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Instructions Page */
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60%;
+    padding: 15px 20px;
+    line-height: 1.5em;
+    background-color: rgba(231, 181, 55, 0.979);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+}
+
+.instructions-container h1 {
+    margin-bottom: 20px;
+}
+
+.instructions-container p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background: rgb(75, 75, 75);
+}
+
+@media (max-width: 767px) {
+    .instructions-container {
+        max-width: 90%;
+        padding: 15px 25px;
+        line-height: 1.5em;
+    }
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 10px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.button:hover {
+    background: rgb(75, 75, 75);
 }
