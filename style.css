@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: monospace;
+    font-family: 'Arial', sans-serif;
     background: #f6f6f6;
     width: 100vw;
     height: 100vh;
@@ -23,7 +23,7 @@ body {
     -webkit-user-select: none; 
     -moz-user-select: none;    
     -ms-user-select: none;     
-     user-select: none; 
+    user-select: none; 
 }
 
 a {
@@ -218,6 +218,7 @@ a {
 }
 
 .player-turn .bg {
+
 	background: #999;
 	padding: 0.5rem 1rem;
 	width: 320px;
@@ -226,6 +227,15 @@ a {
 	text-align: center;
 	border-radius: 1rem;
 	height: 80px;
+
+    background: #999;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow:0px 1px 4px rgba(6, 6, 6, 0.829);
 
 }
 
@@ -285,17 +295,20 @@ h1 {
 .settings .form {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
-    max-width: 550px;
+    justify-content: center;
+    max-width: 475px;
     padding: 1rem;
     font-size: 20px;
-    padding-left: 7%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .settings .form-item {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    width: 260px;
+    
 }
 
 .settings .form-item input {
@@ -308,7 +321,7 @@ h1 {
 
 .settings .form-item .details {
     font-style: italic;
-    color: #999;
+    color: #3e3e3e;
     font-size: 15px;
 }
 
@@ -484,7 +497,7 @@ h1 {
   z-index: -1;
 }
   
-  
+
   .settings .form-item select{
     border-radius: 3px;
     padding: 0.4rem 0.2rem;
@@ -502,35 +515,118 @@ h1 {
     margin: 1rem 0rem;
   }
 
+.settings .form-item select {
+  border-radius: 3px;
+  padding: 0.4rem 0.2rem;
+  font-weight: bold;
+  font-size: large;
+}
 
-.score{
-  background-color: rgba(96, 87, 87, 0.822);
+select {
+  border-radius: 3px;
+  padding: 0.4rem 0.2rem;
+  font-weight: bold;
+  font-size: large;
+  width: 100%;
+  margin: 1rem 0rem;
+}
+
+.score {
+  background-color: rgba(231, 181, 55, 0.979);
   padding: 50px;
   border: #111;
   border-radius: 10px;
+  box-shadow:0px 5px 15px rgba(6, 6, 6, 0.829);
 }
 
-.flex{
+.flex {
   width: 70%;
-  display: flex; 
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.flex-btn{
-  display: flex; 
+
+.flex-btn {
+  display: flex;
   justify-content: space-around;
 }
-.flex-btn button{
+
+.flex-btn button {
   margin-top: 0.4rem;
-	border-radius: 3px;
-	padding: 0.8rem;
-	font-weight: bold;
-	border: none;
-	background: #333;
-	color: #fff;
-	cursor: pointer;
-	letter-spacing: 4px;
+  border-radius: 3px;
+  padding: 0.8rem;
+  font-weight: bold;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 4px;
 }
+
 .flex-btn button:hover {
-	background: rgb(75, 75, 75);
+  background: rgb(75, 75, 75);
+}
+
+.whole-background {
+    display: flex;
+    gap: 1rem;
+    background-color: rgba(231, 181, 55, 0.979);
+    /*background-color: rgba(6, 159, 103, 0.957);*/
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+}
+
+.right-background {
+    padding: 20px 50px;
+    border-radius: 10px;
+    max-width: 350px;
+    transition: background-color 0.5s ease;
+}
+
+.right-background:hover {
+    background-color: rgba(236, 66, 109, 0.329);
+}
+
+.hover-effect-1:hover {
+    background-color: rgba(236, 66, 109, 0.329);
+}
+
+.hover-effect-2:hover {
+    background-color: rgba(218, 216, 219, 0.612);
+}
+
+.hover-effect-3:hover {
+    background-color: rgba(117, 214, 179, 0.817);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.start-btn, .reset-btn {
+    flex: 1;
+}
+
+.error-message {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ff4d4d;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
