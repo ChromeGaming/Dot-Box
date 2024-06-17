@@ -1,118 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="./js/edge.js"></script>
-  <script defer src="./js/box.js"></script>
-  <script defer src="./js/board.js"></script>
-  <script defer src="./js/game.js"></script>
-  <script defer src="./js/validation.js"></script>
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  <title>Dots & Boxes Game</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./js/edge.js"></script>
+    <script defer src="./js/box.js"></script>
+    <script defer src="./js/board.js"></script>
+    <script defer src="./js/game.js"></script>
+    <script defer src="./js/validation.js"></script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>Dots & Boxes Game</title>
 </head>
-
 <body>
-  <div class="settings">
-    <video autoplay muted class="video" loop id="myVideo">
-      <source src="./assets/default.mp4" type="video/mp4">
-    </video>
-
-    <div class="whole-background">
-      <div class="form">
-        <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
-        <h3 class="instructions-heading">Instructions</h3>
-        <p class="instructions">
-          1. Select the number of rows, columns and players. <br>
-          2. The player who has maximum number of boxes on board is the winner. <br>
-          3. Players will switch after every turn. But the player who has filled the last box, will get one extra chance consecutively. <br>
+    <div class="settings">
+        <video autoplay muted class="video" loop id="myVideo">
+            <source src="./assets/default.mp4" type="video/mp4">
+        </video>
+        <div class="whole-background">
+            <div class="form">
+                <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
+                <h3 class="instructions-heading">Instructions</h3>
+                <p class="instructions">
+                    1. Select the number of rows, columns and players. <br>
+                    2. The player who has maximum number of boxes on board is the winner. <br>
+                    3. Players will switch after every turn. But the player who has filled the last box, will get one extra chance consecutively. <br>
+                </p>
+                <a href="instructions.html" class="button">Read Detailed Instructions</a>
+            </div>
+            <div class="form">
+                <div class="right-background">
+                    <div class="form-item">
+                        <label for="theme-select">Select Theme:</label>
+                        <select id="theme-select">
+                            <option value="default">Default</option>
+                            <option value="2">Theme 1</option>
+                            <option value="3">Theme 2</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+                        <input type="number" id="rows" min="5" max="30" value="6" />
+                        <p id="rows-error" class="error-message" style="display: none; color: red;">Rows should be between 5 and 30</p>
+                    </div>
+                    <br>
+                    <div class="form-item">
+                        <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+                        <input type="number" id="columns" min="5" max="30" value="6" />
+                        <p id="columns-error" class="error-message" style="display: none; color: red;">Columns should be between 5 and 30</p>
+                    </div>
+                    <br>
+                    <div class="form-item">
+                        <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+                        <input type="number" id="players-count" min="2" max="6" value="2" />
+                        <p id="players-error" class="error-message" style="display: none; color: red;">Players should be between 2 and 6</p>
+                    </div>
+                    <br>
+                    <div class="button-container">
+                        <button class="start-btn button">START</button>
+                        <button class="reset-btn button">RESET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="author">
+            Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
         </p>
-      </div>
-
-      <div class="form">
-        <div class="right-background">
-          <div class="form-item">
-            <label for="theme-select">Select Theme:</label>
-            <select id="theme-select">
-              <option value="default">Default</option>
-              <option value="2">Theme 1</option>
-              <option value="3">Theme 2</option>
-            </select>
-          </div>
-
-          <div class="form-item">
-            <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-            <input type="number" id="rows" min="5" max="30" value="6" />
-            <p id="rows-error" class="error-message" style="display: none; color: red;">Rows should be between 5 and 30</p>
-          </div>
-          <br>
-
-          <div class="form-item">
-            <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-            <input type="number" id="columns" min="5" max="30" value="6" />
-            <p id="columns-error" class="error-message" style="display: none; color: red;">Columns should be between 5 and 30</p>
-          </div>
-          <br>
-
-          <div class="form-item">
-            <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-            <input type="number" id="players-count" min="2" max="6" value="2" />
-            <p id="players-error" class="error-message" style="display: none; color: red;">Players should be between 2 and 6</p>
-          </div>
-          <br>
-
-          <div class="button-container">
-            <button class="start-btn">START</button>
-            <button class="reset-btn">RESET</button>
-          </div>
-        </div>
-      </div>
     </div>
-    <p class="author">
-      Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
-    </p>
-  </div>
-
-  <div class="flex">
-    <div class="board"></div>
-    <div class="score">
-      <div class="players"></div>
-      <video autoplay muted class="video" loop id="myVideo2">
-        <source src="./assets/default.mp4" type="video/mp4">
-      </video>
-      <div class="player-turn">
-        <div class="bg">
-          <span class="name">PlayerX</span>'s turn
+    <div class="flex">
+        <div class="board"></div>
+        <div class="score">
+            <div class="players"></div>
+            <video autoplay muted class="video" loop id="myVideo2">
+                <source src="./assets/default.mp4" type="video/mp4">
+            </video>
+            <div class="player-turn">
+                <div class="bg">
+                    <span class="name">PlayerX</span>'s turn
+                </div>
+            </div>
+            <div class="flex-btn">
+                <button class="mute-btn button">Mute</button>
+                <button class="restart-btn button">Restart</button>
+            </div>
         </div>
-      </div>
-      <div class="flex-btn">
-        <button class="mute-btn">Mute</button>
-        <button class="restart-btn">Restart</button>
-      </div>
     </div>
-  </div>
 </body>
-
 <script src="https://form.jotform.com/static/feedback2.js"></script>
-	<script>
-	  var componentID = new JotformFeedback({
-
-	type: false,
-	width: 700,
-	height: 500,
-	fontColor: "#FFFFFF",
-	background: "#F59202",
-	isCardForm: false,
-	formId: "241546804327457"
-	,
-		buttonText: "Feedback",
-		buttonSide: "left",
-		buttonAlign: "center",
-		base: "https://form.jotform.com/",
-	  }).componentID;
-	</script>
-	<script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-	<script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
+<script>
+    var componentID = new JotformFeedback({
+        type: false,
+        width: 700,
+        height: 500,
+        fontColor: "#FFFFFF",
+        background: "#F59202",
+        isCardForm: false,
+        formId: "241546804327457",
+        buttonText: "Feedback",
+        buttonSide: "left",
+        buttonAlign: "center",
+        base: "https://form.jotform.com/",
+    }).componentID;
+</script>
+<script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+<script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
 </html>
