@@ -34,6 +34,74 @@ a {
     text-align: center;
     width: 100%;
 }
+/* H1 (title) styles */
+
+
+.psd-text-effect {
+    font-size: 4em;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    text-transform: uppercase;
+    margin: 0;
+    background: linear-gradient(180deg, #245083 0%, #6f3a1c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    transition: background 0.5s ease !important;
+}
+
+.psd-text-effect::before, .psd-text-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+}
+
+.psd-text-effect::before {
+    color: rgba(0, 0, 0, 0.5);
+    top: 5px;
+}
+
+.psd-text-effect::after {
+    color: rgba(0, 0, 0, 0.3);
+    top: 10px;
+}
+
+.psd-text-effect:hover {
+    background: linear-gradient(180deg, #8d142e 0%, #1b3981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.instructions-heading {
+    font-size: 1.5em;
+    color: #ffffff !important;
+    margin-top: 20px;
+    transition: background 0.5s ease !important;
+}
+
+.instructions-heading:hover {
+    color: #000000 !important;
+}
+
+.instructions {
+    color: #333 !important;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.button {
+    background-color: #264653 !important;
+    color: #fff !important;
+    transition: background 0.5s ease !important;
+}
+
+.button:hover {
+    background-color: #2a9d8f !important;
+}
 
 .board {
     background: #fcfcfc;
