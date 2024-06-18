@@ -558,3 +558,59 @@ input[type=number] {
 }
 
 
+
+
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #f0f0f0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+      
+  }
+  
+  .logo a {
+    text-decoration: none; 
+    font-size: 40px; 
+    font-weight: bolder; 
+    color: black; 
+  }
+  
+  .nav-links {
+    list-style: none; /* Removes default bullet points from list items */
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  .nav-links li {
+    display: inline-block; 
+    margin-right: 30px; 
+    font-size: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none; /* Removes underline from links */
+    color: black; 
+    font-weight: bold; 
+  }
+  
+  .nav-links a:hover {
+    color: #007bff; 
+  }
+
+  .logo a:hover{
+    color: #007bff;
+  }
+
+  button a{
+    background-color: #fb946f;
+    text-shadow: #007bff;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
