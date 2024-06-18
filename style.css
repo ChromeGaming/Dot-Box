@@ -229,6 +229,16 @@ a {
 }
 
 .player-turn .bg {
+
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 320px;
+	min-width: 100px;
+	max-width: 500px;
+	text-align: center;
+	border-radius: 1rem;
+	height: 80px;
+
     background: #999;
     padding: 0.5rem 1rem;
     width: 100%;
@@ -236,7 +246,10 @@ a {
     max-width: 200px;
     text-align: center;
     border-radius: 1rem;
+
+    box-shadow:0px 1px 4px rgba(6, 6, 6, 0.829);
     box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
+
 }
 
 .player-turn .bg.win {
@@ -340,6 +353,173 @@ h1 {
 }
 
 .settings button:active {
+
+
+    background: rgb(70, 70, 70);
+}
+
+.back {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media(min-aspect-ratio:16/9) {
+    .back {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-aspect-ratio:16/9) {
+    .back {
+        width: auto;
+        height: 100%;
+    }
+}
+
+
+.player-turn .bg {
+    padding: 0.2rem 0.4rem;
+    border-radius: 1.2rem;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.timer {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: red;
+}
+.mute-btn {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.mute-btn i {
+    color: #ffffff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.mute-btn:hover i {
+	color: #fff;
+}
+
+
+/* The message box is shown when the user clicks on the input field */
+.warning {
+    display: none;
+    font-size: 18px;
+    color: red;
+    position: relative;
+    padding: 5px;
+}
+
+/* Rankings table styles */
+.rankings {
+    position: absolute;
+    top: 200px; /* Adjust as necessary */
+    right: 10px; /* Adjust as necessary */
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rankings table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rankings th, .rankings td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.rankings th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.rankings td {
+    background-color: #f9f9f9;
+}
+
+/* Additional styling for the overall container */
+#ranking-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#ranking {
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 600px;
+}
+
+#ranking th, #ranking td {
+    text-align: left;
+    padding: 8px;
+}
+
+#ranking th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#ranking tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ranking tr:hover {
+    background-color: #ddd;
+}
+
+#ranking td:first-child {
+
+	background: rgb(70, 70, 70);
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+#myVideo2 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+  
+
+  .settings .form-item select{
+    border-radius: 3px;
+    padding: 0.4rem 0.2rem;
+
+    font-weight: bold;
+    font-size: large;
+  }
+
+  select{
+
     background: rgb(70, 70, 70);
 }
 
@@ -353,11 +533,30 @@ h1 {
 }
 
 .settings .form-item select, select {
+
     border-radius: 3px;
     padding: 0.4rem 0.2rem;
     font-weight: bold;
     font-size: large;
     width: 100%;
+
+    margin: 1rem 0rem;
+  }
+
+.settings .form-item select {
+  border-radius: 3px;
+  padding: 0.4rem 0.2rem;
+  font-weight: bold;
+  font-size: large;
+}
+
+select {
+  border-radius: 3px;
+  padding: 0.4rem 0.2rem;
+  font-weight: bold;
+  font-size: large;
+  width: 100%;
+  margin: 1rem 0rem;
     margin: 1rem 0;
 }
 
