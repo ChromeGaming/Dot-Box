@@ -1,5 +1,4 @@
 /* Default settings */
-
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
@@ -21,7 +20,7 @@ body {
     display: grid;
     place-items: center;
     max-height: 100vh;
-    user-select: none;
+    user-select: none; 
 }
 
 a {
@@ -83,10 +82,12 @@ a {
         transform: scale(1);
         opacity: 0.3;
     }
+
     30% {
         transform: scale(0.5);
         opacity: 0.6;
     }
+
     to {
         transform: scale(1);
         opacity: 0.3;
@@ -176,29 +177,12 @@ a {
     z-index: 10;
 }
 
-.Player_1 {
-    background: pink;
-}
-
-.Player_2 {
-    background: skyblue;
-}
-
-.Player_3 {
-    background: lightgreen;
-}
-
-.Player_4 {
-    background: magenta;
-}
-
-.Player_5 {
-    background: yellow;
-}
-
-.Player_6 {
-    background: orange;
-}
+.Player_1 { background: pink; }
+.Player_2 { background: skyblue; }
+.Player_3 { background: lightgreen; }
+.Player_4 { background: magenta; }
+.Player_5 { background: yellow; }
+.Player_6 { background: orange; }
 
 .players {
     z-index: 10;
@@ -227,6 +211,7 @@ a {
     .player span {
         font-size: 0.8rem;
     }
+
     .players {
         gap: 0.5rem;
     }
@@ -281,9 +266,11 @@ a {
     from {
         transform: scale(1);
     }
+
     40% {
         transform: scale(1.2);
     }
+
     to {
         transform: scale(1);
     }
@@ -536,8 +523,7 @@ h1 {
     background: rgb(70, 70, 70);
 }
 
-#myVideo,
-#myVideo2 {
+#myVideo, #myVideo2 {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -546,8 +532,7 @@ h1 {
     z-index: -1;
 }
 
-
-select {
+.settings .form-item select, select {
 
     border-radius: 3px;
     padding: 0.4rem 0.2rem;
@@ -641,8 +626,7 @@ select {
     gap: 1rem;
 }
 
-.start-btn,
-.reset-btn {
+.start-btn, .reset-btn {
     flex: 1;
 }
 
@@ -689,49 +673,51 @@ input[type=number] {
     padding-bottom: 10px;
     width: 100%;
     font-size: 1.5rem;
-}
-
+}   
 
 /* Responsive for mobile view */
-
 @media (max-width: 750px) {
     .settings .form {
         padding: 0px;
     }
+
     .settings .form-item {
         width: 100%;
     }
+
     .board {
         width: 90vw;
     }
+
     .flex {
         flex-direction: column;
     }
+
     .score {
         width: 90%;
         padding: 10px;
     }
+
     .flex-btn {
         flex-direction: column;
         gap: 0.5rem;
     }
-    .whole-background {
+    .whole-background{
         flex-direction: column;
     }
-    .button {
+    .button{
         margin-top: 10px;
         padding: 0.5em;
         font-size: 1rem;
     }
-    .right-background {
+    .right-background{
         padding: 0px 10px;
         font-size: 1rem;
     }
+
 }
 
-
 /* Instructions Page */
-
 .instructions-container {
     display: flex;
     flex-direction: column;
@@ -755,9 +741,9 @@ input[type=number] {
 }
 
 .back-btn {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px 20px;
-    background: rgb(37, 37, 74);
+    background: #333;
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -769,7 +755,6 @@ input[type=number] {
 
 .back-btn:hover {
     background: rgb(75, 75, 75);
-    text-decoration: underline;
 }
 
 @media (max-width: 767px) {
@@ -778,18 +763,13 @@ input[type=number] {
         padding: 15px 25px;
         line-height: 1.5em;
     }
-
 }
-
-
-
-
 .navbar {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     padding: 10px 20px; 
-    background-color: #f0f0f0; 
+    background-color: transparent; 
     position: fixed;
     top: 0;
     left: 0;
@@ -800,7 +780,7 @@ input[type=number] {
   
   .logo a {
     text-decoration: none; 
-    font-size: 40px; 
+    font-size: 35px; 
     font-weight: bolder; 
     color: black; 
   }
@@ -812,29 +792,66 @@ input[type=number] {
   }
   
   .nav-links li {
-    display: inline-block; 
-    margin-right: 30px; 
-    font-size: 20px;
+    display: inline-flex; 
+    margin-right: 40px; 
+    font-size: 18px;
   }
   
   .nav-links a {
     text-decoration: none; /* Removes underline from links */
     color: black; 
     font-weight: bold; 
+    transition: color 0.3s ease-in-out;
+  }
+  .nav-links a:hover {
+    color: #f39d2c; /* Hover color */
   }
   
-  .nav-links a:hover {
-    color: #007bff; 
-  }
 
   .logo a:hover{
-    color: #007bff;
+    color: yellow;
   }
 
   button a{
-    background-color: #fb946f;
-    text-shadow: #007bff;
+    background-color: #fb946f; /* Maintains button background color */
+    text-shadow: none; /* Removed text shadow */
+    color: white; /* Text color for better contrast */
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px; /* Adjusted font size */
+    padding: 5px 10px; /* Added padding for better button appearance */
+    border: none; /* Removed default button border */
+    border-radius: 5px; /* Added rounded corners */
+    cursor: pointer; /* Indicates clickable element */
+  }
+
+  /* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+    .navbar { 
+      margin-top: 20px;
+      flex-direction: column; /* Stacks elements vertically on small screens */
+      flex-direction: column; 
+    }
+
+    .logo a {
+        font-size: 20px; /* Reduced font size for small screens */
+      }
+    
+    .nav-links li a {
+        font-size: 16px; /* Reduced font size for small screens */
+      }
+  
+    .logo {
+      margin-bottom: 10px; /* Adds space between logo and links on small screens */
+    }
+  
+    .nav-links {
+      text-align: center; /* Centers links on small screens */
+       display: none; 
+    }
+  
+    .nav-links li {
+      margin: 10px 0; /* Adjusts margin for vertical layout */
+    }
   }
 
