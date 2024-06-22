@@ -788,7 +788,7 @@ input[type=number] {
     justify-content: space-between; 
     align-items: center; 
     padding: 10px 20px; 
-    background-color: #f0f0f0; 
+    background-color: transparent; 
     position: fixed;
     top: 0;
     left: 0;
@@ -799,7 +799,7 @@ input[type=number] {
   
   .logo a {
     text-decoration: none; 
-    font-size: 40px; 
+    font-size: 35px; 
     font-weight: bolder; 
     color: black; 
   }
@@ -811,29 +811,65 @@ input[type=number] {
   }
   
   .nav-links li {
-    display: inline-block; 
-    margin-right: 30px; 
-    font-size: 20px;
+    display: inline-flex; 
+    margin-right: 40px; 
+    font-size: 18px;
   }
   
   .nav-links a {
     text-decoration: none; /* Removes underline from links */
     color: black; 
     font-weight: bold; 
+    transition: color 0.3s ease-in-out;
   }
   
   .nav-links a:hover {
-    color: #007bff; 
+    color: #f39d2c; 
   }
 
   .logo a:hover{
-    color: #007bff;
+    color: yellow;
   }
 
   button a{
     background-color: #fb946f;
-    text-shadow: #007bff;
+    text-shadow: none;
+    color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
+  @media screen and (max-width: 768px) {
+    .navbar{
+        margin-top: 20px;
+        flex-direction: column;
+
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+
+    }
+
+    .logo{
+        margin-bottom: 10px;
+    }
+
+    .nav-links{
+        text-align: center;
+        display: none;
+    }
+
+    .nav-links li{
+        margin: 10px 0;
+    }
+    
+  }

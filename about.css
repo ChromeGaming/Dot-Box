@@ -1,0 +1,91 @@
+
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e7b537; /* Orange background */
+  }
+  
+  .about-header {
+    background-color: transparent;
+    color: #0e0e0e; /* White text */
+    padding: 20px;
+    text-align: center;
+    font-size: 2.1rem; /* Larger heading size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .about-header:hover {
+    background-color: #e59253; /* Light orange on hover */
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  p {
+    color: #333; 
+    line-height: 1.5;
+    text-align: justify; 
+    max-width: 700px; 
+    margin: 0 auto; 
+  }
+  
+  .functionalities,
+  .how-to-play {
+    background-color: #3370e2; /* Light background for sections */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    padding: 20px;
+    margin: 20px auto; /* Add space between sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+  }
+  
+  .functionalities:hover,
+  .how-to-play:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+  }
+  
+  h2 {
+    margin-bottom: 10px; /* Add space below section headers */
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .about-footer {
+    
+    background-color: transparent;
+    color: #fff;
+font-size: 20px; }
+
+.about-footer p{
+    text-align: center;
+}
+
+.about-footer p:hover{
+    color: #3370e2;
+}
+
+.functionalities ul{
+    color: wheat;
+}
+
+.how-to-play p{
+    color: wheat;
+}
+  
