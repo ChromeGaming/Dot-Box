@@ -1,0 +1,118 @@
+body {
+	position: relative;
+	font-family: monospace;
+	background-color: #fdfdfd;
+	background-size: 8px 8px, 8px 8px;
+	background-position: center, center;
+	background-image: linear-gradient(#ebf4f9 1px, transparent 1px), linear-gradient(90deg, #ebf4f9 1px, transparent 1px);
+	width: 100vw;
+	min-height: 100vh;
+}
+
+.settings {
+	min-height: calc(100vh - 20vh);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+}
+
+h1 {
+	position: sticky;
+	top: 0;
+	display: grid;
+	place-items: center;
+	grid-auto-flow: column;
+	height: 15vh;
+	width: 100%;
+	padding: 0 10rem;
+	background-color: white;
+	color: #111;
+	white-space: nowrap;
+	overflow-x: auto;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	scroll-snap-type: x mandatory;
+	pointer-events: none;
+}
+
+h1 b {
+	scroll-snap-align: center;
+	padding: 0 1rem;
+}
+
+h1::-webkit-scrollbar {
+	display: none;
+	height: 0;
+	width: 0;
+}
+
+.settings .form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 500px;
+	padding: 2rem 3rem;
+	margin: 0 1rem;
+	font-size: 20px;
+	line-height: 2rem;
+}
+
+.settings .form-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.settings .form-item input {
+	border-radius: 4px;
+	padding: .4rem .6rem;
+	font-weight: bold;
+	font-size: large;
+}
+
+.settings .form-item .details {
+	font-style: italic;
+	color: #999;
+	font-size: 15px;
+
+}
+
+.settings a {
+	margin-top: 0.3rem;
+	border-radius: 4px;
+	padding: 0.5rem;
+	font-weight: bold;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
+	text-align: center;
+}
+
+.settings a:hover {
+	background: rgb(75, 75, 75);
+}
+
+.settings a:active {
+	background: rgb(70, 70, 70);
+}
+
+
+.instructions li {
+	hyphens: auto;
+	text-align: justify;
+	letter-spacing: 0.8px;
+	word-spacing: -1.8px;
+}
+
+.author {
+	position: sticky;
+	bottom: 0;
+	text-align: center;
+	padding: .3rem 0;
+	width: 100%;
+	font-size: 1.2rem;
+	background-color: white;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,25 @@
+/* Default settings */
+:root {
+    --border-color: #e5e5e5;
+    --edge-length: 100%;
+    --edge-thikness: 5px;
+    overflow-x: hidden;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root::-webkit-scrollbar {
+    width: 5px;
+    /* height: 50px; */
+    background-color: transparent;
+}
+
+:root::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
