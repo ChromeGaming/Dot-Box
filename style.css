@@ -29,12 +29,12 @@ a {
 }
 
 .author {
-    position: absolute;
+    /* position: absolute; */
     font-size: 1.5rem;
-    bottom: 1%;
+    /* bottom: 1%; */
     text-align: center;
     width: 100%;
-    color:#fff;
+    color:#000;
     transition: all 0.3s ease;
 }
 .author:hover{
@@ -328,6 +328,11 @@ h1 {
     padding-right: 3%;
 }
 
+#players-count
+{
+    margin-bottom: 10px;
+}
+
 .settings .form-item {
     display: flex;
     flex-direction: column;
@@ -615,6 +620,7 @@ select {
 }
 
 .whole-background {
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -644,6 +650,7 @@ select {
 .start-btn,
 .reset-btn {
     flex: 1;
+    margin-top: 10px;
 }
 
 .error-message {
@@ -689,6 +696,7 @@ input[type=number] {
     padding-bottom: 10px;
     width: 100%;
     font-size: 1.5rem;
+    padding: 0;
 }
 
 
@@ -781,21 +789,32 @@ input[type=number] {
 
 }
 
-
-
-
-.navbar {
+.navbar
+{
+    background-color: transparent;
+    /* justify-content: space-between;  */
+    align-items: center; 
     display: flex; 
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logo{
+    display: flex; 
+    list-style-type: none;
     justify-content: space-between; 
     align-items: center; 
     padding: 10px 20px; 
-    background-color: transparent; 
-    position: fixed;
+    background-color: grey; 
+    /* position: fixed;
     top: 0;
-    left: 0;
+    left: 0; */
     width: 100%;
     z-index: 10;
-      
   }
   
   .logo a {
@@ -809,6 +828,7 @@ input[type=number] {
     list-style: none; /* Removes default bullet points from list items */
     margin: 0; 
     padding: 0; 
+    display: none;
   }
   
   .nav-links li {
