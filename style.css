@@ -736,7 +736,7 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 60%;
+    max-width: 100%;
     padding: 15px 30px;
     background-color: rgba(231, 181, 55, 0.979);
     border-radius: 10px;
@@ -755,7 +755,7 @@ input[type=number] {
 }
 
 .back-btn {
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 10px 20px;
     background: rgb(37, 37, 74);
     color: #fff;
