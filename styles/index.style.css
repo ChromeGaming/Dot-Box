@@ -1,6 +1,6 @@
 body {
 	position: relative;
-	font-family: monospace;
+	/* font-family: monospace; */
 	background-color: #fdfdfd;
 	background-size: 8px 8px, 8px 8px;
 	background-position: center, center;
@@ -73,7 +73,7 @@ h1::-webkit-scrollbar {
 
 .settings .form-item .details {
 	font-style: italic;
-	color: #999;
+	color: #070707;
 	font-size: 15px;
 
 }
@@ -106,7 +106,7 @@ h1::-webkit-scrollbar {
 	word-spacing: -1.8px;
 }
 
-.author {
+/* .author {
 	position: sticky;
 	bottom: 0;
 	text-align: center;
@@ -115,4 +115,4 @@ h1::-webkit-scrollbar {
 	font-size: 1.2rem;
 	background-color: white;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-}
+} */
