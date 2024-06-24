@@ -171,13 +171,23 @@ var game = null
 document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
 	bgMusic.play();
-	
+
 	const rows = calculate(rowsInput, 5, 30)
 	const columns = calculate(columnsInput, 5, 30)
 	const playersCount = calculate(playersInput, 2, 6)
 
 	game = new Game(rows, columns, playersCount)
 
+	const soundToggleBtn = document.getElementById("sound-toggle");
+	soundToggleBtn.addEventListener("click", () => {
+		if (bgMusic.paused) {
+			bgMusic.play();
+			soundToggleBtn.innerText = "Sound Off";
+		} else {
+			bgMusic.pause();
+			soundToggleBtn.innerText = "Sound On";
+		}
+	});
 });
 
 function calculate(value, min, max) {
