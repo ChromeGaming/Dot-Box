@@ -1,5 +1,3 @@
-/* Default settings */
-
 :root {
     --border-color: #e5e5e5;
     --edge-length: 100%;
@@ -29,18 +27,33 @@ a {
 }
 
 .author {
-    position: absolute;
-    font-size: 1.5rem;
-    bottom: 1%;
+    position: fixed;
+    bottom: 0;
+    left:0;
     text-align: center;
     width: 100%;
-    color:#fff;
+    color:#000;
+    background-color: white;
     transition: all 0.3s ease;
 }
 .author:hover{
     color:Black;
 
 }
+
+/* .setting p a{
+    margin-top: 0.1rem;
+    border-radius: 4px;
+    padding: 0.2rem;
+    font-weight: bold;
+    background: #333;
+    color: #ef1414;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-align: center;
+} */
+
+
 .author a{
     color:black;
 }
@@ -326,7 +339,13 @@ h1 {
     font-size: 20px;
     padding-left: 3%;
     padding-right: 3%;
+    font-weight: bolder;
 }
+#players-count
+{
+    margin-bottom: 10px;
+}
+
 
 .settings .form-item {
     display: flex;
@@ -526,7 +545,7 @@ h1 {
   .settings .form-item select{
     border-radius: 3px;
     padding: 0.4rem 0.2rem;
-
+    letter-spacing: 2px;
     font-weight: bold;
     font-size: large;
   }
@@ -534,6 +553,7 @@ h1 {
   select{
 
     background: rgb(70, 70, 70);
+    color:#ffffff
 }
 
 #myVideo,
@@ -616,6 +636,7 @@ select {
 
 .whole-background {
     display: flex;
+    margin-top: 10%;
     flex-direction: row;
     gap: 1rem;
     background-color: rgba(231, 181, 55, 0.979);
@@ -644,6 +665,7 @@ select {
 .start-btn,
 .reset-btn {
     flex: 1;
+    margin-top: 10%;
 }
 
 .error-message {
@@ -668,7 +690,7 @@ input[type=number] {
 .button {
     margin-top: 20px;
     padding: 10px 10px;
-    background: #333;
+    background: rgb(50, 81, 50);
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -689,6 +711,7 @@ input[type=number] {
     padding-bottom: 10px;
     width: 100%;
     font-size: 1.5rem;
+    padding: 0;
 }
 
 
@@ -784,7 +807,7 @@ input[type=number] {
 
 
 
-.navbar {
+.navbarr {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -802,13 +825,14 @@ input[type=number] {
     text-decoration: none; 
     font-size: 35px; 
     font-weight: bolder; 
-    color: black; 
+    color: rgb(23, 13, 13); 
   }
   
   .nav-links {
     list-style: none; /* Removes default bullet points from list items */
     margin: 0; 
-    padding: 0; 
+    padding: 0;
+     
   }
   
   .nav-links li {
