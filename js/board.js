@@ -61,18 +61,33 @@ class Board {
 		})
 	}
 	//On click of the edge, we need to fill the edge and check if the adjacent boxes can be filled
+	// onEdgeClick(box, edge) {
+	// 	box.fillEdge(edge)
+
+	// 	//Get the adjacent filled boxes.
+	// 	const adjacentBox = box.getAdjacentBox(edge.position)
+
+	// 	if (adjacentBox != null)
+	// 		adjacentBox.fillEdge(edge.inverseEdge)
+
+	// 	setTimeout(() => {
+	// 		if (this.adjacentBoxesToFill.length == 0) Game.instance.switchPlayer()
+	// 	}, 100)
+	// }
+
 	onEdgeClick(box, edge) {
-		box.fillEdge(edge)
-
-		//Get the adjacent filled boxes.
-		const adjacentBox = box.getAdjacentBox(edge.position)
-
+		const currentPlayerColor = Game.instance.currentPlayer.color; // Get the current player's color
+		box.fillEdge(edge, currentPlayerColor);
+	
+		// Get the adjacent filled boxes.
+		const adjacentBox = box.getAdjacentBox(edge.position);
+	
 		if (adjacentBox != null)
-			adjacentBox.fillEdge(edge.inverseEdge)
-
+			adjacentBox.fillEdge(edge.inverseEdge, currentPlayerColor);
+	
 		setTimeout(() => {
-			if (this.adjacentBoxesToFill.length == 0) Game.instance.switchPlayer()
-		}, 100)
+			if (this.adjacentBoxesToFill.length == 0) Game.instance.switchPlayer();
+		}, 100);
 	}
 
 

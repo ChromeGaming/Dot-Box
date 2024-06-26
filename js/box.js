@@ -38,8 +38,8 @@ class Box {
 		return null
 	}
 
-	fillEdge(edge) {
-		edge.fill()
+	fillEdge(edge, color) {
+		edge.fill(color)
 	}
 
 	fill(color) {
