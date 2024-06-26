@@ -24,6 +24,9 @@
   </head>
 
   <body>
+    <audio id="background-music" autoplay loop>
+      <source src="sounds/bgMusic.mp3" type="audio/mpeg">
+  </audio>
     <div class="settings">
       <video autoplay muted class="video" loop id="myVideo">
         <source src="./assets/default.mp4" type="video/mp4" />
@@ -93,6 +96,7 @@
                 START
               </a>
               <button class="reset-btn button">RESET</button>
+              <button id="music-toggle" onclick="toggleMusic()">Music ON</button>
             </div>
           </div>
         </div>
@@ -117,6 +121,21 @@
         </div>
       </div>
     </div>
+    <script>
+      var isPlaying = false;
+      function toggleMusic() {
+          var audio = document.getElementById('background-music');
+          var button = document.getElementById('music-toggle');
+          if (isPlaying) {
+              audio.pause();
+              button.textContent = 'Music ON';
+          } else {
+              audio.play();
+              button.textContent = 'Music OFF';
+          }
+          isPlaying = !isPlaying;
+      }
+  </script>
   </body>
   <script src="https://form.jotform.com/static/feedback2.js"></script>
   <script>
