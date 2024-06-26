@@ -95,7 +95,7 @@
               <a href="./game.html" target="_self" class="start-btn" id="start-btn" aria-label="START">
                 START
               </a>
-              <button class="reset-btn button">RESET</button>
+              <button class="reset-btn button" id="reset-btn">RESET</button>
               <button id="music-toggle" onclick="toggleMusic()">Music ON</button>
             </div>
           </div>
@@ -135,6 +135,13 @@
           }
           isPlaying = !isPlaying;
       }
+  </script>
+   <script>
+    document.getElementById('reset-btn').addEventListener('click', function() {
+      document.getElementById('rows').value = '';
+      document.getElementById('columns').value = '';
+      document.getElementById('players-count').value = '';
+    });
   </script>
   </body>
   <script src="https://form.jotform.com/static/feedback2.js"></script>
