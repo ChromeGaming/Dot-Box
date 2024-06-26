@@ -4,35 +4,53 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />	
+    <link rel="stylesheet" href="styles/default.style.css">
+    <link rel="stylesheet" href="styles/index.style.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script defer src="./js/edge.js"></script>
     <script defer src="./js/box.js"></script>
     <script defer src="./js/board.js"></script>
     <script defer src="./js/game.js"></script>
     <script defer src="./js/validation.js"></script>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />	
+    <!-- JavaScript files -->
+    <script defer src="./js/index.js"></script>
+    <!-- Logo of the game -->
+    <link rel="icon" href="favicon.ico?" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
+  con" href="./favicon.ico" type="image/x-icon">
     <title>Dots & Boxes Game</title>
   </head>
 
   <body>
+    <audio id="background-music" autoplay loop>
+      <source src="sounds/bgMusic.mp3" type="audio/mpeg">
+  </audio>
     <div class="settings">
       <video autoplay muted class="video" loop id="myVideo">
         <source src="./assets/default.mp4" type="video/mp4" />
       </video>
       <div class="whole-background">
-        <nav class="navbar">
+        <nav class="navbarr">
           <div class="logo">
             <a href="#">Dots & Boxes ⚄</a>
           </div>
           <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="./about.html">About Us</a></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="./about.html">About Us</a></li>
+
             <li><a href="./contributors.html">Contributors</a></li>
             <button><a href="#">Let's Go</a></button>
           </ul>
+          <div class="hamburger ">
+              <i class="fas fa-bars"></i>
+
+          </div>
         </nav>
         <div class="form">
-          <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
+          <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
+           <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
           <h3 class="instructions-heading">Instructions</h3>
           <p class="instructions">
             1. Select the number of rows, columns and players. <br />
@@ -56,63 +74,35 @@
               </select>
             </div>
             <div class="form-item">
-              <label for="rows"
-                >Rows : <span class="details">(between 5 and 30)</span></label
-              >
+              <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
               <input type="number" id="rows" min="5" max="30" value="6" />
-              <p
-                id="rows-error"
-                class="error-message"
-                style="display: none; color: red"
-              >
-                Rows should be between 5 and 30
-              </p>
+              
             </div>
-            <br />
+            
             <div class="form-item">
-              <label for="columns"
-                >Columns :
-                <span class="details">(between 5 and 30)</span></label
-              >
+              <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
               <input type="number" id="columns" min="5" max="30" value="6" />
-              <p
-                id="columns-error"
-                class="error-message"
-                style="display: none; color: red"
-              >
-                Columns should be between 5 and 30
-              </p>
+              
             </div>
-            <br />
+            
             <div class="form-item">
-              <label for="players-count"
-                >Players : <span class="details">(between 2 and 6)</span></label
-              >
-              <input
-                type="number"
-                id="players-count"
-                min="2"
-                max="6"
-                value="2"
-              />
-              <p
-                id="players-error"
-                class="error-message"
-                style="display: none; color: red"
-              >
-                Players should be between 2 and 6
-              </p>
+              <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+              <input type="number" id="players-count" min="2" max="6" value="2" />
             </div>
-            <br />
+           
             <div class="button-container">
-              <button class="start-btn button">START</button>
+              
+              <a href="./game.html" target="_self" class="start-btn" id="start-btn" aria-label="START">
+                START
+              </a>
               <button class="reset-btn button">RESET</button>
+              <button id="music-toggle" onclick="toggleMusic()">Music ON</button>
             </div>
           </div>
         </div>
       </div>
       <p class="author">
-        Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a>
+        Created with ❤️ by <a href="#">Chrome Gaming</a>
       </p>
     </div>
     <div class="flex">
@@ -131,6 +121,21 @@
         </div>
       </div>
     </div>
+    <script>
+      var isPlaying = false;
+      function toggleMusic() {
+          var audio = document.getElementById('background-music');
+          var button = document.getElementById('music-toggle');
+          if (isPlaying) {
+              audio.pause();
+              button.textContent = 'Music ON';
+          } else {
+              audio.play();
+              button.textContent = 'Music OFF';
+          }
+          isPlaying = !isPlaying;
+      }
+  </script>
   </body>
   <script src="https://form.jotform.com/static/feedback2.js"></script>
   <script>
@@ -162,75 +167,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheet -->
-	<link rel="stylesheet" href="styles/default.style.css">
-	<link rel="stylesheet" href="styles/index.style.css" />
-
-	<!-- JavaScript files -->
-	<script defer src="./js/index.js"></script>
-
-	<!-- Logo of the game -->
-	<link rel="icon" href="favicon.ico?" type="image/x-icon">
-	<link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
-con" href="./favicon.ico" type="image/x-icon">
-
-  <title>Dots & Boxes Game</title>
+	
+		<!-- Form page -->
 </head>
 
-<!-- Setting Page -->
-
-<body>
-	<h1 class="heading"
-		style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-		▁ ▂ ▄ ▅ ▆ ▇ █ <b>&nbsp;MAXIMISE BOXES!!&nbsp;</b> █ ▇ ▆ ▅ ▄ ▂ ▁
-	</h1>
-
-	<div class="settings">
-		<div class="form">
-			<h3 class="instructions-heading">Instructions :</h3>
-
-			<ol class="instructions">
-				<li>Select the number of rows, columns and players.</li><br>
-				<li>The player who has maximum number of boxes on board is the winner.</li><br>
-				<li>Players will switch after every turn. But the player who has filled the last box, will get one
-					extra chance consecutively.</li>
-			</ol>
-
-		</div>
-
-		<!-- Form page -->
-		<div class="form">
-			<div>
-				<h3>What size of Board do you want?</h3>
-			</div>
-
-			<div class="form-item">
-				<label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="rows" min="5" max="30" value="6" />
-			</div>
-
-			<div class="form-item">
-				<label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-				<input type="number" id="columns" min="5" max="30" value="6" />
-			</div>
-
-			<div class="form-item">
-				<label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-				<input type="number" id="players-count" min="2" max="6" value="2" />
-			</div>
-
-
-			<a href="./game.html" target="_self" class="start-btn" id="start-btn" aria-label="START">
-				START
-			</a>
-
-
-		</div>
-	</div>
-	<div class="author">
-		<p>Created with ❤️ by <a target="_blank" href="#">Chrome Gaming</a></p>
-	</div>
-
-</body>
 
 </html>
-
