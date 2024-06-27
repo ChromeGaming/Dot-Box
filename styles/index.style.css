@@ -105,6 +105,25 @@ h1::-webkit-scrollbar {
 	letter-spacing: 0.8px;
 	word-spacing: -1.8px;
 }
+input:out-of-range{
+	border:5px solid red;
+}
+input:out-of-range + .error::after{
+	content:"Please enter value between 5 and 30";
+	font-size:12px;
+	font-style:italic;
+	font-family: sans-serif;
+	color:hsl(0, 100%, 40%);
+}
+input:out-of-range + .player::after{
+	content:"Please enter value between 2 and 6";
+	font-size:12px;
+	font-style:italic;
+	font-family: sans-serif;
+	color:hsl(0, 100%, 40%);
+}
+
+
 
 /* .author {
 	position: sticky;
