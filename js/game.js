@@ -26,7 +26,7 @@ class Game {
 
 		let p = this.players.length - playersCount
 		for (let i = 0; i < p; i++)
-			this.players.pop()
+			this.players.pop() 
 
 		this.currentPlayerIndex = 0
 		this.currentPlayer = this.players[this.currentPlayerIndex]
@@ -73,6 +73,7 @@ class Game {
 	}
 
 	onPlayerSwitch() {
+
 		this.updatePlayerNameUI();
 	}
 
@@ -193,3 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max)
 }
+
+
