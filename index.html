@@ -1,182 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="styles/default.style.css" />
+		<link rel="stylesheet" href="styles/index.style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<script defer src="./js/edge.js"></script>
+		<script defer src="./js/box.js"></script>
+		<script defer src="./js/board.js"></script>
+		<script defer src="./js/game.js"></script>
+		<script defer src="./js/validation.js"></script>
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+		<!-- JavaScript files -->
+		<script defer src="./js/index.js"></script>
+		<!-- Logo of the game -->
+		<link rel="icon" href="favicon.ico?" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico?" type="image/x-icon" />
+		con" href="./favicon.ico" type="image/x-icon">
+		<title>Dots & Boxes Game</title>
+	</head>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />	
-    <link rel="stylesheet" href="styles/default.style.css">
-    <link rel="stylesheet" href="styles/index.style.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script defer src="./js/edge.js"></script>
-    <script defer src="./js/box.js"></script>
-    <script defer src="./js/board.js"></script>
-    <script defer src="./js/game.js"></script>
-    <script defer src="./js/validation.js"></script>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />	
-    <!-- JavaScript files -->
-    <script defer src="./js/index.js"></script>
-    <!-- Logo of the game -->
-    <link rel="icon" href="favicon.ico?" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
-  con" href="./favicon.ico" type="image/x-icon">
-    <title>Dots & Boxes Game</title>
-  </head>
+	<body>
+		<audio id="background-music" autoplay loop>
+			<source src="sounds/bgMusic.mp3" type="audio/mpeg" />
+		</audio>
+		<div class="settings">
+			<video autoplay muted class="video" loop id="myVideo">
+				<source src="./assets/default.mp4" type="video/mp4" />
+			</video>
+			<div class="whole-background">
+				<nav class="navbarr">
+					<div class="logo">
+						<a href="#">Dots & Boxes ⚄</a>
+					</div>
+					<ul class="nav-links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="./about.html">About Us</a></li>
 
-  <body>
-    <audio id="background-music" autoplay loop>
-      <source src="sounds/bgMusic.mp3" type="audio/mpeg">
-  </audio>
-    <div class="settings">
-      <video autoplay muted class="video" loop id="myVideo">
-        <source src="./assets/default.mp4" type="video/mp4" />
-      </video>
-      <div class="whole-background">
-        <nav class="navbarr">
-          <div class="logo">
-            <a href="#">Dots & Boxes ⚄</a>
-          </div>
-          <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="./about.html">About Us</a></li>
+						<li><a href="./contributors.html">Contributors</a></li>
+						<button><a href="#">Let's Go</a></button>
+					</ul>
+					<div class="hamburger">
+						<i class="fas fa-bars"></i>
+					</div>
+				</nav>
+				<div class="form">
+					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
+					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
+					<h3 class="instructions-heading">Instructions</h3>
+					<p class="instructions">
+						1. Select the number of rows, columns and players. <br />
+						2. The player who has maximum number of boxes on board is the
+						winner. <br />
+						3. Players will switch after every turn. But the player who has
+						filled the last box, will get one extra chance consecutively. <br />
+					</p>
+					<a href="instructions.html" class="button"
+						>Read Detailed Instructions</a
+					>
+				</div>
+				<div class="form">
+					<div class="right-background">
+						<div class="form-item">
+							<label for="theme-select">Select Theme:</label>
+							<select id="theme-select">
+								<option value="default">Default</option>
+								<option value="2">Theme 1</option>
+								<option value="3">Theme 2</option>
+							</select>
+						</div>
+						<div class="form-item">
+							<label for="rows"
+								>Rows : <span class="details">(between 5 and 30)</span></label
+							>
+							<input type="number" id="rows" min="5" max="30" value="6" />
+						</div>
 
-            <li><a href="./contributors.html">Contributors</a></li>
-            <button><a href="#">Let's Go</a></button>
-          </ul>
-          <div class="hamburger ">
-              <i class="fas fa-bars"></i>
+						<div class="form-item">
+							<label for="columns"
+								>Columns :
+								<span class="details">(between 5 and 30)</span></label
+							>
+							<input type="number" id="columns" min="5" max="30" value="6" />
+						</div>
 
-          </div>
-        </nav>
-        <div class="form">
-          <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
-           <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-          <h3 class="instructions-heading">Instructions</h3>
-          <p class="instructions">
-            1. Select the number of rows, columns and players. <br />
-            2. The player who has maximum number of boxes on board is the
-            winner. <br />
-            3. Players will switch after every turn. But the player who has
-            filled the last box, will get one extra chance consecutively. <br />
-          </p>
-          <a href="instructions.html" class="button"
-            >Read Detailed Instructions</a
-          >
-        </div>
-        <div class="form">
-          <div class="right-background">
-            <div class="form-item">
-              <label for="theme-select">Select Theme:</label>
-              <select id="theme-select">
-                <option value="default">Default</option>
-                <option value="2">Theme 1</option>
-                <option value="3">Theme 2</option>
-              </select>
-            </div>
-            <div class="form-item">
-              <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
-              <input type="number" id="rows" min="5" max="30" value="6" />
-              
-            </div>
-            
-            <div class="form-item">
-              <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
-              <input type="number" id="columns" min="5" max="30" value="6" />
-              
-            </div>
-            
-            <div class="form-item">
-              <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
-              <input type="number" id="players-count" min="2" max="6" value="2" />
-            </div>
-           
-            <div class="button-container">
-              
-              <a href="./game.html" target="_self" class="start-btn" id="start-btn" aria-label="START">
-                START
-              </a>
-              <button class="reset-btn button" id="reset-btn">RESET</button>
-              <button id="music-toggle" onclick="toggleMusic()">Music ON</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="author">
-        Created with ❤️ by <a href="#">Chrome Gaming</a>
-      </p>
-    </div>
-    <div class="flex">
-      <div class="board"></div>
-      <div class="score">
-        <div class="players"></div>
-        <video autoplay muted class="video" loop id="myVideo2">
-          <source src="./assets/default.mp4" type="video/mp4" />
-        </video>
-        <div class="player-turn">
-          <div class="bg"><span class="name">PlayerX</span>'s turn</div>
-        </div>
-        <div class="flex-btn">
-          <button class="mute-btn button">Mute</button>
-          <button class="restart-btn button">Restart</button>
-        </div>
-      </div>
-    </div>
-    <script>
-      var isPlaying = false;
-      function toggleMusic() {
-          var audio = document.getElementById('background-music');
-          var button = document.getElementById('music-toggle');
-          if (isPlaying) {
-              audio.pause();
-              button.textContent = 'Music ON';
-          } else {
-              audio.play();
-              button.textContent = 'Music OFF';
-          }
-          isPlaying = !isPlaying;
-      }
-  </script>
-   <script>
-    document.getElementById('reset-btn').addEventListener('click', function() {
-      document.getElementById('rows').value = '';
-      document.getElementById('columns').value = '';
-      document.getElementById('players-count').value = '';
-    });
-  </script>
-  </body>
-  <script src="https://form.jotform.com/static/feedback2.js"></script>
-  <script>
-    var componentID = new JotformFeedback({
-      type: false,
-      width: 700,
-      height: 500,
-      fontColor: "#FFFFFF",
-      background: "#F59202",
-      isCardForm: false,
-      formId: "241546804327457",
-      buttonText: "Feedback",
-      buttonSide: "left",
-      buttonAlign: "center",
-      base: "https://form.jotform.com/",
-    }).componentID;
-  </script>
-  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-  <script>
-    window.jotformEmbedHandler(
-      "iframe[id='" + componentID + "_iframe']",
-      "https://form.jotform.com/"
-    );
-  </script>
-</html>
-=======
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+						<div class="form-item">
+							<label for="players-count"
+								>Players : <span class="details">(between 2 and 6)</span></label
+							>
+							<input
+								type="number"
+								id="players-count"
+								min="2"
+								max="6"
+								value="2"
+							/>
+						</div>
 
-	<!-- Stylesheet -->
-	
-		<!-- Form page -->
-</head>
-
-
+						<div class="button-container">
+							<a
+								href="./game.html"
+								target="_self"
+								class="start-btn"
+								id="start-btn"
+								aria-label="START"
+							>
+								START
+							</a>
+							<button class="reset-btn button" id="reset-btn">RESET</button>
+							<button id="music-toggle" onclick="toggleMusic()">
+								Music ON
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="author">Created with ❤️ by <a href="#">Chrome Gaming</a></p>
+		</div>
+		<div class="flex">
+			<div class="board"></div>
+			<div class="score">
+				<div class="players"></div>
+				<video autoplay muted class="video" loop id="myVideo2">
+					<source src="./assets/default.mp4" type="video/mp4" />
+				</video>
+				<div class="player-turn">
+					<div class="bg"><span class="name">PlayerX</span>'s turn</div>
+				</div>
+				<div class="flex-btn">
+					<button class="mute-btn button">Mute</button>
+					<button class="restart-btn button">Restart</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			var isPlaying = false;
+			function toggleMusic() {
+				var audio = document.getElementById("background-music");
+				var button = document.getElementById("music-toggle");
+				if (isPlaying) {
+					audio.pause();
+					button.textContent = "Music ON";
+				} else {
+					audio.play();
+					button.textContent = "Music OFF";
+				}
+				isPlaying = !isPlaying;
+			}
+		</script>
+		<script>
+			document
+				.getElementById("reset-btn")
+				.addEventListener("click", function () {
+					document.getElementById("rows").value = "";
+					document.getElementById("columns").value = "";
+					document.getElementById("players-count").value = "";
+				});
+		</script>
+	</body>
+	<script src="https://form.jotform.com/static/feedback2.js"></script>
+	<script>
+		var componentID = new JotformFeedback({
+			type: false,
+			width: 700,
+			height: 500,
+			fontColor: "#FFFFFF",
+			background: "#F59202",
+			isCardForm: false,
+			formId: "241546804327457",
+			buttonText: "Feedback",
+			buttonSide: "left",
+			buttonAlign: "center",
+			base: "https://form.jotform.com/",
+		}).componentID;
+	</script>
+	<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+	<script>
+		window.jotformEmbedHandler(
+			"iframe[id='" + componentID + "_iframe']",
+			"https://form.jotform.com/"
+		);
+	</script>
 </html>
