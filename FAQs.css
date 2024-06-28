@@ -54,7 +54,7 @@ h1 {
 
 .question:hover {
     background-color: #f0f0f0;
-    transform: scale(1.07);
+    transform: scale(1.06);
 }
 
 .question details summary {
