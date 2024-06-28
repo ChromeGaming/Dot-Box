@@ -8,6 +8,21 @@ startBtn.addEventListener("click", function () {
   localStorage.setItem("columns", columns.value);
   localStorage.setItem("players", players.value);
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Add event listener for the reset button
+  var resetButton = document.getElementById('reset-btn');
+
+  resetButton.addEventListener('click', function() {
+      // Reset form inputs
+      document.getElementById('rows').value = 6; // Reset rows input to default value
+      document.getElementById('columns').value = 6; // Reset columns input to default value
+      document.getElementById('players-count').value = 2; // Reset players count input to default value
+
+      // Additional reset logic as needed for your game
+
+      // Optional: You can also reset game state variables or clear any game-related data structures here
+  });
+});
 
 const menu = document.querySelector(".nav-links");
 const hamburger = document.querySelector(".hamburger");
