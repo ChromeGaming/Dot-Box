@@ -739,7 +739,7 @@ input[type="number"] {
 
 /* Instructions Page */
 
-.instructions-container {
+/* .instructions-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -777,7 +777,7 @@ input[type="number"] {
 .back-btn:hover {
   background: rgb(75, 75, 75);
   text-decoration: underline;
-}
+} */
 
 @media (max-width: 767px) {
   .instructions-container {
