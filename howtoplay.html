@@ -64,7 +64,7 @@
         border-radius: 5px;
         text-decoration: none;
         font-weight: bold;
-        width: 70%;
+        width: 90%;
         align-self: center;
     }
 
@@ -92,16 +92,53 @@
         width: 70%;
         border-radius: 10px;
     }
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        width: 50%;
+        padding: 0;
+        color: white;
+        font-family: inherit;
+    }
+    .nav-links li a , .logo a {
+        color: white;
+    }
+    button a{
+        background-color: transparent;
+    }
+    .start{
+        /* background-color: transparent; */
+        padding: 10px 5px;
+        border-radius: 5px;
+    }
 </style>
 
 <body>
 
-    <div class="video-container">
+    <div class="video-container ">
         <video style="object-fit: cover;" autoplay muted class="video" loop id="myVideo">
             <source src="./assets/default.mp4" type="video/mp4">
         </video>
     </div>
-
+    <div class="whole-background">
+    <nav class="navbarr" style="color: white;">
+        <div class="logo">
+          <a href="./index.html">Dots & Boxes ⚄</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="./contributors.html">Contributors</a></li>
+          <button class="start"><a href="./game.html">Let's Go</a></button>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
     <div class="instructions-container">
         <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
         <h1 style="font-size: 39px;">How to Play ?</h1>
