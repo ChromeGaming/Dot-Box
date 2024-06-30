@@ -1,4 +1,4 @@
-# __Dots and Boxes Game__ - [Join our Community on Discord](https://discord.gg/V5tc7kTg)
+# __Dots and Boxes Game__ - [Join our Community on Discord](https://discord.gg/2HTCFrSvPB)
 ![Community](https://github.com/GameSphere-MultiPlayer/Physi-c-Tech/assets/98798977/e79af9da-814e-487e-8a9a-85947384d3b2)
 
 ---

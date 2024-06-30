@@ -80,9 +80,9 @@ h1::-webkit-scrollbar {
 }
 
 .settings a {
-	margin-top: 0.3rem;
+	margin-top: 0.4rem;
 	border-radius: 4px;
-	padding: 0.5rem;
+	padding: 0.8rem;
 	font-weight: bold;
 	background: #333;
 	color: #fff;
