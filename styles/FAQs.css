@@ -1,3 +1,24 @@
+/*
+
+// Commenting out this portion as there is no font folder in this codebase and this part is hence not applicable
+
+@font-face {
+    font-family: WorkSans-Bold;
+    src: url(../assets/fonts/static/WorkSans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: WorkSans-Regular;
+    src: url(../assets/fonts/static/WorkSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: WorkSans-SemiBold;
+    src: url(../assets/fonts/static/WorkSans-SemiBold.ttf) format("truetype");
+}
+    
+*/
+
 body {
     background-image: url("../assets/images/background-pattern-desktop.svg");
     background-repeat: no-repeat;
