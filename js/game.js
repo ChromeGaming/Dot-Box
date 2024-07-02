@@ -48,8 +48,7 @@ class Game {
 	onPlayerWin() {
 		this.isGameover = true
 
-		bgMusic.pause();
-		let winSound = new Audio('./sounds/win.mp3');
+		let winSound = new Audio('../assets/sounds/win.mp3');
 		winSound.play();
 
 		const player = this.players.reduce((prev, current) => {
