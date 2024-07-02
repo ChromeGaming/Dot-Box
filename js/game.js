@@ -166,7 +166,7 @@ class Game {
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
 const playersInput = Number(localStorage.getItem("players"));
-const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const bgMusic = new Audio('../assets/sounds/bgMusic.mp3');
 var game = null
 
 document.addEventListener("DOMContentLoaded", () => {
