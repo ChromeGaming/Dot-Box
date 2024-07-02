@@ -55,20 +55,21 @@ class Game {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
 
-		setTimeout(() => {
-			let play = this.players[0].filledBoxes
+		let play = this.players[0].filledBoxes
 
-			//Check for winner
-			if (this.players.every((p) => p.filledBoxes == play)) {
-				this.playerNameUI.parentElement.textContent = "Nobody wins"
-				this.playerTurnBgUI.classList.add("no-win")
-				this.playerTurnBgUI.style.background = "#eaeaea"
-			} else {
-				this.playerNameUI.parentElement.textContent = `${player.name} wins`
-				this.playerTurnBgUI.classList.add("win")
-				this.playerTurnBgUI.style.background = player.color
-			}
-		}, 500);
+		//Check for winner
+		if (this.players.every((p) => p.filledBoxes == play)) {
+			this.playerNameUI.parentElement.textContent = "Nobody wins"
+			this.playerTurnBgUI.classList.add("no-win")
+			this.playerTurnBgUI.style.background = "#eaeaea"
+		} else {
+			this.playerNameUI.parentElement.textContent = `${player.name} wins`
+			this.playerTurnBgUI.classList.add("win")
+			this.playerTurnBgUI.style.background = player.color
+		}
+
+		// Open the win overlay
+		document.getElementById("win-overlay").style.height = "100%";
 	}
 
 	onPlayerSwitch() {
@@ -182,10 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	soundToggleBtn.addEventListener("click", () => {
 		if (bgMusic.paused) {
 			bgMusic.play();
-			soundToggleBtn.innerText = "Sound Off";
+			soundToggleBtn.innerText = "Sound On";
 		} else {
 			bgMusic.pause();
-			soundToggleBtn.innerText = "Sound On";
+			soundToggleBtn.innerText = "Sound Off";
 		}
 	});
 });
