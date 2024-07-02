@@ -44,7 +44,7 @@ class Board {
 	//
 	addEdgeClickEventListener() {
 		this.uiRoot.addEventListener("click", (e) => {
-			let click = new Audio('./sounds/click.mp3');
+			let click = new Audio('../assets/sounds/click.mp3');
 			click.play();
 			if (!this.isFillingAdjacentBoxes) {
 				if (e.target.classList.contains("edge")) {
@@ -191,7 +191,7 @@ class Board {
 	}
 
 	fillBoxes() {
-		let fill = new Audio('./sounds/fill.mp3');
+		let fill = new Audio('../assets/sounds/fill.mp3');
 		fill.play();
 		if (this.adjacentBoxesToFill.length != 0) {
 			setTimeout(() => {

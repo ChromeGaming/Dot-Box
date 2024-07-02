@@ -17,11 +17,11 @@ drop.addEventListener('click', function(){
     toggle= !toggle;
     if(toggle)
     {
-        img.src="assets/images/icon-plus.svg";
+        img.src="../assets/images/icon-plus.svg";
     }
     else
     {
-        img.src="assets/images/icon-minus.svg"
+        img.src="../assets/images/icon-minus.svg"
     }
 })
 
@@ -29,11 +29,11 @@ drop2.addEventListener('click', function(){
     toggle= !toggle;
     if(toggle)
     {
-        img2.src="assets/images/icon-plus.svg";
+        img2.src="../assets/images/icon-plus.svg";
     }
     else
     {
-        img2.src="assets/images/icon-minus.svg"
+        img2.src="../assets/images/icon-minus.svg"
     }
 })
 
@@ -41,11 +41,11 @@ drop3.addEventListener('click', function(){
     toggle= !toggle;
     if(toggle)
     {
-        img3.src="assets/images/icon-plus.svg";
+        img3.src="../assets/images/icon-plus.svg";
     }
     else
     {
-        img3.src="assets/images/icon-minus.svg"
+        img3.src="../assets/images/icon-minus.svg"
     }
 })
 
@@ -53,10 +53,10 @@ drop4.addEventListener('click', function(){
     toggle= !toggle;
     if(toggle)
     {
-        img4.src="assets/images/icon-plus.svg";
+        img4.src="../assets/images/icon-plus.svg";
     }
     else
     {
-        img4.src="assets/images/icon-minus.svg"
+        img4.src="../assets/images/icon-minus.svg"
     }
 })

@@ -4,24 +4,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="styles/default.style.css">
-  <link rel="stylesheet" href="styles/index.style.css" />
+  <link rel="stylesheet" href="./styles/mainstyle.css" />
+  <link rel="stylesheet" href="./styles/default.style.css">
+  <link rel="stylesheet" href="./styles/index.style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script defer src="./js/edge.js"></script>
   <script defer src="./js/box.js"></script>
   <script defer src="./js/board.js"></script>
   <script defer src="./js/game.js"></script>
   <script defer src="./js/validation.js"></script>
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
   <!-- JavaScript files -->
   <script defer src="./js/index.js"></script>
   <!-- Logo of the game -->
   <link rel="icon" href="favicon.ico?" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  con" href="./favicon.ico" type="image/x-icon">
-  <script src="emoji.js"></script>
+  <script src="./js/emoji.js"></script>
   <title>Dots & Boxes Game</title>
   <style>
     .sticky-button {
@@ -343,11 +342,11 @@
 
 <body>
   <audio id="background-music" autoplay loop>
-    <source src="sounds/bgMusic.mp3" type="audio/mpeg">
+    <source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg">
   </audio>
   <div class="settings">
     <video autoplay muted class="video" loop id="myVideo">
-      <source src="./assets/default.mp4" type="video/mp4" />
+      <source src="./assets/videos/default.mp4" type="video/mp4" />
     </video>
     <div class="whole-background">
       <nav class="navbarr">
@@ -356,10 +355,10 @@
         </div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="./about.html">About Us</a></li>
-          <li><a href="FAQs.html">FAQs</a></li>
-          <li><a href="./contributors.html">Contributors</a></li>
-          <button><a href="./game.html">Let's Go</a></button>
+          <li><a href="./pages/about.html">About Us</a></li>
+          <li><a href="./pages/FAQs.html">FAQs</a></li>
+          <li><a href="./pages/contributors.html">Contributors</a></li>
+          <button><a href="./pages/game.html">Let's Go</a></button>
         </ul>
         <div class="hamburger ">
           <i class="fas fa-bars"></i>
@@ -383,11 +382,11 @@
             <div class="content">
               <div class="outer">
                 <div class="emojis">
-                  <li class="slideImg"><img src="/assets/emoji-1.png" alt=""></li>
-                  <li><img src="/assets/emoji-2.png" alt=""></li>
-                  <li><img src="/assets/emoji-3.png" alt=""></li>
-                  <li><img src="/assets/emoji-4.png" alt=""></li>
-                  <li><img src="/assets/emoji-5.png" alt=""></li>
+                  <li class="slideImg"><img src="./assets/images/emojis/emoji-1.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-2.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-3.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-4.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-5.png" alt=""></li>
                 </div>
               </div>
               <div class="stars">
@@ -434,7 +433,7 @@
         3. Players will switch after every turn. But the player who has
         filled the last box, will get one extra chance consecutively. <br />
       </p>
-      <a href="./howtoplay.html" class="button">Read Detailed Instructions</a>
+      <a href="./pages/howtoplay.html" class="button">Read Detailed Instructions</a>
     </div>
     <div class="form">
       <div class="right-background">
@@ -467,7 +466,7 @@
 
         <div class="button-container">
 
-          <a href="./game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
+          <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
             START
           </a>
           <button class="reset-btn button1" id="reset-btn">RESET</button>
@@ -478,9 +477,9 @@
   </div>
   <div class="author">
     <div class="fotbar">
-      <a href="howtoplay.html">HowToPlay?</a>
-      <a href="termsofservice.html">TermsOfService</a>
-      <a href="privacypolicy.html">PrivacyPolicy</a>
+      <a href="./pages/howtoplay.html">HowToPlay?</a>
+      <a href="./pages/termsofservice.html">TermsOfService</a>
+      <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
     </div>
     <p>
       Created with ❤️ by <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
@@ -496,7 +495,7 @@
     <div class="score">
       <div class="players"></div>
       <video autoplay muted class="video" loop id="myVideo2">
-        <source src="./assets/default.mp4" type="video/mp4" />
+        <source src="./assets/videos/default.mp4" type="video/mp4" />
       </video>
       <div class="player-turn">
         <div class="bg"><span class="name">PlayerX</span>'s turn</div>
