@@ -1,0 +1,109 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 55%;
+    margin: auto;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(255, 184, 4, 0.78), white);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+    text-align: left;
+    line-height: 1.6;
+    padding-bottom: 100px;
+}
+
+.instructions-container h1 {
+    margin-bottom: 20px;
+    color: #25254a;
+    font-size: 28px;
+}
+
+.instructions-container p,
+.instructions-container li {
+    margin-bottom: 15px;
+    list-style-type: none;
+}
+
+.instructions-container ol {
+    padding-left: 10px;
+
+}
+
+.instructions-container ol strong {
+    font-weight: 800;
+    font-size: large;
+}
+
+.back-btn {
+    margin-top: 10px;
+    padding: 14px 20px;
+    background: rgb(37, 37, 74);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 90%;
+    align-self: center;
+}
+
+.back-btn:hover {
+    background: #1a1a2f;
+}
+
+@media (max-width: 767px) {
+    .instructions-container {
+        max-width: 90%;
+        padding: 15px 25px;
+        line-height: 1.5;
+    }
+}
+
+.tutorial-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.tutorial-video video {
+    width: 70%;
+    border-radius: 10px;
+}
+
+.nav-links {
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    padding: 0;
+    color: white;
+    font-family: inherit;
+}
+
+.nav-links li a,
+.logo a {
+    color: white;
+}
+
+button a {
+    background-color: transparent;
+}
+
+.start {
+    padding: 10px 5px;
+    border-radius: 5px;
+}
