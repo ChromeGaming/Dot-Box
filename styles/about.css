@@ -1,83 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e7b537; /* Orange background */
+}
+.about-header {
+  font-family: "Anton", sans-serif;
+  background-color: transparent;
+  color: #0e0e0e; /* White text */
+  padding: 20px;
+  text-shadow: 2px 2px 10px white;
+  text-align: center;
+  font-size: 2.1rem; /* Larger heading size */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
 
-   body {
-    
-    margin: 0;
-    padding: 0;
-    background-color: #e7b537; /* Orange background */
-  }
-  .about-header {
-    font-family: "Anton", sans-serif;
-    background-color: transparent;
-    color: #0e0e0e; /* White text */
-    padding: 20px;
-    text-shadow: 2px 2px 10px white;
-    text-align: center;
-    font-size: 2.1rem; /* Larger heading size */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
-  }
-  
-  .about-header:hover {
-    background-color: #e59253; /* Light orange on hover */
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  
-  p {
-    color: #333; 
-    line-height: 1.5;
-    text-align: justify; 
-    max-width: 700px; 
-    margin: 0 auto; 
-  }
-  
-  .functionalities,
-  .how-to-play {
-    flex: 1;
-    width: 250px;
-    height: 300px;
-    margin: 10px;
-    background-color: #3370e2; /* Light background for sections */
-    border-radius: 10px; /* Rounded corners for a softer look */
-    /* padding: 20px; */
-     /* Add space between sections */
-     
-    box-shadow: 2px 2px 10px white; /* Subtle shadow for depth */
-    transition: transform 0.3s ease; /* Smooth scale on hover */
-  }
-  
-  .functionalities:hover,
-  .how-to-play:hover {
-    transform: scale(1.05); /* Slightly scale up on hover */
-  }
-  
-  h2 {
-    margin-bottom: 10px; /* Add space below section headers */
-    text-align: center;
-  }
-  
-  ul {
-    list-style: none; /* Remove default bullet points */
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
-  
-  .about-footer {
+.about-header:hover {
+  background-color: #e59253; /* Light orange on hover */
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.functionalities,
+.how-to-play {
+  flex: 1;
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  background-color: #3370e2; /* Light background for sections */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  /* padding: 20px; */
+  /* Add space between sections */
+
+  box-shadow: 2px 2px 10px white; /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth scale on hover */
+}
+
+.functionalities:hover,
+.how-to-play:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+h2 {
+  margin-bottom: 10px; /* Add space below section headers */
+  text-align: center;
+}
+
+ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* .about-footer {
     
     background-color: transparent;
     color: #fff;
@@ -86,21 +83,21 @@ font-size: 20px; }
 .about-footer p{
     text-align: center;
     color: white;
-}
+} */
 
 /* .about-footer p:hover{
     color: #3370e2;
 } */
 
-.functionalities ul{
-    color: wheat;
+.functionalities ul {
+  color: wheat;
 }
 
-.how-to-play p{
-    color: wheat;
-    font-family: "Tiny5", sans-serif;
+.how-to-play p {
+  color: wheat;
+  font-family: "Tiny5", sans-serif;
 }
-  
+
 /* Footer Styles */
 .about-footer {
   background-color: #333;
@@ -123,10 +120,10 @@ font-size: 20px; }
 
 @keyframes scroll {
   from {
-      transform: translateX(0); /* Starts at the leftmost part of the text */
+    transform: translateX(0); /* Starts at the leftmost part of the text */
   }
   to {
-      transform: translateX(-100%); /* Moves the text all the way to the left */
+    transform: translateX(-100%); /* Moves the text all the way to the left */
   }
 }
 .navbar {
@@ -152,7 +149,7 @@ font-size: 20px; }
   display: inline-flex;
   margin-right: 30px;
   margin-top: 12px;
-  gap:30px;
+  gap: 30px;
 }
 .navlinks a {
   text-decoration: none;
