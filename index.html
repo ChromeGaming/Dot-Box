@@ -1,189 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="styles/default.style.css" />
-		<link rel="stylesheet" href="styles/index.style.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<script defer src="./js/edge.js"></script>
-		<script defer src="./js/box.js"></script>
-		<script defer src="./js/board.js"></script>
-		<script defer src="./js/game.js"></script>
-		<script defer src="./js/validation.js"></script>
-		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-		<!-- JavaScript files -->
-		<script defer src="./js/index.js"></script>
-		<!-- Logo of the game -->
-		<link rel="icon" href="favicon.ico?" type="image/x-icon" />
-		<link rel="shortcut icon" href="favicon.ico?" type="image/x-icon" />
-		con" href="./favicon.ico" type="image/x-icon">
-		<title>Dots & Boxes Game</title>
-	</head>
 
-	<body>
-		<audio id="background-music" autoplay loop>
-			<source src="sounds/bgMusic.mp3" type="audio/mpeg" />
-		</audio>
-		<div class="settings">
-			<video autoplay muted class="video" loop id="myVideo">
-				<source src="./assets/default.mp4" type="video/mp4" />
-			</video>
-			<div class="whole-background">
-				<nav class="navbarr">
-					<div class="logo">
-						<a href="#">Dots & Boxes ⚄</a>
-					</div>
-					<ul class="nav-links">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="./about.html">About Us</a></li>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles/mainstyle.css" />
+  <link rel="stylesheet" href="./styles/default.style.css">
+  <link rel="stylesheet" href="./styles/index.style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script defer src="./js/edge.js"></script>
+  <script defer src="./js/box.js"></script>
+  <script defer src="./js/board.js"></script>
+  <script defer src="./js/game.js"></script>
+  <script defer src="./js/validation.js"></script>
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <!-- JavaScript files -->
+  <script defer src="./js/index.js"></script>
+  <!-- Logo of the game -->
+  <link rel="icon" href="favicon.ico?" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="./js/emoji.js"></script>
+  <title>Dots & Boxes Game</title>
+  <style>
+    .sticky-button {
+      /* position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer; */
+      transform: rotate(-90deg);
+      padding: 12px;
 
-						<li><a href="./contributors.html">Contributors</a></li>
-						<button><a href="#">Let's Go</a></button>
-					</ul>
-					<div class="hamburger">
-						<i class="fas fa-bars"></i>
-					</div>
-				</nav>
-				<div class="form">
-					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
-					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-					<h3 class="instructions-heading">Instructions</h3>
-					<p class="instructions">
-						1. Select the number of rows, columns and players. <br />
-						2. The player who has maximum number of boxes on board is the
-						winner. <br />
-						3. Players will switch after every turn. But the player who has
-						filled the last box, will get one extra chance consecutively. <br />
-					</p>
-					<a href="instructions.html" class="button"
-						>Read Detailed Instructions</a
-					>
-				</div>
-				<div class="form">
-					<div class="right-background">
-						<div class="form-item">
-							<label for="theme-select">Select Theme:</label>
-							<select id="theme-select">
-								<option value="default">Default</option>
-								<option value="2">Theme 1</option>
-								<option value="3">Theme 2</option>
-							</select>
-						</div>
-						<div class="form-item">
-							<label for="rows"
-								>Rows : <span class="details">(between 5 and 30)</span></label
-							>
-							<input type="number" id="rows" min="5" max="30" value="6" />
-						</div>
+      position: fixed;
+      left: 0px;
+      font-family: verdana;
+      font-size: 15px;
+      color: rgb(255, 255, 255);
+      background: rgb(245, 146, 2);
+      z-index: 999;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 0px 0px 5px 5px;
+      margin-left: -34.5px;
+      top: 50%;
+      margin-top: -16px;
+      text-shadow: none;
+    }
 
-						<div class="form-item">
-							<label for="columns"
-								>Columns :
-								<span class="details">(between 5 and 30)</span></label
-							>
-							<input type="number" id="columns" min="5" max="30" value="6" />
-						</div>
+    .sticky-button:hover {
+      background-color: grey;
+    }
 
-						<div class="form-item">
-							<label for="players-count"
-								>Players : <span class="details">(between 2 and 6)</span></label
-							>
-							<input
-								type="number"
-								id="players-count"
-								min="2"
-								max="6"
-								value="2"
-							/>
-						</div>
+    .form-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      justify-content: center;
+      align-items: center;
+      margin-left: 200px;
+      margin-top: 70px;
+      padding: 15px;
+    }
 
-						<div class="button-container">
-							<a
-								href="./game.html"
-								target="_self"
-								class="start-btn"
-								id="start-btn"
-								aria-label="START"
-							>
-								START
-							</a>
-							<button class="reset-btn button" id="reset-btn">RESET</button>
-							<button id="music-toggle" onclick="toggleMusic()">
-								Music ON
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p class="author">Created with ❤️ by <a href="#">Chrome Gaming</a></p>
-		</div>
-		<div class="flex">
-			<div class="board"></div>
-			<div class="score">
-				<div class="players"></div>
-				<video autoplay muted class="video" loop id="myVideo2">
-					<source src="./assets/default.mp4" type="video/mp4" />
-				</video>
-				<div class="player-turn">
-					<div class="bg"><span class="name">PlayerX</span>'s turn</div>
-				</div>
-				<div class="flex-btn">
-					<button class="mute-btn button">Mute</button>
-					<button class="restart-btn button">Restart</button>
-				</div>
-			</div>
-		</div>
-		<script>
-			var isPlaying = false;
-			function toggleMusic() {
-				var audio = document.getElementById("background-music");
-				var button = document.getElementById("music-toggle");
-				if (isPlaying) {
-					audio.pause();
-					button.textContent = "Music ON";
-				} else {
-					audio.play();
-					button.textContent = "Music OFF";
-				}
-				isPlaying = !isPlaying;
-			}
-		</script>
-		<script>
-			document
-				.getElementById("reset-btn")
-				.addEventListener("click", function () {
-					document.getElementById("rows").value = "";
-					document.getElementById("columns").value = "";
-					document.getElementById("players-count").value = "";
-				});
-		</script>
-	</body>
-	<script src="https://form.jotform.com/static/feedback2.js"></script>
-	<script>
-		var componentID = new JotformFeedback({
-			type: false,
-			width: 700,
-			height: 500,
-			fontColor: "#FFFFFF",
-			background: "#F59202",
-			isCardForm: false,
-			formId: "241546804327457",
-			buttonText: "Feedback",
-			buttonSide: "left",
-			buttonAlign: "center",
-			base: "https://form.jotform.com/",
-		}).componentID;
-	</script>
-	<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-	<script>
-		window.jotformEmbedHandler(
-			"iframe[id='" + componentID + "_iframe']",
-			"https://form.jotform.com/"
-		);
-	</script>
+    .form-content {
+      position: relative;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      width: 450px;
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio-group input {
+      margin-right: 5px;
+    }
+
+    .radio-group label {
+      margin-right: 15px;
+    }
+
+    .close-button {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .sub {
+      margin-top: 50px;
+      display: flex;
+      font-size: 30px;
+
+    }
+
+    .main {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn {
+      display: flex;
+      /* Enables CSS flexbox */
+      justify-content: center;
+      /* Centers horizontally */
+      align-items: center;
+      /* Centers vertically */
+
+    }
+
+    .wrapper {
+      background: #f6f6f6;
+      max-width: 360px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      margin-left: 20px;
+    }
+
+    .wrapper .content {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .wrapper .outer {
+      height: 135px;
+      width: 135px;
+      overflow: hidden;
+    }
+
+    .outer .emojis {
+      height: 500%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .outer .emojis li {
+      height: 20%;
+      width: 100%;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+
+    .outer li img {
+      height: 100%;
+      width: 100%;
+    }
+
+    #star-2:checked~.content .emojis .slideImg {
+      margin-top: -135px;
+    }
+
+    #star-3:checked~.content .emojis .slideImg {
+      margin-top: -270px;
+    }
+
+    #star-4:checked~.content .emojis .slideImg {
+      margin-top: -405px;
+    }
+
+    #star-5:checked~.content .emojis .slideImg {
+      margin-top: -540px;
+    }
+
+    .wrapper .stars {
+      margin-top: 30px;
+    }
+
+    .stars label {
+      font-size: 30px;
+      margin: 0 1px;
+      color: #ccc;
+    }
+
+    #star-1:hover~.content .stars .star-1,
+    #star-1:checked~.content .stars .star-1,
+
+    #star-2:hover~.content .stars .star-1,
+    #star-2:hover~.content .stars .star-2,
+    #star-2:checked~.content .stars .star-1,
+    #star-2:checked~.content .stars .star-2,
+
+    #star-3:hover~.content .stars .star-1,
+    #star-3:hover~.content .stars .star-2,
+    #star-3:hover~.content .stars .star-3,
+    #star-3:checked~.content .stars .star-1,
+    #star-3:checked~.content .stars .star-2,
+    #star-3:checked~.content .stars .star-3,
+
+    #star-4:hover~.content .stars .star-1,
+    #star-4:hover~.content .stars .star-2,
+    #star-4:hover~.content .stars .star-3,
+    #star-4:hover~.content .stars .star-4,
+    #star-4:checked~.content .stars .star-1,
+    #star-4:checked~.content .stars .star-2,
+    #star-4:checked~.content .stars .star-3,
+    #star-4:checked~.content .stars .star-4,
+
+    #star-5:hover~.content .stars .star-1,
+    #star-5:hover~.content .stars .star-2,
+    #star-5:hover~.content .stars .star-3,
+    #star-5:hover~.content .stars .star-4,
+    #star-5:hover~.content .stars .star-5,
+    #star-5:checked~.content .stars .star-1,
+    #star-5:checked~.content .stars .star-2,
+    #star-5:checked~.content .stars .star-3,
+    #star-5:checked~.content .stars .star-4,
+    #star-5:checked~.content .stars .star-5 {
+      color: #fd4;
+    }
+
+    .wrapper .footer {
+      border-top: 1px solid #ccc;
+      background: #f2f2f2;
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer span {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    button {
+      background-color: pink;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .footer .text::before {
+      content: "Rate your experience";
+    }
+
+    .footer .numb::before {
+      content: "0 out of 5";
+    }
+
+    #star-1:checked~.footer .text::before {
+      content: "I just hate it";
+    }
+
+    #star-1:checked~.footer .numb::before {
+      content: "1 out of 5";
+    }
+
+    #star-2:checked~.footer .text::before {
+      content: "I don't like it";
+    }
+
+    #star-2:checked~.footer .numb::before {
+      content: "2 out of 5";
+    }
+
+    #star-3:checked~.footer .text::before {
+      content: "This is awesome";
+    }
+
+    #star-3:checked~.footer .numb::before {
+      content: "3 out of 5";
+    }
+
+    #star-4:checked~.footer .text::before {
+      content: "I just like it";
+    }
+
+    #star-4:checked~.footer .numb::before {
+      content: "4 out of 5";
+    }
+
+    #star-5:checked~.footer .text::before {
+      content: "I just love it";
+    }
+
+    #star-5:checked~.footer .numb::before {
+      content: "5 out of 5";
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      width: 100%;
+      margin: 1px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 10px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submitbtn {
+      margin-bottom: 70px;
+      height: 10px;
+      width: 70px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .button1 {
+      display: block;
+      font-size: 0.7em;
+      padding: 12px;
+      height: 56.5px;
+      margin-top: 6.4px;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="background-music" autoplay loop>
+    <source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg">
+  </audio>
+  <div class="settings">
+    <video autoplay muted class="video" loop id="myVideo">
+      <source src="./assets/videos/default.mp4" type="video/mp4" />
+    </video>
+    <div class="whole-background">
+      <nav class="navbarr">
+        <div class="logo">
+          <a href="#">Dots & Boxes ⚄</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./pages/about.html">About Us</a></li>
+          <li><a href="./pages/FAQs.html">FAQs</a></li>
+          <li><a href="./pages/contributors.html">Contributors</a></li>
+          <button><a href="./pages/game.html" target="_blank">Let's Go</a></button>
+        </ul>
+        <div class="hamburger ">
+          <i class="fas fa-bars"></i>
+
+        </div>
+      </nav>
+      <button class="sticky-button" onclick="openForm()">Feedback</button>
+
+      <div id="formContainer" class="form-container">
+        <div class="form-content">
+          <div class="sub">
+            <h5>Feedback Form</h5>
+            <span class="close-button" onclick="closeForm()">&times;</span>
+          </div>
+          <div class="wrapper">
+            <input type="radio" name="rate" id="star-1">
+            <input type="radio" name="rate" id="star-2">
+            <input type="radio" name="rate" id="star-3">
+            <input type="radio" name="rate" id="star-4">
+            <input type="radio" name="rate" id="star-5">
+            <div class="content">
+              <div class="outer">
+                <div class="emojis">
+                  <li class="slideImg"><img src="./assets/images/emojis/emoji-1.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-2.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-3.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-4.png" alt=""></li>
+                  <li><img src="./assets/images/emojis/emoji-5.png" alt=""></li>
+                </div>
+              </div>
+              <div class="stars">
+                <label for="star-1" class="star-1 fas fa-star"></label>
+                <label for="star-2" class="star-2 fas fa-star"></label>
+                <label for="star-3" class="star-3 fas fa-star"></label>
+                <label for="star-4" class="star-4 fas fa-star"></label>
+                <label for="star-5" class="star-5 fas fa-star"></label>
+              </div>
+            </div>
+            <div class="footer">
+              <span class="text"></span>
+              <span class="numb"></span>
+            </div>
+          </div>
+
+          <br><br>
+          <form>
+
+
+            <label for="feedback">Describe your feedback:</label><br>
+            <textarea id="feedback" required name="feedback" rows="4" cols="55"></textarea><br><br>
+            <label for="firstName">Name</label><br>
+            <div class="main">
+              <input type="text" required id="firstName" name="firstName" placeholder="First Name"><br><br>
+              <input type="email" required id="email" name="email" placeholder="Email"><br><br>
+
+            </div>
+            <div class="submitbtn">
+              <input type="submit" value="Submit" class="button">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="form">
+      <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
+      <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
+      <h3 class="instructions-heading">Instructions</h3>
+      <p class="instructions">
+        1. Select the number of rows, columns and players. <br />
+        2. The player who has maximum number of boxes on board is the
+        winner. <br />
+        3. Players will switch after every turn. But the player who has
+        filled the last box, will get one extra chance consecutively. <br />
+      </p>
+      <a href="./pages/howtoplay.html" class="button">Read Detailed Instructions</a>
+    </div>
+    <div class="form">
+      <div class="right-background">
+        <div class="form-item">
+          <label for="theme-select">Select Theme:</label>
+          <select id="theme-select">
+            <option value="default">Default</option>
+            <option value="2">Theme 1</option>
+            <option value="3">Theme 2</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+
+          <input type="number" id="rows" min="5" max="30" value="6" />
+          <span class="error"></span>
+        </div>
+
+        <div class="form-item">
+          <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+          <input type="number" id="columns" min="5" max="30" value="6" />
+          <span class="error"></span>
+        </div>
+
+        <div class="form-item">
+          <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+          <input type="number" id="players-count" min="2" max="6" value="2" />
+          <span class="player"></span>
+        </div>
+
+        <div class="button-container">
+
+          <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
+            START
+          </a>
+          <button class="reset-btn button1" id="reset-btn">RESET</button>
+          <button id="music-toggle button1" onclick="toggleMusic()">Music Off</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="author">
+    <div class="fotbar">
+      <a href="./pages/howtoplay.html">HowToPlay?</a>
+      <a href="./pages/termsofservice.html">TermsOfService</a>
+      <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+    </div>
+    <p>
+      Created with ❤️ by <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="board"></div>
+    <div class="score">
+      <div class="players"></div>
+      <video autoplay muted class="video" loop id="myVideo2">
+        <source src="./assets/videos/default.mp4" type="video/mp4" />
+      </video>
+      <div class="player-turn">
+        <div class="bg"><span class="name">PlayerX</span>'s turn</div>
+      </div>
+      <div class="flex-btn">
+        <button class="mute-btn button">Mute</button>
+        <button class="restart-btn button">Restart</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    var isPlaying = false;
+    function toggleMusic() {
+      var audio = document.getElementById('background-music');
+      var button = document.getElementById('music-toggle');
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = 'Music ON';
+      } else {
+        audio.play();
+        button.textContent = 'Music OFF';
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+  <script>
+    document.getElementById('reset-btn').addEventListener('click', function () {
+      document.getElementById('rows').value = '';
+      document.getElementById('columns').value = '';
+      document.getElementById('players-count').value = '';
+    });
+  </script>
+</body>
+
+<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+
 </html>

@@ -48,28 +48,28 @@ class Game {
 	onPlayerWin() {
 		this.isGameover = true
 
-		bgMusic.pause();
-		let winSound = new Audio('./sounds/win.mp3');
+		let winSound = new Audio('../assets/sounds/win.mp3');
 		winSound.play();
 
 		const player = this.players.reduce((prev, current) => {
 			return prev.filledBoxes > current.filledBoxes ? prev : current
 		});
 
-		setTimeout(() => {
-			let play = this.players[0].filledBoxes
+		let play = this.players[0].filledBoxes
 
-			//Check for winner
-			if (this.players.every((p) => p.filledBoxes == play)) {
-				this.playerNameUI.parentElement.textContent = "Nobody wins"
-				this.playerTurnBgUI.classList.add("no-win")
-				this.playerTurnBgUI.style.background = "#eaeaea"
-			} else {
-				this.playerNameUI.parentElement.textContent = `${player.name} wins`
-				this.playerTurnBgUI.classList.add("win")
-				this.playerTurnBgUI.style.background = player.color
-			}
-		}, 500);
+		//Check for winner
+		if (this.players.every((p) => p.filledBoxes == play)) {
+			this.playerNameUI.parentElement.textContent = "Nobody wins"
+			this.playerTurnBgUI.classList.add("no-win")
+			this.playerTurnBgUI.style.background = "#eaeaea"
+		} else {
+			this.playerNameUI.parentElement.textContent = `${player.name} wins`
+			this.playerTurnBgUI.classList.add("win")
+			this.playerTurnBgUI.style.background = player.color
+		}
+
+		// Open the win overlay
+		document.getElementById("win-overlay").style.height = "100%";
 	}
 
 	onPlayerSwitch() {
@@ -166,7 +166,7 @@ class Game {
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
 const playersInput = Number(localStorage.getItem("players"));
-const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const bgMusic = new Audio('../assets/sounds/bgMusic.mp3');
 var game = null
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -183,10 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	soundToggleBtn.addEventListener("click", () => {
 		if (bgMusic.paused) {
 			bgMusic.play();
-			soundToggleBtn.innerText = "Sound Off";
+			soundToggleBtn.innerText = "Sound On";
 		} else {
 			bgMusic.pause();
-			soundToggleBtn.innerText = "Sound On";
+			soundToggleBtn.innerText = "Sound Off";
 		}
 	});
 });
