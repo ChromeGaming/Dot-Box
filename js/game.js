@@ -176,6 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const playersCount = calculate(playersInput, 2, 6);
 
 	game = new Game(rows, columns, playersCount);
+	const storedTheme = localStorage.getItem("selectedTheme");
+	const video = document.getElementById("myVideo");
+	video.src = `/assets/videos/${storedTheme}.mp4`;
 
 	// const soundToggleBtn = document.getElementById("sound-toggle");
 	// soundToggleBtn.addEventListener("click", () => {
