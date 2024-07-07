@@ -169,7 +169,7 @@ var game = null;
 
 document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
-	// bgMusic.play();
+	bgMusic.play();
 
 	const rows = calculate(rowsInput, 5, 30);
 	const columns = calculate(columnsInput, 5, 30);
