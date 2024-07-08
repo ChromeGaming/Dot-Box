@@ -106,17 +106,20 @@ h1::-webkit-scrollbar {
   letter-spacing: 0.8px;
   word-spacing: -1.8px;
 }
+
 input:out-of-range {
   border: 5px solid red;
 }
-input:out-of-range + .error::after {
+
+input:out-of-range+.error::after {
   content: "Please enter value between 5 and 30";
   font-size: 12px;
   font-style: italic;
   font-family: sans-serif;
   color: hsl(0, 100%, 40%);
 }
-input:out-of-range + .player::after {
+
+input:out-of-range+.player::after {
   content: "Please enter value between 2 and 6";
   font-size: 12px;
   font-style: italic;
@@ -144,6 +147,7 @@ input:out-of-range + .player::after {
   color: #fff;
   padding: 10px;
 }
+
 /* .author p{
 	align-items: center;
 	display: inline-block;
@@ -167,7 +171,7 @@ input:out-of-range + .player::after {
 .author p {
   color: white;
   padding: 10px;
-  margin-right: 40px;
+  margin-right: 10px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -175,10 +179,28 @@ input:out-of-range + .player::after {
 .author .social-icons {
   display: flex;
   gap: 10px;
-  margin-right: 200px;
+  margin-right: 20px;
 }
+
 .author .social-icons a {
   color: white;
   text-decoration: none;
   font-size: 20px;
+}
+
+@media screen and (max-width:1190px) {
+  .author a {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width:1065px) {
+  .author .fotbar {
+    gap: 5px;
+  }
+
+  .author {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 }

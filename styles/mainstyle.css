@@ -10,6 +10,7 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
 body {
   font-family: "Arial", sans-serif;
   background: #f6f6f6;
@@ -35,9 +36,11 @@ a {
   background-color: white;
   transition: all 0.3s ease;
 }
+
 .author:hover {
   color: Black;
 }
+
 
 /* .setting p a{
     margin-top: 0.1rem;
@@ -53,6 +56,7 @@ a {
 
 .author a {
   color: black;
+
 }
 
 .board {
@@ -62,7 +66,7 @@ a {
   max-height: 75vh;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 805px) {
   .board {
     width: 80vw;
   }
@@ -93,10 +97,12 @@ a {
     transform: scale(1);
     opacity: 0.3;
   }
+
   30% {
     transform: scale(0.5);
     opacity: 0.6;
   }
+
   to {
     transform: scale(1);
     opacity: 0.3;
@@ -237,6 +243,7 @@ a {
   .player span {
     font-size: 0.8rem;
   }
+
   .players {
     gap: 0.5rem;
   }
@@ -289,9 +296,11 @@ a {
   from {
     transform: scale(1);
   }
+
   40% {
     transform: scale(1.2);
   }
+
   to {
     transform: scale(1);
   }
@@ -336,6 +345,7 @@ h1 {
   padding-right: 3%;
   font-weight: bolder;
 }
+
 #players-count {
   margin-bottom: 10px;
 }
@@ -418,6 +428,7 @@ h1 {
   font-size: 1.2rem;
   color: red;
 }
+
 .mute-btn {
   background-color: #333;
   border: none;
@@ -448,8 +459,10 @@ h1 {
 /* Rankings table styles */
 .rankings {
   position: absolute;
-  top: 200px; /* Adjust as necessary */
-  right: 10px; /* Adjust as necessary */
+  top: 200px;
+  /* Adjust as necessary */
+  right: 10px;
+  /* Adjust as necessary */
   background: #fff;
   padding: 10px;
   border: 1px solid #ddd;
@@ -522,6 +535,7 @@ h1 {
   min-height: 100%;
   z-index: -1;
 }
+
 #myVideo2 {
   position: fixed;
   right: 0;
@@ -703,35 +717,43 @@ input[type="number"] {
 
 /* Responsive for mobile view */
 
-@media (max-width: 750px) {
+@media (max-width: 806px) {
   .settings .form {
     padding: 0px;
   }
+
   .settings .form-item {
     width: 100%;
   }
+
   .board {
     width: 90vw;
   }
+
   .flex {
     flex-direction: column;
   }
+
   .score {
     width: 90%;
     padding: 10px;
   }
+
   .flex-btn {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .whole-background {
     flex-direction: column;
   }
+
   .button {
     margin-top: 10px;
     padding: 0.5em;
     font-size: 1rem;
   }
+
   .right-background {
     padding: 0px 10px;
     font-size: 1rem;
@@ -780,7 +802,52 @@ input[type="number"] {
   text-decoration: underline;
 } */
 
-@media (max-width: 767px) {
+
+/* Responsive for Tab view */
+@media (max-width: 1167px) {
+  .settings .form {
+    padding: 0px;
+  }
+
+  .settings .form-item {
+    width: 100%;
+  }
+
+  .board {
+    width: 90vw;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  .score {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .flex-btn {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .whole-background {
+    flex-direction: column;
+  }
+
+  .button {
+    margin-top: 10px;
+    padding: 0.5em;
+    font-size: 1rem;
+  }
+
+  .right-background {
+    padding: 0px 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 805px) {
   .instructions-container {
     max-width: 90%;
     padding: 15px 25px;
@@ -809,7 +876,8 @@ input[type="number"] {
 }
 
 .nav-links {
-  list-style: none; /* Removes default bullet points from list items */
+  list-style: none;
+  /* Removes default bullet points from list items */
   margin: 0;
   padding: 0;
 }
@@ -821,7 +889,8 @@ input[type="number"] {
 }
 
 .nav-links a {
-  text-decoration: none; /* Removes underline from links */
+  text-decoration: none;
+  /* Removes underline from links */
   color: black;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
@@ -847,14 +916,14 @@ button a {
   cursor: pointer;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1141px) {
   .navbar {
     margin-top: 20px;
     flex-direction: column;
   }
 
   .logo a {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .nav-links li a {
@@ -873,7 +942,16 @@ button a {
   .nav-links li {
     margin: 10px 0;
   }
+
+  .author {
+    font-size: medium;
+  }
+
+  .settings a {
+    font-size: small;
+  }
 }
+
 .hamburger {
   display: none;
   color: white;
@@ -881,11 +959,16 @@ button a {
   margin-right: 10px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 905px) {
   .hamburger {
     display: inline;
     z-index: 400;
   }
+
+  .logo a {
+    font-size: 30px;
+  }
+
   .nav-links {
     position: absolute;
     right: 1rem;
