@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./styles/mainstyle.css" />
   <link rel="stylesheet" href="./styles/default.style.css">
@@ -23,6 +24,16 @@
   <script src="./js/emoji.js"></script>
   <title>Dots & Boxes Game</title>
   <style>
+    .circle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: darkturquoise;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
     .sticky-button {
       /* position: fixed;
     top: 50%;
@@ -528,7 +539,55 @@
       document.getElementById('columns').value = '';
       document.getElementById('players-count').value = '';
     });
+
   </script>
+   <!-- Create circles with the class 'circle' -->
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <div class="circle"></div>
+   <script src="trail.js"></script>
 </body>
 
 <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
