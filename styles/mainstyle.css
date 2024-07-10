@@ -1,44 +1,44 @@
 :root {
-  --border-color: #e5e5e5;
-  --edge-length: 100%;
-  --edge-thickness: 5px;
+	--border-color: #e5e5e5;
+	--edge-length: 100%;
+	--edge-thickness: 5px;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  background: #f6f6f6;
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  max-height: 100vh;
-  user-select: none;
+	font-family: "Arial", sans-serif;
+	background: #f6f6f6;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	max-height: 100vh;
+	user-select: none;
 }
 
 a {
-  color: #333;
+	color: #333;
 }
 
 .author {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  color: #000;
-  background-color: white;
-  transition: all 0.3s ease;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	color: #000;
+	background-color: white;
+	transition: all 0.3s ease;
 }
 
 .author:hover {
-  color: Black;
+	color: Black;
 }
 
 
@@ -56,14 +56,13 @@ a {
 
 .author a {
   color: black;
-
 }
 
 .board {
-  background: #fcfcfc;
-  display: grid;
-  width: 75vh;
-  max-height: 75vh;
+	background: #fcfcfc;
+	display: grid;
+	width: 75vh;
+	max-height: 75vh;
 }
 
 @media screen and (max-width: 805px) {
@@ -73,23 +72,23 @@ a {
 }
 
 .box {
-  position: relative;
-  aspect-ratio: 1/1;
-  transition: background 500ms;
+	position: relative;
+	aspect-ratio: 1/1;
+	transition: background 500ms;
 }
 
 .box.filled::after {
-  position: absolute;
-  z-index: 40;
-  background: rgb(255, 255, 255);
-  opacity: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  animation: 800ms fillAnim 0s 1;
-  background-blend-mode: soft-light;
+	position: absolute;
+	z-index: 40;
+	background: rgb(255, 255, 255);
+	opacity: 0;
+	content: "";
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	animation: 800ms fillAnim 0s 1;
+	background-blend-mode: soft-light;
 }
 
 @keyframes fillAnim {
@@ -110,76 +109,76 @@ a {
 }
 
 .edge {
-  appearance: none;
-  position: absolute;
-  border: none;
-  cursor: pointer;
-  border-radius: 1rem;
-  background: var(--border-color);
+	appearance: none;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	border-radius: 1rem;
+	background: var(--border-color);
 }
 
 .edge:hover {
-  background: rgb(189, 189, 189);
-  z-index: 10;
+	background: rgb(189, 189, 189);
+	z-index: 10;
 }
 
 .edge:active {
-  background: rgb(170, 170, 170);
-  z-index: 10;
+	background: rgb(170, 170, 170);
+	z-index: 10;
 }
 
 .edge.left,
 .edge.right {
-  width: var(--edge-thickness);
-  height: var(--edge-length);
+	width: var(--edge-thickness);
+	height: var(--edge-length);
 }
 
 .edge.top,
 .edge.bottom {
-  height: var(--edge-thickness);
-  width: var(--edge-length);
+	height: var(--edge-thickness);
+	width: var(--edge-length);
 }
 
 .edge.top {
-  transform: translateY(-50%);
-  top: 0;
-  left: 0;
+	transform: translateY(-50%);
+	top: 0;
+	left: 0;
 }
 
 .edge.right {
-  transform: translateX(50%);
-  top: 0;
-  right: 0;
+	transform: translateX(50%);
+	top: 0;
+	right: 0;
 }
 
 .edge.bottom {
-  transform: translateY(50%);
-  bottom: 0;
-  left: 0;
+	transform: translateY(50%);
+	bottom: 0;
+	left: 0;
 }
 
 .edge.left {
-  transform: translateX(-50%);
-  top: 0;
-  left: 0;
+	transform: translateX(-50%);
+	top: 0;
+	left: 0;
 }
 
 .edge:before {
-  position: absolute;
-  content: "";
-  inset: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	content: "";
+	inset: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .edge.left:before,
 .edge.right:before {
-  transform: scale(3, 0.7);
+	transform: scale(3, 0.7);
 }
 
 .edge.top:before,
 .edge.bottom:before {
-  transform: scale(0.7, 3);
+	transform: scale(0.7, 3);
 }
 
 .Player_1,
@@ -188,55 +187,55 @@ a {
 .Player_4,
 .Player_5,
 .Player_6 {
-  pointer-events: none;
-  z-index: 10;
+	pointer-events: none;
+	z-index: 10;
 }
 
 .Player_1 {
-  background: pink;
+	background: pink;
 }
 
 .Player_2 {
-  background: skyblue;
+	background: skyblue;
 }
 
 .Player_3 {
-  background: lightgreen;
+	background: lightgreen;
 }
 
 .Player_4 {
-  background: magenta;
+	background: magenta;
 }
 
 .Player_5 {
-  background: yellow;
+	background: yellow;
 }
 
 .Player_6 {
-  background: orange;
+	background: orange;
 }
 
 .players {
-  z-index: 10;
-  font-size: 1rem;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.4rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
+	z-index: 10;
+	font-size: 1rem;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.4rem;
+	display: flex;
+	justify-content: center;
+	gap: 1.2rem;
 }
 
 .player .filled-boxes {
-  display: inline-block;
-  text-align: center;
-  width: 28px;
-  margin-right: 4px;
-  background-color: rgb(136, 136, 136);
-  border: solid 3px #111;
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.922);
+	display: inline-block;
+	text-align: center;
+	width: 28px;
+	margin-right: 4px;
+	background-color: rgb(136, 136, 136);
+	border: solid 3px #111;
+	border-radius: 3px;
+	color: rgba(0, 0, 0, 0.922);
 }
 
 @media screen and (max-width: 600px) {
@@ -247,49 +246,50 @@ a {
   .players {
     gap: 0.5rem;
   }
+
 }
 
 .player-turn {
-  font-size: 1rem;
-  z-index: 10;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: rgba(0, 0, 0, 0.864);
-  margin: 1rem 0;
+	font-size: 1rem;
+	z-index: 10;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.864);
+	margin: 1rem 0;
 }
 
 .player-turn .bg {
-  background: #999;
-  padding: 0.5rem 1rem;
-  width: 320px;
-  min-width: 100px;
-  max-width: 500px;
-  text-align: center;
-  border-radius: 1rem;
-  height: 80px;
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 320px;
+	min-width: 100px;
+	max-width: 500px;
+	text-align: center;
+	border-radius: 1rem;
+	height: 80px;
 
-  background: #999;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  min-width: 100px;
-  max-width: 200px;
-  text-align: center;
-  border-radius: 1rem;
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	min-width: 100px;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 1rem;
 
-  box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
-  box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
+	box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
+	box-shadow: 0px 1px 4px rgba(6, 6, 6, 0.829);
 }
 
 .player-turn .bg.win {
-  animation: 1s pulseAnim 0s infinite;
-  font-weight: bold;
+	animation: 1s pulseAnim 0s infinite;
+	font-weight: bold;
 }
 
 .player-turn .name {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
 }
 
 @keyframes pulseAnim {
@@ -307,153 +307,153 @@ a {
 }
 
 h1 {
-  text-align: center;
-  color: #111;
-  z-index: 100;
-  padding-bottom: 10px;
-  width: 100%;
-  font-size: 1.5rem;
+	text-align: center;
+	color: #111;
+	z-index: 100;
+	padding-bottom: 10px;
+	width: 100%;
+	font-size: 1.5rem;
 }
 
 .instructions {
-  width: 100%;
-  justify-content: center;
-  max-height: 100%;
-  font-size: 1rem;
+	width: 100%;
+	justify-content: center;
+	max-height: 100%;
+	font-size: 1rem;
 }
 
 .settings {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10%;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	inset: 0;
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10%;
+	width: 100%;
+	height: 100%;
 }
 
 .settings .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 475px;
-  padding: 1rem;
-  font-size: 20px;
-  padding-left: 3%;
-  padding-right: 3%;
-  font-weight: bolder;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 475px;
+	padding: 1rem;
+	font-size: 20px;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-weight: bolder;
 }
 
 #players-count {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .settings .form-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  width: 260px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	width: 260px;
 }
 
 .settings .form-item input {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: lighter;
-  font-size: smaller;
-  font-style: italic;
+	border-radius: 3px;
+	padding: 0.4rem 0.2rem;
+	font-weight: lighter;
+	font-size: smaller;
+	font-style: italic;
 }
 
 .settings .form-item .details {
-  font-style: italic;
-  color: #3e3e3e;
-  font-size: 15px;
+	font-style: italic;
+	color: #3e3e3e;
+	font-size: 15px;
 }
 
 .settings button {
-  margin-top: 0.4rem;
-  border-radius: 3px;
-  padding: 0.8rem;
-  font-weight: bold;
-  border: none;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 4px;
+	margin-top: 0.4rem;
+	border-radius: 3px;
+	padding: 0.8rem;
+	font-weight: bold;
+	border: none;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
 }
 
 .settings button:hover {
-  background: rgb(75, 75, 75);
+	background: rgb(75, 75, 75);
 }
 
 .settings button:active {
-  background: rgb(70, 70, 70);
+	background: rgb(70, 70, 70);
 }
 
 .back {
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
 }
 
 @media (min-aspect-ratio: 16/9) {
-  .back {
-    width: 100%;
-    height: auto;
-  }
+	.back {
+		width: 100%;
+		height: auto;
+	}
 }
 
 @media (max-aspect-ratio: 16/9) {
-  .back {
-    width: auto;
-    height: 100%;
-  }
+	.back {
+		width: auto;
+		height: 100%;
+	}
 }
 
 .player-turn .bg {
-  padding: 0.2rem 0.4rem;
-  border-radius: 1.2rem;
-  font-weight: bold;
-  color: black;
-  display: flex;
-  align-items: center;
+	padding: 0.2rem 0.4rem;
+	border-radius: 1.2rem;
+	font-weight: bold;
+	color: black;
+	display: flex;
+	align-items: center;
 }
 
 .timer {
-  margin-left: 1rem;
-  font-size: 1.2rem;
-  color: red;
+	margin-left: 1rem;
+	font-size: 1.2rem;
+	color: red;
 }
 
 .mute-btn {
-  background-color: #333;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 5px;
+	background-color: #333;
+	border: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
 }
 
 .mute-btn i {
-  color: #ffffff;
-  font-size: 24px;
-  transition: color 0.3s ease;
+	color: #ffffff;
+	font-size: 24px;
+	transition: color 0.3s ease;
 }
 
 .mute-btn:hover i {
-  color: #fff;
+	color: #fff;
 }
 
 /* The message box is shown when the user clicks on the input field */
 .warning {
-  display: none;
-  font-size: 18px;
-  color: red;
-  position: relative;
-  padding: 5px;
+	display: none;
+	font-size: 18px;
+	color: red;
+	position: relative;
+	padding: 5px;
 }
 
 /* Rankings table styles */
@@ -471,248 +471,212 @@ h1 {
 }
 
 .rankings table {
-  width: 100%;
-  border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .rankings th,
 .rankings td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
 }
 
 .rankings th {
-  background-color: #4caf50;
-  color: white;
+	background-color: #4caf50;
+	color: white;
 }
 
 .rankings td {
-  background-color: #f9f9f9;
+	background-color: #f9f9f9;
 }
 
 /* Additional styling for the overall container */
 #ranking-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
 }
 
 #ranking {
-  border-collapse: collapse;
-  width: 90%;
-  max-width: 600px;
+	border-collapse: collapse;
+	width: 90%;
+	max-width: 600px;
 }
 
 #ranking th,
 #ranking td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
 #ranking th {
-  background-color: #4caf50;
-  color: white;
+	background-color: #4caf50;
+	color: white;
 }
 
 #ranking tr:nth-child(even) {
-  background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
 
 #ranking tr:hover {
-  background-color: #ddd;
+	background-color: #ddd;
 }
 
 #ranking td:first-child {
-  background: rgb(70, 70, 70);
-}
-
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-}
-
-#myVideo2 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+	background: rgb(70, 70, 70);
 }
 
 .settings .form-item select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: large;
+	border-radius: 3px;
+	padding: 0.4rem 0.2rem;
+	letter-spacing: 2px;
+	font-weight: bold;
+	font-size: large;
 }
 
 select {
-  background: rgb(70, 70, 70);
-  color: #ffffff;
+	background: rgb(70, 70, 70);
+	color: #ffffff;
 }
 
 #myVideo,
 #myVideo2 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
 }
 
 select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
-  width: 100%;
-
-  margin: 1rem 0rem;
-}
-
-.settings .form-item select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
-}
-
-select {
-  border-radius: 3px;
-  padding: 0.4rem 0.2rem;
-  font-weight: bold;
-  font-size: large;
-  width: 100%;
-  margin: 1rem 0rem;
-  margin: 1rem 0;
+	border-radius: 3px;
+	padding: 0.4rem 0.2rem;
+	font-weight: bold;
+	font-size: large;
+	width: 100%;
+	margin: 1rem 0rem;
 }
 
 .score {
-  background-color: rgba(231, 181, 55, 0.979);
-  padding: 20px;
-  border: #111;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+	background-color: rgba(231, 181, 55, 0.979);
+	padding: 20px;
+	border: #111;
+	border-radius: 10px;
+	box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
 }
 
 .flex {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .flex-btn {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.5rem;
+	display: flex;
+	justify-content: space-around;
+	gap: 0.5rem;
 }
 
 .flex-btn button {
-  margin-top: 0.4rem;
-  border-radius: 3px;
-  padding: 0.8rem;
-  font-weight: bold;
-  border: none;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 4px;
+	margin-top: 0.4rem;
+	border-radius: 3px;
+	padding: 0.8rem;
+	font-weight: bold;
+	border: none;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
 }
 
 .flex-btn button:hover {
-  background: rgb(75, 75, 75);
+	background: rgb(75, 75, 75);
 }
 
 .whole-background {
-  display: flex;
-  margin-top: 10%;
-  flex-direction: row;
-  gap: 1rem;
-  background-color: rgba(231, 181, 55, 0.979);
-  border-radius: 10px;
-  padding: 10px 20px;
-  box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
+	display: flex;
+	margin-top: 10%;
+	flex-direction: row;
+	gap: 1rem;
+	background-color: rgba(231, 181, 55, 0.979);
+	border-radius: 10px;
+	padding: 10px 20px;
+	box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
 }
 
 .right-background {
-  padding: 20px 50px;
-  border-radius: 10px;
-  max-width: 350px;
-  transition: background-color 0.5s ease;
+	padding: 20px 50px;
+	border-radius: 10px;
+	max-width: 350px;
+	transition: background-color 0.5s ease;
 }
 
 .right-background:hover {
-  background-color: rgba(236, 66, 109, 0.329);
+	background-color: rgba(236, 66, 109, 0.329);
 }
 
 .button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
 }
 
 .start-btn,
 .reset-btn {
-  flex: 1;
-  margin-top: 10%;
+	flex: 1;
+	margin-top: 10%;
 }
 
 .error-message {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #ff4d4d;
-  font-family: "Arial", sans-serif;
-  text-align: left;
+	margin-top: 5px;
+	font-size: 0.9rem;
+	font-weight: bold;
+	color: #ff4d4d;
+	font-family: "Arial", sans-serif;
+	text-align: left;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
 }
 
 .button {
-  margin-top: 20px;
-  padding: 10px 10px;
-  background: rgb(50, 81, 50);
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  width: 100%;
-  text-align: center;
+	margin-top: 20px;
+	padding: 10px 10px;
+	background: rgb(50, 81, 50);
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
 }
 
 .button:hover {
-  background: rgb(75, 75, 75);
+	background: rgb(75, 75, 75);
 }
 
 .heading {
-  text-align: center;
-  color: #111;
-  z-index: 100;
-  padding-bottom: 10px;
-  width: 100%;
-  font-size: 1.5rem;
-  padding: 0;
+	text-align: center;
+	color: #111;
+	z-index: 100;
+	padding-bottom: 10px;
+	width: 100%;
+	font-size: 1.5rem;
+	padding: 0;
 }
 
 /* Responsive for mobile view */
@@ -802,7 +766,6 @@ input[type="number"] {
   text-decoration: underline;
 } */
 
-
 /* Responsive for Tab view */
 @media (max-width: 1167px) {
   .settings .form {
@@ -856,23 +819,23 @@ input[type="number"] {
 }
 
 .navbarr {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 300;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 300;
 }
 
 .logo a {
-  text-decoration: none;
-  font-size: 35px;
-  font-weight: bolder;
-  color: rgb(23, 13, 13);
+	text-decoration: none;
+	font-size: 35px;
+	font-weight: bolder;
+	color: rgb(23, 13, 13);
 }
 
 .nav-links {
@@ -883,9 +846,9 @@ input[type="number"] {
 }
 
 .nav-links li {
-  display: inline-flex;
-  margin-right: 20px;
-  font-size: 18px;
+	display: inline-flex;
+	margin-right: 20px;
+	font-size: 18px;
 }
 
 .nav-links a {
@@ -897,25 +860,25 @@ input[type="number"] {
 }
 
 .nav-links a:hover {
-  color: #f39d2c;
+	color: #f39d2c;
 }
 
 .logo a:hover {
-  color: yellow;
+	color: yellow;
 }
 
 button a {
-  background-color: #fb946f;
-  text-shadow: none;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+	background-color: #fb946f;
+	text-shadow: none;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
-
+  
 @media screen and (max-width: 1141px) {
   .navbar {
     margin-top: 20px;
@@ -926,18 +889,18 @@ button a {
     font-size: 25px;
   }
 
-  .nav-links li a {
-    font-size: 16px;
-  }
+	.nav-links li a {
+		font-size: 16px;
+	}
 
-  .logo {
-    margin-bottom: 10px;
-  }
+	.logo {
+		margin-bottom: 10px;
+	}
 
-  .nav-links {
-    text-align: center;
-    display: flex;
-  }
+	.nav-links {
+		text-align: center;
+		display: flex;
+	}
 
   .nav-links li {
     margin: 10px 0;
@@ -953,10 +916,10 @@ button a {
 }
 
 .hamburger {
-  display: none;
-  color: white;
-  font-size: x-large;
-  margin-right: 10px;
+	display: none;
+	color: white;
+	font-size: x-large;
+	margin-right: 10px;
 }
 
 @media screen and (max-width: 905px) {
@@ -979,3 +942,4 @@ button a {
     align-items: center;
   }
 }
+

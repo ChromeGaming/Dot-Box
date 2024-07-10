@@ -1,269 +1,282 @@
 body {
-    font-family: monospace;
-    background: #f6f6f6;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-    max-height: 100vh;
+	font-family: monospace;
+	background: #f6f6f6;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	max-height: 100vh;
 }
 
 .board {
-    background: #fcfcfc;
-    display: grid;
-    width: 60vh;
-    max-height: 60vh;
-    margin-top: 154px;
+	background: #fcfcfc;
+	display: grid;
+	width: 60vh;
+	max-height: 60vh;
+	margin-top: 154px;
 }
 
 @media screen and (max-width: 720px) {
-    .board {
-        width: 80vw;
-    }
+	.board {
+		width: 80vw;
+	}
 }
 
 .box {
-    position: relative;
-    aspect-ratio: 1/1;
-    transition: background 500ms;
+	position: relative;
+	aspect-ratio: 1/1;
+	transition: background 500ms;
 }
 
 .box.filled::after {
-    position: absolute;
-    z-index: 40;
-    background: rgb(255, 255, 255);
-    opacity: 0;
-    content: "";
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    animation: 800ms fillAnim 0s 1;
-    background-blend-mode: soft-light;
+	position: absolute;
+	z-index: 40;
+	background: rgb(255, 255, 255);
+	opacity: 0;
+	content: "";
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	animation: 800ms fillAnim 0s 1;
+	background-blend-mode: soft-light;
 }
 
 @keyframes fillAnim {
-    from {
-        transform: scale(1);
-        opacity: 0.3;
-    }
+	from {
+		transform: scale(1);
+		opacity: 0.3;
+	}
 
-    30% {
-        transform: scale(0.5);
-        opacity: 0.6;
-    }
+	30% {
+		transform: scale(0.5);
+		opacity: 0.6;
+	}
 
-    to {
-        transform: scale(1);
-        opacity: 0.3;
-    }
+	to {
+		transform: scale(1);
+		opacity: 0.3;
+	}
 }
 
 .edge {
-    appearance: none;
-    position: absolute;
-    border: none;
-    cursor: pointer;
-    border-radius: 1rem;
-    background: var(--border-color);
+	appearance: none;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	border-radius: 1rem;
+	background: var(--border-color);
 }
 
 .edge:hover {
-    background: rgb(189, 189, 189);
-    z-index: 10;
+	background: rgb(189, 189, 189);
+	z-index: 10;
 }
 
 .edge:active {
-    background: rgb(170, 170, 170);
-    z-index: 10;
+	background: rgb(170, 170, 170);
+	z-index: 10;
 }
 
 .edge.left,
 .edge.right {
-    width: var(--edge-thikness);
-    height: var(--edge-length);
+	width: var(--edge-thikness);
+	height: var(--edge-length);
 }
 
 .edge.top,
 .edge.bottom {
-    height: var(--edge-thikness);
-    width: var(--edge-length);
+	height: var(--edge-thikness);
+	width: var(--edge-length);
 }
 
 .edge.top {
-    transform: translateY(-50%);
-    top: 0;
-    left: 0;
+	transform: translateY(-50%);
+	top: 0;
+	left: 0;
 }
 
 .edge.right {
-    transform: translateX(50%);
-    top: 0;
-    right: 0;
+	transform: translateX(50%);
+	top: 0;
+	right: 0;
 }
 
 .edge.bottom {
-    transform: translateY(50%);
-    top: none;
-    bottom: 0;
-    left: 0;
+	transform: translateY(50%);
+	top: none;
+	bottom: 0;
+	left: 0;
 }
 
 .edge.left {
-    transform: translateX(-50%);
-    top: 0;
-    left: 0;
+	transform: translateX(-50%);
+	top: 0;
+	left: 0;
 }
 
 .edge:before {
-    position: absolute;
-    content: "";
-    inset: 0;
-    width: 100%;
-    height: 100%;
+	position: absolute;
+	content: "";
+	inset: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .edge.left:before,
 .edge.right:before {
-    transform: scale(3, 0.7);
+	transform: scale(3, 0.7);
 }
 
 .edge.top:before,
 .edge.bottom:before {
-    transform: scale(0.7, 3);
+	transform: scale(0.7, 3);
 }
 
 .edge.filled {
-    background: #111;
-    pointer-events: none;
-    z-index: 10;
+	background: #111;
+	pointer-events: none;
+	z-index: 10;
 }
 
 .players {
-    position: absolute;
-    z-index: 10;
-    font-size: 1rem;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.4rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    margin-top: 50px;
+	position: absolute;
+	z-index: 10;
+	font-size: 1rem;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.4rem;
+	display: flex;
+	justify-content: center;
+	gap: 1.2rem;
+	margin-top: 50px;
 }
 
 .player .filled-boxes {
-    display: inline-block;
-    text-align: center;
-    width: 28px;
-    margin-right: 4px;
-    background-color: rgb(136, 136, 136);
-    border: solid 3px #111;
-    border-radius: 3px;
-    color: rgba(0, 0, 0, 0.922);
+	display: inline-block;
+	text-align: center;
+	width: 28px;
+	margin-right: 4px;
+	background-color: rgb(136, 136, 136);
+	border: solid 3px #111;
+	border-radius: 3px;
+	color: rgba(0, 0, 0, 0.922);
 }
 
 @media screen and (max-width: 600px) {
-    .player span {
-        font-size: 0.8rem;
-    }
+	.player span {
+		font-size: 0.8rem;
+	}
 
-    .players {
-        gap: 0.5rem;
-    }
+	.players {
+		gap: 0.5rem;
+	}
 }
 
 .player-turn {
-    font-size: 1rem;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.864);
-    padding-top: 10px;
-    border-top: solid 1px #f9f9f9;
+	font-size: 1rem;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.864);
+	padding-top: 10px;
 }
 
 .player-turn .bg {
-    background: #999;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    min-width: 100px;
-    max-width: 200px;
-    text-align: center;
-    border-radius: 1rem;
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	min-width: 100px;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 1rem;
 }
 
 .player-turn .bg.win {
-    animation: 1s pulseAnim 0s infinite;
-    font-weight: bold;
-    z-index: 25;
+	animation: 1s pulseAnim 0s infinite;
+	font-weight: bold;
+	z-index: 25;
 }
 
 .player-turn .name {
-    color: rgb(0, 0, 0);
-    font-weight: bold;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
 }
 
 @keyframes pulseAnim {
-    from {
-        transform: scale(1);
-    }
+	from {
+		transform: scale(1);
+	}
 
-    40% {
-        transform: scale(1.2);
-    }
+	40% {
+		transform: scale(1.2);
+	}
 
-    to {
-        transform: scale(1);
-    }
+	to {
+		transform: scale(1);
+	}
 }
 
 /* The Overlay (background) */
 .overlay {
-    height: 0%;
-    width: 100%;
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    background-color: #000000;
-    opacity: 90%;
-    overflow-y: hidden;
-    transition: 0.6s;
-  }
-  
-  .overlay-content {
-    position: relative;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: whitesmoke;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .overlay a:hover, .overlay a:focus {
-    color: gold;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .overlay {overflow-y: auto;}
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
-  }
+	height: 0%;
+	width: 100%;
+	position: fixed;
+	z-index: 20;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+	opacity: 90%;
+	overflow-y: hidden;
+	transition: 0.6s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: whitesmoke;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+	color: gold;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay {
+		overflow-y: auto;
+	}
+	.overlay a {
+		font-size: 20px;
+	}
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+}
+
+#myVideo {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}

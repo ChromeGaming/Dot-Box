@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="../styles/default.style.css" />
+		<link rel="stylesheet" href="../styles/game.style.css" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="../styles/default.style.css" />
-  <link rel="stylesheet" href="../styles/game.style.css" />
+		<!-- JavaScript files -->
+		<script defer src="../js/edge.js"></script>
+		<script defer src="../js/box.js"></script>
+		<script defer src="../js/board.js"></script>
+		<script defer src="../js/game.js"></script>
 
-  <!-- JavaScript files -->
-  <script defer src="../js/edge.js"></script>
-  <script defer src="../js/box.js"></script>
-  <script defer src="../js/board.js"></script>
-  <script defer src="../js/game.js"></script>
-
-  <!-- Logo of the game -->
-  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
-  <style>
-    .back-home:visited {
-      color: white;
-    }
-    .circle {
+		<!-- Logo of the game -->
+		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<style>
+			.back-home:visited {
+				color: white;
+			}
+          .circle {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -32,14 +35,19 @@
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
-  </style>
 
-  <!-- Title of the game -->
-  <title>Dots & Boxes Game</title>
-</head>
+		</style>
 
-<body>
-   <!-- Create circles with the class 'circle' -->
+		<!-- Title of the game -->
+		<title>Dots & Boxes Game</title>
+	</head>
+
+	<body>
+		<video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
+			<source src="/assets/videos/1.mp4" type="video/mp4" />
+		</video>
+    
+       <!-- Create circles with the class 'circle' -->
    <div class="circle"></div>
    <div class="circle"></div>
    <div class="circle"></div>
@@ -87,50 +95,52 @@
    <div class="circle"></div>
    <script src="/trail.js"></script>
 
-    <!-- Players -->
-    <div class="players" ></div>
+		<!-- Players -->
+		<div class="players"></div>
 
-  <div class="player-turn">
-    <div class="bg" style="margin-top: 60px">
-      <span class="name">PlayerX</span>'s turn
-    </div>
-  </div>
+		<div class="player-turn">
+			<div class="bg" style="margin-top: 60px">
+				<span class="name">PlayerX</span>'s turn
+			</div>
+		</div>
 
-    <!-- Game Page -->
-    <div class="board"></div>
-    
-  <button id="sound-toggle" style="
-        background-color: grey;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      ">
-    Sound Off
-  </button>
-  
-      <!-- Winner Overlay -->
-    <div id="win-overlay" class="overlay">
-        
-        <!-- Overlay content -->
-        <div class="overlay-content">
-          <a href="../index.html">Go Back to Home</a>
-          <a href="../pages/game.html">Play Again</a>
-        </div>
-      </div>
+		<!-- Game Page -->
+		<div class="board"></div>
 
+		<button
+			id="sound-toggle"
+			style="
+				background-color: grey;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				font-size: 16px;
+				cursor: pointer;
+			"
+		>
+			Sound Off
+		</button>
 
-  <button style="
-        background-color: grey;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      ">
-    <a href="../index.html" class="back-home">Back to Home</a>
-  </button>
-</body>
+		<!-- Winner Overlay -->
+		<div id="win-overlay" class="overlay">
+			<!-- Overlay content -->
+			<div class="overlay-content">
+				<a href="../index.html">Go Back to Home</a>
+				<a href="../pages/game.html">Play Again</a>
+			</div>
+		</div>
 
+		<button
+			style="
+				background-color: grey;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				font-size: 16px;
+				cursor: pointer;
+			"
+		>
+			<a href="../index.html" class="back-home">Back to Home</a>
+		</button>
+	</body>
 </html>
