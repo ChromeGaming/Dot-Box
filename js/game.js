@@ -180,16 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
 
-	// const soundToggleBtn = document.getElementById("sound-toggle");
-	// soundToggleBtn.addEventListener("click", () => {
-	// 	if (bgMusic.paused) {
-	// 		bgMusic.play();
-	// 		soundToggleBtn.innerText = "Sound On";
-	// 	} else {
-	// 		bgMusic.pause();
-	// 		soundToggleBtn.innerText = "Sound Off";
-	// 	}
-	// });
+	const soundToggleBtn = document.getElementById("sound-toggle");
+	soundToggleBtn.addEventListener("click", () => {
+		if (bgMusic.paused) {
+			bgMusic.play();
+			soundToggleBtn.innerText = "Sound On";
+		} else {
+			bgMusic.pause();
+			soundToggleBtn.innerText = "Sound Off";
+		}
+	});
 });
 
 function calculate(value, min, max) {
