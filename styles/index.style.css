@@ -8,6 +8,7 @@ body {
     linear-gradient(90deg, #ebf4f9 1px, transparent 1px);
   width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .settings {
