@@ -57,16 +57,16 @@ body {
 
 .back-btn {
     margin-top: 30px;
-    padding: 10px 180px;
+    padding: 10px 21px;
     background: rgb(37, 37, 74);
     color: #fff;
     text-align: center;
-    margin-left: 180px;
     border-radius: 5px;
     width: 55%;
     text-decoration: none;
     font-weight: bold;
     align-self: center;
+    margin-left: 320px;
 }
 
 .back-btn:hover {
@@ -78,5 +78,11 @@ body {
         max-width: 90%;
         padding: 15px 20px;
         line-height: 1.5;
+    }
+
+    .back-btn {
+        margin-left: 80px;
+        padding: 10px 21px;
+        width: 100%;
     }
 }
