@@ -333,8 +333,8 @@
 
 			.submitbtn {
 				margin-bottom: 70px;
-				height: 10px;
 				width: 70px;
+				display: flex;
 			}
 
 			button:hover {
@@ -379,86 +379,112 @@
 				</nav>
 				<button class="sticky-button" onclick="openForm()">Feedback</button>
 
-				<div id="formContainer" class="form-container">
-					<div class="form-content">
-						<div class="sub">
-							<h5>Feedback Form</h5>
-							<span class="close-button" onclick="closeForm()">&times;</span>
-						</div>
-						<div class="wrapper">
-							<input type="radio" name="rate" id="star-1" />
-							<input type="radio" name="rate" id="star-2" />
-							<input type="radio" name="rate" id="star-3" />
-							<input type="radio" name="rate" id="star-4" />
-							<input type="radio" name="rate" id="star-5" />
-							<div class="content">
-								<div class="outer">
-									<div class="emojis">
-										<li class="slideImg">
-											<img src="./assets/images/emojis/emoji-1.png" alt="" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-2.png" alt="" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-3.png" alt="" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-4.png" alt="" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-5.png" alt="" />
-										</li>
-									</div>
-								</div>
-								<div class="stars">
-									<label for="star-1" class="star-1 fas fa-star"></label>
-									<label for="star-2" class="star-2 fas fa-star"></label>
-									<label for="star-3" class="star-3 fas fa-star"></label>
-									<label for="star-4" class="star-4 fas fa-star"></label>
-									<label for="star-5" class="star-5 fas fa-star"></label>
-								</div>
-							</div>
-							<div class="footer">
-								<span class="text"></span>
-								<span class="numb"></span>
-							</div>
-						</div>
+				 <div id="formContainer" class="form-container">
+        <div class="form-content">
+            <div class="sub">
+                <h5>Feedback Form</h5>
+                <span class="close-button" onclick="closeForm()">&times;</span>
+            </div>
+            <div class="wrapper">
+                <input type="radio" name="rate" id="star-1" />
+                <input type="radio" name="rate" id="star-2" />
+                <input type="radio" name="rate" id="star-3" />
+                <input type="radio" name="rate" id="star-4" />
+                <input type="radio" name="rate" id="star-5" />
+                <div class="content">
+                    <div class="outer">
+                        <div class="emojis">
+                            <li class="slideImg">
+                                <img src="./assets/images/emojis/emoji-1.png" alt="" />
+                            </li>
+                            <li>
+                                <img src="./assets/images/emojis/emoji-2.png" alt="" />
+                            </li>
+                            <li>
+                                <img src="./assets/images/emojis/emoji-3.png" alt="" />
+                            </li>
+                            <li>
+                                <img src="./assets/images/emojis/emoji-4.png" alt="" />
+                            </li>
+                            <li>
+                                <img src="./assets/images/emojis/emoji-5.png" alt="" />
+                            </li>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <label for="star-1" class="star-1 fas fa-star"></label>
+                        <label for="star-2" class="star-2 fas fa-star"></label>
+                        <label for="star-3" class="star-3 fas fa-star"></label>
+                        <label for="star-4" class="star-4 fas fa-star"></label>
+                        <label for="star-5" class="star-5 fas fa-star"></label>
+                    </div>
+                </div>
+                <div class="footer">
+                    <span class="text"></span>
+                    <span class="numb"></span>
+                </div>
+            </div>
 
-						<br /><br />
-						<form>
-							<label for="feedback">Describe your feedback:</label><br />
-							<textarea
-								id="feedback"
-								required
-								name="feedback"
-								rows="4"
-								cols="55"
-							></textarea
-							><br /><br />
-							<label for="firstName">Name</label><br />
-							<div class="main">
-								<input
-									type="text"
-									required
-									id="firstName"
-									name="firstName"
-									placeholder="First Name"
-								/><br /><br />
-								<input
-									type="email"
-									required
-									id="email"
-									name="email"
-									placeholder="Email"
-								/><br /><br />
-							</div>
-							<div class="submitbtn">
-								<input type="submit" value="Submit" class="button" />
-							</div>
-						</form>
-					</div>
-				</div>
+            <br /><br />
+            <form id="feedbackForm">
+                <label for="feedback">Describe your feedback:</label><br />
+                <textarea
+                    id="feedback"
+                    required
+                    name="feedback"
+                    rows="4"
+                    cols="55"
+                ></textarea
+                ><br /><br />
+                <label for="firstName">Name</label><br />
+                <div class="main">
+                    <input
+                        type="text"
+                        required
+                        id="firstName"
+                        name="firstName"
+                        placeholder="First Name"
+                    /><br /><br />
+                    <input
+                        type="email"
+                        required
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                    /><br /><br />
+                </div>
+                <div class="submitbtn">
+                    <input type="submit" value="Submit" class="button" />
+                    <input type="reset" value="Reset" class="button" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="thankYouPopup" class="popup hidden">
+		<div class="popup-content">
+			<span class="close-button" onclick="closeThankYouPopup()">&times;</span>
+			<h3>Thank You!</h3>
+			<p>Your feedback has been submitted.</p>
+		</div>
+	</div>
+	<script>
+		document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+			event.preventDefault(); 
+			showThankYouPopup();
+			this.reset(); 
+		});
+	
+		function showThankYouPopup() {
+			document.getElementById('thankYouPopup').classList.remove('hidden');
+		}
+	
+		function closeThankYouPopup() {
+			document.getElementById('thankYouPopup').classList.add('hidden');
+		}
+	</script>
+	
+	
+
 
 				<div class="form">
 					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->

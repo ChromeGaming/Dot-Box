@@ -663,6 +663,7 @@ input[type="number"] {
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
+	display: inline;
 }
 
 .button:hover {
@@ -943,3 +944,35 @@ button a {
   }
 }
 
+
+.popup {
+    position: fixed;
+    top: 54%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    padding: 60px;
+    background-color: rgb(209, 233, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 18px;
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup .close-button {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    cursor: pointer;
+    font-size: 24px; 
+    padding: 5px; 
+    background-color: transparent; 
+    border: none; 
+    outline: none; 
+}
+
+.hidden {
+    display: none;
+}
