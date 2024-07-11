@@ -554,7 +554,7 @@
 								START
 							</a>
 							<button class="reset-btn button1" id="reset-btn">RESET</button>
-							<button id="music-toggle button1" onclick="toggleMusic()">
+							<button id="music-toggle" onclick="toggleMusic()">
 								Music Off
 							</button>
 						</div>
@@ -598,20 +598,29 @@
 			</div>
 		</div> -->
 		<script>
-			var isPlaying = false;
+			var isPlaying = true; // Start with the music playing by default
 			function toggleMusic() {
-				var audio = document.getElementById("background-music");
-				var button = document.getElementById("music-toggle");
-				if (isPlaying) {
-					audio.pause();
-					button.textContent = "Music ON";
-				} else {
-					audio.play();
-					button.textContent = "Music OFF";
-				}
-				isPlaying = !isPlaying;
+			  var audio = document.getElementById("background-music");
+			  var button = document.getElementById("music-toggle");
+			  if (isPlaying) {
+				audio.pause();
+				button.textContent = "Music On";
+			  } else {
+				audio.play();
+				button.textContent = "Music Off";
+			  }
+			  isPlaying = !isPlaying;
 			}
-		</script>
+		  
+			
+			window.onload = function() {
+			  var audio = document.getElementById("background-music");
+			  audio.play();
+			  var button = document.getElementById("music-toggle");
+			  button.textContent = "Music Off";
+			};
+		  </script>
+		
 		<script>
 			document
 				.getElementById("reset-btn")
