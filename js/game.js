@@ -180,16 +180,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
 
-	const soundToggleBtn = document.getElementById("sound-toggle");
-	soundToggleBtn.addEventListener("click", () => {
+	const musicToggleBtn = document.getElementById("music-toggle");
+	musicToggleBtn.addEventListener("click", () => {
 		if (bgMusic.paused) {
 			bgMusic.play();
-			soundToggleBtn.innerText = "Sound On";
+			musicToggleBtn.innerText = "Music On";
 		} else {
 			bgMusic.pause();
-			soundToggleBtn.innerText = "Sound Off";
+			musicToggleBtn.innerText = "Music Off";
 		}
 	});
+	
+
 });
 
 function calculate(value, min, max) {

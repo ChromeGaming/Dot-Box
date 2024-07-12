@@ -1,3 +1,5 @@
+sound = false
+
 class Board {
 	static ROWS   //number of rows
 	static COLUMNS   //number of columns
@@ -45,7 +47,11 @@ class Board {
 	addEdgeClickEventListener() {
 		this.uiRoot.addEventListener("click", (e) => {
 			let click = new Audio('../assets/sounds/click.mp3');
-			click.play();
+			if (sound)
+				//If sound is true, it means the sound is currently on
+			{
+				click.play();
+			}
 			if (!this.isFillingAdjacentBoxes) {
 				if (e.target.classList.contains("edge")) {
 					let edgePosition = e.target.getAttribute("data-position")
@@ -192,7 +198,11 @@ class Board {
 
 	fillBoxes() {
 		let fill = new Audio('../assets/sounds/fill.mp3');
-		fill.play();
+		if (sound)
+			//If sound is true, it means the sound is currently on
+		{
+			fill.play();
+		}
 		if (this.adjacentBoxesToFill.length != 0) {
 			setTimeout(() => {
 				const box = this.adjacentBoxesToFill.shift()
@@ -208,3 +218,17 @@ class Board {
 		}
 	}
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+	const soundToggleBtn = document.getElementById("sound-toggle");
+	soundToggleBtn.addEventListener("click", () => {
+		if (soundToggleBtn.innerText === "Sound Off") {
+			soundToggleBtn.innerText = "Sound On";
+			sound = true
+		} else {
+			soundToggleBtn.innerText = "Sound Off";
+			sound = false
+		}
+	});
+});
