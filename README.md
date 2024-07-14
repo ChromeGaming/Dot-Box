@@ -57,16 +57,20 @@
    ```bash
    git clone https://github.com/<your-github-username>/Dot-Box
    ```
-3. **Add a remote upstream:**
+3. **Go to Dot-Box Folder**
+     ```
+    cd Dot-Box
+    ```
+4. **Add a remote upstream:**
    ```bash
    git remote add upstream https://github.com/ChromeGaming/Dot-Box
    ```
-4. **Create a new branch:**
+5. **Create a new branch:**
    Create a new branch for your changes. Run the following command in your terminal.
    ```bash
    git checkout -b <your-branch-name>
    ```
-5. **Make the desired changes:**
+6. **Make the desired changes:**
    Make the desired changes to the source code.
    6. **Add your changes:**
    Add your changes to the staging area. Run the following command in your terminal.
