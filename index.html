@@ -582,7 +582,130 @@
         </div>
       </div>
     </div>
-    <!-- <div class="flex">
+    <div id="thankYouPopup" class="popup hidden">
+		<div class="popup-content">
+			<span class="close-button" onclick="closeThankYouPopup()">&times;</span>
+			<h3>Thank You!</h3>
+			<p>Your feedback has been submitted.</p>
+		</div>
+	</div>
+	<script>
+		document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+			event.preventDefault(); 
+			showThankYouPopup();
+			this.reset(); 
+		});
+	
+		function showThankYouPopup() {
+			document.getElementById('thankYouPopup').classList.remove('hidden');
+		}
+	
+		function closeThankYouPopup() {
+			document.getElementById('thankYouPopup').classList.add('hidden');
+		}
+	</script>
+	
+	
+
+
+				<div class="form">
+					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
+					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
+					<h3 class="instructions-heading">Instructions</h3>
+					<p class="instructions">
+						1. Select the number of rows, columns and players. <br />
+						2. The player who has maximum number of boxes on board is the
+						winner. <br />
+						3. Players will switch after every turn. But the player who has
+						filled the last box, will get one extra chance consecutively. <br />
+					</p>
+					<a href="./pages/howtoplay.html" class="button"
+						>Read Detailed Instructions</a
+					>
+				</div>
+				<div class="form">
+					<div class="right-background">
+						<div class="form-item">
+							<label for="theme-select">Select Theme:</label>
+							<select id="theme-select">
+								<option value="1">Default</option>
+								<option value="2">Theme 1</option>
+								<option value="3">Theme 2</option>
+							</select>
+						</div>
+						<div class="form-item">
+							<label for="rows"
+								>Rows : <span class="details">(between 5 and 30)</span></label
+							>
+
+							<input type="number" id="rows" min="5" max="30" value="6" />
+							<span class="error"></span>
+						</div>
+
+						<div class="form-item">
+							<label for="columns"
+								>Columns :
+								<span class="details">(between 5 and 30)</span></label
+							>
+							<input type="number" id="columns" min="5" max="30" value="6" />
+							<span class="error"></span>
+						</div>
+
+						<div class="form-item">
+							<label for="players-count"
+								>Players : <span class="details">(between 2 and 6)</span></label
+							>
+							<input
+								type="number"
+								id="players-count"
+								min="2"
+								max="6"
+								value="2"
+							/>
+							<span class="player"></span>
+						</div>
+
+						<div class="button-container">
+							<a
+								href="./pages/game.html"
+								target="_blank"
+								class="start-btn button1"
+								id="start-btn"
+								aria-label="START"
+							>
+								START
+							</a>
+							<button class="reset-btn button1" id="reset-btn">RESET</button>
+							<button id="music-toggle" onclick="toggleMusic()">
+								Music Off
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="author">
+				<div class="fotbar">
+					<a href="./pages/howtoplay.html">HowToPlay?</a>
+					<a href="./pages/termsofservice.html">TermsOfService</a>
+					<a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+					<a href="./pages/licensing.html">Licensing</a>
+				</div>
+				<p>
+					Created with ❤️ by
+					<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+				</p>
+				<div class="social-icons">
+					<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
+						><i class="fab fa-github"></i
+					></a>
+					<a href="https://discord.gg/2HTCFrSvPB" target="_blank"
+						><i class="fab fa-discord"></i
+					></a>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="flex">
+
 			<div class="board"></div>
 			<div class="score">
 				<div class="players"></div>
