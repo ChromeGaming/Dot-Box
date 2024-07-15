@@ -2,139 +2,162 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="../styles/default.style.css" />
-	<link rel="stylesheet" href="../styles/game.style.css" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../styles/default.style.css" />
+    <link rel="stylesheet" href="../styles/game.style.css" />
 
-	<!-- JavaScript files -->
-	<script defer src="../js/edge.js"></script>
-	<script defer src="../js/box.js"></script>
-	<script defer src="../js/board.js"></script>
-	<script defer src="../js/game.js"></script>
+    <!-- JavaScript files -->
+    <script defer src="../js/edge.js"></script>
+    <script defer src="../js/box.js"></script>
+    <script defer src="../js/board.js"></script>
+    <script defer src="../js/game.js"></script>
 
-	<!-- Logo of the game -->
-	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
-	<style>
-		.back-home:visited {
-			color: white;
-		}
+    <!-- Logo of the game -->
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <style>
+        .back-home:visited {
+            color: white;
+        }
 
-		.circle {
-			position: absolute;
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-			background-color: darkturquoise;
-			pointer-events: none;
-			transform: translate(-50%, -50%);
-			z-index: 9999;
-		}
-	</style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-	<!-- Title of the game -->
-	<title>Dots & Boxes Game</title>
+        .button-container button,
+        .button-container a {
+            background-color: rgb(0, 166, 255);
+            color: white;
+            border: none;
+            padding: 13px 13px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; 
+            position: relative; 
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container #sound-toggle {
+            background-color: rgb(12, 1, 1);
+            border-radius: 4px;
+            padding: 10px 20px;
+        }
+
+        .button-container svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .button-container a {
+            text-decoration: none;
+        }
+
+        .button-container button:hover,
+        .button-container a:hover {
+            background-color: rgb(69, 133, 254);
+        }
+
+        .button-container #sound-toggle:hover {
+            background-color: rgb(21, 39, 77);
+        }
+
+
+        .button-container [title]:hover::after {
+            opacity: 1;
+        }
+    </style>
+
+    <!-- Title of the game -->
+    <title>Dots & Boxes Game</title>
 </head>
 
 <body>
-	<video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
-		<source src="/assets/videos/1.mp4" type="video/mp4" />
-	</video>
+    <video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
+        <source src="/assets/videos/1.mp4" type="video/mp4" />
+    </video>
 
+    <!-- Players -->
+    <div class="players"></div>
 
-	<!-- Players -->
-	<div class="players"></div>
+    <div class="player-turn">
+        <div class="bg" style="margin-top: 40px">
+            <span class="name">PlayerX</span>'s turn
+        </div>
+    </div>
 
-	<div class="player-turn">
-		<div class="bg" style="margin-top: 60px">
-			<span class="name">PlayerX</span>'s turn
-		</div>
-	</div>
+    <!-- Game Page -->
+    <div class="board"></div>
 
-	<!-- Game Page -->
-	<div class="board"></div>
+    <div class="button-container">
+        <button id="sound-toggle" title="Toggle Sound">Sound Off</button>
 
-	<button id="sound-toggle" style="
-				background-color: grey;
-				color: white;
-				border: none;
-				padding: 10px 20px;
-				font-size: 16px;
-				cursor: pointer;
-			">
-		Sound Off
-	</button>
+        <a href="../pages/game.html" id="reset-button" title="Reset Game">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M13 3a9 9 0 0 0-9 9H1l4 4 4-4H5a7 7 0 1 1 7 7v2a9 9 0 0 0 0-18z" />
+            </svg>
+        </a>
 
-	<!-- Winner Overlay -->
-	<div id="win-overlay" class="overlay">
-		<!-- Overlay content -->
-		<div class="overlay-content">
-			<a href="../index.html">Go Back to Home</a>
-			<a href="../pages/game.html">Play Again</a>
-		</div>
-	</div>
+        <a href="../index.html" class="back-home" title="Go Back Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z">
+                </path>
+            </svg>
+        </a>
+    </div>
 
-	<button style="
-				background-color: grey;
-				color: white;
-				border: none;
-				padding: 10px 20px;
-				font-size: 16px;
-				cursor: pointer;
-			">
-		<a href="../index.html" class="back-home">Back to Home</a>
-	</button>
-	<!-- Create circles with the class 'circle' -->
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<div class="circle"></div>
-	<script src="/trail.js"></script>
+    <!-- Winner Overlay -->
+    <div id="win-overlay" class="overlay">
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="../index.html">Go Back to Home</a>
+            <a href="../pages/game.html">Play Again</a>
+        </div>
+    </div>
 
+    <!-- Create circles with the class 'circle' -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <script src="/trail.js"></script>
 </body>
 
 </html>
