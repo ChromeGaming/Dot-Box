@@ -14,7 +14,7 @@
   <script defer src="../js/validation.js"></script>
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
   <title>Contributors</title>
-  <style>
+   <style>
     * {
       margin: 0;
       padding: 0;
@@ -24,18 +24,18 @@
     .contributors-list img {
       max-width: 100%;
       height: auto;
-      display: block;
+      /* display: block; */
       margin: 0 auto;
     }
 
     .contributors-list {
       text-align: center;
-      padding: 35px;
+      padding: 3px;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 100%;
-      margin: 0 auto;
+      margin: auto;
     }
 
     .whole-background {
@@ -44,7 +44,8 @@
       text-align: center;
       display: flex;
       flex-direction: row;
-      height: 70%;
+      height: 90%;
+  
     }
 
     .settings .form {
@@ -59,6 +60,10 @@
       background-color: initial;
     }
 
+    .form h1 { 
+      margin-top: 60px;
+      
+    }
     .circle {
             position: absolute;
             width: 25px;
@@ -94,7 +99,10 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../pages/about.html">About Us</a></li>
         <li><a href="../pages/FAQs.html">FAQs</a></li>
-        <li><a href="../pages/contributors.html">Contributors</a></li>
+
+        <li><a href="../pages/contributors.html">
+          Contributors
+        </a></li>
         <button><a href="../pages/game.html">Let's Go</a></button>
       </ul>
       <div class="hamburger">
@@ -103,17 +111,18 @@
     </nav>
     <div class="form">
       <h1 class="heading">
-
         Our Contributors</h1>
       <p class="contributors-description">
         We are grateful to the following contributors for their hard work
         and dedication in making this project a success:
       </p>
       <div class="contributors-list">
+
         <a href="https://github.com/ChromeGaming/Dot-Box/graphs/contributors">
-          <img src="https://contrib
-            .rocks/image?repo=ChromeGaming/Dot-Box" />
+
+          <img src="https://contrib.rocks/image?repo=ChromeGaming/Dot-Box" />
         </a>
+
       </div>
     </div>
   </div>
