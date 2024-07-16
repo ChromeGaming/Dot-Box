@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./styles/mainstyle.css" />
-    <link rel="stylesheet" href="./styles/default.style.css" />
-    <link rel="stylesheet" href="./styles/index.style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <script defer src="./js/edge.js"></script>
-    <script defer src="./js/box.js"></script>
-    <script defer src="./js/board.js"></script>
-    <script defer src="./js/game.js"></script>
-    <script defer src="./js/validation.js"></script>
-    <!-- JavaScript files -->
-    <script defer src="./js/index.js"></script>
-    <!-- Logo of the game -->
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <script src="./js/emoji.js"></script>
-    <title>Dots & Boxes Game</title>
-    <style>
-      .circle {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: darkturquoise;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-      }
 
-      .sticky-button {
-        /* position: fixed;
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./styles/mainstyle.css" />
+		<link rel="stylesheet" href="./styles/default.style.css" />
+		<link rel="stylesheet" href="./styles/index.style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<script defer src="./js/edge.js"></script>
+		<script defer src="./js/box.js"></script>
+		<script defer src="./js/board.js"></script>
+		<script defer src="./js/game.js"></script>
+		<script defer src="./js/validation.js"></script>
+		<!-- JavaScript files -->
+		<script defer src="./js/index.js"></script>
+		<!-- Logo of the game -->
+		<link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<script src="./js/emoji.js"></script>
+		<title>Dots & Boxes Game</title>
+		<style>
+
+			.sticky-button {
+				/* position: fixed;
+
 				top: 50%;
 				left: 20px;
 				transform: translateY(-50%);
@@ -50,337 +42,401 @@
 				border-radius: 50%;
 				font-size: 16px;
 				cursor: pointer; */
+ /* CSS styles as provided in the original code */
+    .sticky-button {
+      transform: rotate(-90deg);
+      padding: 12px;
+      position: fixed;
+      left: 0px;
+      font-family: verdana;
+      font-size: 15px;
+      color: rgb(255, 255, 255);
+      background: rgb(245, 146, 2);
+      z-index: 999;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 0px 0px 5px 5px;
+      margin-left: -34.5px;
+      top: 50%;
+      margin-top: -16px;
+      text-shadow: none;
+    }
 
-        transform: rotate(-90deg);
-        padding: 12px;
+    .sticky-button:hover {
+      background-color: grey;
+    }
 
-        position: fixed;
-        left: 0px;
-        font-family: verdana;
-        font-size: 15px;
-        color: rgb(255, 255, 255);
-        background: rgb(245, 146, 2);
-        z-index: 999;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 0px 0px 5px 5px;
-        margin-left: -34.5px;
-        top: 50%;
-        margin-top: -16px;
-        text-shadow: none;
-      }
+    .form-container {
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 5%;
+      justify-content: center;
+      align-items: center;
+      margin-left: 40px;
+      margin-top: 300px;
+      z-index: 999;
+    }
 
-      .sticky-button:hover {
-        background-color: grey;
-      }
+    .form-content {
+      position: relative;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      width: 450px;
+    }
 
-      .form-container {
-        display: none;
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: 100%;
-        height: 5%;
-        justify-content: center;
-        align-items: center;
-        margin-left: 40px;
-        margin-top: 300px;
-        z-index: 999;
-      }
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
 
-      .form-content {
-        position: relative;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        margin-right: 56px;
-        margin-left: -21px;
-        width: 450px;
-      }
+    .radio-group input {
+      margin-right: 5px;
+    }
 
-      .radio-group {
-        display: flex;
-        align-items: center;
-      }
+    .radio-group label {
+      margin-right: 15px;
+    }
 
-      .radio-group input {
-        margin-right: 5px;
-      }
+    .close-button {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
 
-      .radio-group label {
-        margin-right: 15px;
-      }
+    .sub {
+      margin-top: 50px;
+      display: flex;
+      font-size: 30px;
+    }
 
-      .close-button {
-        position: absolute;
-        right: 10px;
-        cursor: pointer;
-      }
+    .main {
+      display: flex;
+      justify-content: space-between;
+    }
 
-      .sub {
-        margin-top: 50px;
-        display: flex;
-        font-size: 30px;
-      }
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .main {
-        display: flex;
-        justify-content: space-between;
-      }
+    .wrapper {
+      background: #f6f6f6;
+      max-width: 360px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      margin-left: 20px;
+    }
 
-      .btn {
-        display: flex;
-        /* Enables CSS flexbox */
-        justify-content: center;
-        /* Centers horizontally */
-        align-items: center;
-        /* Centers vertically */
-      }
+    .wrapper .content {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
 
-      .wrapper {
-        background: #f6f6f6;
-        max-width: 360px;
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-        margin-left: 20px;
-      }
+    .wrapper .outer {
+      height: 135px;
+      width: 135px;
+      overflow: hidden;
+    }
 
-      .wrapper .content {
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
+    .outer .emojis {
+      height: 500%;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .wrapper .outer {
-        height: 135px;
-        width: 135px;
-        overflow: hidden;
-      }
+    .outer .emojis li {
+      height: 20%;
+      width: 100%;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
 
-      .outer .emojis {
-        height: 500%;
-        display: flex;
-        flex-direction: column;
-      }
+    .outer li img {
+      height: 100%;
+      width: 100%;
+    }
 
-      .outer .emojis li {
-        height: 20%;
-        width: 100%;
-        list-style: none;
-        transition: all 0.3s ease;
-      }
+    #star-2:checked ~ .content .emojis .slideImg {
+      margin-top: -135px;
+    }
 
-      .outer li img {
-        height: 100%;
-        width: 100%;
-      }
+    #star-3:checked ~ .content .emojis .slideImg {
+      margin-top: -270px;
+    }
 
-      #star-2:checked ~ .content .emojis .slideImg {
-        margin-top: -135px;
-      }
+    #star-4:checked ~ .content .emojis .slideImg {
+      margin-top: -405px;
+    }
 
-      #star-3:checked ~ .content .emojis .slideImg {
-        margin-top: -270px;
-      }
+    #star-5:checked ~ .content .emojis .slideImg {
+      margin-top: -540px;
+    }
 
-      #star-4:checked ~ .content .emojis .slideImg {
-        margin-top: -405px;
-      }
+    .wrapper .stars {
+      margin-top: 30px;
+    }
 
-      #star-5:checked ~ .content .emojis .slideImg {
-        margin-top: -540px;
-      }
+    .stars label {
+      font-size: 30px;
+      margin: 0 1px;
+      color: #ccc;
+    }
 
-      .wrapper .stars {
-        margin-top: 30px;
-      }
+    #star-1:hover ~ .content .stars .star-1,
+    #star-1:checked ~ .content .stars .star-1,
+    #star-2:hover ~ .content .stars .star-1,
+    #star-2:hover ~ .content .stars .star-2,
+    #star-2:checked ~ .content .stars .star-1,
+    #star-2:checked ~ .content .stars .star-2,
+    #star-3:hover ~ .content .stars .star-1,
+    #star-3:hover ~ .content .stars .star-2,
+    #star-3:hover ~ .content .stars .star-3,
+    #star-3:checked ~ .content .stars .star-1,
+    #star-3:checked ~ .content .stars .star-2,
+    #star-3:checked ~ .content .stars .star-3,
+    #star-4:hover ~ .content .stars .star-1,
+    #star-4:hover ~ .content .stars .star-2,
+    #star-4:hover ~ .content .stars .star-3,
+    #star-4:hover ~ .content .stars .star-4,
+    #star-4:checked ~ .content .stars .star-1,
+    #star-4:checked ~ .content .stars .star-2,
+    #star-4:checked ~ .content .stars .star-3,
+    #star-4:checked ~ .content .stars .star-4,
+    #star-5:hover ~ .content .stars .star-1,
+    #star-5:hover ~ .content .stars .star-2,
+    #star-5:hover ~ .content .stars .star-3,
+    #star-5:hover ~ .content .stars .star-4,
+    #star-5:hover ~ .content .stars .star-5,
+    #star-5:checked ~ .content .stars .star-1,
+    #star-5:checked ~ .content .stars .star-2,
+    #star-5:checked ~ .content .stars .star-3,
+    #star-5:checked ~ .content .stars .star-4,
+    #star-5:checked ~ .content .stars .star-5 {
+      color: #fd4;
+    }
 
-      .stars label {
-        font-size: 30px;
-        margin: 0 1px;
-        color: #ccc;
-      }
+    .wrapper .footer {
+      border-top: 1px solid #ccc;
+      background: #f2f2f2;
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      #star-1:hover ~ .content .stars .star-1,
-      #star-1:checked ~ .content .stars .star-1,
-      #star-2:hover ~ .content .stars .star-1,
-      #star-2:hover ~ .content .stars .star-2,
-      #star-2:checked ~ .content .stars .star-1,
-      #star-2:checked ~ .content .stars .star-2,
-      #star-3:hover ~ .content .stars .star-1,
-      #star-3:hover ~ .content .stars .star-2,
-      #star-3:hover ~ .content .stars .star-3,
-      #star-3:checked ~ .content .stars .star-1,
-      #star-3:checked ~ .content .stars .star-2,
-      #star-3:checked ~ .content .stars .star-3,
-      #star-4:hover ~ .content .stars .star-1,
-      #star-4:hover ~ .content .stars .star-2,
-      #star-4:hover ~ .content .stars .star-3,
-      #star-4:hover ~ .content .stars .star-4,
-      #star-4:checked ~ .content .stars .star-1,
-      #star-4:checked ~ .content .stars .star-2,
-      #star-4:checked ~ .content .stars .star-3,
-      #star-4:checked ~ .content .stars .star-4,
-      #star-5:hover ~ .content .stars .star-1,
-      #star-5:hover ~ .content .stars .star-2,
-      #star-5:hover ~ .content .stars .star-3,
-      #star-5:hover ~ .content .stars .star-4,
-      #star-5:hover ~ .content .stars .star-5,
-      #star-5:checked ~ .content .stars .star-1,
-      #star-5:checked ~ .content .stars .star-2,
-      #star-5:checked ~ .content .stars .star-3,
-      #star-5:checked ~ .content .stars .star-4,
-      #star-5:checked ~ .content .stars .star-5 {
-        color: #fd4;
-      }
+    .footer span {
+      font-size: 12px;
+      font-weight: 400;
+    }
 
-      .wrapper .footer {
-        border-top: 1px solid #ccc;
-        background: #f2f2f2;
-        width: 100%;
-        height: 50px;
-        padding: 0 20px;
-        border-radius: 0 0 10px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
+    button {
+      background-color: pink;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
 
-      .footer span {
-        font-size: 12px;
-        font-weight: 400;
-      }
+    .footer .text::before {
+      content: "Rate your experience";
+    }
 
-      button {
-        background-color: pink;
-        color: black;
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-      }
+    .footer .numb::before {
+      content: "0 out of 5";
+    }
 
-      .footer .text::before {
-        content: "Rate your experience";
-      }
+    #star-1:checked ~ .footer .text::before {
+      content: "Rating";
+    }
 
-      .footer .numb::before {
-        content: "0 out of 5";
-      }
+    #star-1:checked ~ .footer .numb::before {
+      content: "1 out of 5";
+    }
 
-      #star-1:checked ~ .footer .text::before {
-        content: "I just hate it";
-      }
+    #star-2:checked ~ .footer .text::before {
+      content: "Rating";
+    }
 
-      #star-1:checked ~ .footer .numb::before {
-        content: "1 out of 5";
-      }
+    #star-2:checked ~ .footer .numb::before {
+      content: "2 out of 5";
+    }
 
-      #star-2:checked ~ .footer .text::before {
-        content: "I don't like it";
-      }
+    #star-3:checked ~ .footer .text::before {
+      content: "Rating";
+    }
 
-      #star-2:checked ~ .footer .numb::before {
-        content: "2 out of 5";
-      }
+    #star-3:checked ~ .footer .numb::before {
+      content: "3 out of 5";
+    }
 
-      #star-3:checked ~ .footer .text::before {
-        content: "This is awesome";
-      }
+    #star-4:checked ~ .footer .text::before {
+      content: "Rating";
+    }
 
-      #star-3:checked ~ .footer .numb::before {
-        content: "3 out of 5";
-      }
+    #star-4:checked ~ .footer .numb::before {
+      content: "4 out of 5";
+    }
 
-      #star-4:checked ~ .footer .text::before {
-        content: "I just like it";
-      }
+    #star-5:checked ~ .footer .text::before {
+      content: "Rating";
+    }
 
-      #star-4:checked ~ .footer .numb::before {
-        content: "4 out of 5";
-      }
+    #star-5:checked ~ .footer .numb::before {
+      content: "5 out of 5";
+    }
 
-      #star-5:checked ~ .footer .text::before {
-        content: "I just love it";
-      }
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99;
+      transform: scale(0);
+    }
 
-      #star-5:checked ~ .footer .numb::before {
-        content: "5 out of 5";
-      }
+    .circle-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      input[type="radio"] {
-        display: none;
-      }
+    .circle-1 {
+      width: 20px;
+      height: 20px;
+      background-color: blue;
+    }
 
-      input,
-      textarea {
-        padding: 10px;
-        width: 100%;
-        margin: 1px;
-        box-sizing: border-box;
-      }
+    .circle-2 {
+      width: 15px;
+      height: 15px;
+      background-color: #3fbcc0c6;
+    }
 
-      button {
-        padding: 10px 10px;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .circle-3 {
+      width: 10px;
+      height: 10px;
+      background-color: pink;
+    }
 
-      .submitbtn {
-        margin-bottom: 70px;
-        width: 70px;
-        display: flex;
-      }
+    .circle-4 {
+      width: 5px;
+      height: 5px;
+      background-color: #ff21bc;
+    }
 
-      button:hover {
-        background-color: #0056b3;
-      }
+    .cursor-trail-container {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <button class="sticky-button">Feedback</button>
 
-      .button1 {
-        display: block;
-        font-size: 0.7em;
-        padding: 12px;
-        height: 56.5px;
-        margin-top: 6.4px;
-      }
-    </style>
-  </head>
+  <div class="form-container">
+    <div class="form-content">
+      <span class="close-button">&#10006;</span>
+      <form action="mailto:info@example.com" method="POST" enctype="text/plain">
+        <div class="radio-group">
+          <input type="radio" name="rating" id="star-1">
+          <label for="star-1">1</label>
+          <input type="radio" name="rating" id="star-2">
+          <label for="star-2">2</label>
+          <input type="radio" name="rating" id="star-3">
+          <label for="star-3">3</label>
+          <input type="radio" name="rating" id="star-4">
+          <label for="star-4">4</label>
+          <input type="radio" name="rating" id="star-5">
+          <label for="star-5">5</label>
+        </div>
+        <textarea name="comments" rows="4" cols="50" placeholder="Your comments..."></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 
-  <body>
-    <audio id="background-music" autoplay loop>
-      <source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
-    </audio>
-    <div class="settings">
-      <video autoplay muted class="video" loop id="myVideo">
-        <source src="/assets/videos/1.mp4" type="video/mp4" />
-      </video>
-      <div class="whole-background">
-        <nav class="navbarr">
-          <div class="logo">
-            <a href="#">Dots & Boxes ⚄</a>
-          </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="./pages/about.html">About Us</a></li>
-            <li><a href="./pages/FAQs.html">FAQs</a></li>
-            <li><a href="./pages/contributors.html">Contributors</a></li>
-            <button>
-              <a href="./pages/game.html" target="_blank">Let's Go</a>
-            </button>
-          </ul>
-          <div class="hamburger">
-            <i class="fas fa-bars"></i>
-          </div>
-        </nav>
-        <button class="sticky-button" onclick="openForm()">Feedback</button>
-        <div id="formContainer" class="form-container">
-          <div class="form-content">
+  <div class="wrapper">
+    <input type="radio" name="rating" id="star-1">
+    <input type="radio" name="rating" id="star-2">
+    <input type="radio" name="rating" id="star-3">
+    <input type="radio" name="rating" id="star-4">
+    <input type="radio" name="rating" id="star-5">
+    <div class="content">
+      <div class="outer">
+        <ul class="emojis">
+          <li class="slideImg"><img src="path/to/emoji1.png" alt=""></li>
+          <li><img src="path/to/emoji2.png" alt=""></li>
+          <li><img src="path/to/emoji3.png" alt=""></li>
+          <li><img src="path/to/emoji4.png" alt=""></li>
+          <li><img src="path/to/emoji5.png" alt=""></li>
+        </ul>
+      </div>
+      <div class="stars">
+        <label for="star-1" class="star-1">&#9733;</label>
+        <label for="star-2" class="star-2">&#9733;</label>
+        <label for="star-3" class="star-3">&#9733;</label>
+        <label for="star-4" class="star-4">&#9733;</label>
+        <label for="star-5" class="star-5">&#9733;</label>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="text"></span>
+      <span class="numb"></span>
+    </div>
+  </div>
+
+  <div class="cursor-trail-container">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+  </div>
+
+  <script>
+    // JavaScript as provided in the original code
+    const circles = document.querySelectorAll('.circle');
+    let x = 0;
+    let y = 0;
+    const animateCircles = (event) => {
+      x = event.clientX;
+      y = event.clientY;
+      circles.forEach((circle, index) => {
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+        circle.style.transform = `scale(${(index + 1) / circles.length})`;
+        circle.style.transitionDelay = `${index * 0.1}s`;
+      });
+    };
+    window.addEventListener('mousemove', animateCircles);
+  </script>
+
+  <nav>
+    <div class="logo">Logo</div>
+    <div class="menu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <video src="path/to/video.mp4" autoplay muted loop></video>
+  <audio src="path/to/audio.mp3" autoplay></audio>
             <div class="sub">
               <h5>Feedback Form</h5>
               <span class="close-button" onclick="closeForm()">&times;</span>
@@ -721,86 +777,42 @@
 				</div>
 			</div>
 		</div> -->
-    <script>
-      var isPlaying = true; // Start with the music playing by default
-      function toggleMusic() {
-        var audio = document.getElementById("background-music");
-        var button = document.getElementById("music-toggle");
-        if (isPlaying) {
-          audio.pause();
-          button.textContent = "Music On";
-        } else {
-          audio.play();
-          button.textContent = "Music Off";
-        }
-        isPlaying = !isPlaying;
-      }
+		<script>
+			var isPlaying = true; // Start with the music playing by default
+			function toggleMusic() {
+			  var audio = document.getElementById("background-music");
+			  var button = document.getElementById("music-toggle");
+			  if (isPlaying) {
+				audio.pause();
+				button.textContent = "Music On";
+			  } else {
+				audio.play();
+				button.textContent = "Music Off";
+			  }
+			  isPlaying = !isPlaying;
+			}
+		  
+			
+			window.onload = function() {
+			  var audio = document.getElementById("background-music");
+			  audio.play();
+			  var button = document.getElementById("music-toggle");
+			  button.textContent = "Music Off";
+			};
+		  </script>
+		
+		<script>
+			document
+				.getElementById("reset-btn")
+				.addEventListener("click", function () {
+					document.getElementById("rows").value = "";
+					document.getElementById("columns").value = "";
+					document.getElementById("players-count").value = "";
+				});
+		</script>
 
-      window.onload = function () {
-        var audio = document.getElementById("background-music");
-        audio.play();
-        var button = document.getElementById("music-toggle");
-        button.textContent = "Music Off";
-      };
-    </script>
+	</body>
 
-    <script>
-      document
-        .getElementById("reset-btn")
-        .addEventListener("click", function () {
-          document.getElementById("rows").value = "";
-          document.getElementById("columns").value = "";
-          document.getElementById("players-count").value = "";
-        });
-    </script>
-    <!-- Create circles with the class 'circle' -->
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <script src="/trail.js"></script>
-  </body>
+	<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 
-  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 </html>
