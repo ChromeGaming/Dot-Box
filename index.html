@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles/mainstyle.css" />
+    <link rel="stylesheet" href="./styles/default.style.css" />
+    <link rel="stylesheet" href="./styles/index.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script defer src="./js/edge.js"></script>
+    <script defer src="./js/box.js"></script>
+    <script defer src="./js/board.js"></script>
+    <script defer src="./js/game.js"></script>
+    <script defer src="./js/validation.js"></script>
+    <!-- JavaScript files -->
+    <script defer src="./js/index.js"></script>
+    <!-- Logo of the game -->
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="./js/emoji.js"></script>
+    <title>Dots & Boxes Game</title>
+    <style>
+      @media (max-width : 768px) {
+	.whole-background{
+		position: absolute;
+		overflow: visible;
+		gap: 30px;
+		top: 25vh;
+	  }
+	  body{
+		overflow: visible !important;
+    
+	  }
+    .settings .form{
+      padding: 1rem 6rem;
+        margin: 4px 13rem;
+        left: 15%;
+        position: relative;
+    }
+    .settings{
+      top: -33px;
+    }
+}
+      .circle {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: darkturquoise;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+      }
 
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="./styles/mainstyle.css" />
-		<link rel="stylesheet" href="./styles/default.style.css" />
-		<link rel="stylesheet" href="./styles/index.style.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<script defer src="./js/edge.js"></script>
-		<script defer src="./js/box.js"></script>
-		<script defer src="./js/board.js"></script>
-		<script defer src="./js/game.js"></script>
-		<script defer src="./js/validation.js"></script>
-		<!-- JavaScript files -->
-		<script defer src="./js/index.js"></script>
-		<!-- Logo of the game -->
-		<link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<script src="./js/emoji.js"></script>
-		<title>Dots & Boxes Game</title>
-		<style>
-
-			.sticky-button {
-				/* position: fixed;
-
-				top: 50%;
-				left: 20px;
-				transform: translateY(-50%);
-				background-color: #007bff;
-				color: white;
-				border: none;
-				padding: 10px 20px;
-				border-radius: 50%;
-				font-size: 16px;
-				cursor: pointer; */
- /* CSS styles as provided in the original code */
+    
     .sticky-button {
       transform: rotate(-90deg);
       padding: 12px;
