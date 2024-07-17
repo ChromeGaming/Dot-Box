@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./styles/mainstyle.css" />
-    <link rel="stylesheet" href="./styles/default.style.css" />
-    <link rel="stylesheet" href="./styles/index.style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <script defer src="./js/edge.js"></script>
-    <script defer src="./js/box.js"></script>
-    <script defer src="./js/board.js"></script>
-    <script defer src="./js/game.js"></script>
-    <script defer src="./js/validation.js"></script>
-    <!-- JavaScript files -->
-    <script defer src="./js/index.js"></script>
-    <!-- Logo of the game -->
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <script src="./js/emoji.js"></script>
-    <title>Dots & Boxes Game</title>
-    <style>
-      @media (max-width : 768px) {
-	.whole-background{
-		position: absolute;
-		overflow: visible;
-		gap: 30px;
-		top: 25vh;
-	  }
-	  body{
-		overflow: visible !important;
-    
-	  }
-    .settings .form{
-      padding: 1rem 6rem;
-        margin: 4px 13rem;
-        left: 15%;
-        position: relative;
-    }
-    .settings{
-      top: -33px;
-    }
-}
-      .circle {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: darkturquoise;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-      }
 
-    
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles/mainstyle.css" />
+  <link rel="stylesheet" href="./styles/default.style.css" />
+  <link rel="stylesheet" href="./styles/index.style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script defer src="./js/edge.js"></script>
+  <script defer src="./js/box.js"></script>
+  <script defer src="./js/board.js"></script>
+  <script defer src="./js/game.js"></script>
+  <script defer src="./js/validation.js"></script>
+  <!-- JavaScript files -->
+  <script defer src="./js/index.js"></script>
+  <!-- Logo of the game -->
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="./js/emoji.js"></script>
+  <title>Dots & Boxes Game</title>
+  <style>
     .sticky-button {
+      /* position: fixed;
+				top: 50%;
+				left: 20px;
+				transform: translateY(-50%);
+				background-color: #007bff;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 50%;
+				font-size: 16px;
+				cursor: pointer; */
+
       transform: rotate(-90deg);
       padding: 12px;
+
       position: fixed;
       left: 0px;
       font-family: verdana;
@@ -105,6 +80,8 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: left;
+      margin-right: 56px;
+      margin-left: -21px;
       width: 450px;
     }
 
@@ -140,8 +117,11 @@
 
     .btn {
       display: flex;
+      /* Enables CSS flexbox */
       justify-content: center;
+      /* Centers horizontally */
       align-items: center;
+      /* Centers vertically */
     }
 
     .wrapper {
@@ -184,19 +164,19 @@
       width: 100%;
     }
 
-    #star-2:checked ~ .content .emojis .slideImg {
+    #star-2:checked~.content .emojis .slideImg {
       margin-top: -135px;
     }
 
-    #star-3:checked ~ .content .emojis .slideImg {
+    #star-3:checked~.content .emojis .slideImg {
       margin-top: -270px;
     }
 
-    #star-4:checked ~ .content .emojis .slideImg {
+    #star-4:checked~.content .emojis .slideImg {
       margin-top: -405px;
     }
 
-    #star-5:checked ~ .content .emojis .slideImg {
+    #star-5:checked~.content .emojis .slideImg {
       margin-top: -540px;
     }
 
@@ -210,36 +190,36 @@
       color: #ccc;
     }
 
-    #star-1:hover ~ .content .stars .star-1,
-    #star-1:checked ~ .content .stars .star-1,
-    #star-2:hover ~ .content .stars .star-1,
-    #star-2:hover ~ .content .stars .star-2,
-    #star-2:checked ~ .content .stars .star-1,
-    #star-2:checked ~ .content .stars .star-2,
-    #star-3:hover ~ .content .stars .star-1,
-    #star-3:hover ~ .content .stars .star-2,
-    #star-3:hover ~ .content .stars .star-3,
-    #star-3:checked ~ .content .stars .star-1,
-    #star-3:checked ~ .content .stars .star-2,
-    #star-3:checked ~ .content .stars .star-3,
-    #star-4:hover ~ .content .stars .star-1,
-    #star-4:hover ~ .content .stars .star-2,
-    #star-4:hover ~ .content .stars .star-3,
-    #star-4:hover ~ .content .stars .star-4,
-    #star-4:checked ~ .content .stars .star-1,
-    #star-4:checked ~ .content .stars .star-2,
-    #star-4:checked ~ .content .stars .star-3,
-    #star-4:checked ~ .content .stars .star-4,
-    #star-5:hover ~ .content .stars .star-1,
-    #star-5:hover ~ .content .stars .star-2,
-    #star-5:hover ~ .content .stars .star-3,
-    #star-5:hover ~ .content .stars .star-4,
-    #star-5:hover ~ .content .stars .star-5,
-    #star-5:checked ~ .content .stars .star-1,
-    #star-5:checked ~ .content .stars .star-2,
-    #star-5:checked ~ .content .stars .star-3,
-    #star-5:checked ~ .content .stars .star-4,
-    #star-5:checked ~ .content .stars .star-5 {
+    #star-1:hover~.content .stars .star-1,
+    #star-1:checked~.content .stars .star-1,
+    #star-2:hover~.content .stars .star-1,
+    #star-2:hover~.content .stars .star-2,
+    #star-2:checked~.content .stars .star-1,
+    #star-2:checked~.content .stars .star-2,
+    #star-3:hover~.content .stars .star-1,
+    #star-3:hover~.content .stars .star-2,
+    #star-3:hover~.content .stars .star-3,
+    #star-3:checked~.content .stars .star-1,
+    #star-3:checked~.content .stars .star-2,
+    #star-3:checked~.content .stars .star-3,
+    #star-4:hover~.content .stars .star-1,
+    #star-4:hover~.content .stars .star-2,
+    #star-4:hover~.content .stars .star-3,
+    #star-4:hover~.content .stars .star-4,
+    #star-4:checked~.content .stars .star-1,
+    #star-4:checked~.content .stars .star-2,
+    #star-4:checked~.content .stars .star-3,
+    #star-4:checked~.content .stars .star-4,
+    #star-5:hover~.content .stars .star-1,
+    #star-5:hover~.content .stars .star-2,
+    #star-5:hover~.content .stars .star-3,
+    #star-5:hover~.content .stars .star-4,
+    #star-5:hover~.content .stars .star-5,
+    #star-5:checked~.content .stars .star-1,
+    #star-5:checked~.content .stars .star-2,
+    #star-5:checked~.content .stars .star-3,
+    #star-5:checked~.content .stars .star-4,
+    #star-5:checked~.content .stars .star-5 {
       color: #fd4;
     }
 
@@ -276,509 +256,293 @@
       content: "0 out of 5";
     }
 
-    #star-1:checked ~ .footer .text::before {
-      content: "Rating";
+    #star-1:checked~.footer .text::before {
+      content: "I just hate it";
     }
 
-    #star-1:checked ~ .footer .numb::before {
+    #star-1:checked~.footer .numb::before {
       content: "1 out of 5";
     }
 
-    #star-2:checked ~ .footer .text::before {
-      content: "Rating";
+    #star-2:checked~.footer .text::before {
+      content: "I don't like it";
     }
 
-    #star-2:checked ~ .footer .numb::before {
+    #star-2:checked~.footer .numb::before {
       content: "2 out of 5";
     }
 
-    #star-3:checked ~ .footer .text::before {
-      content: "Rating";
+    #star-3:checked~.footer .text::before {
+      content: "This is awesome";
     }
 
-    #star-3:checked ~ .footer .numb::before {
+    #star-3:checked~.footer .numb::before {
       content: "3 out of 5";
     }
 
-    #star-4:checked ~ .footer .text::before {
-      content: "Rating";
+    #star-4:checked~.footer .text::before {
+      content: "I just like it";
     }
 
-    #star-4:checked ~ .footer .numb::before {
+    #star-4:checked~.footer .numb::before {
       content: "4 out of 5";
     }
 
-    #star-5:checked ~ .footer .text::before {
-      content: "Rating";
+    #star-5:checked~.footer .text::before {
+      content: "I just love it";
     }
 
-    #star-5:checked ~ .footer .numb::before {
+    #star-5:checked~.footer .numb::before {
       content: "5 out of 5";
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      width: 100%;
+      margin: 1px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 10px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submitbtn {
+      margin-bottom: 70px;
+      width: 70px;
+      display: flex;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .button1 {
+      display: block;
+      font-size: 0.7em;
+      padding: 12px;
+      height: 56.5px;
+      margin-top: 6.4px;
     }
 
     .circle {
       position: absolute;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
       pointer-events: none;
-      z-index: 99;
-      transform: scale(0);
+      background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+      transition: transform 0.1s, left 0.1s, top 0.1s;
     }
 
     .circle-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .circle-1 {
-      width: 20px;
-      height: 20px;
-      background-color: blue;
-    }
-
-    .circle-2 {
-      width: 15px;
-      height: 15px;
-      background-color: #3fbcc0c6;
-    }
-
-    .circle-3 {
-      width: 10px;
-      height: 10px;
-      background-color: pink;
-    }
-
-    .circle-4 {
-      width: 5px;
-      height: 5px;
-      background-color: #ff21bc;
-    }
-
-    .cursor-trail-container {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
     }
   </style>
 </head>
+
 <body>
-  <button class="sticky-button">Feedback</button>
-
-  <div class="form-container">
-    <div class="form-content">
-      <span class="close-button">&#10006;</span>
-      <form action="mailto:info@example.com" method="POST" enctype="text/plain">
-        <div class="radio-group">
-          <input type="radio" name="rating" id="star-1">
-          <label for="star-1">1</label>
-          <input type="radio" name="rating" id="star-2">
-          <label for="star-2">2</label>
-          <input type="radio" name="rating" id="star-3">
-          <label for="star-3">3</label>
-          <input type="radio" name="rating" id="star-4">
-          <label for="star-4">4</label>
-          <input type="radio" name="rating" id="star-5">
-          <label for="star-5">5</label>
+  <audio id="background-music" autoplay loop>
+    <source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
+  </audio>
+  <div class="settings">
+    <video autoplay muted class="video" loop id="myVideo">
+      <source src="/assets/videos/1.mp4" type="video/mp4" />
+    </video>
+    <div class="whole-background">
+      <nav class="navbarr">
+        <div class="logo">
+          <a href="#">Dots & Boxes ⚄</a>
         </div>
-        <textarea name="comments" rows="4" cols="50" placeholder="Your comments..."></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="wrapper">
-    <input type="radio" name="rating" id="star-1">
-    <input type="radio" name="rating" id="star-2">
-    <input type="radio" name="rating" id="star-3">
-    <input type="radio" name="rating" id="star-4">
-    <input type="radio" name="rating" id="star-5">
-    <div class="content">
-      <div class="outer">
-        <ul class="emojis">
-          <li class="slideImg"><img src="path/to/emoji1.png" alt=""></li>
-          <li><img src="path/to/emoji2.png" alt=""></li>
-          <li><img src="path/to/emoji3.png" alt=""></li>
-          <li><img src="path/to/emoji4.png" alt=""></li>
-          <li><img src="path/to/emoji5.png" alt=""></li>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./pages/about.html">About Us</a></li>
+          <li><a href="./pages/FAQs.html">FAQs</a></li>
+          <li><a href="./pages/contributors.html">Contributors</a></li>
+          <button>
+            <a href="./pages/game.html" target="_blank">Let's Go</a>
+          </button>
         </ul>
-      </div>
-      <div class="stars">
-        <label for="star-1" class="star-1">&#9733;</label>
-        <label for="star-2" class="star-2">&#9733;</label>
-        <label for="star-3" class="star-3">&#9733;</label>
-        <label for="star-4" class="star-4">&#9733;</label>
-        <label for="star-5" class="star-5">&#9733;</label>
-      </div>
-    </div>
-    <div class="footer">
-      <span class="text"></span>
-      <span class="numb"></span>
-    </div>
-  </div>
-
-  <div class="cursor-trail-container">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-    <div class="circle circle-4"></div>
-  </div>
-
-  <script>
-    // JavaScript as provided in the original code
-    const circles = document.querySelectorAll('.circle');
-    let x = 0;
-    let y = 0;
-    const animateCircles = (event) => {
-      x = event.clientX;
-      y = event.clientY;
-      circles.forEach((circle, index) => {
-        circle.style.left = `${x}px`;
-        circle.style.top = `${y}px`;
-        circle.style.transform = `scale(${(index + 1) / circles.length})`;
-        circle.style.transitionDelay = `${index * 0.1}s`;
-      });
-    };
-    window.addEventListener('mousemove', animateCircles);
-  </script>
-
-  <nav>
-    <div class="logo">Logo</div>
-    <div class="menu">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <video src="path/to/video.mp4" autoplay muted loop></video>
-  <audio src="path/to/audio.mp3" autoplay></audio>
-            <div class="sub">
-              <h5>Feedback Form</h5>
-              <span class="close-button" onclick="closeForm()">&times;</span>
-            </div>
-            <div class="wrapper">
-              <input type="radio" name="rate" id="star-1" />
-              <input type="radio" name="rate" id="star-2" />
-              <input type="radio" name="rate" id="star-3" />
-              <input type="radio" name="rate" id="star-4" />
-              <input type="radio" name="rate" id="star-5" />
-              <div class="content">
-                <div class="outer">
-                  <div class="emojis">
-                    <li class="slideImg">
-                      <img src="./assets/images/emojis/emoji-1.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-2.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-3.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-4.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-5.png" alt="" />
-                    </li>
-                  </div>
-                </div>
-                <div class="stars">
-                  <label for="star-1" class="star-1 fas fa-star"></label>
-                  <label for="star-2" class="star-2 fas fa-star"></label>
-                  <label for="star-3" class="star-3 fas fa-star"></label>
-                  <label for="star-4" class="star-4 fas fa-star"></label>
-                  <label for="star-5" class="star-5 fas fa-star"></label>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+      <button class="sticky-button" onclick="openForm()">Feedback</button>
+      <div id="formContainer" class="form-container">
+        <div class="form-content">
+          <div class="sub">
+            <h5>Feedback Form</h5>
+            <span class="close-button" onclick="closeForm()">&times;</span>
+          </div>
+          <div class="wrapper">
+            <input type="radio" name="rate" id="star-1" />
+            <input type="radio" name="rate" id="star-2" />
+            <input type="radio" name="rate" id="star-3" />
+            <input type="radio" name="rate" id="star-4" />
+            <input type="radio" name="rate" id="star-5" />
+            <div class="content">
+              <div class="outer">
+                <div class="emojis">
+                  <li class="slideImg">
+                    <img src="./assets/images/emojis/emoji-1.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="./assets/images/emojis/emoji-2.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="./assets/images/emojis/emoji-3.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="./assets/images/emojis/emoji-4.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="./assets/images/emojis/emoji-5.png" alt="" />
+                  </li>
                 </div>
               </div>
-              <div class="footer">
-                <span class="text"></span>
-                <span class="numb"></span>
+              <div class="stars">
+                <label for="star-1" class="star-1 fas fa-star"></label>
+                <label for="star-2" class="star-2 fas fa-star"></label>
+                <label for="star-3" class="star-3 fas fa-star"></label>
+                <label for="star-4" class="star-4 fas fa-star"></label>
+                <label for="star-5" class="star-5 fas fa-star"></label>
               </div>
             </div>
-
-            <br /><br />
-            <form id="feedbackForm">
-              <label for="feedback">Describe your feedback:</label><br />
-              <textarea
-                id="feedback"
-                required
-                name="feedback"
-                rows="4"
-                cols="55"
-              ></textarea
-              ><br /><br />
-              <label for="firstName">Name</label><br />
-              <div class="main">
-                <input
-                  type="text"
-                  required
-                  id="firstName"
-                  name="firstName"
-                  placeholder="First Name"
-                /><br /><br />
-                <input
-                  type="email"
-                  required
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                /><br /><br />
-              </div>
-              <div class="submitbtn">
-                <input type="submit" value="Submit" class="button" />
-                <input type="reset" value="Reset" class="button" />
-              </div>
-            </form>
-          </div>
-        </div>
-        <div id="thankYouPopup" class="popup hidden">
-          <div class="popup-content">
-            <span class="close-button" onclick="closeThankYouPopup()"
-              >&times;</span
-            >
-            <h3>Thank You!</h3>
-            <p>Your feedback has been submitted.</p>
-          </div>
-        </div>
-        <script>
-          document
-            .getElementById("feedbackForm")
-            .addEventListener("submit", function (event) {
-              event.preventDefault();
-              showThankYouPopup();
-              this.reset();
-            });
-
-          function showThankYouPopup() {
-            document.getElementById("thankYouPopup").classList.remove("hidden");
-          }
-
-          function closeThankYouPopup() {
-            document.getElementById("thankYouPopup").classList.add("hidden");
-          }
-        </script>
-
-        <div class="form">
-          <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
-          <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-          <h3 class="instructions-heading">Instructions</h3>
-          <p class="instructions">
-            1. Select the number of rows, columns and players. <br />
-            2. The player who has maximum number of boxes on board is the
-            winner. <br />
-            3. Players will switch after every turn. But the player who has
-            filled the last box, will get one extra chance consecutively. <br />
-          </p>
-          <a href="./pages/howtoplay.html" class="button"
-            >Read Detailed Instructions</a
-          >
-        </div>
-        <div class="form">
-          <div class="right-background">
-            <div class="form-item">
-              <label for="theme-select">Select Theme:</label>
-              <select id="theme-select">
-                <option value="1">Default</option>
-                <option value="2">Theme 1</option>
-                <option value="3">Theme 2</option>
-              </select>
-            </div>
-            <div class="form-item">
-              <label for="rows"
-                >Rows : <span class="details">(between 5 and 30)</span></label
-              >
-
-              <input type="number" id="rows" min="5" max="30" value="6" />
-              <span class="error"></span>
-            </div>
-
-            <div class="form-item">
-              <label for="columns"
-                >Columns :
-                <span class="details">(between 5 and 30)</span></label
-              >
-              <input type="number" id="columns" min="5" max="30" value="6" />
-              <span class="error"></span>
-            </div>
-
-            <div class="form-item">
-              <label for="players-count"
-                >Players : <span class="details">(between 2 and 6)</span></label
-              >
-              <input
-                type="number"
-                id="players-count"
-                min="2"
-                max="6"
-                value="2"
-              />
-              <span class="player"></span>
-            </div>
-
-            <div class="button-container">
-              <a
-                href="./pages/game.html"
-                target="_blank"
-                class="start-btn button1"
-                id="start-btn"
-                aria-label="START"
-              >
-                START
-              </a>
-              <button class="reset-btn button1" id="reset-btn">RESET</button>
-              <button id="music-toggle" onclick="toggleMusic()">
-                Music Off
-              </button>
+            <div class="footer">
+              <span class="text"></span>
+              <span class="numb"></span>
             </div>
           </div>
+
+          <br /><br />
+          <form id="feedbackForm">
+            <label for="feedback">Describe your feedback:</label><br />
+            <textarea id="feedback" required name="feedback" rows="4" cols="55"></textarea><br /><br />
+            <label for="firstName">Name</label><br />
+            <div class="main">
+              <input type="text" required id="firstName" name="firstName" placeholder="First Name" /><br /><br />
+              <input type="email" required id="email" name="email" placeholder="Email" /><br /><br />
+            </div>
+            <div class="submitbtn">
+              <input type="submit" value="Submit" class="button" />
+              <input type="reset" value="Reset" class="button" />
+            </div>
+          </form>
         </div>
       </div>
-      <div class="author">
-        <div class="fotbar">
-          <a href="./pages/howtoplay.html">HowToPlay?</a>
-          <a href="./pages/termsofservice.html">TermsOfService</a>
-          <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+      <div id="thankYouPopup" class="popup hidden">
+        <div class="popup-content">
+          <span class="close-button" onclick="closeThankYouPopup()">&times;</span>
+          <h3>Thank You!</h3>
+          <p>Your feedback has been submitted.</p>
         </div>
-        <p>
-          Created with ❤️ by
-          <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+      </div>
+      <script>
+        document
+          .getElementById("feedbackForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            showThankYouPopup();
+            this.reset();
+          });
+
+        function showThankYouPopup() {
+          document.getElementById("thankYouPopup").classList.remove("hidden");
+        }
+
+        function closeThankYouPopup() {
+          document.getElementById("thankYouPopup").classList.add("hidden");
+        }
+      </script>
+
+      <div class="form">
+        <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
+        <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
+        <h3 class="instructions-heading">Instructions</h3>
+        <p class="instructions">
+          1. Select the number of rows, columns and players. <br />
+          2. The player who has maximum number of boxes on board is the
+          winner. <br />
+          3. Players will switch after every turn. But the player who has
+          filled the last box, will get one extra chance consecutively. <br />
         </p>
-        <div class="social-icons">
-          <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://discord.gg/2HTCFrSvPB" target="_blank"
-            ><i class="fab fa-discord"></i
-          ></a>
+        <a href="./pages/howtoplay.html" class="button">Read Detailed Instructions</a>
+      </div>
+      <div class="form">
+        <div class="right-background">
+          <div class="form-item">
+            <label for="theme-select">Select Theme:</label>
+            <select id="theme-select">
+              <option value="1">Default</option>
+              <option value="2">Theme 1</option>
+              <option value="3">Theme 2</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+
+            <input type="number" id="rows" min="5" max="30" value="6" />
+            <span class="error"></span>
+          </div>
+
+          <div class="form-item">
+            <label for="columns">Columns :
+              <span class="details">(between 5 and 30)</span></label>
+            <input type="number" id="columns" min="5" max="30" value="6" />
+            <span class="error"></span>
+          </div>
+
+          <div class="form-item">
+            <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+            <input type="number" id="players-count" min="2" max="6" value="2" />
+            <span class="player"></span>
+          </div>
+
+          <div class="button-container">
+            <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
+              START
+            </a>
+            <button class="reset-btn button1" id="reset-btn">RESET</button>
+            <button id="music-toggle" onclick="toggleMusic()">
+              Music Off
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <div id="thankYouPopup" class="popup hidden">
-		<div class="popup-content">
-			<span class="close-button" onclick="closeThankYouPopup()">&times;</span>
-			<h3>Thank You!</h3>
-			<p>Your feedback has been submitted.</p>
-		</div>
-	</div>
-	<script>
-		document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-			event.preventDefault(); 
-			showThankYouPopup();
-			this.reset(); 
-		});
-	
-		function showThankYouPopup() {
-			document.getElementById('thankYouPopup').classList.remove('hidden');
-		}
-	
-		function closeThankYouPopup() {
-			document.getElementById('thankYouPopup').classList.add('hidden');
-		}
-	</script>
-	
-	
-
-
-				<div class="form">
-					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
-					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-					<h3 class="instructions-heading">Instructions</h3>
-					<p class="instructions">
-						1. Select the number of rows, columns and players. <br />
-						2. The player who has maximum number of boxes on board is the
-						winner. <br />
-						3. Players will switch after every turn. But the player who has
-						filled the last box, will get one extra chance consecutively. <br />
-					</p>
-					<a href="./pages/howtoplay.html" class="button"
-						>Read Detailed Instructions</a
-					>
-				</div>
-				<div class="form">
-					<div class="right-background">
-						<div class="form-item">
-							<label for="theme-select">Select Theme:</label>
-							<select id="theme-select">
-								<option value="1">Default</option>
-								<option value="2">Theme 1</option>
-								<option value="3">Theme 2</option>
-							</select>
-						</div>
-						<div class="form-item">
-							<label for="rows"
-								>Rows : <span class="details">(between 5 and 30)</span></label
-							>
-
-							<input type="number" id="rows" min="5" max="30" value="6" />
-							<span class="error"></span>
-						</div>
-
-						<div class="form-item">
-							<label for="columns"
-								>Columns :
-								<span class="details">(between 5 and 30)</span></label
-							>
-							<input type="number" id="columns" min="5" max="30" value="6" />
-							<span class="error"></span>
-						</div>
-
-						<div class="form-item">
-							<label for="players-count"
-								>Players : <span class="details">(between 2 and 6)</span></label
-							>
-							<input
-								type="number"
-								id="players-count"
-								min="2"
-								max="6"
-								value="2"
-							/>
-							<span class="player"></span>
-						</div>
-
-						<div class="button-container">
-							<a
-								href="./pages/game.html"
-								target="_blank"
-								class="start-btn button1"
-								id="start-btn"
-								aria-label="START"
-							>
-								START
-							</a>
-							<button class="reset-btn button1" id="reset-btn">RESET</button>
-							<button id="music-toggle" onclick="toggleMusic()">
-								Music Off
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="author">
-				<div class="fotbar">
-					<a href="./pages/howtoplay.html">HowToPlay?</a>
-					<a href="./pages/termsofservice.html">TermsOfService</a>
-					<a href="./pages/privacypolicy.html">PrivacyPolicy</a>
-					<a href="./pages/licensing.html">Licensing</a>
-				</div>
-				<p>
-					Created with ❤️ by
-					<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
-				</p>
-				<div class="social-icons">
-					<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
-						><i class="fab fa-github"></i
-					></a>
-					<a href="https://discord.gg/2HTCFrSvPB" target="_blank"
-						><i class="fab fa-discord"></i
-					></a>
-				</div>
-			</div>
-		</div>
-		<!-- <div class="flex">
-
+    <div class="author">
+      <div class="fotbar">
+        <a href="./pages/howtoplay.html">HowToPlay?</a>
+        <a href="./pages/termsofservice.html">TermsOfService</a>
+        <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+        <a href="./pages/licensing.html">Licensing</a>
+      </div>
+      <p>
+        Created with ❤️ by
+        <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+      </p>
+      <div class="social-icons">
+        <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="flex">
 			<div class="board"></div>
 			<div class="score">
 				<div class="players"></div>
@@ -794,42 +558,114 @@
 				</div>
 			</div>
 		</div> -->
-		<script>
-			var isPlaying = true; // Start with the music playing by default
-			function toggleMusic() {
-			  var audio = document.getElementById("background-music");
-			  var button = document.getElementById("music-toggle");
-			  if (isPlaying) {
-				audio.pause();
-				button.textContent = "Music On";
-			  } else {
-				audio.play();
-				button.textContent = "Music Off";
-			  }
-			  isPlaying = !isPlaying;
-			}
-		  
-			
-			window.onload = function() {
-			  var audio = document.getElementById("background-music");
-			  audio.play();
-			  var button = document.getElementById("music-toggle");
-			  button.textContent = "Music Off";
-			};
-		  </script>
-		
-		<script>
-			document
-				.getElementById("reset-btn")
-				.addEventListener("click", function () {
-					document.getElementById("rows").value = "";
-					document.getElementById("columns").value = "";
-					document.getElementById("players-count").value = "";
-				});
-		</script>
+  <script>
+    var isPlaying = true; // Start with the music playing by default
+    function toggleMusic() {
+      var audio = document.getElementById("background-music");
+      var button = document.getElementById("music-toggle");
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "Music On";
+      } else {
+        audio.play();
+        button.textContent = "Music Off";
+      }
+      isPlaying = !isPlaying;
+    }
 
-	</body>
+    window.onload = function () {
+      var audio = document.getElementById("background-music");
+      audio.play();
+      var button = document.getElementById("music-toggle");
+      button.textContent = "Music Off";
+    };
+  </script>
 
-	<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+  <script>
+    document
+      .getElementById("reset-btn")
+      .addEventListener("click", function () {
+        document.getElementById("rows").value = "";
+        document.getElementById("columns").value = "";
+        document.getElementById("players-count").value = "";
+      });
+  </script>
+
+
+  <div class="circle-container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      circles.forEach(function (circle) {
+        circle.x = 0;
+        circle.y = 0;
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.pageX;
+        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = `${x - 12}px`;
+          circle.style.top = `${y - 12}px`;
+          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          circle.x = x;
+          circle.y = y;
+
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+      }
+
+      animateCircles();
+    });
+
+  </script>
+
+</body>
+
+<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 
 </html>
