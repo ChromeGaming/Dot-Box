@@ -27,14 +27,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'WorkSans-Regular', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 
 .faqcontainer {
-    position: absolute;
-    /* or fixed */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -154,9 +155,7 @@ h1 {
 }
 
 button {
-    position: absolute;
-    top: 90%;
-    left: 50%;
+    margin: 50px 0% 0px 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(179, 4, 176) !important;
     color: white;
