@@ -370,12 +370,6 @@
         left: 15%;
         position: relative;
     }
-
-    .cursor-trail-container {
-      width: 100%;
-      height: 100vh;
-    }
-    
     .settings{
       top: -33px;
     }
@@ -405,102 +399,6 @@
             <a href="./pages/game.html" target="_blank">Let's Go</a>
           </button>
         </ul>
-      </div>
-      <div class="stars">
-        <label for="star-1" class="star-1">&#9733;</label>
-        <label for="star-2" class="star-2">&#9733;</label>
-        <label for="star-3" class="star-3">&#9733;</label>
-        <label for="star-4" class="star-4">&#9733;</label>
-        <label for="star-5" class="star-5">&#9733;</label>
-      </div>
-    </div>
-    <div class="footer">
-      <span class="text"></span>
-      <span class="numb"></span>
-    </div>
-  </div>
-
-  <div class="cursor-trail-container">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-    <div class="circle circle-4"></div>
-  </div>
-
-  <script>
-    // JavaScript as provided in the original code
-    const circles = document.querySelectorAll('.circle');
-    let x = 0;
-    let y = 0;
-    const animateCircles = (event) => {
-      x = event.clientX;
-      y = event.clientY;
-      circles.forEach((circle, index) => {
-        circle.style.left = `${x}px`;
-        circle.style.top = `${y}px`;
-        circle.style.transform = `scale(${(index + 1) / circles.length})`;
-        circle.style.transitionDelay = `${index * 0.1}s`;
-      });
-    };
-    window.addEventListener('mousemove', animateCircles);
-  </script>
-
-  <nav>
-    <div class="logo">Logo</div>
-    <div class="menu">
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <video src="path/to/video.mp4" autoplay muted loop></video>
-  <audio src="path/to/audio.mp3" autoplay></audio>
-            <div class="sub">
-              <h5>Feedback Form</h5>
-              <span class="close-button" onclick="closeForm()">&times;</span>
-            </div>
-            <div class="wrapper">
-              <input type="radio" name="rate" id="star-1" />
-              <input type="radio" name="rate" id="star-2" />
-              <input type="radio" name="rate" id="star-3" />
-              <input type="radio" name="rate" id="star-4" />
-              <input type="radio" name="rate" id="star-5" />
-              <div class="content">
-                <div class="outer">
-                  <div class="emojis">
-                    <li class="slideImg">
-                      <img src="./assets/images/emojis/emoji-1.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-2.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-3.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-4.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="./assets/images/emojis/emoji-5.png" alt="" />
-                    </li>
-                  </div>
-                </div>
-                <div class="stars">
-                  <label for="star-1" class="star-1 fas fa-star"></label>
-                  <label for="star-2" class="star-2 fas fa-star"></label>
-                  <label for="star-3" class="star-3 fas fa-star"></label>
-                  <label for="star-4" class="star-4 fas fa-star"></label>
-                  <label for="star-5" class="star-5 fas fa-star"></label>
-                </div>
-              </div>
-              <div class="footer">
-                <span class="text"></span>
-                <span class="numb"></span>
-              </div>
-            </div>
         <div class="hamburger">
           <i class="fas fa-bars"></i>
         </div>
@@ -790,6 +688,5 @@
 </body>
 
 <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-  <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
 
 </html>
