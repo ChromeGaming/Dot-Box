@@ -234,6 +234,7 @@ body {
     .navbar {
         flex-direction: column;
         align-items: center;
+        margin-top: 0px !important;
     }
 
     .logo a {
