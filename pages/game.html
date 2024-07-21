@@ -42,8 +42,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none; 
-            position: relative; 
+            text-decoration: none;
+            position: relative;
             transition: background-color 0.3s ease;
         }
 
@@ -86,8 +86,8 @@
         .button-container [title]:hover::after {
             opacity: 1;
         }
-      
-      .circle {
+
+        .circle {
             position: absolute;
             width: 25px;
             height: 25px;
@@ -104,14 +104,134 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 9999;
-        } 
+            z-index: 99999;
+        }
+
+
+        /* Tour */
+        #tour-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .overlay-content ul {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .tour-step {
+            position: absolute;
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff0f5;
+            color: #000;
+            width: 314px;
+        }
+
+        .tour-step.step-1 {
+            top: 20%;
+            left: 40%;
+            margin-top: -268px;
+        }
+
+        .tour-step.step-2 {
+            top: 80%;
+            left: 15%;
+            margin-top: -16%;
+        }
+
+        .tour-step.step-3 {
+            top: 20%;
+            right: 59%;
+            margin-top: -32%;
+            width: 399px;
+            padding: 20px;
+        }
+
+        .tour-step.step-4 {
+            bottom: 30%;
+            left: 58%;
+            margin-bottom: -94px;
+        }
+
+        .tour-step.step-5 {
+            top: 20%;
+            left: 34%;
+            margin-top: -67px;
+            width: 340px;
+        }
+
+        .tour-step.step-6 {
+            top: 20%;
+            left: 37%;
+            margin-top: -201px;
+            width: 392px;
+        }
+
+        .tour-step.step-7 {
+            top: 20%;
+            right: 58%;
+            margin-top: -31%;
+            width: 399px;
+            padding: 20px;
+        }
+
+        .tour-controls {
+            position: absolute;
+            bottom: -40px;
+            width: 86%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tour-controls .button {
+            background-color: rgb(0, 166, 255);
+            color: white;
+            border: none;
+            padding: 5px 17px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tour-controls .button:hover {
+            background-color: rgb(69, 133, 254);
+        }
+
+        #prev-step {
+            background-color: rgb(255, 165, 0);
+        }
+
+        #skip-tour {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .overlay-content .button-container {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
 
         @media (max-width : 768px){
       .circle-container{
         display: none;
       }
     }
+
     </style>
 
     <!-- Title of the game -->
@@ -119,78 +239,78 @@
 </head>
 
 <body>
-  	<div class="circle-container">
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-	</div>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const coords = { x: 0, y: 0 };
-			const circles = document.querySelectorAll(".circle");
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
-			circles.forEach(function (circle) {
-				circle.x = 0;
-				circle.y = 0;
-			});
+            circles.forEach(function (circle) {
+                circle.x = 0;
+                circle.y = 0;
+            });
 
-			window.addEventListener("mousemove", function (e) {
-				coords.x = e.pageX;
-				coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-			});
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.pageX;
+                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+            });
 
-			function animateCircles() {
-				let x = coords.x;
-				let y = coords.y;
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
 
-				circles.forEach(function (circle, index) {
-					circle.style.left = `${x - 12}px`;
-					circle.style.top = `${y - 12}px`;
-					circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+                circles.forEach(function (circle, index) {
+                    circle.style.left = `${x - 12}px`;
+                    circle.style.top = `${y - 12}px`;
+                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
 
-					const nextCircle = circles[index + 1] || circles[0];
-					circle.x = x;
-					circle.y = y;
+                    const nextCircle = circles[index + 1] || circles[0];
+                    circle.x = x;
+                    circle.y = y;
 
-					x += (nextCircle.x - x) * 0.3;
-					y += (nextCircle.y - y) * 0.3;
-				});
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
 
-				requestAnimationFrame(animateCircles);
-			}
+                requestAnimationFrame(animateCircles);
+            }
 
-			animateCircles();
-		});
+            animateCircles();
+        });
 
-	</script>
-  
+    </script>
+
     <video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
         <source src="/assets/videos/1.mp4" type="video/mp4" />
     </video>
@@ -220,7 +340,8 @@
 
         <a href="../index.html" class="back-home" title="Go Back Home">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                <path d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z">
+                <path
+                    d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z">
                 </path>
             </svg>
         </a>
@@ -235,8 +356,139 @@
         </div>
     </div>
 
-    
+    <!-- Game Tour -->
+    <div id="tour-overlay">
+        <div class="overlay-content">
+            <div class="tour-step step-1">
+                <h3>Game Tour</h3>
+                <p>Welcome to the Dot-box game presented by Chrome Gaming! <br><br> Dot-Box is a game where players take
+                    turns drawing lines between dots to create boxes. The player who completes the most boxes wins. It's
+                    a simple yet strategic game enjoyed by people of all ages. Click the "Next" button to start the
+                    tour.</p>
+                <div class="tour-controls">
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-2">
+                <h3>Step 1</h3>
+                <p>This is Game Board! This is where the game is displayed, Play here by connecting the lines.</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-3">
+                <h3>Step 3</h3>
+                <p>Here’s where the player’s score is displayed, Keep track of your score as you play the game</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-7">
+                <h3>Step 4</h3>
+                <p>Here you can see the player’s turn indicator.</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-4">
+                <h3>Step 5</h3>
+                <p>This is the home button. Click to go back to the homepage.</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-5">
+                <h3>Step 6</h3>
+                <p>This is the sound toggle button. Click to mute/unmute the sound. Besides it there is a reset/restart
+                    button.</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
+
+            <div class="tour-step step-6">
+                <h3>Step 6</h3>
+                <p>Now you are ready to start the game. Have fun!</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="close-tour" class="button">Close Tour</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tour steps -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tourSteps = document.querySelectorAll(".tour-step");
+            let currentStep = 0;
+
+            const showStep = (index) => {
+                tourSteps.forEach((step, i) => {
+                    step.style.display = i === index ? "block" : "none";
+                });
+            };
+
+            const nextStep = () => {
+                if (currentStep < tourSteps.length - 1) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            };
+
+            const prevStep = () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            };
+
+            const skipTour = () => {
+                document.getElementById("tour-overlay").style.display = "none";
+            };
+
+            const closeTour = () => {
+                document.getElementById("tour-overlay").style.display = "none";
+            };
+
+            document.querySelectorAll("#next-step").forEach(button => {
+                button.addEventListener("click", nextStep);
+            });
+
+            document.querySelectorAll("#prev-step").forEach(button => {
+                button.addEventListener("click", prevStep);
+            });
+
+            document.querySelectorAll("#skip-tour").forEach(button => {
+                button.addEventListener("click", skipTour);
+            });
+
+            document.querySelectorAll("#close-tour").forEach(button => {
+                button.addEventListener("click", closeTour);
+            });
+
+           
+            document.getElementById("tour-overlay").style.display = "flex";
+            showStep(currentStep);
+        });
+    </script>
+
 </body>
 
 </html>
-
