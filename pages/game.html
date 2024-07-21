@@ -47,7 +47,13 @@
             transition: background-color 0.3s ease;
         }
 
-        .button-container #sound-toggle {
+        .button-container #sound-toggle{
+            background-color: rgb(12, 1, 1);
+            border-radius: 4px;
+            padding: 10px 20px;
+        }
+
+        .button-container #music-toggle{
             background-color: rgb(12, 1, 1);
             border-radius: 4px;
             padding: 10px 20px;
@@ -68,7 +74,11 @@
             background-color: rgb(69, 133, 254);
         }
 
-        .button-container #sound-toggle:hover {
+        .button-container #sound-toggle:hover  {
+            background-color: rgb(21, 39, 77);
+        }
+
+        .button-container #music-toggle:hover  {
             background-color: rgb(21, 39, 77);
         }
 
@@ -199,6 +209,7 @@
 
     <div class="button-container">
         <button id="sound-toggle" title="Toggle Sound">Sound Off</button>
+        <button id="music-toggle" title="Toggle Music">Music Off</button>
 
         <a href="../pages/game.html" id="reset-button" title="Reset Game">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
