@@ -21,27 +21,27 @@
     }
 
     .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+      transition: transform 0.1s, left 0.1s, top 0.1s;
+    }
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        } 
+    .circle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-        @media (max-width : 768px){
-      .circle-container{
+    @media (max-width: 768px) {
+      .circle-container {
         display: none;
       }
     }
@@ -81,7 +81,11 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
   </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const coords = { x: 0, y: 0 };
@@ -120,6 +124,53 @@
       animateCircles();
     });
 
+    // Toggle Function for FAQ Expansion
+    function toggle(drop, isExpanded) {
+      const img = drop.querySelector('img');
+      if (isExpanded) {
+        img.src = "../assets/images/icon-minus.svg";
+      } else {
+        img.src = "../assets/images/icon-plus.svg";
+      }
+    }
+
+    // Drops and their default expansion values
+    const drops = [
+      { drop: document.querySelector(".drop1"), isExpanded: false },
+      { drop: document.querySelector(".drop2"), isExpanded: false },
+      { drop: document.querySelector(".drop3"), isExpanded: false },
+      { drop: document.querySelector(".drop4"), isExpanded: false },
+      { drop: document.querySelector(".drop5"), isExpanded: false },
+      { drop: document.querySelector(".drop6"), isExpanded: false }
+    ];
+
+    drops.forEach(({ drop, isExpanded }) => {
+      drop.addEventListener('click', function () {
+        isExpanded = !isExpanded;
+        toggle(drop, isExpanded);
+      });
+    });
+
+    // Search Functionality
+    function searchFAQs() {
+      let input = document.getElementById('faq-search').value.toLowerCase();
+      let questions = document.querySelectorAll('.question');
+
+      questions.forEach(question => {
+        let text = question.innerText.toLowerCase();
+        if (text.includes(input)) {
+          question.style.display = '';
+        } else {
+          question.style.display = 'none';
+        }
+      });
+    }
+
+    // User Feedback Mechanism
+    function submitFeedback(feedback) {
+      alert(`Thank you for your feedback! You found this ${feedback}.`);
+      // Optionally send feedback to a server or analytics system
+    }
   </script>
 
   <div class="bottom-background">
@@ -129,109 +180,123 @@
   </div>
   <!-- Your existing content -->
 
-  <!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
   <div class="faqcontainer">
     <h1><img src="../assets/images/icon-star.svg" />FAQs</h1>
+    <input type="text" id="faq-search" placeholder="Search FAQs..." onkeyup="searchFAQs()" />
+    <div id="faq-questions">
+      <div class="question">
+        <details>
+          <summary class="drop1">
+            <img src="../assets/images/icon-plus.svg" />How do I
+            win the game?
+          </summary>
+          <p>
+            The objective is to capture more boxes than your opponent. Each box
+            you complete by drawing lines between adjacent dots scores you a
+            point. The player with the most points when all boxes are claimed
+            wins the game.
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
 
-    <div class="question">
-      <details>
-        <summary class="drop1">
-          <img src="../assets/images/icon-plus.svg" />How do I
-          win the game?
-        </summary>
-        <p>
-          The objective is to capture more boxes than your opponent. Each box
-          you complete by drawing lines between adjacent dots scores you a
-          point. The player with the most points when all boxes are claimed
-          wins the game.
-        </p>
-      </details>
+      <div class="question">
+        <details>
+          <summary class="drop2">
+            <img src="../assets/images/icon-plus.svg" />How do I
+            set up the game?
+          </summary>
+          <p>
+            Choose your desired grid size to customize the game's difficulty.
+            Start by connecting the dots on the grid, taking turns with your
+            opponent.
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
+
+      <div class="question">
+        <details>
+          <summary class="drop3">
+            <img src="../assets/images/icon-plus.svg" />What
+            happens if I complete a box?
+          </summary>
+          <p>
+            Completing a box by drawing its final line scores you a point and
+            grants you an extra turn. This strategic element adds depth to
+            gameplay.
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
+
+      <div class="question">
+        <details>
+          <summary class="drop4">
+            <img src="../assets/images/icon-plus.svg" />When
+            does the game end?
+          </summary>
+          <p>
+            The game ends when all boxes on the grid have been claimed by
+            drawing lines. At this point, the player with the highest score,
+            based on the number of boxes captured, wins.
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
+      <div class="question">
+        <details>
+          <summary class="drop5">
+            <img src="../assets/images/icon-plus.svg" />Is there
+            a strategy involved in playing this game?
+          </summary>
+          <p>
+            Yes, strategic line selection is crucial. Thinking ahead to maximize
+            the number of boxes you can capture while preventing your opponent
+            from doing the same is key to winning.
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
+      <div class="question">
+        <details>
+          <summary class="drop6">
+            <img src="../assets/images/icon-plus.svg" />What if
+            I need help or have more questions about gameplay?
+          </summary>
+          <p>
+            If you have any more questions or need assistance with the rules,
+            feel free to refer to the instructions or ask your opponent for
+            clarification. You can also add suggestions in Feedback
+            Form. Enjoy the game!
+          </p>
+          <div class="feedback">
+            <button onclick="submitFeedback('helpful')">Helpful</button>
+            <button onclick="submitFeedback('not-helpful')">Not Helpful</button>
+          </div>
+        </details>
+      </div>
     </div>
 
-    <div class="question">
-      <details>
-        <summary class="drop2">
-          <img src="../assets/images/icon-plus.svg" />How do I
-          set up the game?
-        </summary>
-        <p>
-          Choose your desired grid size to customize the game's difficulty.
-          Start by connecting the dots on the grid, taking turns with your
-          opponent.
-        </p>
-      </details>
-    </div>
-
-    <div class="question">
-      <details>
-        <summary class="drop3">
-          <img src="../assets/images/icon-plus.svg" />What
-          happens if I complete a box?
-        </summary>
-        <p>
-          Completing a box by drawing its final line scores you a point and
-          grants you an extra turn. This strategic element adds depth to
-          gameplay.
-        </p>
-      </details>
-    </div>
-
-    <div class="question">
-      <details>
-        <summary class="drop4">
-          <img src="../assets/images/icon-plus.svg" />When
-          does the game end?
-        </summary>
-        <p>
-          The game ends when all boxes on the grid have been claimed by
-          drawing lines. At this point, the player with the highest score,
-          based on the number of boxes captured, wins.
-        </p>
-      </details>
-    </div>
-    <div class="question">
-      <details>
-        <summary class="drop5">
-          <img src="../assets/images/icon-plus.svg" />Is there
-          a strategy involved in playing this game?
-        </summary>
-        <p>
-          Yes, strategic line selection is crucial. Thinking ahead to maximize
-          the number of boxes you can capture while preventing your opponent
-          from doing the same is key to winning.
-        </p>
-      </details>
-    </div>
-    <div class="question">
-      <details>
-        <summary class="drop6">
-          <img src="../assets/images/icon-plus.svg" />What if
-          I need help or have more questions about gameplay?
-        </summary>
-        <p>
-          If you have any more questions or need assistance with the rules,
-          feel free to refer to the instructions or ask your opponent for
-          clarification.You can also add suggestions in Feedback
-          Form.Enjoy the game!
-        </p>
-      </details>
-    </div>
-
-    <button style="
-              border: none;
-              padding: 10px 20px;
-              font-size: 16px;
-              cursor: pointer;
-              
-            ">
+    <button style="border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;">
       <a href="../index.html" style="color: white;text-decoration: none;">Home</a>
     </button>
   </div>
-
-
-  
-
-  <script src="../js/FAQs.js"></script>
 
 </body>
 
