@@ -949,7 +949,7 @@ button a {
 .popup {
     position: fixed;
     top: 54%;
-    left: 53%;
+    left: 50%;
     transform: translate(-50%, -50%);
     padding: 60px;
     background-color: rgb(209, 233, 255);
@@ -957,6 +957,7 @@ button a {
 	border-radius: 18px;
     z-index: 1000;
 }
+
 
 .popup-content {
     text-align: center;
@@ -977,5 +978,3 @@ button a {
 .hidden {
     display: none;
 }
-
-
