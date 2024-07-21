@@ -27,7 +27,13 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
-        } 
+        }
+        
+        @media (max-width : 768px){
+      .circle-container{
+        display: none;
+      }
+    }
 </style>
 
 <body>
@@ -63,6 +69,12 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
+    <div class="center">
+        <a href="../index.html">
+          <img src="../assets/images/Home.jpeg" style="position: absolute; top: 85px; left: 10px; height: 100px; width: 100px; margin: 0;">
+        </a>     
+      </div>
+      <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const coords = { x: 0, y: 0 };
@@ -166,8 +178,6 @@
                 <source src="../assets/videos/Dot Box Tutorial.mp4" type="video/mp4">
             </video>
         </div>
-
-        <a href="../index.html" class="back-btn">Back to Home</a>
     </div>
     </div>
 
