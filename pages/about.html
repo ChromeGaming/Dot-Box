@@ -3,12 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
-
-  <link rel="stylesheet" href="../styles/index.style.css">
-  <link rel="stylesheet" href="../styles/about.css">
+  <link rel="stylesheet" href="/styles/about.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -16,48 +13,137 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 
+  <!-- Logo of the game -->
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+
   <style>
-    body {
-      background-image: none;
-      overflow: hidden;
-    }
+   html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #e7b537;
+  scroll-behavior: smooth;
+}
 
-    .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        } 
+main {
+  flex: 1; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
 
-        @media (max-width : 768px){
-      .circle-container{
-        display: none;
-      }
-    }
+
+
+.circle {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+  transition: transform 0.1s, left 0.1s, top 0.1s;
+}
+
+.circle-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  .circle-container {
+    display: none;
+  }
+}
+
+.navbar {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.navlinks {
+  display: flex;
+  gap: 20px;
+  margin-right: 53px;
+
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navlinks a:hover {
+  color: #e7b537;
+}
+
+.logo a:hover {
+  color: yellow;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 769px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .logo a {
+    font-size: 20px;
+  }
+
+  .navlinks {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .navlinks a {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .logo a {
+    font-size: 18px;
+  }
+}
   </style>
 
 </head>
 
 <body>
-  <div class="center" style="position: relative;">
-    <a href="../index.html">
-        <img src="../assets/images/Home.jpeg" 
-             style="position: absolute; top: 85px; left: 5px; height: 100px; width: 100px; margin: 0; z-index: 10;">
-    </a>
-  </div>
   <div class="circle-container">
     <div class="circle"></div>
     <div class="circle"></div>
@@ -89,46 +175,46 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-</div>
-<script>
+  </div>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
 
-        circles.forEach(function (circle) {
-            circle.x = 0;
-            circle.y = 0;
+      circles.forEach(function (circle) {
+        circle.x = 0;
+        circle.y = 0;
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.pageX;
+        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = `${x - 12}px`;
+          circle.style.top = `${y - 12}px`;
+          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          circle.x = x;
+          circle.y = y;
+
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
         });
 
-        window.addEventListener("mousemove", function (e) {
-            coords.x = e.pageX;
-            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-        });
+        requestAnimationFrame(animateCircles);
+      }
 
-        function animateCircles() {
-            let x = coords.x;
-            let y = coords.y;
-
-            circles.forEach(function (circle, index) {
-                circle.style.left = `${x - 12}px`;
-                circle.style.top = `${y - 12}px`;
-                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-                const nextCircle = circles[index + 1] || circles[0];
-                circle.x = x;
-                circle.y = y;
-
-                x += (nextCircle.x - x) * 0.3;
-                y += (nextCircle.y - y) * 0.3;
-            });
-
-            requestAnimationFrame(animateCircles);
-        }
-
-        animateCircles();
+      animateCircles();
     });
 
-</script>
+  </script>
 
   <nav class="navbar">
     <div class="logo">
@@ -141,34 +227,36 @@
       <li><a href="../pages/contributors.html">Contributors</a></li>
       <li><a href="../pages/game.html">Let's Go</a></li>
     </ul>
-    <div class="hamburger ">
-      <i class="fas fa-bars"></i>
-    </div>
   </nav>
+
   <header class="about-header">
     <h1>🕹️ About Us 🕹️ </h1>
   </header>
+
   <p style="font-size: 25px; font-family: EB Garamond,serif;font-weight: bolder; text-shadow: 2px 2px 3px white;">
-    Dot-Box is a game where players take turns drawing lines between dots to create boxes.
-    The player who completes the most boxes wins.It's a simple yet strategic game enjoyed by people of all ages.</p>
+    Dot-Box is a game presented by ChromeGaming where players take turns drawing lines between dots to create boxes.
+    The player who completes the most boxes wins. It's a simple yet strategic game enjoyed by people of all ages.
+  </p>
+
   <main>
     <section class="about-description">
-      <p>
-
-      </p>
+      <p></p>
     </section>
 
     <section class="functionalities">
       <h2>History and Origin📓:</h2>
-       <div class="content">
-        
+      <div class="content">
         <ul>
-          <li>Dot and Boxes, also known as Dots and Boxes, is a classic pencil-and-paper game from the late 19th century.</li>
+          <li>Dot and Boxes, also known as Dots and Boxes, is a classic pencil-and-paper game from the late 19th
+            century.</li>
           <li>French mathematician Édouard Lucas first described it in the 1880s.</li>
-          <li>Lucas, known for his work on the Fibonacci sequence and the Tower of Hanoi puzzle, introduced the game in his book "Récréations Mathématiques" (Mathematical Recreations), where it quickly captivated puzzle enthusiasts and gamers.</li>
+          <li>Lucas, known for his work on the Fibonacci sequence and the Tower of Hanoi puzzle, introduced the game in
+            his book "Récréations Mathématiques" (Mathematical Recreations), where it quickly captivated puzzle
+            enthusiasts and gamers.</li>
         </ul>
-       </div>
+      </div>
     </section>
+
     <section class="functionalities">
       <h2>Functionalities🕹️</h2>
       <div class="content">
@@ -186,21 +274,22 @@
       <h2>How to Play🎮</h2>
       <div class="content">
         <ul>
-          <li>
-            Objective: Capture more boxes than your opponent by drawing lines between adjacent dots.</li>
+          <li>Objective: Capture more boxes than your opponent by drawing lines between adjacent dots.</li>
           <li>Setup: Choose your grid size and start connecting the dots.</li>
-          <li>Rules: Take turns drawing lines. Complete a box to score a point and get an extra turn. The player with the
-            most boxes wins.</li>
+          <li>Rules: Take turns drawing lines. Complete a box to score a point and get an extra turn. The player with
+            the most boxes wins.</li>
           <li>Scoring: Each box is worth one point. The game ends when all boxes are claimed.</li>
         </ul>
       </div>
     </section>
   </main>
+
   <div class="author">
     <div class="fotbar">
       <a href="../pages/howtoplay.html">HowToPlay?</a>
       <a href="../pages/termsofservice.html">TermsOfService</a>
       <a href="../pages/privacypolicy.html">PrivacyPolicy</a>
+      <a href="./pages/licensing.html">Licensing</a>
     </div>
     <p>
       Created with ❤️ by <a href="https://github.com/ChromeGaming" style="color: white; text-decoration: none;">Chrome
