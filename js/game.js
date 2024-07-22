@@ -1,7 +1,7 @@
 class Game {
 	static instance; // Singleton instance of Game class
 
-	constructor(rows, columns, playersCount) {
+	constructor(rows, columns, playersInfo) {
 		if (Game.instance == null) Game.instance = this;
 
 		this.playersUI = document.querySelector(".players");
@@ -15,6 +15,7 @@ class Game {
 			playerWin: [],
 		};
 
+		this.players = [playersInfo];
 		this.players = [
 			{ name: "Player 1", color: "pink", filledBoxes: 0 },
 			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
@@ -23,9 +24,6 @@ class Game {
 			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
 			{ name: "Player 6", color: "orange", filledBoxes: 0 },
 		];
-
-		let p = this.players.length - playersCount;
-		for (let i = 0; i < p; i++) this.players.pop();
 
 		this.currentPlayerIndex = 0;
 		this.currentPlayer = this.players[this.currentPlayerIndex];
@@ -183,11 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
 	bgMusic.play();
 
-	const rows = calculate(rowsInput, 5, 30);
-	const columns = calculate(columnsInput, 5, 30);
-	const playersCount = calculate(playersInput, 2, 6);
-
-	game = new Game(rows, columns, playersCount);
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
@@ -207,3 +200,67 @@ document.addEventListener("DOMContentLoaded", () => {
 function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max);
 }
+
+const colors = [
+	"red",
+	"blue",
+	"green",
+	"yellow",
+	"purple",
+	"orange",
+	"pink",
+	"cyan",
+];
+
+function addPlayerInfo() {
+	const playerInputsDiv = document.getElementById("playerInputs");
+	const playerCount = playerInputsDiv.childElementCount / 2 + 1; // Calculate new player count
+
+	// Create player name input
+	const nameInput = document.createElement("input");
+	nameInput.type = "text";
+	nameInput.placeholder = `Player ${playerCount} Name`;
+	nameInput.id = `playerName${playerCount}`;
+
+	// Create color select dropdown
+	const colorSelect = document.createElement("select");
+	colorSelect.id = `playerColor${playerCount}`;
+	colors.forEach((color) => {
+		const option = document.createElement("option");
+		option.value = color;
+		option.textContent = color;
+		colorSelect.appendChild(option);
+	});
+
+	// Append inputs to the form
+	playerInputsDiv.appendChild(nameInput);
+	playerInputsDiv.appendChild(colorSelect);
+}
+
+document
+	.getElementById("playerForm")
+	.addEventListener("submit", function (event) {
+		event.preventDefault();
+		for (let i = 1; i <= players.length; i++) {
+			const name = document.getElementById(`playerName${i}`).value;
+			const color = document.getElementById(`playerColor${i}`).value;
+			players.push({ name, color });
+		}
+		startGame(players);
+	});
+
+function startGame(players) {
+	// Your game initialization logic here
+	console.log("Starting game with players:", players);
+}
+
+// Start the game
+
+const playBtn = document.getElementById("play-btn");
+
+playBtn.addEventListener("click", () => {
+	const rows = calculate(rowsInput, 5, 30);
+	const columns = calculate(columnsInput, 5, 30);
+	const playersCount = calculate(playersInput, 2, 6);
+	game = new Game(rows, columns, playersInfo);
+});
