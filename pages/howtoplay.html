@@ -34,13 +34,30 @@
         display: none;
       }
     }
+
+    .navbar-toggler {
+        background-color: transparent;
+        border: none;
+    }
+    
+.navbar-toggler .toggler-icon {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  display: block;
+  margin: 5px 0;
+  position: relative;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
 </style>
 
 <body>
     <div class="center">
-        <a href="../index.html">
-          <img src="../assets/images/Home.jpeg" style="position: absolute; top: 55px; left: 5px; height: 100px; width: 100px; margin: 0;">
-        </a> 
+         
     <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -123,18 +140,32 @@
             <div class="logo">
                 <a href="../index.html">Dots & Boxes ⚄</a>
             </div>
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="nav-links-toggled">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../pages/about.html">About Us</a></li>
                 <li><a href="../pages/FAQs.html">FAQs</a></li>
                 <li><a href="../pages/contributors.html">Contributors</a></li>
                 <button class="start"><a href="../pages/game.html">Let's Go</a></button>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
         </nav>
     </div>
+    <script>
+        function toggleNavBar()
+        {
+            var nav_bar = document.getElementById("nav-links-toggled");
+            if (nav_bar.style.display === "flex") {
+                nav_bar.style.display = "none";
+            } else {
+                nav_bar.style.display = "flex";
+            }
+        }
+    </script>
     <div class="instructions-container">
         <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
         <h1 style="font-size: 39px;">How to Play ?</h1>
