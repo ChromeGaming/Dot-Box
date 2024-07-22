@@ -47,13 +47,7 @@
             transition: background-color 0.3s ease;
         }
 
-        .button-container #sound-toggle{
-            background-color: rgb(12, 1, 1);
-            border-radius: 4px;
-            padding: 10px 20px;
-        }
-
-        .button-container #music-toggle{
+        .button-container #sound-toggle {
             background-color: rgb(12, 1, 1);
             border-radius: 4px;
             padding: 10px 20px;
@@ -74,11 +68,7 @@
             background-color: rgb(69, 133, 254);
         }
 
-        .button-container #sound-toggle:hover  {
-            background-color: rgb(21, 39, 77);
-        }
-
-        .button-container #music-toggle:hover  {
+        .button-container #sound-toggle:hover {
             background-color: rgb(21, 39, 77);
         }
 
@@ -115,7 +105,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             display: none;
             align-items: center;
             justify-content: center;
@@ -225,13 +215,122 @@
             gap: 10px;
         }
 
+        /* Responsive styles for tablets and mobile devices */
+        @media screen and (max-width: 768px) {
+            .tour-step {
+                width: 80%;
+                padding: 15px;
+            }
 
-        @media (max-width : 768px){
-      .circle-container{
-        display: none;
-      }
-    }
+            .tour-step h3 {
+                font-size: 1.2em;
+            }
 
+            .tour-step p {
+                font-size: 0.9em;
+            }
+
+            .tour-controls .button {
+                padding: 5px 10px;
+                font-size: 0.9em;
+            }
+
+            .tour-controls {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .tour-step.step-1 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+            }
+
+            .tour-step.step-2 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -39px;
+
+            }
+
+            .tour-step.step-3 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -392px;
+            }
+
+            .tour-step.step-7 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -339px;
+            }
+
+            .tour-step.step-4 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-bottom: 53px;
+            }
+
+            .tour-step.step-5 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -119px;
+            }
+
+            .tour-step.step-6 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -193px;
+            }
+
+            .tour-step h3 {
+                font-size: 1em;
+            }
+
+            .tour-step p {
+                font-size: 0.8em;
+            }
+
+            .tour-controls .button {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+
+            .tour-controls {
+                flex-direction: column;
+                gap: 3px;
+                margin-bottom: -15%;
+                margin-left: 8px;
+            }
+
+            .circle-container {
+                display: none;
+            }
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
     </style>
 
     <!-- Title of the game -->
@@ -239,47 +338,42 @@
 </head>
 
 <body>
-    <div class="center">
-        <a href="../index.html">
-          <img src="../assets/images/Home.jpeg" style="position: absolute; top: 15px; left: 5px; height: 100px; width: 100px; margin: 0;">
-        </a>     
-      </div>
-  	<div class="circle-container">
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-	</div>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const coords = { x: 0, y: 0 };
-			const circles = document.querySelectorAll(".circle");
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
             circles.forEach(function (circle) {
                 circle.x = 0;
@@ -334,7 +428,6 @@
 
     <div class="button-container">
         <button id="sound-toggle" title="Toggle Sound">Sound Off</button>
-        <button id="music-toggle" title="Toggle Music">Music Off</button>
 
         <a href="../pages/game.html" id="reset-button" title="Reset Game">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -387,7 +480,7 @@
             </div>
 
             <div class="tour-step step-3">
-                <h3>Step 3</h3>
+                <h3>Step 2</h3>
                 <p>Here’s where the player’s score is displayed, Keep track of your score as you play the game</p>
                 <div class="tour-controls">
                     <button id="prev-step" class="button">Previous</button>
@@ -397,7 +490,7 @@
             </div>
 
             <div class="tour-step step-7">
-                <h3>Step 4</h3>
+                <h3>Step 3</h3>
                 <p>Here you can see the player’s turn indicator.</p>
                 <div class="tour-controls">
                     <button id="prev-step" class="button">Previous</button>
@@ -407,7 +500,7 @@
             </div>
 
             <div class="tour-step step-4">
-                <h3>Step 5</h3>
+                <h3>Step 4</h3>
                 <p>This is the home button. Click to go back to the homepage.</p>
                 <div class="tour-controls">
                     <button id="prev-step" class="button">Previous</button>
@@ -417,7 +510,7 @@
             </div>
 
             <div class="tour-step step-5">
-                <h3>Step 6</h3>
+                <h3>Step 5</h3>
                 <p>This is the sound toggle button. Click to mute/unmute the sound. Besides it there is a reset/restart
                     button.</p>
                 <div class="tour-controls">
@@ -488,7 +581,7 @@
                 button.addEventListener("click", closeTour);
             });
 
-           
+
             document.getElementById("tour-overlay").style.display = "flex";
             showStep(currentStep);
         });
