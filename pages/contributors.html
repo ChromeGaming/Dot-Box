@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../styles/mainstyle.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/styles/contributors.css">
   <title>Contributors</title>
   <style>
     .circle {
@@ -29,9 +28,388 @@
       pointer-events: none;
       z-index: 9999;
     }
+
     @media (max-width: 760px) {
-      .circle-container{
+      .circle-container {
         display: none;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: auto !important;
+      background-color: #e7b537 !important;
+    }
+
+    .header-hero {
+      position: relative;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .header-hero .container {
+      position: relative;
+    }
+
+    .header-hero .header-hero-content {
+      position: relative;
+      color: #fff;
+    }
+
+    .header-hero .header-hero-image {
+      margin-top: 50px;
+    }
+
+    .header-sub-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .header-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .text {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .main-btn {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background-color: #ffffff;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .main-btn:hover {
+      background-color: #000;
+      color: #ffffff;
+    }
+
+    .content {
+      position: relative;
+      padding-top: 0;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .logo a {
+      text-decoration: none;
+      font-size: 30px;
+      font-family: "Arial", sans-serif;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-align: center;
+      color: #fff;
+      margin-left: 15px;
+    }
+
+    .navlinks {
+      display: inline-flex;
+      margin-right: 30px;
+      margin-top: 12px;
+      gap: 30px;
+      text-decoration: none;
+
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      font-family: "Arial", sans-serif;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .navlinks a:hover {
+      color: #e7b537;
+    }
+
+    .logo a:hover {
+      color: yellow;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-3xl {
+      font-size: 1.875rem;
+    }
+
+    .font-semibold {
+      font-weight: 600;
+    }
+
+    .mb-8 {
+      margin-bottom: 0.8rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .gap-8 {
+      gap: 2rem;
+    }
+
+    .contributors {
+      padding-top: 10px;
+    }
+
+    .contributor-card {
+      width: 100%;
+      max-width: calc(25% - 16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 16px;
+    }
+
+    .contributor-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .contributor-card img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+    }
+
+    .text-gray-900 {
+      color: #1a202c;
+    }
+
+    .text-gray-100 {
+      color: #f7fafc;
+    }
+
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .text-gray-700 {
+      color: #4a5568;
+    }
+
+    .text-gray-400 {
+      color: #cbd5e0;
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .mr-1 {
+      margin-right: 0.1rem;
+    }
+
+    .bg_cover {
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .contributor-card {
+        max-width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 769px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px !important;
+      }
+
+      .logo a {
+        font-size: 20px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .navlinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navlinks a {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .contributor-card {
+        max-width: 90%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        padding: 5px !important;
+      }
+
+      .logo a {
+        font-size: 20px;
+      }
+
+      .navlinks {
+        flex-direction: column;
+        margin: 0;
+        gap: 4px !important;
+        font-size: 1px !important;
+      }
+
+      .navlinks a {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+    }
+
+    .author {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #00093c, #2d0b00);
+      color: #fff;
+      padding: 15px;
+      position: sticky;
+      bottom: 0;
+      z-index: 1000;
+    }
+
+    .author .fotbar {
+      display: flex;
+      gap: -22px
+    }
+
+    .author .fotbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      background-color: transparent;
+    }
+
+    .author p {
+      color: white;
+      padding: 10px;
+      margin-right: 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .author .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-right: 20px;
+    }
+
+    .author a {
+      color: white !important;
+    }
+
+    .author .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    @media screen and (max-width:1190px) {
+      .author a {
+        font-size: small;
+      }
+    }
+
+    @media screen and (max-width:1065px) {
+      .author .fotbar {
+        display: grid;
+      }
+
+      .author .fotbar a {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width:550px) {
+      .author {
+        padding: 10px;
+      }
+
+      .author p {
+        font-size: 16px;
+        padding: 0;
+      }
+
+      .author .fotbar a {
+        font-size: 12px;
+      }
+
+      .author .social-icons a {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .author {
+        position: relative !important;
       }
     }
   </style>
@@ -165,23 +543,23 @@
 
   </script>
 
-<div class="author">
-  <div class="fotbar">
-    <a href="/pages/howtoplay.html">HowToPlay?</a>
-    <a href="./pages/termsofservice.html">TermsOfService</a>
-    <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
-    <a href="./pages/licensing.html">Licensing</a>
+  <div class="author">
+    <div class="fotbar">
+      <a href="/pages/howtoplay.html">HowToPlay?</a>
+      <a href="./pages/termsofservice.html">TermsOfService</a>
+      <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+      <a href="./pages/licensing.html">Licensing</a>
+    </div>
+    <p>
+      Created with ❤️ by
+      <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
   </div>
-  <p>
-    Created with ❤️ by
-    <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
-  </p>
-  <div class="social-icons">
-    <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
   </div>
-</div>
-</div>
 
 </body>
 
