@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/mainstyle.css">
 
   <!-- Logo of the game -->
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
@@ -494,7 +495,7 @@
 
   </script>
 
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <div class="logo">
       <a href="../index.html">Dots & Boxes ⚄</a>
     </div>
@@ -505,7 +506,123 @@
       <li><a href="../pages/contributors.html">Contributors</a></li>
       <li><a href="../pages/game.html">Let's Go</a></li>
     </ul>
-  </nav>
+  </nav> -->
+
+
+  <nav class="navbarr" style="color: white;">
+    <div class="logo">
+        <a href="../index.html">Dots & Boxes ⚄</a>
+    </div>
+    
+    <ul class="nav-links" id="nav-links-toggled">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/FAQs.html">FAQs</a></li>
+        <li><a href="../pages/contributors.html">Contributors</a></li>
+        <button class="start"><a href="../pages/game.html">Let's Go</a></button>
+    </ul>
+    <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+      </button>
+</nav>
+</div>
+
+<style>
+
+  
+
+  body > .about-header {
+    width: 100%;
+    position: relative;
+    top: 100px;
+  }
+
+  body > .about-header > h1 {
+    font-size: 5rem;
+  }
+  
+  body > p{
+    position: relative;
+    top: 100px;
+  }
+
+  body > main {
+    position: relative;
+    top: 100px;
+    padding-bottom: 100px;
+  }
+
+
+  .author {
+    position: fixed;
+    bottom: 0;
+  }
+
+.navbarr {
+  width: 100vw;
+}
+  
+.navbar-toggler {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-toggler .toggler-icon {
+width: 30px;
+height: 2px;
+background-color: #fff;
+display: block;
+margin: 5px 0;
+position: relative;
+-webkit-transition: all 0.3s ease-out 0s;
+-moz-transition: all 0.3s ease-out 0s;
+-ms-transition: all 0.3s ease-out 0s;
+-o-transition: all 0.3s ease-out 0s;
+transition: all 0.3s ease-out 0s;
+}
+
+  
+.nav-links {
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 50%;
+  padding: 0;
+  color: white;
+  font-family: inherit;
+}
+
+.nav-links li a,
+.logo a {
+  color: white;
+}
+
+button a {
+  background-color: transparent;
+}
+
+.start {
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+</style>
+
+
+<script>
+function toggleNavBar()
+{
+    var nav_bar = document.getElementById("nav-links-toggled");
+    if (nav_bar.style.display === "flex") {
+        nav_bar.style.display = "none";
+    } else {
+        nav_bar.style.display = "flex";
+    }
+}
+</script>
 
   <header class="about-header">
     <h1>🕹️ About Us 🕹️ </h1>
