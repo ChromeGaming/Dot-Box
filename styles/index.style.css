@@ -194,13 +194,3 @@ input:out-of-range+.player::after {
   }
 }
 
-@media screen and (max-width:1065px) {
-  .author .fotbar {
-    gap: 5px;
-  }
-
-  .author {
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-}

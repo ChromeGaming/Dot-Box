@@ -354,7 +354,7 @@
       pointer-events: none;
       z-index: 9999;
     }
-
+/*
     @media (max-width : 768px){
       .circle-container{
         display: none;
@@ -382,6 +382,8 @@
       top: -33px;
     }
 }
+    */
+
   </style>
 </head>
 
@@ -404,12 +406,36 @@
           <li><a href="./pages/FAQs.html">FAQs</a></li>
           <li><a href="./pages/contributors.html">Contributors</a></li>
           <li><a href="./pages/game.html" target="_blank">Let's Go</a></li>
+          <li class = "footer-to-hamburger">
+            <a href="./pages/howtoplay.html">HowToPlay?</a>
+          </li>
+          <li class = "footer-to-hamburger">
+            <a href="./pages/termsofservice.html">TermsOfService</a>
+          </li>
+          <li class = "footer-to-hamburger">
+            <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
+          </li>
+          <li class = "footer-to-hamburger">
+            <a href="./pages/licensing.html">Licensing</a>
+          </li>
+
+          <li class = "social-to-hamburger">
+            <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i>Github</a>
+          </li>
+          <li class = "social-to-hamburger">
+            <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i>Discord</a>
+          </li>
+
+          <li>
+            <button id = "feedback-in-hamburger" onclick="openForm()">Feedback</button>
+          </li>
+          
         </ul>
         <div class="hamburger">
           <i class="fas fa-bars"></i>
         </div>
       </nav>
-      <button class="sticky-button" onclick="openForm()">Feedback</button>
+      <button id="feedback" class="sticky-button" onclick="openForm()">Feedback</button>
       <div id="formContainer" class="form-container">
         <div class="form-content">
           <div class="sub">
@@ -559,11 +585,18 @@
         <a href="./pages/privacypolicy.html">PrivacyPolicy</a>
         <a href="./pages/licensing.html">Licensing</a>
       </div>
+
+      <div>
       &copy;
       <script>
         document.write(new Date().getFullYear());
-      </script> Made by ❤️ 
+      </script> 
+          Made by ❤️ 
         <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+      </div>
+      <div>
+        <button id = "feedback-in-footer" onclick="openForm()">Feedback</button>
+      </div>
       <div class="social-icons">
         <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>

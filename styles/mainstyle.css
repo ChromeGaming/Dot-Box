@@ -65,11 +65,11 @@ a {
 	max-height: 75vh;
 }
 
-@media screen and (max-width: 805px) {
+/* @media screen and (max-width: 805px) {
   .board {
     width: 80vw;
   }
-}
+} */
 
 .box {
 	position: relative;
@@ -238,7 +238,7 @@ a {
 	color: rgba(0, 0, 0, 0.922);
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .player span {
     font-size: 0.8rem;
   }
@@ -247,7 +247,7 @@ a {
     gap: 0.5rem;
   }
 
-}
+} */
 
 .player-turn {
 	font-size: 1rem;
@@ -400,7 +400,7 @@ h1 {
 	z-index: -1;
 }
 
-@media (min-aspect-ratio: 16/9) {
+/* @media (min-aspect-ratio: 16/9) {
 	.back {
 		width: 100%;
 		height: auto;
@@ -412,7 +412,7 @@ h1 {
 		width: auto;
 		height: 100%;
 	}
-}
+} */
 
 .player-turn .bg {
 	padding: 0.2rem 0.4rem;
@@ -681,7 +681,7 @@ input[type="number"] {
 }
 
 /* Responsive for mobile view */
-
+/* 
 @media (max-width: 806px) {
   .settings .form {
     padding: 0px;
@@ -723,7 +723,7 @@ input[type="number"] {
     padding: 0px 10px;
     font-size: 1rem;
   }
-}
+} */
 
 /* Instructions Page */
 
@@ -768,7 +768,7 @@ input[type="number"] {
 } */
 
 /* Responsive for Tab view */
-@media (max-width: 1167px) {
+/* @media (max-width: 1167px) {
   .settings .form {
     padding: 0px;
   }
@@ -809,15 +809,15 @@ input[type="number"] {
     padding: 0px 10px;
     font-size: 1rem;
   }
-}
+} */
 
-@media (max-width: 805px) {
+/* @media (max-width: 805px) {
   .instructions-container {
     max-width: 90%;
     padding: 15px 25px;
     line-height: 1.5em;
   }
-}
+} */
 
 .navbarr {
 	display: flex;
@@ -879,7 +879,7 @@ button a {
 	border-radius: 5px;
 	cursor: pointer;
 }
-  
+/*   
 @media screen and (max-width: 1141px) {
   .navbar {
     margin-top: 20px;
@@ -914,7 +914,7 @@ button a {
   .settings a {
     font-size: small;
   }
-}
+} */
 
 .hamburger {
 	display: none;
@@ -922,22 +922,68 @@ button a {
 	font-size: x-large;
 	margin-right: 10px;
 }
-
+/* 
 @media screen and (min-width: 905px) {
 	.navbarr .nav-links {
 		display: flex	!important;
   }
+} */
+
+.footer-to-hamburger {
+	display: none !important;
 }
 
-@media screen and (max-width: 905px) {
+.navbarr {
+	height: 10vh;
+	max-height: 100px;
+}
+
+.navbarr .logo a {
+	font-size: min(35px, 5vh);
+	padding: min(20px, .9vh);
+	top: 0;
+	position: absolute;
+  }
+
+  .navbarr .nav-links li a {
+	font-size: min(15px, 3vh);
+  padding: min(15px, 1vh);
+  /* top: 0;
+  position: absolute; */
+  }
+
+  .navbarr .social-to-hamburger {
+	display: none !important;
+}
+.author .fotbar {
+	gap: 0	!important;
+}
+
+#feedback-in-footer {
+	display: none;
+}
+
+#feedback-in-hamburger {
+	display: none;
+}
+
+
+
+/* Putting the header and footer links inside hamburger and feedback in footer */
+@media screen and (max-width: 1100px) {
+
+.footer-to-hamburger {
+	display: inherit !important;
+}
+
+.author .fotbar {
+	display: none !important;
+}
   .hamburger {
     display: inline;
     z-index: 400;
   }
 
-  .logo a {
-    font-size: 30px;
-  }
 
   .nav-links {
     position: absolute;
@@ -956,7 +1002,44 @@ button a {
   .navbar-toggler {
 	display: inline	!important;
   }
+  
+	#feedback-in-footer {
+		display: inline;
+	}
 
+	#feedback {
+		display: none;
+	}
+
+}
+
+/* Putting Discord and Github icons inside hamburger */
+@media screen and (max-width: 625px) {
+
+	.settings .author .social-icons {
+		display: none	!important;
+	}
+
+	.settings .author {
+		height: calc(55.2px + 2*10px);
+	}
+	
+	.navbarr .social-to-hamburger {
+		display: inherit !important;
+	}
+}
+
+
+/* Move feedback from footer to hamburger */
+@media screen and (max-width: 500px) {
+
+	#feedback-in-hamburger {
+		display: inline;
+	}
+	
+	#feedback-in-footer {
+		display: none;
+	}
 }
 
 
