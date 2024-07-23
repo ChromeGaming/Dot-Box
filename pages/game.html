@@ -96,7 +96,64 @@
             pointer-events: none;
             z-index: 99999;
         }
+        /* Score board */
+        .game-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
 
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.scoreboard-container {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    cursor: move;
+    z-index: 1000;
+}
+
+.scoreboard-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.score {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player1-score { background-color: rgba(255, 192, 203, 0.7); }
+.player2-score { background-color: rgba(173, 216, 230, 0.7); }
+.player3-score { background-color: rgba(144, 238, 144, 0.7); }
+.player4-score { background-color: rgba(255, 0, 255, 0.7); }
+.player5-score { background-color: rgba(255, 255, 0, 0.7); }
+.player6-score { background-color: rgba(255, 165, 0, 0.7); }
 
         /* Tour */
         #tour-overlay {
@@ -424,7 +481,17 @@
     </div>
 
     <!-- Game Page -->
-    <div class="board"></div>
+    <div class="game-wrapper">
+        <div class="scoreboard-container">
+            <h2>Scoreboard</h2>
+            <div class="scoreboard">
+                <!-- Scoreboard content will be dynamically added here -->
+            </div>
+        </div>
+        <div class="game-container">
+            <div class="board"></div>
+        </div>
+    </div>
 
     <div class="button-container">
         <button id="sound-toggle" title="Toggle Sound">Sound Off</button>
