@@ -923,6 +923,12 @@ button a {
 	margin-right: 10px;
 }
 
+@media screen and (min-width: 905px) {
+	.navbarr .nav-links {
+		display: flex	!important;
+  }
+}
+
 @media screen and (max-width: 905px) {
   .hamburger {
     display: inline;
@@ -943,6 +949,19 @@ button a {
     align-items: center;
   }
 
+  .navbarr .nav-links {
+	display: none;
+  }
+
+  .navbar-toggler {
+	display: inline	!important;
+  }
+
+}
+
+
+.navbar-toggler {
+	display: none;
 }
 
 
