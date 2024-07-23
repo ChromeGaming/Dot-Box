@@ -15,15 +15,15 @@ class Game {
 			playerWin: [],
 		};
 
-		this.players = [playersInfo];
-		this.players = [
-			{ name: "Player 1", color: "pink", filledBoxes: 0 },
-			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-			{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-			{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-			{ name: "Player 6", color: "orange", filledBoxes: 0 },
-		];
+		this.players = playersInfo;
+		// this.players = [
+		// 	{ name: "Player 1", color: "pink", filledBoxes: 0 },
+		// 	{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
+		// 	{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
+		// 	{ name: "Player 4", color: "magenta", filledBoxes: 0 },
+		// 	{ name: "Player 5", color: "yellow", filledBoxes: 0 },
+		// 	{ name: "Player 6", color: "orange", filledBoxes: 0 },
+		// ];
 
 		this.currentPlayerIndex = 0;
 		this.currentPlayer = this.players[this.currentPlayerIndex];
@@ -173,13 +173,16 @@ class Game {
 
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
-const playersInput = Number(localStorage.getItem("players"));
+const playersInput = Number(localStorage.getItem("playersCount"));
 const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
 var game = null;
 
 document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
 	bgMusic.play();
+
+	const playersCount = calculate(playersInput, 2, 6);
+	renderPlayerInputs(playersCount);
 
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
@@ -201,66 +204,83 @@ function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max);
 }
 
-const colors = [
-	"red",
-	"blue",
-	"green",
-	"yellow",
-	"purple",
-	"orange",
-	"pink",
-	"cyan",
-];
-
-function addPlayerInfo() {
+function renderPlayerInputs(count) {
 	const playerInputsDiv = document.getElementById("playerInputs");
-	const playerCount = playerInputsDiv.childElementCount / 2 + 1; // Calculate new player count
+	playerInputsDiv.innerHTML = ""; // Clear existing inputs
+	const colors = [
+		"pink",
+		"skyblue",
+		"lightgreen",
+		"yellow",
+		"magenta",
+		"orange",
+	];
+	for (let i = 1; i <= count; i++) {
+		const div = document.createElement("div");
+		div.classList.add("player-input");
+		div.innerHTML = `
+			<label for="playerName${i}">Player ${i} Name:</label>
+			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}">
+			<label for="playerColor${i}">Player ${i} Color:</label>
+			<select id="playerColor${i}" onchange="validateColors()">
+			${colors
+				.map(
+					(color, index) =>
+						`<option value="${color}" ${
+							index === i - 1 ? "selected" : ""
+						}>${color}</option>`
+				)
+				.join("")}
 
-	// Create player name input
-	const nameInput = document.createElement("input");
-	nameInput.type = "text";
-	nameInput.placeholder = `Player ${playerCount} Name`;
-	nameInput.id = `playerName${playerCount}`;
-
-	// Create color select dropdown
-	const colorSelect = document.createElement("select");
-	colorSelect.id = `playerColor${playerCount}`;
-	colors.forEach((color) => {
-		const option = document.createElement("option");
-		option.value = color;
-		option.textContent = color;
-		colorSelect.appendChild(option);
-	});
-
-	// Append inputs to the form
-	playerInputsDiv.appendChild(nameInput);
-	playerInputsDiv.appendChild(colorSelect);
+			<select id="playerColor${i}" value="${i}">
+				<option value="pink">Pink</option>
+				<option value="skyblue">Skyblue</option>
+				<option value="lightgreen">Light Green</option>
+				<option value="yellow">Yellow</option>
+				<option value="magenta">Magenta</option>
+				<option value="orange">Orange</option>
+			</select>
+		`;
+		playerInputsDiv.appendChild(div);
+	}
 }
 
-document
-	.getElementById("playerForm")
-	.addEventListener("submit", function (event) {
-		event.preventDefault();
-		for (let i = 1; i <= players.length; i++) {
-			const name = document.getElementById(`playerName${i}`).value;
-			const color = document.getElementById(`playerColor${i}`).value;
-			players.push({ name, color });
+function validateColors() {
+	const playersCount = calculate(playersInput, 2, 6);
+	const selectedColors = new Set();
+	for (let i = 1; i <= playersCount; i++) {
+		const colorSelect = document.getElementById(`playerColor${i}`);
+		const color = colorSelect.value;
+		if (selectedColors.has(color)) {
+			alert(
+				`Color ${color} is already selected. Please choose a different color.`
+			);
+			colorSelect.value = "";
+		} else {
+			selectedColors.add(color);
 		}
-		startGame(players);
-	});
+	}
+}
 
-function startGame(players) {
-	// Your game initialization logic here
-	console.log("Starting game with players:", players);
+function savePlayers() {
+	const playersCount = calculate(playersInput, 2, 6);
+	const playerData = [];
+	for (let i = 1; i <= playersCount; i++) {
+		const name = document.getElementById(`playerName${i}`).value;
+		const color = document.getElementById(`playerColor${i}`).value;
+		const filledBoxes = 0;
+		playerData.push({ name, color, filledBoxes });
+	}
+	console.log(playerData);
+	localStorage.setItem("playerData", JSON.stringify(playerData));
 }
 
 // Start the game
-
-const playBtn = document.getElementById("play-btn");
-
 playBtn.addEventListener("click", () => {
+	savePlayers();
+	document.getElementById("playerSetup").style.display = "none";
 	const rows = calculate(rowsInput, 5, 30);
 	const columns = calculate(columnsInput, 5, 30);
-	const playersCount = calculate(playersInput, 2, 6);
+	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	game = new Game(rows, columns, playersInfo);
 });
