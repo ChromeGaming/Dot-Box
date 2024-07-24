@@ -1,194 +1,104 @@
-/*
-
-// Commenting out this portion as there is no font folder in this codebase and this part is hence not applicable
-
-@font-face {
-    font-family: WorkSans-Bold;
-    src: url(../assets/fonts/static/WorkSans-Bold.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: WorkSans-Regular;
-    src: url(../assets/fonts/static/WorkSans-Regular.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: WorkSans-SemiBold;
-    src: url(../assets/fonts/static/WorkSans-SemiBold.ttf) format("truetype");
-}
-    
-*/
-
+/* General Body Styles */
 body {
-    background-image: url("../assets/images/background-pattern-desktop.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgb(223, 238, 247);
+    background-color: #e7b537; /* New background color */
     margin: 0;
     padding: 0;
-    font-family: 'WorkSans-Regular', sans-serif;
+    font-family: 'WorkSans-Regular', Arial, sans-serif;
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    overflow: auto !important;
 }
 
 .faqcontainer {
-    top: 50%;
-    left: 50%;
-    /* transform: translate(-50%, -50%); */
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     max-width: 600px;
-    min-height: 300px;
-    box-shadow: 10px 10px 2cap #656363;
     width: 90%;
+    box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
+    margin: 100px auto 20px; /* Increased margin-top to avoid content being hidden under navbar */
+    flex: 1;
+    z-index: 0; /* Ensure it's below the fixed elements */
 }
 
+/* Heading Styles */
 h1 {
-    font-family: 'WorkSans-Bold', sans-serif;
+    font-family: 'WorkSans-Bold', Arial, sans-serif;
     display: flex;
+    align-items: center;
 }
 
+/* FAQ Image Styles */
 .faqcontainer img {
     margin-right: 20px;
 }
 
+/* Question Styles */
 .question {
-    font-family: 'WorkSans-SemiBold', sans-serif;
+    font-family: 'WorkSans-SemiBold', Arial, sans-serif;
     padding: 20px;
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
     border-bottom: 0.5px solid rgb(243, 218, 171);
-    padding-bottom: 20px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
+/* Hover Effect */
 .question:hover {
     background-color: #f0f0f0;
     transform: scale(1.06);
 }
 
-.question details summary {
-    list-style: none;
+/* Summary Styles */
+.question summary {
     cursor: pointer;
     padding: 7px;
     transition: color 0.3s;
 }
 
-.question details summary:hover {
+.question summary:hover {
     color: #555353;
 }
 
-.question details summary img {
+.question summary img {
     float: right;
     transition: transform 0.3s;
 }
 
-.question details summary:hover img {
+.question summary:hover img {
     transform: rotate(90deg);
 }
 
 .question p {
-    font-family: 'WorkSans-Regular', sans-serif;
-    font-size: 17px;
+    font-family: 'WorkSans-Regular', Arial, sans-serif;
+    font-size: 1.0625rem; /* 17px */
     color: #767676;
 }
 
-.attribution {
-    position: absolute;
-    bottom: 5%;
-}
-
-/* body {
-    background-image: url("assets/images/background-pattern-desktop.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgb(223, 238, 247);
-    height: 100%; /* Ensure body covers entire viewport */
-/* } */
-
+/* Remove bottom-background video styles */
 .bottom-background {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    /* Adjust height as needed */
-    background-image: url("../assets/videos/FAQ.mp4");
-    /* Your moving background image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    /* Ensure it stays behind other content */
-    right: 0%;
+    display: none;
 }
 
-/* Responsive Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     .faqcontainer {
-        width: 90%;
+        width: 95%;
         padding: 15px;
     }
 
-    .question {
-        font-size: 18px;
-    }
-
-    .question p {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .faqcontainer {
-        width: 95%;
-        padding: 10px;
+    h1 {
+        font-size: 1.5rem; /* Responsive font size */
     }
 
     .question {
-        font-size: 16px;
+        font-size: 1.125rem; /* 18px */
     }
 
     .question p {
-        font-size: 14px;
+        font-size: 1rem; /* 16px */
     }
-}
 
-button {
-    margin: 50px 0% 0px 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(179, 4, 176) !important;
-    color: white;
-    border-radius: 20px;
-}
-
-button a {
-    text-decoration: none;
-    color: white;
-}
-
-
-.back-to-home {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-}
-
-.back-to-home img {
-    width: 20px;
-    margin-right: 10px;
-}
-
-
-@media (max-width: 768px) {
     .back-to-home {
         font-size: 14px;
         padding: 8px 16px;
@@ -202,6 +112,23 @@ button a {
 }
 
 @media (max-width: 480px) {
+    .faqcontainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.25rem; /* Responsive font size */
+    }
+
+    .question {
+        font-size: 1rem; /* 16px */
+    }
+
+    .question p {
+        font-size: 0.875rem; /* 14px */
+    }
+
     .back-to-home {
         font-size: 12px;
         padding: 6px 12px;
@@ -212,4 +139,19 @@ button a {
     .back-to-home img {
         width: 16px;
     }
+}
+
+/* Ensure button is well-sized for mobile */
+button {
+    margin: 50px auto;
+    background-color: rgb(179, 4, 176);
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
 }
