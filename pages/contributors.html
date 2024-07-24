@@ -40,6 +40,7 @@
       font-family: Arial, sans-serif;
       overflow: auto !important;
       background-color: #e7b537 !important;
+      overflow-x: hidden !important; /* Hide horizontal scrollbar */
     }
 
     .header-hero {
@@ -255,10 +256,17 @@
       background-position: center;
     }
 
-    /* Scrollbar styling */
-    ::-webkit-scrollbar {
-      display: none;
-    }
+    ::-webkit-scrollbar
+        {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgba(255, 217, 121, 0.979);
+            border-radius: 15px;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: black;
+        }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
