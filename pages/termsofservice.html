@@ -43,9 +43,56 @@
         display: none;
       }
     }
+    .scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #9d159d; 
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: transform ease 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #660066; 
+    transform: scale(1.1);
+
+}
+
 </style>
 
 <body>
+    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        
+        &uarr;
+    </div>
+    <script>
+       
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+window.onscroll = function() {
+    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+};
+
+    </script>
     <div class="center">
         <a href="../index.html">
           <img src="../assets/images/Home.jpeg" style="position: absolute; top: 15px; left: 5px; height: 100px; width: 100px; margin: 0;">
