@@ -4,8 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/mainstyle.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../styles/default.style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
   <title>Contributors</title>
   <style>
@@ -326,17 +333,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      /* bottom: 0; */
       background: linear-gradient(to right, #00093c, #2d0b00);
       color: #fff;
-      padding: 15px;
-      position: sticky;
-      bottom: 0;
-      z-index: 1000;
+      padding: 10px;
     }
 
     .author .fotbar {
       display: flex;
-      gap: -22px
+      gap: 20px;
     }
 
     .author .fotbar a {
@@ -344,8 +349,12 @@
       text-decoration: none;
       padding: 10px;
       border-radius: 5px;
-      font-size: 18px;
       background-color: transparent;
+    }
+
+    .author .fotbar a:hover {
+      background-color: #fff;
+      color: #00093c;
     }
 
     .author p {
@@ -358,18 +367,19 @@
 
     .author .social-icons {
       display: flex;
-      gap: 10px;
+      gap: 20px;
+      margin-left: 15%;
       margin-right: 20px;
-    }
-
-    .author a {
-      color: white !important;
     }
 
     .author .social-icons a {
       color: white;
       text-decoration: none;
       font-size: 20px;
+    }
+
+    .author .social-icons a:hover {
+      color: #ffbb27;
     }
 
     @media screen and (max-width:1190px) {
@@ -545,20 +555,18 @@
 
   <div class="author">
     <div class="fotbar">
-      <a href="/pages/howtoplay.html">HowToPlay?</a>
-      <a href="/pages/termsofservice.html">TermsOfService</a>
-      <a href="/pages/privacypolicy.html">PrivacyPolicy</a>
-      <a href="/pages/licensing.html">Licensing</a>
+      <a href="../pages/howtoplay.html">HowToPlay?</a>
+      <a href="../pages/termsofservice.html">TermsOfService</a>
+      <a href="../pages/privacypolicy.html">PrivacyPolicy</a>
+      <a href="../pages/licensing.html">Licensing</a>
     </div>
     <p>
-      Created with ❤️ by
-      <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+      Created with ❤️ by <a href="https://github.com/ChromeGaming" style="color: white; text-decoration: none;">Chrome Gaming</a>
     </p>
     <div class="social-icons">
       <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
     </div>
-  </div>
   </div>
 
 </body>
