@@ -1,10 +1,19 @@
+var players_dict = [
+    { name: "Player 1", color: "pink", filledBoxes: 0 },
+    { name: "Player 2", color: "skyblue", filledBoxes: 0 },
+    { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
+    { name: "Player 4", color: "magenta", filledBoxes: 0 },
+    { name: "Player 5", color: "yellow", filledBoxes: 0 },
+    { name: "Player 6", color: "orange", filledBoxes: 0 },
+];
+
 class Game {
     static instance; // Singleton instance of Game class
 
-    constructor(rows, columns, playersCount, playerNames) {
+    constructor(rows, columns, playersCount) {
         if (Game.instance == null) Game.instance = this;
 
-        // playersUI = document.querySelector("#players-count");
+        this.playersUI = document.querySelector(".players");
         this.playerNameUI = document.querySelector(".player-turn .name");
         this.playerTurnBgUI = document.querySelector(".player-turn .bg");
 
@@ -14,26 +23,28 @@ class Game {
             playerSwitch: [],
             playerWin: [],
         };
+        console.log("The original player dict: ")
+        printDict()
 
+         // Retrieve the players_dict and game settings from localStorage
+    // const players_dicts = JSON.parse(localStorage.getItem('players_dict'));
+    // const { rows, columns, playersCount } = JSON.parse(localStorage.getItem('game_settings'));
+        // name1 = localStorage.getItem("name1");
+
+
+        this.players = players_dict
+        console.log("The game's player dict: ", this.players)
         
 
-		players = [
-			{ name: String(playerNames[0]), color: "pink", filledBoxes: 0 },
-			{ name:  playerNames[1], color: "skyblue", filledBoxes: 0 },
-			{ name:  playerNames[2], color: "lightgreen", filledBoxes: 0 },
-			{ name:  playerNames[3], color: "magenta", filledBoxes: 0 },
-			{ name:  playerNames[5], color: "yellow", filledBoxes: 0 },
-			{ name:  playerNames[6], color: "orange", filledBoxes: 0 }
-        ]
-
-        // players = players
-
-        let p = players.length - playersCount;
-        for (let i = 0; i < p; i++) players.pop();
+        let p = this.players.length - playersCount;
+        for (let i = 0; i < p; i++) this.players.pop();
 
         this.currentPlayerIndex = 0;
-        this.currentPlayer = players[this.currentPlayerIndex];
-
+        this.currentPlayer = this.players[this.currentPlayerIndex];
+    }
+    
+    makeBoard(rows, columns)
+    {
         this.board = new Board(rows, columns);
 
         this.isGameover = false;
@@ -58,7 +69,7 @@ class Game {
         winSound.play();
 
         // Determine winner or draw
-        const winner = this.determineWinner(players);
+        const winner = this.determineWinner(this.players);
 
         // Display the result
         if (winner === "DRAW") {
@@ -102,11 +113,10 @@ class Game {
 
     // Add players to UI
     addPlayersUI() {
-
         const scoreboard = document.querySelector('.scoreboard');
         scoreboard.innerHTML = ''; // Clear existing content
 
-        players.forEach((player, index) => {
+        this.players.forEach((player, index) => {
             const div = document.createElement("div");
             div.classList.add("player");
 
@@ -115,7 +125,7 @@ class Game {
             b.classList.add("filled-boxes");
             b.textContent = player.filledBoxes;
             b.style.background = player.color;
-            players[index]["filledBoxesUI"] = b;
+            this.players[index]["filledBoxesUI"] = b;
 
             // Maintain player name.
             const span = document.createElement("span");
@@ -125,7 +135,7 @@ class Game {
             div.appendChild(span);
 
             // Adding score and name to the element
-            playersUI.appendChild(div);
+            this.playersUI.appendChild(div);
 
             // Create scoreboard element
             const scoreDiv = document.createElement('div');
@@ -150,7 +160,7 @@ class Game {
     }
 
     updateScoreboard() {
-        players.forEach((player, index) => {
+        this.players.forEach((player, index) => {
             const scoreElement = document.getElementById(`player${index + 1}-score`);
             if (scoreElement) {
                 scoreElement.textContent = player.filledBoxes;
@@ -241,58 +251,43 @@ class Game {
     // Switch player
     switchPlayer() {
         if (!this.isGameover) {
-            this.currentPlayerIndex = ++this.currentPlayerIndex % players.length;
-            this.currentPlayer = players[this.currentPlayerIndex];
+            this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length;
+            this.currentPlayer = this.players[this.currentPlayerIndex];
             this.invokeEvent("playerSwitch");
         }
     }
 }
 
 // Declaring Global Variables
-players = ["","","","","",""]
-const rowsInput = document.getElementById("rows");
-const columnsInput = document.getElementById("columns");
-const playersInput = document.getElementById("players-count");
+
+const rowsInput = Number(localStorage.getItem("rows"));
+const columnsInput = Number(localStorage.getItem("columns"));
+const playersInput = Number(localStorage.getItem("players"));
 const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
-const readyBtn = document.querySelector(".ready-btn")
-const startBtn = document.querySelector(".true-start-btn")
 var game = null;
-
-readyBtn.addEventListener("click", () => {
-    players = document.getElementById("players-count")
-	const playersCount = calculate(Number(players.value), 2, 6)
-	showPlayerTextBox(playersCount);
-
-});
-
-
-startBtn.addEventListener("click", () => {
-	const playersCount = calculate(playersInput.value, 2, 6)
-	const rows = calculate(rowsInput.value, 5, 30)
-	const columns = calculate(columnsInput.value, 5, 30)
-	players[0]=document.querySelector("#player1").value
-	players[1]=document.querySelector("#player2").value
-	players[2]=document.querySelector("#player3").value
-	players[3]=document.querySelector("#player4").value
-	players[4]=document.querySelector("#player5").value
-	players[5]=document.querySelector("#player6").value
-    console.log("Hereeee5")
-    window.location.href = "./pages/game.html";
-	game = new Game(rows, columns, playersCount, players)
-    console.log("Here?")
-	// settingsUI.style.display = "none"
-	// heading.style.display = "none"
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     bgMusic.volume = 0.1;
     bgMusic.play();
 
+    console.log("Inside Dom Loader", players_dict)
+    if (localStorage.getItem("NameChanged"))
+    {
+        players_dict[0].name = localStorage.getItem("name1");
+        players_dict[1].name = localStorage.getItem("name2");
+        players_dict[2].name = localStorage.getItem("name3");
+        players_dict[3].name = localStorage.getItem("name4");
+        players_dict[4].name = localStorage.getItem("name5");
+        players_dict[5].name = localStorage.getItem("name6");
+    }
     const rows = calculate(rowsInput, 5, 30);
     const columns = calculate(columnsInput, 5, 30);
     const playersCount = calculate(playersInput, 2, 6);
 
+    
+
     game = new Game(rows, columns, playersCount);
+    game.makeBoard(rows, columns)
     const storedTheme = localStorage.getItem("selectedTheme");
     const video = document.getElementById("myVideo");
     video.src = `/assets/videos/${storedTheme}.mp4`;
@@ -313,7 +308,8 @@ function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
 
-function showPlayerTextBox(playersCount){
+function showPlayerTextBox(){
+    playersCount = Number(document.getElementById("players-count").value)
     
     console.log(playersCount)
 
@@ -333,6 +329,72 @@ function showPlayerTextBox(playersCount){
     hideInstructions()
 }
 
+
+readyBtn.addEventListener("click", () => {
+	const playersCount = calculate(playersInput.value, 2, 6)
+	bgMusic.volume = 0.1;
+	bgMusic.play();
+	showPlayerTextBox(playersCount)
+
+});
+
+
+function startGame() {
+	const rows = calculate(rowsInput.value, 5, 30)
+	const columns = calculate(columnsInput.value, 5, 30)
+	const playersCount = calculate(playersInput.value, 2, 6)
+
+
+    // for (let i = 0; i < playersCount; i++) {
+    //     const playerNum = i + 1;
+    //     const playerId = "#player" + playerNum;
+    //     const playerInput = document.querySelector(playerId);
+
+    //     if (playerInput) {
+    //         players_dict[i].name = playerInput.value;
+    //     }
+    // }
+
+
+    try {
+        players_dict[0].name=document.querySelector("#player1").value
+        players_dict[1].name=document.querySelector("#player2").value
+        players_dict[2].name=document.querySelector("#player3").value
+        players_dict[3].name=document.querySelector("#player4").value
+        players_dict[4].name=document.querySelector("#player5").value
+        players_dict[5].name=document.querySelector("#player6").value
+        
+    } catch (TypeError) {
+        ;
+    }
+
+    try
+    {
+        localStorage.setItem("NameChanged", "yes");
+        localStorage.setItem("name1", players_dict[0].name);
+        localStorage.setItem("name2", players_dict[1].name);
+        localStorage.setItem("name3", players_dict[2].name);
+        localStorage.setItem("name4", players_dict[3].name);
+        localStorage.setItem("name5", players_dict[4].name);
+        localStorage.setItem("name6", players_dict[5].name);
+    }
+    catch (TypeError) {
+        ;
+    }
+    
+    printDict()
+
+    // Store the updated players_dict and game settings in localStorage
+    // localStorage.setItem('players_dicts', JSON.stringify(players_dict));
+    // localStorage.setItem('game_settings', JSON.stringify({ rows, columns, playersCount }));
+
+	game = new Game(rows, columns, playersCount)
+    window.location.href = "./pages/game.html";
+    game.makeBoard(rows, columns)
+	settingsUI.style.display = "none"
+	heading.style.display = "none"
+};
+
 function hideInstructions(){
     console.log("Inside Hide Instructs")
 	document.getElementById("instructions").style.display = "none";
@@ -340,4 +402,8 @@ function hideInstructions(){
 
 function hidePlayerTextBox(){
 	document.getElementsByClassName("settings").style.visibility = "visible";
+}
+
+function printDict() {
+    console.log("Here's the", players_dict)
 }
