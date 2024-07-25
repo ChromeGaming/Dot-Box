@@ -34,10 +34,17 @@ class Game {
 
         this.isGameover = false;
 
+        // Timer properties
+        this.timeLeft = 30;
+        this.timer = null;
+        this.timerDisplay = null;
+        this.timerStarted = false;
+
         this.addPlayersUI();
         this.updateScoreboard();
         this.updatePlayerNameUI();
         this.makeScoreboardDraggable();
+        this.createTimerUI();
 
         // Adding event listeners for filling box, switching player, and winning
         this.addEventListener("boxFill", () => this.onBoxFill());
@@ -45,10 +52,94 @@ class Game {
         this.addEventListener("playerWin", () => this.onPlayerWin());
     }
 
+    // Create timer UI
+    createTimerUI() {
+        const timerContainer = document.createElement('div');
+        timerContainer.id = 'timer-container';
+        timerContainer.innerHTML = `
+            <div id="timer">30</div>
+            <div id="timer-label">seconds left</div>
+        `;
+        document.body.appendChild(timerContainer);
+        this.timerDisplay = document.getElementById('timer');
+        this.makeTimerDraggable(timerContainer);
+    }
+
+    // Make timer draggable
+    makeTimerDraggable(timerContainer) {
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        timerContainer.addEventListener("mousedown", dragStart);
+        document.addEventListener("mousemove", drag);
+        document.addEventListener("mouseup", dragEnd);
+
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+
+            if (e.target === timerContainer) {
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                setTranslate(currentX, currentY, timerContainer);
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+
+            isDragging = false;
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+        }
+    }
+
+    // Start or restart the timer
+    startTimer() {
+        clearInterval(this.timer);
+        this.timeLeft = 30;
+        this.updateTimerDisplay();
+        this.timer = setInterval(() => {
+            this.timeLeft--;
+            this.updateTimerDisplay();
+            if (this.timeLeft <= 0) {
+                clearInterval(this.timer);
+                this.switchPlayer();
+            }
+        }, 1000);
+    }
+
+    // Update timer display
+    updateTimerDisplay() {
+        if (this.timerDisplay) {
+            this.timerDisplay.textContent = this.timeLeft;
+        }
+    }
+
     // End Game
     onPlayerWin() {
         this.isGameover = true;
         this.removeEventListener("boxFill");
+        clearInterval(this.timer); // Stop the timer
 
         let winSound = new Audio("../assets/sounds/win.mp3");
         winSound.play();
@@ -87,6 +178,9 @@ class Game {
 
     onPlayerSwitch() {
         this.updatePlayerNameUI();
+        if (this.timerStarted) {
+            this.startTimer(); // Restart timer for the new player
+        }
     }
 
     // If a box is filled, increment players' score with the number of boxes filled by him/her and update UI
@@ -94,6 +188,10 @@ class Game {
         this.currentPlayer.filledBoxes++;
         this.updatePlayerScoreUI();
         this.updateScoreboard();
+        if (!this.timerStarted) {
+            this.timerStarted = true;
+        }
+        this.startTimer(); // Restart timer when a move is made
     }
 
     // Add players to UI
@@ -244,7 +342,6 @@ class Game {
 }
 
 // Declaring Global Variables
-
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
 const playersInput = Number(localStorage.getItem("players"));
