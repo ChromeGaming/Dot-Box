@@ -27,10 +27,92 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
-        } 
+        }
+        ::-webkit-scrollbar
+        {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgba(231, 181, 55, 0.979);
+            border-radius: 15px;
+        }
+        
+        @media (max-width : 768px){
+      .circle-container{
+        display: none;
+      }
+    }
+
+    .navbar-toggler {
+        background-color: transparent;
+        border: none;
+    }
+    
+.navbar-toggler .toggler-icon {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  display: block;
+  margin: 5px 0;
+  position: relative;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #9d159d; 
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: transform ease 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #660066; 
+    transform: scale(1.1);
+
+}
+
 </style>
 
 <body>
+    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        
+        &uarr;
+    </div>
+    <script>
+       
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+window.onscroll = function() {
+    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+};
+
+    </script>
+    <div class="center">
+         
     <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -113,18 +195,32 @@
             <div class="logo">
                 <a href="../index.html">Dots & Boxes ⚄</a>
             </div>
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="nav-links-toggled">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../pages/about.html">About Us</a></li>
                 <li><a href="../pages/FAQs.html">FAQs</a></li>
                 <li><a href="../pages/contributors.html">Contributors</a></li>
                 <button class="start"><a href="../pages/game.html">Let's Go</a></button>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
         </nav>
     </div>
+    <script>
+        function toggleNavBar()
+        {
+            var nav_bar = document.getElementById("nav-links-toggled");
+            if (nav_bar.style.display === "flex") {
+                nav_bar.style.display = "none";
+            } else {
+                nav_bar.style.display = "flex";
+            }
+        }
+    </script>
     <div class="instructions-container">
         <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
         <h1 style="font-size: 39px;">How to Play ?</h1>
@@ -166,8 +262,7 @@
                 <source src="../assets/videos/Dot Box Tutorial.mp4" type="video/mp4">
             </video>
         </div>
-
-        <a href="../index.html" class="back-btn">Back to Home</a>
+        <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
     </div>
     </div>
 

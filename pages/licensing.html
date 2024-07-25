@@ -28,10 +28,77 @@
             pointer-events: none;
             z-index: 9999;
         } 
+
+        ::-webkit-scrollbar
+        {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgba(231, 181, 55, 0.979);
+            border-radius: 15px;
+        }
+
+        @media (max-width : 768px){
+      .circle-container{
+        display: none;
+      }
+    }
+    .scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #9d159d; 
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: transform ease 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #660066; 
+    transform: scale(1.1);
+
+}
+
     </style>
 </head>
 
 <body>
+    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        
+        &uarr;
+    </div>
+    <script>
+       
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+window.onscroll = function() {
+    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+};
+
+    </script>
+    <div class="center">
+        <a href="../index.html">
+          <img src="../assets/images/Home.jpeg" style="position: absolute; top: 15px; left: 5px; height: 100px; width: 100px; margin: 0;">
+        </a> 
+    <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
     <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -149,7 +216,6 @@ SOFTWARE.
                 </p>
             </section>
 
-            <a href="../index.html" class="back-btn">Back to Home</a>
         </main>
     </div>
 </body>
