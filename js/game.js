@@ -1,10 +1,10 @@
 class Game {
     static instance; // Singleton instance of Game class
 
-    constructor(rows, columns, playersCount) {
+    constructor(rows, columns, playersCount, playerNames) {
         if (Game.instance == null) Game.instance = this;
 
-        this.playersUI = document.querySelector(".players");
+        // playersUI = document.querySelector("#players-count");
         this.playerNameUI = document.querySelector(".player-turn .name");
         this.playerTurnBgUI = document.querySelector(".player-turn .bg");
 
@@ -15,20 +15,24 @@ class Game {
             playerWin: [],
         };
 
-        this.players = [
-            { name: "Player 1", color: "pink", filledBoxes: 0 },
-            { name: "Player 2", color: "skyblue", filledBoxes: 0 },
-            { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-            { name: "Player 4", color: "magenta", filledBoxes: 0 },
-            { name: "Player 5", color: "yellow", filledBoxes: 0 },
-            { name: "Player 6", color: "orange", filledBoxes: 0 },
-        ];
+        
 
-        let p = this.players.length - playersCount;
-        for (let i = 0; i < p; i++) this.players.pop();
+		players = [
+			{ name: String(playerNames[0]), color: "pink", filledBoxes: 0 },
+			{ name:  playerNames[1], color: "skyblue", filledBoxes: 0 },
+			{ name:  playerNames[2], color: "lightgreen", filledBoxes: 0 },
+			{ name:  playerNames[3], color: "magenta", filledBoxes: 0 },
+			{ name:  playerNames[5], color: "yellow", filledBoxes: 0 },
+			{ name:  playerNames[6], color: "orange", filledBoxes: 0 }
+        ]
+
+        // players = players
+
+        let p = players.length - playersCount;
+        for (let i = 0; i < p; i++) players.pop();
 
         this.currentPlayerIndex = 0;
-        this.currentPlayer = this.players[this.currentPlayerIndex];
+        this.currentPlayer = players[this.currentPlayerIndex];
 
         this.board = new Board(rows, columns);
 
@@ -54,7 +58,7 @@ class Game {
         winSound.play();
 
         // Determine winner or draw
-        const winner = this.determineWinner(this.players);
+        const winner = this.determineWinner(players);
 
         // Display the result
         if (winner === "DRAW") {
@@ -98,10 +102,11 @@ class Game {
 
     // Add players to UI
     addPlayersUI() {
+
         const scoreboard = document.querySelector('.scoreboard');
         scoreboard.innerHTML = ''; // Clear existing content
 
-        this.players.forEach((player, index) => {
+        players.forEach((player, index) => {
             const div = document.createElement("div");
             div.classList.add("player");
 
@@ -110,7 +115,7 @@ class Game {
             b.classList.add("filled-boxes");
             b.textContent = player.filledBoxes;
             b.style.background = player.color;
-            this.players[index]["filledBoxesUI"] = b;
+            players[index]["filledBoxesUI"] = b;
 
             // Maintain player name.
             const span = document.createElement("span");
@@ -120,7 +125,7 @@ class Game {
             div.appendChild(span);
 
             // Adding score and name to the element
-            this.playersUI.appendChild(div);
+            playersUI.appendChild(div);
 
             // Create scoreboard element
             const scoreDiv = document.createElement('div');
@@ -145,7 +150,7 @@ class Game {
     }
 
     updateScoreboard() {
-        this.players.forEach((player, index) => {
+        players.forEach((player, index) => {
             const scoreElement = document.getElementById(`player${index + 1}-score`);
             if (scoreElement) {
                 scoreElement.textContent = player.filledBoxes;
@@ -236,20 +241,48 @@ class Game {
     // Switch player
     switchPlayer() {
         if (!this.isGameover) {
-            this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length;
-            this.currentPlayer = this.players[this.currentPlayerIndex];
+            this.currentPlayerIndex = ++this.currentPlayerIndex % players.length;
+            this.currentPlayer = players[this.currentPlayerIndex];
             this.invokeEvent("playerSwitch");
         }
     }
 }
 
 // Declaring Global Variables
-
-const rowsInput = Number(localStorage.getItem("rows"));
-const columnsInput = Number(localStorage.getItem("columns"));
-const playersInput = Number(localStorage.getItem("players"));
+players = ["","","","","",""]
+const rowsInput = document.getElementById("rows");
+const columnsInput = document.getElementById("columns");
+const playersInput = document.getElementById("players-count");
 const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
+const readyBtn = document.querySelector(".ready-btn")
+const startBtn = document.querySelector(".true-start-btn")
 var game = null;
+
+readyBtn.addEventListener("click", () => {
+    players = document.getElementById("players-count")
+	const playersCount = calculate(Number(players.value), 2, 6)
+	showPlayerTextBox(playersCount);
+
+});
+
+
+startBtn.addEventListener("click", () => {
+	const playersCount = calculate(playersInput.value, 2, 6)
+	const rows = calculate(rowsInput.value, 5, 30)
+	const columns = calculate(columnsInput.value, 5, 30)
+	players[0]=document.querySelector("#player1").value
+	players[1]=document.querySelector("#player2").value
+	players[2]=document.querySelector("#player3").value
+	players[3]=document.querySelector("#player4").value
+	players[4]=document.querySelector("#player5").value
+	players[5]=document.querySelector("#player6").value
+    console.log("Hereeee5")
+    window.location.href = "./pages/game.html";
+	game = new Game(rows, columns, playersCount, players)
+    console.log("Here?")
+	// settingsUI.style.display = "none"
+	// heading.style.display = "none"
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     bgMusic.volume = 0.1;
@@ -278,4 +311,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max);
+}
+
+function showPlayerTextBox(playersCount){
+    
+    console.log(playersCount)
+
+    var settingsElements = document.getElementsByClassName("PlayerTextBox");
+	settingsElements[0].style.display = "flex";
+
+	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+    for (var i = 0; i < PlayerNamesElements.length; i++) {
+        PlayerNamesElements[i].style.display= "none";
+    }
+
+    var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+    for (var i = 0; i < playersCount; i++) {
+        PlayerNamesElements[i].style.display= "flex";
+    }
+    
+    hideInstructions()
+}
+
+function hideInstructions(){
+    console.log("Inside Hide Instructs")
+	document.getElementById("instructions").style.display = "none";
+}
+
+function hidePlayerTextBox(){
+	document.getElementsByClassName("settings").style.visibility = "visible";
 }

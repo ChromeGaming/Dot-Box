@@ -510,6 +510,7 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
                 <label for="star-5" class="star-5 fas fa-star"></label>
               </div>
             </div>
+
             <div class="footer">
               <span class="text"></span>
               <span class="numb"></span>
@@ -599,7 +600,80 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
         }
       </script>
 
-      <div class="form">
+      <div class="PlayerTextBox" style="display: none;">
+        <h1 class="heading"  
+          style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
+          ▂ ▄ █ <span style="color:  rgb(87, 166, 161);">Enter player names!!! █ ▄ ▂
+        </h1>
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player1" style="color: rgb(52, 76, 100);">Player 1 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player1" maxlength="30" value="Player 1"/>
+        </div>
+  
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player2" style="color: rgb(52, 76, 100);">Player 2 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player2" maxlength="30"  value="Player 2"/>
+        </div>
+  
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player3" style="color: rgb(52, 76, 100);">Player 3 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player3" maxlength="30"  value="Player 3"/>
+        </div>
+  
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player4" style="color: rgb(52, 76, 100);">Player 4 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player4" maxlength="30"  value="Player 4"/>
+        </div>
+  
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player5" style="color: rgb(52, 76, 100);">Player 5 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player5" maxlength="30"  value="Player 5"/>
+        </div>
+  
+  
+        <div class="playerNameField" style="display: none;">
+          <label for="player6" style="color: rgb(52, 76, 100);">Player 6 : <span class="details">(Max 30 characters)</span></label>
+          <input type="text" id="player6" maxlength="30"  value="Player 6"/>
+        </div>
+  
+        <button class="true-start-btn" class="start-btn button1" style="background-color:rgb(87, 123, 141);">START</button>
+        <a href="./pages/game.html" target="_blank" class="start-btn button1" id="stasrt-btn" aria-label="START">
+          START
+        </a>
+  
+      </div>
+
+      <style>
+        .settings .info {
+          display: flex;
+          flex-direction: column;
+          gap: 1.4rem;
+          width: 100%;
+          max-width: 550px;
+          padding: 1rem;
+          font-size: 20px;
+          padding-left: 7%;
+        }
+        
+        .settings .PlayerTextBox {
+          display: flex;
+          flex-direction: column;
+          gap: 1.4rem;
+          width: 100%;
+          max-width: 550px;
+          padding: 1rem;
+          font-size: 20px;
+          padding-left: 7%;
+        }
+        
+      </style>
+
+      <div class="form" id="instructions">
         <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
         <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
         <h3 class="instructions-heading">Instructions</h3>
@@ -643,9 +717,10 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
           </div>
 
           <div class="button-container">
-            <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
+            <!-- <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
               START
-            </a>
+            </a> -->
+            <button class="ready-btn" style="background-color:rgb(87, 123, 141);" >READY</button>
             <button class="reset-btn button1" id="reset-btn">RESET</button>
             <button id="music-toggle" onclick="toggleMusic()">
               Music Off
