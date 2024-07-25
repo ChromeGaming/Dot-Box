@@ -22,6 +22,7 @@
   <script src="./js/emoji.js"></script>
   <title>Dots & Boxes Game</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
     .sticky-button {
       /* position: fixed;
 				top: 50%;
@@ -34,13 +35,13 @@
 				border-radius: 50%;
 				font-size: 16px;
 				cursor: pointer; */
+        
 
       transform: rotate(-90deg);
       padding: 12px;
-
       position: fixed;
       left: 0px;
-      font-family: verdana;
+   
       font-size: 15px;
       color: rgb(255, 255, 255);
       background: rgb(245, 146, 2);
@@ -83,6 +84,9 @@
       margin-right: 56px;
       margin-left: -21px;
       width: 450px;
+      font-family: "Arsenal SC", sans-serif;
+      font-weight: 700;
+      font-style: normal;
     }
 
     .radio-group {
@@ -188,6 +192,10 @@
       font-size: 30px;
       margin: 0 1px;
       color: #ccc;
+    }
+
+    .right-background:hover{
+      background-color:#0047AB;
     }
 
     #star-1:hover~.content .stars .star-1,
@@ -304,8 +312,10 @@
     textarea {
       padding: 10px;
       width: 100%;
-      margin: 1px;
+      margin:auto;
       box-sizing: border-box;
+      
+      
     }
 
     button {
@@ -359,16 +369,24 @@
 		overflow: visible;
 		gap: 30px;
 		top: 25vh;
+    
 	  }
 	  body{
 		overflow: visible !important;
 
 	  }
     .settings .form{
-      padding: 1rem 6rem;
-        margin: 4px 13rem;
-        left: 15%;
-        position: relative;
+      padding: 300px;
+      margin: auto;
+      left: 15%;
+      position: relative;
+    }
+    label{
+      outline: none;
+      border:none;
+      font-family: "Arsenal SC", sans-serif;
+      font-weight: 700;
+      font-style: normal;
     }
     .settings{
       top: -33px;
@@ -504,8 +522,8 @@
         </p>
         <a href="./pages/howtoplay.html" class="button">Read Detailed Instructions</a>
       </div>
-      <div class="form">
-        <div class="right-background">
+      <div class="form" style="border-radius: 30px; width:500px; height:500px; display: flex; justify-content: center; align-content: center;">
+        <div class="right-background" style="display: flex; flex-flow: column; margin:auto; padding:30px;">
           <div class="form-item">
             <label for="theme-select">Select Theme:</label>
             <select id="theme-select">
