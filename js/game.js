@@ -248,16 +248,13 @@ class Game {
   //   timer
   startTimer() {
     const currObject = this;
-    console.log(this);
-    const currPlayer = this.currentPlayer.name;
+
     const tick = function () {
       const sec = String(time % 60).padStart(2, 0);
 
       const labelTimer = document.querySelector(".timer");
-      console.log(labelTimer);
 
       // In each call, print the remaining time to UI
-      console.log(labelTimer);
       labelTimer.textContent = `00:${sec}`;
 
       // When 0 seconds, stop timer and switch the player
