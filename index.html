@@ -22,8 +22,7 @@
   <script src="./js/emoji.js"></script>
   <title>Dots & Boxes Game</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Rancho&display=swap');
     .sticky-button {
       /* position: fixed;
 				top: 50%;
@@ -36,6 +35,9 @@
 				border-radius: 50%;
 				font-size: 16px;
 				cursor: pointer; */
+        font-family: "Rancho", cursive;
+        font-weight: 400;
+        font-style: normal;
         
 
       transform: rotate(-90deg);
@@ -198,6 +200,12 @@
 .stars label:hover {
   transform: scale(1.2) rotate(15deg);
 }
+a{
+  font-family: "Rancho", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
 
 #star-1:hover ~ .content .stars .star-1,
 #star-1:checked ~ .content .stars .star-1,
@@ -249,11 +257,16 @@
   
 
 }
+.button-container{
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 .de{
   font-family: "Arsenal SC", sans-serif;
   font-weight: 700;
   font-style: normal;
-  
+  font-size: 20px;
 
 }
 select{
@@ -279,7 +292,9 @@ select{
   font-size: 14px;
   font-weight: 600;
   color: #333;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: "Rancho", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 input[type="radio"] {
@@ -321,6 +336,9 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
 }
 
 .button {
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   background: linear-gradient(45deg, #4ecdc4, #45b7aa);
   color: #fff;
   border: none;
@@ -330,7 +348,7 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
   font-size: 16px;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  
 }
 
 .button:hover {
@@ -424,6 +442,9 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
   .button {
     font-size: 14px;
     padding: 8px 12px;
+    font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   }
 }
     .button1 {
@@ -432,6 +453,9 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
       padding: 12px;
       height: 56.5px;
       margin-top: 6.4px;
+      font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
     }
 
     .circle {
@@ -486,6 +510,7 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
     .settings{
       top: -33px;
     }
+  
 }
   </style>
 </head>
@@ -691,11 +716,11 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
           </div>
 
           <div class="button-container">
-            <a href="./pages/game.html" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
+            <a href="./pages/game.html" style="    font-family: Arsenal SC, sans-seri;font-weight: 700;font-style: normal;" target="_blank" class="start-btn button1" id="start-btn" aria-label="START">
               START
             </a>
             <button class="reset-btn button1" id="reset-btn">RESET</button>
-            <button id="music-toggle" onclick="toggleMusic()">
+            <button id="music-toggle" style="    font-family: Arsenal SC, sans-seri;font-weight: 700;font-style: normal;" onclick="toggleMusic()">
               MUSIC OFF
             </button>
           </div>
