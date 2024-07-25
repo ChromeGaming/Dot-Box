@@ -38,7 +38,7 @@ class Game {
         this.timeLeft = 30;
         this.timer = null;
         this.timerDisplay = null;
-        this.timerStarted = false;
+        this.isTimerStarted = false;
 
         this.addPlayersUI();
         this.updateScoreboard();
@@ -50,6 +50,7 @@ class Game {
         this.addEventListener("boxFill", () => this.onBoxFill());
         this.addEventListener("playerSwitch", () => this.onPlayerSwitch());
         this.addEventListener("playerWin", () => this.onPlayerWin());
+        this.addEventListener("edgeFill", () => this.onEdgeFill());
     }
 
     // Create timer UI
@@ -62,55 +63,6 @@ class Game {
         `;
         document.body.appendChild(timerContainer);
         this.timerDisplay = document.getElementById('timer');
-        this.makeTimerDraggable(timerContainer);
-    }
-
-    // Make timer draggable
-    makeTimerDraggable(timerContainer) {
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-
-        timerContainer.addEventListener("mousedown", dragStart);
-        document.addEventListener("mousemove", drag);
-        document.addEventListener("mouseup", dragEnd);
-
-        function dragStart(e) {
-            initialX = e.clientX - xOffset;
-            initialY = e.clientY - yOffset;
-
-            if (e.target === timerContainer) {
-                isDragging = true;
-            }
-        }
-
-        function drag(e) {
-            if (isDragging) {
-                e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-
-                xOffset = currentX;
-                yOffset = currentY;
-
-                setTranslate(currentX, currentY, timerContainer);
-            }
-        }
-
-        function dragEnd(e) {
-            initialX = currentX;
-            initialY = currentY;
-
-            isDragging = false;
-        }
-
-        function setTranslate(xPos, yPos, el) {
-            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-        }
     }
 
     // Start or restart the timer
@@ -178,7 +130,7 @@ class Game {
 
     onPlayerSwitch() {
         this.updatePlayerNameUI();
-        if (this.timerStarted) {
+        if (this.isTimerStarted) {
             this.startTimer(); // Restart timer for the new player
         }
     }
@@ -188,10 +140,19 @@ class Game {
         this.currentPlayer.filledBoxes++;
         this.updatePlayerScoreUI();
         this.updateScoreboard();
-        if (!this.timerStarted) {
-            this.timerStarted = true;
+        if (this.isTimerStarted) {
+            this.startTimer(); // Restart timer when a move is made
         }
-        this.startTimer(); // Restart timer when a move is made
+    }
+
+    // New method to handle edge fill event
+    onEdgeFill() {
+        if (!this.isTimerStarted) {
+            this.isTimerStarted = true;
+            this.startTimer();
+        } else {
+            this.startTimer(); // Restart timer when a move is made
+        }
     }
 
     // Add players to UI
