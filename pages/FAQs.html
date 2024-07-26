@@ -8,6 +8,7 @@
 
   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="../styles/FAQs.css" />
+  <link rel="stylesheet" href="../styles/mainstyle.css">
   <title>FAQs</title>
 
   <style>
@@ -62,91 +63,6 @@
       flex-direction: column;
       font-family: 'WorkSans-Regular', Arial, sans-serif;
     }
-
-    .navbar {
-      width: 100%;
-      background-color: #333;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10px;
-      transition: color 0.3s ease-in-out;
-      z-index: 1000;
-      position: fixed;
-      top: 0;
-      /* Adjusted to stay at the top */
-      left: 0;
-      height: 31px;
-      /* Adjust height to accommodate content */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      /* Added shadow for better visibility */
-    }
-
-    .logo a {
-      text-decoration: none;
-      font-size: 30px;
-      font-family: "Arial", sans-serif;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-align: center;
-      color: #fff;
-      margin-left: 15px;
-    }
-
-    .navlinks {
-      display: inline-flex;
-      margin-right: 30px;
-      margin-top: 12px;
-      gap: 30px;
-      text-decoration: none;
-      list-style: none;
-    }
-
-    .navlinks a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 20px;
-      font-family: "Arial", sans-serif;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-align: center;
-    }
-
-    .navlinks a:hover {
-      color: #e7b537;
-    }
-
-    .logo a:hover {
-      color: yellow;
-    }
-
-    @media screen and (max-width: 769px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0px !important;
-      }
-
-      .logo a {
-        font-size: 20px;
-      }
-
-      .logo {
-        margin-bottom: 10px;
-      }
-
-      .navlinks {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .navlinks a {
-        font-size: 16px;
-        margin: 10px 0;
-      }
-    }
-
     @media screen and (max-width: 450px) {
       .contributor-card {
         max-width: 90%;
@@ -156,24 +72,6 @@
         flex-direction: column;
         padding: 5px !important;
       }
-
-      .logo a {
-        font-size: 20px;
-      }
-
-      .navlinks {
-        flex-direction: column;
-        margin: 0;
-        gap: 4px !important;
-        font-size: 1px !important;
-        list-style: none;
-      }
-
-      .navlinks a {
-        font-size: 16px;
-        margin: 10px 0;
-      }
-    }
 
     .faqcontainer {
       background-color: white;
@@ -390,19 +288,42 @@
     </video>
   </div>
 
-  <nav class="navbar">
-    <div class="logo">
-      <a href="../index.html">Dots & Boxes ⚄</a>
-    </div>
-    <ul class="navlinks">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../pages/about.html">About Us</a></li>
-      <li><a href="../pages/FAQs.html">FAQs</a></li>
-      <li><a href="../pages/contributors.html">Contributors</a></li>
-      <li><a href="../pages/game.html">Let's Go</a></li>
-    </ul>
+  
+  <div class="whole-background">
+    <nav class="navbarr" style="color: white;">
+        <div class="logo">
+            <a href="../index.html">Dots & Boxes ⚄</a>
+        </div>
+        
+        <ul class="nav-links" id="nav-links-toggled">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/FAQs.html">FAQs</a></li>
+            <li><a href="../pages/contributors.html">Contributors</a></li>
+            <button class="start"><a href="../pages/game.html">Let's Go</a></button>
+        </ul>
+        <!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+            <span class="toggler-icon"></span>
+            <span class="toggler-icon"></span>
+            <span class="toggler-icon"></span>
+          </button> -->
 
-  </nav>
+          <!-- Hamburger Menu -->
+
+          <nav class="mobile-menu ">
+            <div class="mobile-menu__trigger"><span></span></div>
+            <a class="page-scroll active-link" href="./index.html">Home </a>
+            <a class="page-scroll" href="./about.html">About Us </a>
+            <a class="page-scroll" href="./trends.html">FAQs</a>
+            <a class="page-scroll" href="./tools/sip.html">Contributors</a>
+          </nav>
+          
+          <!-- Js and CSS files for hamburger-menu -->
+            <link href="../styles/navbar.css" rel="stylesheet">
+            <script type="text/javascript" src="../js/navbar.js"></script>
+
+    </nav>
+</div>
 
   <!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
   <div class="faqcontainer">

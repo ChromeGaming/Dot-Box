@@ -217,11 +217,26 @@ window.onscroll = function() {
                 <li><a href="../pages/contributors.html">Contributors</a></li>
                 <button class="start"><a href="../pages/game.html">Let's Go</a></button>
             </ul>
-            <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+            <!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
-              </button>
+              </button> -->
+
+              <!-- Hamburger Menu -->
+
+              <nav class="mobile-menu ">
+                <div class="mobile-menu__trigger"><span></span></div>
+                <a class="page-scroll active-link" href="./index.html">Home </a>
+                <a class="page-scroll" href="./about.html">About Us </a>
+                <a class="page-scroll" href="./trends.html">FAQs</a>
+                <a class="page-scroll" href="./tools/sip.html">Contributors</a>
+              </nav>
+              
+              <!-- Js and CSS files for hamburger-menu -->
+                <link href="../styles/navbar.css" rel="stylesheet">
+                <script type="text/javascript" src="../js/navbar.js"></script>
+
         </nav>
     </div>
     <script>

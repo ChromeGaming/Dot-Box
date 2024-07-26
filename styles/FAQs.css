@@ -141,17 +141,3 @@ h1 {
     }
 }
 
-/* Ensure button is well-sized for mobile */
-button {
-    margin: 50px auto;
-    background-color: rgb(179, 4, 176);
-    color: white;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-button a {
-    text-decoration: none;
-    color: white;
-}
