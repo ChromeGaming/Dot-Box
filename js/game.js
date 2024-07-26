@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
 
-	const musicToggleBtn = document.getElementById("music-toggle");
+	const musicToggleBtn = document.getElementById("sound-toggle");
 	musicToggleBtn.addEventListener("click", () => {
 		if (bgMusic.paused) {
 			bgMusic.play();
@@ -381,12 +381,12 @@ function showPlayerTextBox() {
 	hideInstructions();
 }
 
-readyBtn.addEventListener("click", () => {
-	const playersCount = calculate(playersInput.value, 2, 6);
-	bgMusic.volume = 0.1;
-	bgMusic.play();
-	showPlayerTextBox(playersCount);
-});
+// readyBtn.addEventListener("click", () => {
+// 	const playersCount = calculate(playersInput.value, 2, 6);
+// 	bgMusic.volume = 0.1;
+// 	bgMusic.play();
+// 	showPlayerTextBox(playersCount);
+// });
 
 function startGame() {
 	const rows = calculate(rowsInput.value, 5, 30);
@@ -447,50 +447,3 @@ function hidePlayerTextBox() {
 function printDict() {
 	console.log("Here's the", players_dict);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-	const soundToggle = document.getElementById("sound-toggle");
-	const soundIcon = document.getElementById("sound-icon");
-	const bgMusic = new Audio("/assets/sounds/bgMusic.mp3");
-	const clickSound = new Audio("/assets/sounds/click.mp3");
-
-	bgMusic.loop = true;
-
-	// Play background music by default and set the initial icon
-	bgMusic
-		.play()
-		.then(() => {
-			soundIcon.innerHTML =
-				'<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-		})
-		.catch((error) => {
-			console.error("Audio playback failed:", error);
-		});
-
-	soundToggle.addEventListener("click", () => {
-		if (bgMusic.paused || bgMusic.volume === 0) {
-			bgMusic.play();
-			bgMusic.volume = 1; // Ensure volume is set back to normal
-			soundIcon.innerHTML =
-				'<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-		} else {
-			bgMusic.pause();
-			bgMusic.currentTime = 0; // Reset the audio to the beginning
-			bgMusic.volume = 0; // Set the volume to 0
-			soundIcon.innerHTML =
-				'<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12zM3.27 2L2 3.27 5.73 7H3v10h4l5 5V12.73l3 3V20h.73l3.73 3.73 1.27-1.27L3.27 2z" />';
-		}
-	});
-
-	// Example function to play click sound
-	function playClickSound() {
-		clickSound.currentTime = 0; // Reset to start
-		clickSound.play();
-	}
-
-	// Attach the click sound effect to relevant elements
-	const clickableElements = document.querySelectorAll(".clickable");
-	clickableElements.forEach((element) => {
-		element.addEventListener("click", playClickSound);
-	});
-});
