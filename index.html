@@ -22,7 +22,6 @@
   <script src="./js/emoji.js"></script>
   <title>Dots & Boxes Game</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Rancho&display=swap');
     .sticky-button {
       /* position: fixed;
 				top: 50%;
@@ -35,16 +34,13 @@
 				border-radius: 50%;
 				font-size: 16px;
 				cursor: pointer; */
-        font-family: "Rancho", cursive;
-        font-weight: 400;
-        font-style: normal;
-        
 
       transform: rotate(-90deg);
       padding: 12px;
+
       position: fixed;
       left: 0px;
-   
+      font-family: verdana;
       font-size: 15px;
       color: rgb(255, 255, 255);
       background: rgb(245, 146, 2);
@@ -76,7 +72,7 @@
 .form-content {
   position: relative;
   cursor: move;
-  background: lightblue;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2);
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -86,7 +82,7 @@
   overflow-y: auto;
   color: #333;
   border: 5px solid transparent;
-  border-image: lightblue;
+  border-image: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffecd2, #ff9a9e);
   border-image-slice: 1;
   animation: formAppear 0.5s ease-out;
 }
@@ -200,12 +196,6 @@
 .stars label:hover {
   transform: scale(1.2) rotate(15deg);
 }
-a{
-  font-family: "Rancho", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 25px;
-}
 
 #star-1:hover ~ .content .stars .star-1,
 #star-1:checked ~ .content .stars .star-1,
@@ -246,35 +236,6 @@ a{
   from { transform: scale(1); }
   to { transform: scale(1.1); }
 }
-/* <---Class in instructions section---> */
-.Font{ 
-  
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  padding:10px;
-
-  
-
-}
-.button-container{
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-.de{
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 20px;
-
-}
-select{
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-
-}
 
 .footer {
   border-top: 2px dashed #ff6b6b;
@@ -292,9 +253,7 @@ select{
   font-size: 14px;
   font-weight: 600;
   color: #333;
-  font-family: "Rancho", cursive;
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 input[type="radio"] {
@@ -336,9 +295,6 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
 }
 
 .button {
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
   background: linear-gradient(45deg, #4ecdc4, #45b7aa);
   color: #fff;
   border: none;
@@ -348,7 +304,7 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
   font-size: 16px;
   font-weight: bold;
   transition: all 0.3s ease;
-  
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .button:hover {
@@ -410,19 +366,6 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
   user-select: none;
   cursor: grabbing;
 }
-.form-item{
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  align-self: center;
-}
-.main-form{
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-  align-items: center;
-
-}
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
@@ -442,9 +385,6 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
   .button {
     font-size: 14px;
     padding: 8px 12px;
-    font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
   }
 }
     .button1 {
@@ -453,9 +393,6 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
       padding: 12px;
       height: 56.5px;
       margin-top: 6.4px;
-      font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
     }
 
     .circle {
@@ -477,7 +414,7 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
       pointer-events: none;
       z-index: 9999;
     }
-   
+
     @media (max-width : 768px){
       .circle-container{
         display: none;
@@ -490,27 +427,20 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
 		overflow: visible;
 		gap: 30px;
 		top: 25vh;
-    
 	  }
 	  body{
 		overflow: visible !important;
 
 	  }
     .settings .form{
-      padding: 300px;
-      margin: auto;
-      left: 15%;
-      position: relative;
-    }
-    label{
-      outline: none;
-      border:none;
-      
+      padding: 1rem 6rem;
+        margin: 4px 13rem;
+        left: 15%;
+        position: relative;
     }
     .settings{
       top: -33px;
     }
-  
 }
   </style>
 </head>
@@ -580,7 +510,6 @@ textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
                 <label for="star-5" class="star-5 fas fa-star"></label>
               </div>
             </div>
-
             <div class="footer">
               <span class="text"></span>
               <span class="numb"></span>
@@ -670,100 +599,21 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
         }
       </script>
 
-
-      <div class="PlayerTextBox" style="display: none;">
-        <h1 class="heading"  
-          style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:rgb(52, 76, 100);">
-          ▂ ▄ █ <span >Enter player names!!!</span> █ ▄ ▂
-        </h1>
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player1" >Player 1 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player1" maxlength="30" value="Player 1"/>
-        </div>
-  
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player2" >Player 2 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player2" maxlength="30"  value="Player 2"/>
-        </div>
-  
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player3" >Player 3 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player3" maxlength="30"  value="Player 3"/>
-        </div>
-  
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player4" >Player 4 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player4" maxlength="30"  value="Player 4"/>
-        </div>
-  
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player5" >Player 5 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player5" maxlength="30"  value="Player 5"/>
-        </div>
-  
-  
-        <div class="playerNameField" style="display: none;">
-          <label for="player6" >Player 6 : <span class="details">(Max 30 characters)</span></label>
-          <input type="text" id="player6" maxlength="30"  value="Player 6"/>
-        </div>
-  
-        <button id="true-start-btn" class="true-start-btn"  onclick="startGame()">START</button>
-
-  
-      </div>
-
-      <style>
-        .settings .info {
-          display: flex;
-          flex-direction: column;
-          gap: 1.4rem;
-          width: 100%;
-          max-width: 550px;
-          padding: 1rem;
-          font-size: 20px;
-          padding-left: 7%;
-        }
-        
-        .settings .PlayerTextBox {
-          display: flex;
-          flex-direction: column;
-          gap: 1.4rem;
-          width: 100%;
-          max-width: 550px;
-          padding: 1rem;
-          font-size: 20px;
-          padding-left: 7%;
-        }
-        
-      </style>
-
-      <div class="form" id="instructions">
-        
-      <div class="main-form">
       <div class="form">
-
         <!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
         <h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-        <div class="Font">
-        <h3 class="instructions-heading" style="font-size: 35px ;">Instructions</h3>
-        <p class="instructions" style="font-size: 20px;">
+        <h3 class="instructions-heading">Instructions</h3>
+        <p class="instructions">
           1. Select the number of rows, columns and players. <br />
           2. The player who has maximum number of boxes on board is the
           winner. <br />
           3. Players will switch after every turn. But the player who has
           filled the last box, will get one extra chance consecutively. <br />
         </p>
+        <a href="./pages/howtoplay.html" class="button">Read Detailed Instructions</a>
       </div>
-        <a href="./pages/howtoplay.html" class="de">Read Detailed Instructions</a>
-     
-      </div>
-      <div class="form" style="border-radius: 30px; width:500px; height:500px; display: flex; justify-content: center; align-content: center;">
-        <div class="right-background" style="display: flex; flex-flow: column; margin:auto; padding:30px;">
+      <div class="form">
+        <div class="right-background">
           <div class="form-item">
             <label for="theme-select">Select Theme:</label>
             <select id="theme-select">
@@ -793,15 +643,12 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
           </div>
 
           <div class="button-container">
-
-            <a href="./pages/game.html" style="    font-family: Arsenal SC, sans-seri;font-weight: 700;font-style: normal;" class="start-btn button1" id="start-btn" aria-label="START">
-
+            <a href="./pages/game.html"  class="start-btn button1" id="start-btn" aria-label="START">
               START
-            </a> -->
-            <button class="ready-btn"  onclick="showPlayerTextBox()">READY</button>
+            </a>
             <button class="reset-btn button1" id="reset-btn">RESET</button>
-            <button id="music-toggle" style="    font-family: Arsenal SC, sans-seri;font-weight: 700;font-style: normal;" onclick="toggleMusic()">
-              MUSIC OFF
+            <button id="music-toggle" onclick="toggleMusic()">
+              Music Off
             </button>
           </div>
         </div>
@@ -848,10 +695,10 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
       var button = document.getElementById("music-toggle");
       if (isPlaying) {
         audio.pause();
-        button.textContent = "MUSIC ON";
+        button.textContent = "Music On";
       } else {
         audio.play();
-        button.textContent = "MUSIC OFF";
+        button.textContent = "Music Off";
       }
       isPlaying = !isPlaying;
     }
@@ -860,7 +707,7 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
       var audio = document.getElementById("background-music");
       audio.play();
       var button = document.getElementById("music-toggle");
-      button.textContent = "MUSIC OFF";
+      button.textContent = "Music Off";
     };
   </script>
 
@@ -909,43 +756,43 @@ formContainer.addEventListener('dragstart', (e) => e.preventDefault());
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
 
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
-
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
-
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`;
-          circle.style.top = `${y - 12}px`;
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
-
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
+        circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
         });
 
-        requestAnimationFrame(animateCircles);
-      }
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.pageX;
+            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+        });
 
-      animateCircles();
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+                circle.style.left = `${x - 12}px`;
+                circle.style.top = `${y - 12}px`;
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                circle.x = x;
+                circle.y = y;
+
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
     });
 
-  </script>
+</script>
 <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
 </body>
 
