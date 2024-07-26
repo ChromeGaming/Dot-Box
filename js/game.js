@@ -49,21 +49,64 @@ class Game {
 
         this.isGameover = false;
 
+        // Timer properties
+        this.timeLeft = 30;
+        this.timer = null;
+        this.timerDisplay = null;
+        this.isTimerStarted = false;
+
         this.addPlayersUI();
         this.updateScoreboard();
         this.updatePlayerNameUI();
         this.makeScoreboardDraggable();
+        this.createTimerUI();
 
         // Adding event listeners for filling box, switching player, and winning
         this.addEventListener("boxFill", () => this.onBoxFill());
         this.addEventListener("playerSwitch", () => this.onPlayerSwitch());
         this.addEventListener("playerWin", () => this.onPlayerWin());
+        this.addEventListener("edgeFill", () => this.onEdgeFill());
+    }
+
+    // Create timer UI
+    createTimerUI() {
+        const timerContainer = document.createElement('div');
+        timerContainer.id = 'timer-container';
+        timerContainer.innerHTML = `
+            <div id="timer">30</div>
+            <div id="timer-label">seconds left</div>
+        `;
+        document.body.appendChild(timerContainer);
+        this.timerDisplay = document.getElementById('timer');
+    }
+
+    // Start or restart the timer
+    startTimer() {
+        clearInterval(this.timer);
+        this.timeLeft = 30;
+        this.updateTimerDisplay();
+        this.timer = setInterval(() => {
+            this.timeLeft--;
+            this.updateTimerDisplay();
+            if (this.timeLeft <= 0) {
+                clearInterval(this.timer);
+                this.switchPlayer();
+            }
+        }, 1000);
+    }
+
+    // Update timer display
+    updateTimerDisplay() {
+        if (this.timerDisplay) {
+            this.timerDisplay.textContent = this.timeLeft;
+        }
     }
 
     // End Game
     onPlayerWin() {
         this.isGameover = true;
         this.removeEventListener("boxFill");
+        clearInterval(this.timer); // Stop the timer
 
         let winSound = new Audio("../assets/sounds/win.mp3");
         winSound.play();
@@ -102,6 +145,9 @@ class Game {
 
     onPlayerSwitch() {
         this.updatePlayerNameUI();
+        if (this.isTimerStarted) {
+            this.startTimer(); // Restart timer for the new player
+        }
     }
 
     // If a box is filled, increment players' score with the number of boxes filled by him/her and update UI
@@ -109,6 +155,19 @@ class Game {
         this.currentPlayer.filledBoxes++;
         this.updatePlayerScoreUI();
         this.updateScoreboard();
+        if (this.isTimerStarted) {
+            this.startTimer(); // Restart timer when a move is made
+        }
+    }
+
+    // New method to handle edge fill event
+    onEdgeFill() {
+        if (!this.isTimerStarted) {
+            this.isTimerStarted = true;
+            this.startTimer();
+        } else {
+            this.startTimer(); // Restart timer when a move is made
+        }
     }
 
     // Add players to UI
@@ -259,7 +318,6 @@ class Game {
 }
 
 // Declaring Global Variables
-
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
 const playersInput = Number(localStorage.getItem("players"));
