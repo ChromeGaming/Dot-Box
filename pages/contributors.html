@@ -256,7 +256,7 @@
 
     .contributor-card:hover {
       transform: translateY(-5px);
-      3 box-shadow: 0 4px 9px rgb(51, 235, 255);
+      box-shadow: 0 4px 9px rgb(51, 235, 255);
     }
 
     .text-lg {
@@ -466,29 +466,38 @@
     }
 
     .scroll-to-top {
-      position: fixed;
-      bottom: 80px;
-      left: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: #9d159d;
-      color: white;
-      text-align: center;
-      line-height: 50px;
-      font-size: 24px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      /* Initially hidden */
-      z-index: 1000;
-      transition: transform ease 0.3s;
-    }
+    position: fixed;
+    bottom: 90px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ff7920, #dd5900);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; 
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease, bottom 0.3s ease;
+}
 
-    .scroll-to-top:hover {
-      background-color: #660066;
-      transform: scale(1.1);
+.scroll-to-top:hover {
+    background-color: #dd5900; 
+    transform: scale(1.1);
+   
+}
+.scroll-to-top svg {
+    vertical-align: middle;
+    fill: white; 
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+}
 
-    }
+.scroll-to-top:hover svg {
+    transform: translateY(-5px); 
+}
   </style>
 </head>
 
@@ -497,9 +506,12 @@
 
 <body>
   <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z" fill="#fff"/>
+        <path d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z" fill="#fff"/>
+    </svg>
+</div>
 
-    &uarr;
-  </div>
   <script>
 
     function scrollToTop() {
