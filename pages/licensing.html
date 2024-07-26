@@ -8,8 +8,10 @@
     <title>Licensing - Chrome Gaming</title>
     <link rel="stylesheet" href="../styles/mainstyle.css">
     <link rel="stylesheet" href="../styles/licensing.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+
     <style>
-.circle {
+         .circle {
             position: absolute;
             width: 25px;
             height: 25px;
@@ -27,114 +29,256 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
-        } 
+        }
 
-        @media (max-width : 768px){
-      .circle-container{
-        display: none;
-      }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(231, 181, 55, 0.979);
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .circle-container {
+                display: none;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #9d159d;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: transform ease 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #660066;
+            transform: scale(1.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgb(255, 120, 30);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: rgb(236, 94, 0);
+            transform: scale(1.1);
+        }
+
+        .video-container {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .video {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        pre {
+           
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+
+            .section-content {
+                font-size: 0.9em;
+            }
+
+            .back-button {
+                font-size: 14px;
+                padding: 5px 14px;
+            }
+
+            .container {
+                
+                padding: 11px;
+        margin-right: 165px;
+        margin-left: 16px;
+        max-width: 300px;
     }
+            }
+        
     </style>
 </head>
 
 <body>
-    <div class="center">
-        <a href="../index.html">
-          <img src="../assets/images/Home.jpeg" style="position: absolute; top: 15px; left: 5px; height: 100px; width: 100px; margin: 0;">
-        </a> 
-    <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
-    <div class="circle-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        &uarr;
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const coords = { x: 0, y: 0 };
-            const circles = document.querySelectorAll(".circle");
-
-            circles.forEach(function (circle) {
-                circle.x = 0;
-                circle.y = 0;
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
+        }
 
-            window.addEventListener("mousemove", function (e) {
-                coords.x = e.pageX;
-                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-            });
-
-            function animateCircles() {
-                let x = coords.x;
-                let y = coords.y;
-
-                circles.forEach(function (circle, index) {
-                    circle.style.left = `${x - 12}px`;
-                    circle.style.top = `${y - 12}px`;
-                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-                    const nextCircle = circles[index + 1] || circles[0];
-                    circle.x = x;
-                    circle.y = y;
-
-                    x += (nextCircle.x - x) * 0.3;
-                    y += (nextCircle.y - y) * 0.3;
-                });
-
-                requestAnimationFrame(animateCircles);
+        window.onscroll = function() {
+            let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
             }
-
-            animateCircles();
-        });
-
+        };
     </script>
 
-    <div class="video-container">
-        <video style="object-fit: cover;" autoplay muted class="video" loop id="myVideo">
-            <source src="../assets/videos/default.mp4" type="video/mp4">
-        </video>
-    </div>
+    <div class="center">
+        <div class="circle-container">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const coords = { x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
 
-    <div class="container" id="licensing-container">
-        <header class="header">
-            <h1 class="title" id="licensing-title">Licensing</h1>
-        </header>
-        <main class="main-content">
-            <section class="section">
-                <h2 class="section-title">Welcome to Chrome Gaming</h2>
-                <p class="section-content">This page is dedicated to licensing information for our software. Below, you will find the details of the MIT License under which our software is distributed.</p>
-            </section>
+                circles.forEach(function (circle) {
+                    circle.x = 0;
+                    circle.y = 0;
+                });
 
-            <section class="section">
-                <h2 class="section-title">MIT License</h2>
-                <p class="section-content">
-                    <pre>
+                window.addEventListener("mousemove", function (e) {
+                    coords.x = e.pageX;
+                    coords.y = e.pageY - window.scrollY;
+                });
+
+                function animateCircles() {
+                    let x = coords.x;
+                    let y = coords.y;
+
+                    circles.forEach(function (circle, index) {
+                        circle.style.left = `${x - 12}px`;
+                        circle.style.top = `${y - 12}px`;
+                        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                        const nextCircle = circles[index + 1] || circles[0];
+                        circle.x = x;
+                        circle.y = y;
+
+                        x += (nextCircle.x - x) * 0.3;
+                        y += (nextCircle.y - y) * 0.3;
+                    });
+
+                    requestAnimationFrame(animateCircles);
+                }
+
+                animateCircles();
+            });
+        </script>
+
+        <div class="video-container">
+            <video style="object-fit: cover;" autoplay muted class="video" loop id="myVideo">
+                <source src="../assets/videos/default.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="container" id="licensing-container">
+            <header class="header">
+                <h1 class="title" id="licensing-title">Licensing</h1>
+            </header>
+            <main class="main-content">
+                <section class="section">
+                    <h2 class="section-title">Welcome to Chrome Gaming</h2>
+                    <p class="section-content">This page is dedicated to licensing information for our software. Below, you will find the details of the MIT License under which our software is distributed.</p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">MIT License</h2>
+                    <p class="section-content">
+                        <pre>
 MIT License
 
 Copyright (c) 2024 Chrome Gaming
@@ -156,11 +300,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-                    </pre>
-                </p>
-            </section>
-
-        </main>
+                        </pre>
+                    </p>
+                </section>
+            </main>
+            <center>
+                <button class="back-button"><a href="/index.html" class="back-button">Back to Home</a></button>
+            </center>
+        </div>
     </div>
 </body>
 

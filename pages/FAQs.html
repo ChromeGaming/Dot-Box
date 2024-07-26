@@ -21,38 +21,297 @@
     }
 
     .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+      transition: transform 0.1s, left 0.1s, top 0.1s;
+    }
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        } 
+    .circle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-        @media (max-width : 768px){
-      .circle-container{
+    @media (max-width : 768px) {
+      .circle-container {
         display: none;
       }
+    }
+
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: auto !important;
+      /* Allow scrolling */
+      height: 105%;
+    }
+
+    body {
+      background-color: #e7b537;
+      display: flex;
+      flex-direction: column;
+      font-family: 'WorkSans-Regular', Arial, sans-serif;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10px;
+      transition: color 0.3s ease-in-out;
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      /* Adjusted to stay at the top */
+      left: 0;
+      height: 31px;
+      /* Adjust height to accommodate content */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Added shadow for better visibility */
+    }
+
+    .logo a {
+      text-decoration: none;
+      font-size: 30px;
+      font-family: "Arial", sans-serif;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-align: center;
+      color: #fff;
+      margin-left: 15px;
+    }
+
+    .navlinks {
+      display: inline-flex;
+      margin-right: 30px;
+      margin-top: 12px;
+      gap: 30px;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      font-family: "Arial", sans-serif;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .navlinks a:hover {
+      color: #e7b537;
+    }
+
+    .logo a:hover {
+      color: yellow;
+    }
+
+    @media screen and (max-width: 769px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px !important;
+      }
+
+      .logo a {
+        font-size: 20px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .navlinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navlinks a {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .contributor-card {
+        max-width: 90%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        padding: 5px !important;
+      }
+
+      .logo a {
+        font-size: 20px;
+      }
+
+      .navlinks {
+        flex-direction: column;
+        margin: 0;
+        gap: 4px !important;
+        font-size: 1px !important;
+        list-style: none;
+      }
+
+      .navlinks a {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+    }
+
+    .faqcontainer {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
+      margin: 100px auto 20px;
+      /* Increased margin-top to avoid content being hidden under navbar */
+      flex: 1;
+      z-index: 0;
+      /* Ensure it's below the fixed elements */
+      margin-top: 54px;
+    }
+
+    .author {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #00093c, #2d0b00);
+      color: #fff;
+      padding: 0px;
+      position: fixed;
+      bottom: 0;
+      z-index: 1000;
+      height: 67px;
+      flex-shrink: 0;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      /* Added shadow for better visibility */
+    }
+
+    .author .fotbar {
+      display: flex;
+      gap: -22px;
+    }
+
+    .author .fotbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      background-color: transparent;
+    }
+
+    .author p {
+      color: white;
+      padding: 10px;
+      margin-right: -550px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .author .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-right: 20px;
+    }
+
+    .author a {
+      color: white !important;
+    }
+
+    .author .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    @media screen and (max-width:1190px) {
+      .author a {
+        font-size: small;
+      }
+    }
+
+    @media screen and (max-width:1065px) {
+      .author .fotbar {
+        display: grid;
+      }
+
+      .author .fotbar a {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width:550px) {
+      .author {
+        display: none !important;
+      }
+
+      .navbar {
+        display: none !important;
+      }
+
+      .author p {
+        font-size: 16px;
+        padding: 0;
+      }
+
+      .author .fotbar a {
+        font-size: 12px;
+      }
+
+      .author .social-icons a {
+        font-size: 15px;
+      }
+
+      .faqcontainer {
+        margin-top: 49px;
+      }
+    }
+
+
+    @media (max-width: 768px) {
+      .author {
+        position: relative !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 220, 131, 0.979);
+      border-radius: 15px;
+    }
+    ::-webkit-scrollbar-track{
+      background-color: rgba(46, 33, 0, 0.979);
+
     }
   </style>
 </head>
 
 <body>
-  <div class="center">
-    <a href="../index.html">
-      <img src="../assets/images/Home.jpeg" style="position: absolute; top: 15px; left: 5px; height: 100px; width: 100px; margin: 0;">
-    </a> 
+
   <div class="circle-container">
     <div class="circle"></div>
     <div class="circle"></div>
@@ -130,7 +389,20 @@
       <source src="../assets/videos/FAQ.mp4" />
     </video>
   </div>
-  <!-- Your existing content -->
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="../index.html">Dots & Boxes ⚄</a>
+    </div>
+    <ul class="navlinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/about.html">About Us</a></li>
+      <li><a href="../pages/FAQs.html">FAQs</a></li>
+      <li><a href="../pages/contributors.html">Contributors</a></li>
+      <li><a href="../pages/game.html">Let's Go</a></li>
+    </ul>
+
+  </nav>
 
   <!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
   <div class="faqcontainer">
@@ -221,8 +493,30 @@
     </div>
   </div>
 
+  <div class="author">
+    <div class="fotbar">
+      <a href="howtoplay.html">
+        HowToPlay?</a>
+      <a href="termsofservice.html">
+        TermsOfService</a>
+      <a href="privacypolicy.html">
+        PrivacyPolicy</a>
+      <a href="licensing.html">
+        Licensing</a>
+    </div>
+    <p>
+      Created with ❤️ by
+      <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
+  </div>
 
-  
+
+
   <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
   <script src="../js/FAQs.js"></script>
 

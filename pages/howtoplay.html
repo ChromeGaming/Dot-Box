@@ -7,6 +7,8 @@
     <title>How to Play - Dot Box</title>
     <link rel="stylesheet" href="../styles/mainstyle.css">
     <link rel="stylesheet" href="../styles/howtoplay.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+
 </head>
 <style>
      .circle {
@@ -27,6 +29,14 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
+        }
+        ::-webkit-scrollbar
+        {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgba(231, 181, 55, 0.979);
+            border-radius: 15px;
         }
         
         @media (max-width : 768px){
@@ -53,9 +63,56 @@
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #9d159d; 
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: transform ease 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #660066; 
+    transform: scale(1.1);
+
+}
+
 </style>
 
 <body>
+    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        
+        &uarr;
+    </div>
+    <script>
+       
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+window.onscroll = function() {
+    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+};
+
+    </script>
     <div class="center">
          
     <div class="circle-container">
