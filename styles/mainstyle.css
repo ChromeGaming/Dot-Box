@@ -923,41 +923,6 @@ button a {
 	margin-right: 10px;
 }
 
-@media screen and (min-width: 905px) {
-	.navbarr .nav-links {
-		display: flex	!important;
-  }
-}
-
-@media screen and (max-width: 905px) {
-  .hamburger {
-    display: inline;
-    z-index: 400;
-  }
-
-  .logo a {
-    font-size: 30px;
-  }
-
-  .nav-links {
-    position: absolute;
-    right: 1rem;
-    top: 3rem;
-    background-color: #333;
-    flex-direction: column;
-    padding: 10px;
-    align-items: center;
-  }
-
-  .navbarr .nav-links {
-	display: none;
-  }
-
-  .navbar-toggler {
-	display: inline	!important;
-  }
-
-}
 
 
 .navbar-toggler {

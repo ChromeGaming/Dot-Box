@@ -99,53 +99,6 @@
       padding-top: 0;
     }
 
-    .navbar {
-      width: 100%;
-      background-color: #333;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10px;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .logo a {
-      text-decoration: none;
-      font-size: 30px;
-      font-family: "Arial", sans-serif;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-align: center;
-      color: #fff;
-      margin-left: 15px;
-    }
-
-    .navlinks {
-      display: inline-flex;
-      margin-right: 30px;
-      margin-top: 12px;
-      gap: 30px;
-      text-decoration: none;
-      list-style: none;
-    }
-
-    .navlinks a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 20px;
-      font-family: "Arial", sans-serif;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-align: center;
-    }
-
-    .navlinks a:hover {
-      color: #e7b537;
-    }
-
-    .logo a:hover {
-      color: yellow;
-    }
 
     .container {
       max-width: 1200px;
@@ -604,7 +557,7 @@
 
   </script>
 
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <div class="logo">
       <a href="../index.html">Dots & Boxes ⚄</a>
     </div>
@@ -616,7 +569,46 @@
       <li><a href="../pages/game.html">Let's Go</a></li>
     </ul>
 
-  </nav>
+  </nav> -->
+
+
+
+  <div class="whole-background">
+    <nav class="navbarr" style="color: white;">
+        <div class="logo">
+            <a href="../index.html">Dots & Boxes ⚄</a>
+        </div>
+        
+        <ul class="nav-links" id="nav-links-toggled">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/FAQs.html">FAQs</a></li>
+            <li><a href="../pages/contributors.html">Contributors</a></li>
+            <button class="start"><a href="../pages/game.html">Let's Go</a></button>
+        </ul>
+        <!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+            <span class="toggler-icon"></span>
+            <span class="toggler-icon"></span>
+            <span class="toggler-icon"></span>
+          </button> -->
+
+          <!-- Hamburger Menu -->
+
+          <nav class="mobile-menu ">
+            <div class="mobile-menu__trigger"><span></span></div>
+            <a class="page-scroll active-link" href="./index.html">Home </a>
+            <a class="page-scroll" href="./about.html">About Us </a>
+            <a class="page-scroll" href="./trends.html">FAQs</a>
+            <a class="page-scroll" href="./tools/sip.html">Contributors</a>
+          </nav>
+          
+          <!-- Js and CSS files for hamburger-menu -->
+            <link href="../styles/navbar.css" rel="stylesheet">
+            <script type="text/javascript" src="../js/navbar.js"></script>
+
+    </nav>
+</div>
+
   <div class="content min-h-screen text-black dark:text-gray-200">
     <div class="container mx-auto py-8">
       <h1 class="text-center text-3xl font-semibold mb-8"
