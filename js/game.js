@@ -1,3 +1,12 @@
+var players_dict = [
+    { name: "Player 1", color: "pink", filledBoxes: 0 },
+    { name: "Player 2", color: "skyblue", filledBoxes: 0 },
+    { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
+    { name: "Player 4", color: "magenta", filledBoxes: 0 },
+    { name: "Player 5", color: "yellow", filledBoxes: 0 },
+    { name: "Player 6", color: "orange", filledBoxes: 0 },
+];
+
 class Game {
     static instance; // Singleton instance of Game class
 
@@ -14,22 +23,28 @@ class Game {
             playerSwitch: [],
             playerWin: [],
         };
+        console.log("The original player dict: ")
+        printDict()
 
-        this.players = [
-            { name: "Player 1", color: "pink", filledBoxes: 0 },
-            { name: "Player 2", color: "skyblue", filledBoxes: 0 },
-            { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-            { name: "Player 4", color: "magenta", filledBoxes: 0 },
-            { name: "Player 5", color: "yellow", filledBoxes: 0 },
-            { name: "Player 6", color: "orange", filledBoxes: 0 },
-        ];
+         // Retrieve the players_dict and game settings from localStorage
+    // const players_dicts = JSON.parse(localStorage.getItem('players_dict'));
+    // const { rows, columns, playersCount } = JSON.parse(localStorage.getItem('game_settings'));
+        // name1 = localStorage.getItem("name1");
+
+
+        this.players = players_dict
+        console.log("The game's player dict: ", this.players)
+        
 
         let p = this.players.length - playersCount;
         for (let i = 0; i < p; i++) this.players.pop();
 
         this.currentPlayerIndex = 0;
         this.currentPlayer = this.players[this.currentPlayerIndex];
-
+    }
+    
+    makeBoard(rows, columns)
+    {
         this.board = new Board(rows, columns);
 
         this.isGameover = false;
@@ -255,11 +270,24 @@ document.addEventListener("DOMContentLoaded", () => {
     bgMusic.volume = 0.1;
     bgMusic.play();
 
+    console.log("Inside Dom Loader", players_dict)
+    if (localStorage.getItem("NameChanged"))
+    {
+        players_dict[0].name = localStorage.getItem("name1");
+        players_dict[1].name = localStorage.getItem("name2");
+        players_dict[2].name = localStorage.getItem("name3");
+        players_dict[3].name = localStorage.getItem("name4");
+        players_dict[4].name = localStorage.getItem("name5");
+        players_dict[5].name = localStorage.getItem("name6");
+    }
     const rows = calculate(rowsInput, 5, 30);
     const columns = calculate(columnsInput, 5, 30);
     const playersCount = calculate(playersInput, 2, 6);
 
+    
+
     game = new Game(rows, columns, playersCount);
+    game.makeBoard(rows, columns)
     const storedTheme = localStorage.getItem("selectedTheme");
     const video = document.getElementById("myVideo");
     video.src = `/assets/videos/${storedTheme}.mp4`;
@@ -278,4 +306,104 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function calculate(value, min, max) {
     return Math.min(Math.max(value, min), max);
+}
+
+function showPlayerTextBox(){
+    playersCount = Number(document.getElementById("players-count").value)
+    
+    console.log(playersCount)
+
+    var settingsElements = document.getElementsByClassName("PlayerTextBox");
+	settingsElements[0].style.display = "flex";
+
+	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+    for (var i = 0; i < PlayerNamesElements.length; i++) {
+        PlayerNamesElements[i].style.display= "none";
+    }
+
+    var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+    for (var i = 0; i < playersCount; i++) {
+        PlayerNamesElements[i].style.display= "flex";
+    }
+    
+    hideInstructions()
+}
+
+
+readyBtn.addEventListener("click", () => {
+	const playersCount = calculate(playersInput.value, 2, 6)
+	bgMusic.volume = 0.1;
+	bgMusic.play();
+	showPlayerTextBox(playersCount)
+
+});
+
+
+function startGame() {
+	const rows = calculate(rowsInput.value, 5, 30)
+	const columns = calculate(columnsInput.value, 5, 30)
+	const playersCount = calculate(playersInput.value, 2, 6)
+
+
+    // for (let i = 0; i < playersCount; i++) {
+    //     const playerNum = i + 1;
+    //     const playerId = "#player" + playerNum;
+    //     const playerInput = document.querySelector(playerId);
+
+    //     if (playerInput) {
+    //         players_dict[i].name = playerInput.value;
+    //     }
+    // }
+
+
+    try {
+        players_dict[0].name=document.querySelector("#player1").value
+        players_dict[1].name=document.querySelector("#player2").value
+        players_dict[2].name=document.querySelector("#player3").value
+        players_dict[3].name=document.querySelector("#player4").value
+        players_dict[4].name=document.querySelector("#player5").value
+        players_dict[5].name=document.querySelector("#player6").value
+        
+    } catch (TypeError) {
+        ;
+    }
+
+    try
+    {
+        localStorage.setItem("NameChanged", "yes");
+        localStorage.setItem("name1", players_dict[0].name);
+        localStorage.setItem("name2", players_dict[1].name);
+        localStorage.setItem("name3", players_dict[2].name);
+        localStorage.setItem("name4", players_dict[3].name);
+        localStorage.setItem("name5", players_dict[4].name);
+        localStorage.setItem("name6", players_dict[5].name);
+    }
+    catch (TypeError) {
+        ;
+    }
+    
+    printDict()
+
+    // Store the updated players_dict and game settings in localStorage
+    // localStorage.setItem('players_dicts', JSON.stringify(players_dict));
+    // localStorage.setItem('game_settings', JSON.stringify({ rows, columns, playersCount }));
+
+	game = new Game(rows, columns, playersCount)
+    window.location.href = "./pages/game.html";
+    game.makeBoard(rows, columns)
+	settingsUI.style.display = "none"
+	heading.style.display = "none"
+};
+
+function hideInstructions(){
+    console.log("Inside Hide Instructs")
+	document.getElementById("instructions").style.display = "none";
+}
+
+function hidePlayerTextBox(){
+	document.getElementsByClassName("settings").style.visibility = "visible";
+}
+
+function printDict() {
+    console.log("Here's the", players_dict)
 }

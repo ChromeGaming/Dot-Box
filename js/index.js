@@ -1,7 +1,7 @@
 let rows = document.querySelector("#rows");
 let columns = document.querySelector("#columns");
 let players = document.querySelector("#players-count");
-let startBtn = document.querySelector("#start-btn");
+let startBtn = document.querySelector("#true-start-btn");
 let selectedTheme = 1;
 
 startBtn.addEventListener("click", function () {
