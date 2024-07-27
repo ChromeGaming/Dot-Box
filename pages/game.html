@@ -142,16 +142,47 @@
       }
 
       .scoreboard-container {
-        position: absolute;
-        left: 20px;
-        top: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        padding: 20px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        width: 250px;
-        cursor: move;
-        z-index: 1000;
+          position: absolute;
+          right: -400px; /* Initially positioned off-screen */
+          top: -50px;    /* Initially positioned off-screen */
+          background-color: rgba(255, 255, 255, 0.9);
+          border-radius: 15px;
+          padding: 20px;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          width: 250px;
+          cursor: move;
+          z-index: 1000;
+          transition: right 0.3s, top 0.3s; /* Smooth transition */
+      }
+
+      /* Media query for tablets and smaller screens */
+      @media (max-width: 1024px) {
+          .scoreboard-container {
+              right: 10px; /* Move it in from the right edge */
+              top: 10px;   /* Move it in from the top edge */
+              width: 200px; /* Adjust width for smaller screens */
+          }
+      }
+
+      /* Media query for mobile devices */
+      @media (max-width: 600px) {
+          .scoreboard-container {
+              right: 5px; /* Move it closer to the right edge */
+              top: 5px;   /* Move it closer to the top edge */
+              width: 150px; /* Further adjust width for mobile */
+              padding: 10px; /* Reduce padding for smaller screens */
+          }
+      }
+
+      /* Media query for very small mobile devices */
+      @media (max-width: 400px) {
+          .scoreboard-container {
+              right: 0; /* Align it with the right edge */
+              top: 0;   /* Align it with the top edge */
+              width: 120px; /* Minimum width for very small screens */
+              padding: 8px; /* Further reduce padding */
+              font-size: 0.8em; /* Adjust font size */
+          }
       }
 
       .scoreboard-container h2 {
@@ -542,6 +573,7 @@
         min-height: 100%;
         z-index: -1;
       }
+
     </style>
 
     <!-- Title of the game -->
@@ -778,108 +810,87 @@
 
     <!-- tour steps -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tourSteps = document.querySelectorAll(".tour-step");
-        let currentStep = 0;
+        document.addEventListener("DOMContentLoaded", function () {
+            const tourSteps = document.querySelectorAll(".tour-step");
+            let currentStep = 0;
 
-        const showStep = (index) => {
-          tourSteps.forEach((step, i) => {
-            step.style.display = i === index ? "block" : "none";
-          });
-        };
+            const showStep = (index) => {
+                tourSteps.forEach((step, i) => {
+                    step.style.display = i === index ? "block" : "none";
+                });
+            };
 
-        const nextStep = () => {
-          if (currentStep < tourSteps.length - 1) {
-            currentStep++;
+            const nextStep = () => {
+                if (currentStep < tourSteps.length - 1) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            };
+
+            const prevStep = () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            };
+
+            const skipTour = () => {
+                document.getElementById("tour-overlay").style.display = "none";
+            };
+
+            const closeTour = () => {
+                document.getElementById("tour-overlay").style.display = "none";
+            };
+
+            const soundToggle = document.getElementById('sound-toggle');
+            const soundIcon = document.getElementById('sound-icon');
+            const bgMusic = new Audio('/assets/sounds/bgMusic.mp3');
+            const clickSound = new Audio('/assets/sounds/click.mp3');
+
+            bgMusic.loop = true;
+
+            // Play background music by default and set the initial icon
+            bgMusic.play().then(() => {
+                soundIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
+            }).catch(error => {
+                console.error('Audio playback failed:', error);
+            });
+
+            soundToggle.addEventListener('click', () => {
+                if (bgMusic.paused || bgMusic.volume === 0) {
+                    bgMusic.play();
+                    bgMusic.volume = 1; // Ensure volume is set back to normal
+                    soundIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
+                } else {
+                    bgMusic.pause();
+                    bgMusic.currentTime = 0; // Reset the audio to the beginning
+                    bgMusic.volume = 0; // Set the volume to 0
+                    soundIcon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12zM3.27 2L2 3.27 5.73 7H3v10h4l5 5V12.73l3 3V20h.73l3.73 3.73 1.27-1.27L3.27 2z" />';
+                }
+            });
+
+            function playClickSound() {
+                clickSound.currentTime = 0; // Reset to start
+                clickSound.play();
+            }
+
+            document.querySelectorAll('.clickable').forEach(element => {
+                element.addEventListener('click', playClickSound);
+            });
+
+            document.querySelectorAll("#skip-tour").forEach((button) => {
+                button.addEventListener("click", skipTour);
+            });
+
+            document.querySelectorAll("#close-tour").forEach((button) => {
+                button.addEventListener("click", closeTour);
+            });
+
+            document.getElementById("tour-overlay").style.display = "flex";
             showStep(currentStep);
-          }
-        };
-
-        const prevStep = () => {
-          if (currentStep > 0) {
-            currentStep--;
-            showStep(currentStep);
-          }
-        };
-
-        const skipTour = () => {
-          document.getElementById("tour-overlay").style.display = "none";
-        };
-
-        const closeTour = () => {
-          document.getElementById("tour-overlay").style.display = "none";
-        };
-
-        document.querySelectorAll("#next-step").forEach((button) => {
-          button.addEventListener("click", nextStep);
         });
 
-        document.querySelectorAll("#prev-step").forEach((button) => {
-          button.addEventListener("click", prevStep);
-        });
-<button id="sound-toggle">
-    <svg id="sound-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />
-    </svg>
-</button>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const soundToggle = document.getElementById('sound-toggle');
-    const soundIcon = document.getElementById('sound-icon');
-    const bgMusic = new Audio('/assets/sounds/bgMusic.mp3');
-    const clickSound = new Audio('/assets/sounds/click.mp3');
-    
-    bgMusic.loop = true;
-
-    // Play background music by default and set the initial icon
-    bgMusic.play().then(() => {
-        soundIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-    }).catch(error => {
-        console.error('Audio playback failed:', error);
-    });
-
-    soundToggle.addEventListener('click', () => {
-        if (bgMusic.paused || bgMusic.volume === 0) {
-            bgMusic.play();
-            bgMusic.volume = 1; // Ensure volume is set back to normal
-            soundIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-        } else {
-            bgMusic.pause();
-            bgMusic.currentTime = 0; // Reset the audio to the beginning
-            bgMusic.volume = 0; // Set the volume to 0
-            soundIcon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12zM3.27 2L2 3.27 5.73 7H3v10h4l5 5V12.73l3 3V20h.73l3.73 3.73 1.27-1.27L3.27 2z" />';
-        }
-    });
-
-    // Example function to play click sound
-    function playClickSound() {
-        clickSound.currentTime = 0; // Reset to start
-        clickSound.play();
-    }
-
-    // Attach the click sound effect to relevant elements
-    const clickableElements = document.querySelectorAll('.clickable');
-    clickableElements.forEach(element => {
-        element.addEventListener('click', playClickSound);
-    });
-});
-</script>
-
-
-</body>
-
-        document.querySelectorAll("#skip-tour").forEach((button) => {
-          button.addEventListener("click", skipTour);
-        });
-
-        document.querySelectorAll("#close-tour").forEach((button) => {
-          button.addEventListener("click", closeTour);
-        });
-
-        document.getElementById("tour-overlay").style.display = "flex";
-        showStep(currentStep);
-      });
     </script>
   </body>
 </html>
