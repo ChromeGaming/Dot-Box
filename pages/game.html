@@ -19,8 +19,304 @@
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
     <style>
-        .back-home:visited {
-            color: white;
+
+      .back-home:visited {
+        color: white;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .button-container button,
+      .button-container a {
+        background-color: rgb(0, 166, 255);
+        color: white;
+        border: none;
+        padding: 13px 13px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        position: relative;
+        transition: background-color 0.3s ease;
+      }
+
+      .button-container #sound-toggle {
+        background-color: rgb(12, 1, 1);
+        border-radius: 4px;
+        padding: 10px 20px;
+      }
+
+      .button-container svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+      }
+
+      .button-container a {
+        text-decoration: none;
+      }
+
+      .button-container button:hover,
+      .button-container a:hover {
+        background-color: rgb(69, 133, 254);
+      }
+
+      .button-container #sound-toggle:hover {
+        background-color: rgb(21, 39, 77);
+      }
+
+      .button-container [title]:hover::after {
+        opacity: 1;
+      }
+
+      .circle {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, #ff6600, #ffb584a5);
+        transition: transform 0.1s, left 0.1s, top 0.1s;
+      }
+
+      .circle-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 99999;
+      }
+
+      /* Timer */
+      #timer-container {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 1000;
+        margin-right: 10vw;
+      }
+
+      #timer {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      #timer-label {
+        font-size: 18px;
+        color: #666;
+        margin-top: 10px;
+      }
+      /* Score board */
+      .game-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .game-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .scoreboard-container {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        cursor: move;
+        z-index: 1000;
+      }
+
+      .scoreboard-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .scoreboard {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .score {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .player1-score {
+        background-color: rgba(255, 192, 203, 0.7);
+      }
+      .player2-score {
+        background-color: rgba(173, 216, 230, 0.7);
+      }
+      .player3-score {
+        background-color: rgba(144, 238, 144, 0.7);
+      }
+      .player4-score {
+        background-color: rgba(255, 0, 255, 0.7);
+      }
+      .player5-score {
+        background-color: rgba(255, 255, 0, 0.7);
+      }
+      .player6-score {
+        background-color: rgba(255, 165, 0, 0.7);
+      }
+
+      /* Tour */
+      #tour-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+
+      .overlay-content ul {
+        text-align: left;
+        margin: 20px 0;
+      }
+
+      .tour-step {
+        position: absolute;
+        display: none;
+        padding: 20px;
+        border-radius: 8px;
+        background: #fff0f5;
+        color: #000;
+        width: 314px;
+      }
+
+      .tour-step.step-1 {
+        top: 20%;
+        left: 40%;
+        margin-top: -268px;
+      }
+
+      .tour-step.step-2 {
+        top: 80%;
+        left: 15%;
+        margin-top: -16%;
+      }
+
+      .tour-step.step-3 {
+        top: 20%;
+        right: 59%;
+        margin-top: -32%;
+        width: 399px;
+        padding: 20px;
+      }
+
+      .tour-step.step-4 {
+        bottom: 30%;
+        left: 58%;
+        margin-bottom: -94px;
+      }
+
+      .tour-step.step-5 {
+        top: 20%;
+        left: 34%;
+        margin-top: -67px;
+        width: 340px;
+      }
+
+      .tour-step.step-6 {
+        top: 20%;
+        left: 37%;
+        margin-top: -201px;
+        width: 392px;
+      }
+
+      .tour-step.step-7 {
+        top: 20%;
+        right: 58%;
+        margin-top: -31%;
+        width: 399px;
+        padding: 20px;
+      }
+
+      .tour-controls {
+        position: absolute;
+        bottom: -40px;
+        width: 86%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .tour-controls .button {
+        background-color: rgb(0, 166, 255);
+        color: white;
+        border: none;
+        padding: 5px 17px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .tour-controls .button:hover {
+        background-color: rgb(69, 133, 254);
+      }
+
+      #prev-step {
+        background-color: rgb(255, 165, 0);
+      }
+
+      #skip-tour {
+        background-color: rgb(255, 0, 0);
+      }
+
+      .overlay-content .button-container {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      /* Responsive styles for tablets and mobile devices */
+      @media screen and (max-width: 768px) {
+        .tour-step {
+          width: 80%;
+          padding: 15px;
+
         }
 
         .button-container {
