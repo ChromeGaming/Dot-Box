@@ -1,133 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How to Play - Dot Box</title>
-    <link rel="stylesheet" href="../styles/mainstyle.css">
-    <link rel="stylesheet" href="../styles/howtoplay.css">
+    <link rel="stylesheet" href="../styles/mainstyle.css" />
+    <link rel="stylesheet" href="../styles/howtoplay.css" />
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <style>
+    .circle {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, #ff6600, #ffb584a5);
+      transition: transform 0.1s, left 0.1s, top 0.1s;
+    }
 
-</head>
-<style>
-     .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+    .circle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(231, 181, 55, 0.979);
+      border-radius: 15px;
+    }
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        ::-webkit-scrollbar
-        {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-thumb{
-            background-color: rgba(231, 181, 55, 0.979);
-            border-radius: 15px;
-        }
-        
-        @media (max-width : 768px){
-      .circle-container{
+    @media (max-width: 768px) {
+      .circle-container {
         display: none;
       }
     }
 
     .navbar-toggler {
-        background-color: transparent;
-        border: none;
+      background-color: transparent;
+      border: none;
     }
-    
-.navbar-toggler .toggler-icon {
-  width: 30px;
-  height: 2px;
-  background-color: #fff;
-  display: block;
-  margin: 5px 0;
-  position: relative;
-  -webkit-transition: all 0.3s ease-out 0s;
-  -moz-transition: all 0.3s ease-out 0s;
-  -ms-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-}
-.scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #ff7920, #dd5900);
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; 
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease, bottom 0.3s ease;
-}
 
-.scroll-to-top:hover {
-    background-color: #dd5900; 
-    transform: scale(1.1);
-    bottom: 35px; 
-}
-.scroll-to-top svg {
-    vertical-align: middle;
-    fill: white; 
-    transition: transform 0.3s ease;
-    margin-bottom: 10px;
-}
+    .navbar-toggler .toggler-icon {
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+      display: block;
+      margin: 5px 0;
+      position: relative;
+      -webkit-transition: all 0.3s ease-out 0s;
+      -moz-transition: all 0.3s ease-out 0s;
+      -ms-transition: all 0.3s ease-out 0s;
+      -o-transition: all 0.3s ease-out 0s;
+      transition: all 0.3s ease-out 0s;
+    }
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #ff7920, #dd5900);
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: transform 0.3s ease, background-color 0.3s ease,
+        bottom 0.3s ease;
+    }
 
-.scroll-to-top:hover svg {
-    transform: translateY(-5px); 
-}
-</style>
+    .scroll-to-top:hover {
+      background-color: #dd5900;
+      transform: scale(1.1);
+      bottom: 35px;
+    }
+    .scroll-to-top svg {
+      vertical-align: middle;
+      fill: white;
+      transition: transform 0.3s ease;
+      margin-bottom: 10px;
+    }
 
-<body>
+    .scroll-to-top:hover svg {
+      transform: translateY(-5px);
+    }
+  </style>
+
+  <body>
     <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z" fill="#fff"/>
-            <path d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z" fill="#fff"/>
-        </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z"
+          fill="#fff"
+        />
+        <path
+          d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z"
+          fill="#fff"
+        />
+      </svg>
     </div>
-    
+
     <script>
-       
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
 
-window.onscroll = function() {
-    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-};
-
+      window.onscroll = function () {
+        let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      };
     </script>
     <div class="center">
-         
-    <div class="circle-container">
+      <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
@@ -158,51 +167,60 @@ window.onscroll = function() {
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-    </div>
-    <script>
+      </div>
+      <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const coords = { x: 0, y: 0 };
-            const circles = document.querySelectorAll(".circle");
+          const coords = { x: 0, y: 0 };
+          const circles = document.querySelectorAll(".circle");
 
-            circles.forEach(function (circle) {
-                circle.x = 0;
-                circle.y = 0;
+          circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+          });
+
+          window.addEventListener("mousemove", function (e) {
+            coords.x = e.pageX;
+            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+          });
+
+          function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+              circle.style.left = `${x - 12}px`;
+              circle.style.top = `${y - 12}px`;
+              circle.style.transform = `scale(${
+                (circles.length - index) / circles.length
+              })`;
+
+              const nextCircle = circles[index + 1] || circles[0];
+              circle.x = x;
+              circle.y = y;
+
+              x += (nextCircle.x - x) * 0.3;
+              y += (nextCircle.y - y) * 0.3;
             });
 
-            window.addEventListener("mousemove", function (e) {
-                coords.x = e.pageX;
-                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-            });
+            requestAnimationFrame(animateCircles);
+          }
 
-            function animateCircles() {
-                let x = coords.x;
-                let y = coords.y;
-
-                circles.forEach(function (circle, index) {
-                    circle.style.left = `${x - 12}px`;
-                    circle.style.top = `${y - 12}px`;
-                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-                    const nextCircle = circles[index + 1] || circles[0];
-                    circle.x = x;
-                    circle.y = y;
-
-                    x += (nextCircle.x - x) * 0.3;
-                    y += (nextCircle.y - y) * 0.3;
-                });
-
-                requestAnimationFrame(animateCircles);
-            }
-
-            animateCircles();
+          animateCircles();
         });
+      </script>
 
-    </script>
-
-    <div class="video-container ">
-        <video style="object-fit: cover;" autoplay muted class="video" loop id="myVideo">
-            <source src="../assets/videos/default.mp4" type="video/mp4">
+      <div class="video-container">
+        <video
+          style="object-fit: cover"
+          autoplay
+          muted
+          class="video"
+          loop
+          id="myVideo"
+        >
+          <source src="../assets/videos/default.mp4" type="video/mp4" />
         </video>
+
     </div>
     <div class="whole-background">
         <nav class="navbarr" style="color: white;">
@@ -238,63 +256,86 @@ window.onscroll = function() {
                 <script type="text/javascript" src="../js/navbar.js"></script>
 
         </nav>
-    </div>
-    <script>
-        function toggleNavBar()
-        {
-            var nav_bar = document.getElementById("nav-links-toggled");
-            if (nav_bar.style.display === "flex") {
-                nav_bar.style.display = "none";
-            } else {
-                nav_bar.style.display = "flex";
-            }
+      </div>
+      <script>
+        function toggleNavBar() {
+          var nav_bar = document.getElementById("nav-links-toggled");
+          if (nav_bar.style.display === "flex") {
+            nav_bar.style.display = "none";
+          } else {
+            nav_bar.style.display = "flex";
+          }
         }
-    </script>
-    <div class="instructions-container">
+      </script>
+      <div class="instructions-container">
         <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
-        <h1 style="font-size: 39px;">How to Play ?</h1>
-        <p>Welcome to the Dots & Boxes Game! Here are the detailed instructions on how to play:</p>
+        <h1 style="font-size: 39px">How to Play ?</h1>
+        <p>
+          Welcome to the Dots & Boxes Game! Here are the detailed instructions
+          on how to play:
+        </p>
         <ol>
-            <li>
-                <strong>Game Setup:</strong><br> - Select the number of rows and columns (between 5 and 30).<br> -
-                Select the number of players (between 2 and 6).<br> - Choose a theme from the available options.
-            </li>
-            <li>
-                <strong>Objective:</strong><br> The objective of the game is to complete the maximum number of boxes.
-                <br>The player who completes the most boxes wins the game.
-            </li>
-            <li>
-                <strong>Gameplay:</strong><br> - Players take turns to draw a line between two adjacent dots.<br> - A
-                player who completes the fourth side of a box gets to claim that box and gets another turn.<br> - The
-                game continues until all the boxes are completed.<br> - If a player completes a box, they get another
-                turn immediately.<br> - The game can be played in rounds, and the player with the highest score after a
-                set number of rounds wins the game.
-            </li>
-            <li>
-                <strong>Scoring:</strong><br> - Each completed box is worth one point.<br> - The player with the highest
-                score at the end of the game is the winner.<br> - In case of a tie, the player who completed the last
-                box wins.<br> - Optionally, a tie can be broken by the number of consecutive boxes completed.
-            </li>
-            <li>
-                <strong>Strategies:</strong><br> - Try to force your opponent into a position where they have to give
-                you a box.<br> - Plan your moves ahead and avoid creating a situation where your opponent can complete a
-                box unless you can complete the fourth side.<br> - Control the board by capturing multiple boxes in one
-                turn by carefully planning your moves.<br> - Take advantage of the extra turn you get after completing a
-                box to create more opportunities for yourself.<br> - Look for opportunities to create chains and loops
-                of boxes that can be captured in one turn.<br> - Be mindful of your opponent's potential moves and try
-                to block them from completing boxes whenever possible.
-            </li>
+          <li>
+            <strong>Game Setup:</strong><br />
+            - Select the number of rows and columns (between 5 and 30).<br />
+            - Select the number of players (between 2 and 6).<br />
+            - Choose a theme from the available options.
+          </li>
+          <li>
+            <strong>Objective:</strong><br />
+            The objective of the game is to complete the maximum number of
+            boxes. <br />The player who completes the most boxes wins the game.
+          </li>
+          <li>
+            <strong>Gameplay:</strong><br />
+            - Players take turns to draw a line between two adjacent dots.<br />
+            - A player who completes the fourth side of a box gets to claim that
+            box and gets another turn.<br />
+            - The game continues until all the boxes are completed.<br />
+            - If a player completes a box, they get another turn immediately.<br />
+            - The game can be played in rounds, and the player with the highest
+            score after a set number of rounds wins the game.
+          </li>
+          <li>
+            <strong>Scoring:</strong><br />
+            - Each completed box is worth one point.<br />
+            - The player with the highest score at the end of the game is the
+            winner.<br />
+            - In case of a tie, the player who completed the last box wins.<br />
+            - Optionally, a tie can be broken by the number of consecutive boxes
+            completed.
+          </li>
+          <li>
+            <strong>Strategies:</strong><br />
+            - Try to force your opponent into a position where they have to give
+            you a box.<br />
+            - Plan your moves ahead and avoid creating a situation where your
+            opponent can complete a box unless you can complete the fourth
+            side.<br />
+            - Control the board by capturing multiple boxes in one turn by
+            carefully planning your moves.<br />
+            - Take advantage of the extra turn you get after completing a box to
+            create more opportunities for yourself.<br />
+            - Look for opportunities to create chains and loops of boxes that
+            can be captured in one turn.<br />
+            - Be mindful of your opponent's potential moves and try to block
+            them from completing boxes whenever possible.
+          </li>
         </ol>
 
         <div class="tutorial-video">
-            <video controls paused>
-                <source src="../assets/videos/Dot Box Tutorial.mp4" type="video/mp4">
-            </video>
+          <video controls paused>
+            <source
+              src="../assets/videos/Dot Box Tutorial.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
+        <script
+          src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
+          async
+        ></script>
+      </div>
     </div>
-    </div>
-
-</body>
-
+  </body>
 </html>
