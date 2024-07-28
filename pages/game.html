@@ -127,7 +127,6 @@
 			}
 			/* Score board */
 			.game-wrapper {
-				position: relative;
 				display: flex;
 				justify-content: center;
 				align-items: flex-start;
@@ -142,16 +141,17 @@
 			}
 
 			.scoreboard-container {
+				display: none;
 				position: absolute;
-				left: 20px;
-				top: 20px;
+				right: 3rem;
+				top: 9rem;
 				background-color: rgba(255, 255, 255, 0.9);
 				border-radius: 15px;
 				padding: 20px;
 				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 				width: 250px;
 				cursor: move;
-				z-index: 1000;
+				z-index: 100;
 			}
 
 			.scoreboard-container h2 {
@@ -762,10 +762,11 @@
 		<!-- tour steps -->
 		<script>
 			const playBtn = document.getElementById("play-btn");
+			const scoreboard = document.querySelector(".scoreboard-container");
 			playBtn.addEventListener("click", function () {
 				const tourSteps = document.querySelectorAll(".tour-step");
 				let currentStep = 0;
-			});
+				scoreboard.style.display = "block";
 
 				const showStep = (index) => {
 					tourSteps.forEach((step, i) => {

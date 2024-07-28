@@ -1,6 +1,6 @@
 let rows = document.querySelector("#rows");
 let columns = document.querySelector("#columns");
-let players = document.querySelector("#players-count");
+let playersCount = document.querySelector("#players-count");
 let startBtn = document.querySelector("#start-btn");
 let selectedTheme = 1;
 
@@ -9,7 +9,6 @@ startBtn.addEventListener("click", function () {
 	localStorage.setItem("columns", columns.value);
 	localStorage.setItem("playersCount", playersCount.value);
 	localStorage.setItem("selectedTheme", selectedTheme);
-	console.log(selectedTheme);
 });
 document.addEventListener("DOMContentLoaded", function () {
 	// Add event listener for the reset button
