@@ -99,420 +99,795 @@
 				z-index: 99999;
 			}
 
-			/* Timer */
-			#timer-container {
-				position: fixed;
-				right: 20px;
-				top: 50%;
-				transform: translateY(-50%);
-				background-color: rgba(255, 255, 255, 0.9);
-				border-radius: 15px;
-				padding: 20px;
-				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-				text-align: center;
-				z-index: 1000;
-				margin-right: 10vw;
-			}
+			 /* Timer */
+      #timer-container {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 1000;
+        margin-right: 10vw;
+      }
 
-			#timer {
-				font-size: 48px;
-				font-weight: bold;
-				color: #333;
-			}
+      #timer {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+      }
 
-			#timer-label {
-				font-size: 18px;
-				color: #666;
-				margin-top: 10px;
-			}
-			/* Score board */
-			.game-wrapper {
-				position: relative;
-				display: flex;
-				justify-content: center;
-				align-items: flex-start;
-				padding: 20px;
-			}
+      #timer-label {
+        font-size: 18px;
+        color: #666;
+        margin-top: 10px;
+      }
+      /* Score board */
+      .game-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+      }
 
-			.game-container {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-			}
+      .game-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
 
-			.scoreboard-container {
-				position: absolute;
-				left: 20px;
-				top: 20px;
-				background-color: rgba(255, 255, 255, 0.9);
-				border-radius: 15px;
-				padding: 20px;
-				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-				width: 250px;
-				cursor: move;
-				z-index: 1000;
-			}
+      .scoreboard-container {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        cursor: move;
+        z-index: 1000;
+      }
 
-			.scoreboard-container h2 {
-				text-align: center;
-				margin-bottom: 20px;
-				color: #333;
-			}
+      .scoreboard-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
 
-			.scoreboard {
-				display: flex;
-				flex-direction: column;
-				gap: 15px;
-			}
+      .scoreboard {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-			.score {
-				font-size: 22px;
-				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				text-align: center;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
+      .score {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-			.player1-score {
-				background-color: rgba(255, 192, 203, 0.7);
-			}
-			.player2-score {
-				background-color: rgba(173, 216, 230, 0.7);
-			}
-			.player3-score {
-				background-color: rgba(144, 238, 144, 0.7);
-			}
-			.player4-score {
-				background-color: rgba(255, 0, 255, 0.7);
-			}
-			.player5-score {
-				background-color: rgba(255, 255, 0, 0.7);
-			}
-			.player6-score {
-				background-color: rgba(255, 165, 0, 0.7);
-			}
+      .player1-score {
+        background-color: rgba(255, 192, 203, 0.7);
+      }
+      .player2-score {
+        background-color: rgba(173, 216, 230, 0.7);
+      }
+      .player3-score {
+        background-color: rgba(144, 238, 144, 0.7);
+      }
+      .player4-score {
+        background-color: rgba(255, 0, 255, 0.7);
+      }
+      .player5-score {
+        background-color: rgba(255, 255, 0, 0.7);
+      }
+      .player6-score {
+        background-color: rgba(255, 165, 0, 0.7);
+      }
 
-			/* Tour */
-			#tour-overlay {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.3);
-				display: none;
-				align-items: center;
-				justify-content: center;
-				z-index: 10000;
-			}
+      /* Tour */
+      #tour-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
 
-			.overlay-content ul {
-				text-align: left;
-				margin: 20px 0;
-			}
+      .overlay-content ul {
+        text-align: left;
+        margin: 20px 0;
+      }
 
-			.tour-step {
-				position: absolute;
-				display: none;
-				padding: 20px;
-				border-radius: 8px;
-				background: #fff0f5;
-				color: #000;
-				width: 314px;
-			}
+      .tour-step {
+        position: absolute;
+        display: none;
+        padding: 20px;
+        border-radius: 8px;
+        background: #fff0f5;
+        color: #000;
+        width: 314px;
+      }
 
-			.tour-step.step-1 {
-				top: 20%;
-				left: 40%;
-				margin-top: -268px;
-			}
+      .tour-step.step-1 {
+        top: 20%;
+        left: 40%;
+        margin-top: -268px;
+      }
 
-			.tour-step.step-2 {
-				top: 80%;
-				left: 15%;
-				margin-top: -16%;
-			}
+      .tour-step.step-2 {
+        top: 80%;
+        left: 15%;
+        margin-top: -16%;
+      }
 
-			.tour-step.step-3 {
-				top: 20%;
-				right: 59%;
-				margin-top: -32%;
-				width: 399px;
-				padding: 20px;
-			}
+      .tour-step.step-3 {
+        top: 20%;
+        right: 59%;
+        margin-top: -32%;
+        width: 399px;
+        padding: 20px;
+      }
 
-			.tour-step.step-4 {
-				bottom: 30%;
-				left: 58%;
-				margin-bottom: -94px;
-			}
+      .tour-step.step-4 {
+        bottom: 30%;
+        left: 58%;
+        margin-bottom: -94px;
+      }
 
-			.tour-step.step-5 {
-				top: 20%;
-				left: 34%;
-				margin-top: -67px;
-				width: 340px;
-			}
+      .tour-step.step-5 {
+        top: 20%;
+        left: 34%;
+        margin-top: -67px;
+        width: 340px;
+      }
 
-			.tour-step.step-6 {
-				top: 20%;
-				left: 37%;
-				margin-top: -201px;
-				width: 392px;
-			}
+      .tour-step.step-6 {
+        top: 20%;
+        left: 37%;
+        margin-top: -201px;
+        width: 392px;
+      }
 
-			.tour-step.step-7 {
-				top: 20%;
-				right: 58%;
-				margin-top: -31%;
-				width: 399px;
-				padding: 20px;
-			}
+      .tour-step.step-7 {
+        top: 20%;
+        right: 58%;
+        margin-top: -31%;
+        width: 399px;
+        padding: 20px;
+      }
 
-			.tour-controls {
-				position: absolute;
-				bottom: -40px;
-				width: 86%;
-				display: flex;
-				justify-content: center;
-				gap: 10px;
-			}
+      .tour-controls {
+        position: absolute;
+        bottom: -40px;
+        width: 86%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
 
-			.tour-controls .button {
-				background-color: rgb(0, 166, 255);
-				color: white;
-				border: none;
-				padding: 5px 17px;
-				border-radius: 4px;
-				cursor: pointer;
-				transition: background-color 0.3s ease;
-			}
+      .tour-controls .button {
+        background-color: rgb(0, 166, 255);
+        color: white;
+        border: none;
+        padding: 5px 17px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-			.tour-controls .button:hover {
-				background-color: rgb(69, 133, 254);
-			}
+      .tour-controls .button:hover {
+        background-color: rgb(69, 133, 254);
+      }
 
-			#prev-step {
-				background-color: rgb(255, 165, 0);
-			}
+      #prev-step {
+        background-color: rgb(255, 165, 0);
+      }
 
-			#skip-tour {
-				background-color: rgb(255, 0, 0);
-			}
+      #skip-tour {
+        background-color: rgb(255, 0, 0);
+      }
 
-			.overlay-content .button-container {
-				position: absolute;
-				bottom: 10px;
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				gap: 10px;
-			}
+      .overlay-content .button-container {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
 
-			@media screen and (max-width: 480px) {
-				.tour-step.step-1 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-				}
+      /* Responsive styles for tablets and mobile devices */
+      @media screen and (max-width: 768px) {
+        .tour-step {
+          width: 80%;
+          padding: 15px;
 
-				.tour-step.step-2 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -39px;
-				}
+        }
 
-				.tour-step.step-3 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -392px;
-				}
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            margin-left: -83px;
 
-				.tour-step.step-7 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -339px;
-				}
+        }
 
-				.tour-step.step-4 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-bottom: 53px;
-				}
+        .button-container button,
+        .button-container a {
+            background-color: rgb(0, 166, 255);
+            color: white;
+            border: none;
+            padding: 13px 13px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
 
-				.tour-step.step-5 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -119px;
-				}
+        .button-container #sound-toggle {
+            background-color: rgb(12, 1, 1);
+            border-radius: 4px;
+            padding: 10px 20px;
+        }
 
-				.tour-step.step-6 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -193px;
-				}
+        .button-container svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
 
-				.tour-step h3 {
-					font-size: 1em;
-				}
+        .button-container a {
+            text-decoration: none;
+        }
 
-				.tour-step p {
-					font-size: 0.8em;
-				}
+        .button-container button:hover,
+        .button-container a:hover {
+            background-color: rgb(69, 133, 254);
+        }
 
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.8em;
-				}
+        .button-container #sound-toggle:hover {
+            background-color: rgb(21, 39, 77);
+        }
 
-				.tour-controls {
-					flex-direction: column;
-					gap: 3px;
-					margin-bottom: -15%;
-					margin-left: 8px;
-				}
-			}
+        .button-container [title]:hover::after {
+            opacity: 1;
+        }
 
-			/* Responsive styles for tablets and mobile devices */
-			@media screen and (max-width: 768px) {
-				.tour-step {
-					width: 80%;
-					padding: 15px;
-				}
+        .circle {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle,
+                    rgba(73, 232, 247, 0.466),
+                    rgba(141, 38, 172, 0.5));
+            transition: transform 0.1s, left 0.1s, top 0.1s;
+        }
 
-				.tour-step h3 {
-					font-size: 1.2em;
-				}
+        .circle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99999;
+        }
 
-				.tour-step p {
-					font-size: 0.9em;
-				}
+        /* Timer */
+        #timer-container {
+            position: fixed;
+            right: 171px;
+            top: 92%;
+            height: 90px;
+            width: 103px;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;
+            margin-right: 26vw;
+        }
 
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.9em;
-				}
+        #timer {
+            font-size: 38px;
+            font-weight: bold;
+            margin-top: -11px;
+            color: #333;
+        }
 
-				.tour-controls {
-					flex-direction: column;
-					gap: 5px;
-				}
-			}
+        #timer-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: -6px;
+        }
 
-			@media screen and (max-width: 480px) {
-				.tour-step.step-1 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-				}
+        /* Score board */
+        .game-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
 
-				.tour-step.step-2 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -39px;
-				}
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: -156px;
+        }
 
-				.tour-step.step-3 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -392px;
-				}
+        .scoreboard-container {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            cursor: move;
+            z-index: 1000;
+        }
 
-				.tour-step.step-7 {
-					width: 83%;
-					padding: 10px;
-					left: 65%;
-					margin-left: -32%;
-					margin-top: -339px;
-				}
+        .scoreboard-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-				.tour-step.step-4 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-bottom: 53px;
-				}
+        .scoreboard {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-				.tour-step.step-5 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -119px;
-				}
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-				.tour-step.step-6 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -193px;
-				}
+        .player1-score {
+            background-color: rgba(255, 192, 203, 0.7);
+        }
 
-				.tour-step .step-8 {
-					top: 20%;
-					right: 59%;
-					margin-top: -32%;
-					width: 399px;
-					padding: 20px;
-				}
+        .player2-score {
+            background-color: rgba(173, 216, 230, 0.7);
+        }
 
-				.tour-step h3 {
-					font-size: 1em;
-				}
+        .player3-score {
+            background-color: rgba(144, 238, 144, 0.7);
+        }
 
-				.tour-step p {
-					font-size: 0.8em;
-				}
+        .player4-score {
+            background-color: rgba(255, 0, 255, 0.7);
+        }
 
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.8em;
-				}
+        .player5-score {
+            background-color: rgba(255, 255, 0, 0.7);
+        }
 
-				.tour-controls {
-					flex-direction: column;
-					gap: 3px;
-					margin-bottom: -15%;
-					margin-left: 8px;
-				}
+        .player6-score {
+            background-color: rgba(255, 165, 0, 0.7);
+        }
 
-				.circle-container {
-					display: none;
-				}
-			}
+        /* Tour */
+        #tour-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
 
-			#myVideo {
-				position: fixed;
-				right: 0;
-				bottom: 0;
-				min-width: 100%;
-				min-height: 100%;
-				z-index: -1;
-			}
+        .overlay-content ul {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .tour-step {
+            position: absolute;
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff0f5;
+            color: #000;
+            width: 314px;
+        }
+
+        .tour-step.step-1 {
+            top: 20%;
+            left: 40%;
+            margin-top: -268px;
+        }
+
+        .tour-step.step-2 {
+            top: 80%;
+            left: 15%;
+            margin-top: -16%;
+        }
+
+        .tour-step.step-3 {
+            top: 20%;
+            right: 59%;
+            margin-top: -32%;
+            width: 399px;
+            padding: 20px;
+        }
+
+        .tour-step.step-4 {
+            top: 20%;
+            right: 59%;
+            margin-top: -32%;
+            width: 399px;
+            padding: 20px;
+        }
+
+        .tour-step.step-5 {
+            bottom: 30%;
+            left: 14%;
+            margin-bottom: 230px;
+        }
+
+        .tour-step.step-6 {
+            top: 20%;
+            left: 37%;
+            margin-top: -74px;
+            width: 536px;
+        }
+
+        .tour-step.step-7 {
+            top: 20%;
+            left: 32%;
+            margin-top: -65px;
+            width: 392px;
+        }
+
+        .tour-controls {
+            position: absolute;
+            bottom: -40px;
+            width: 86%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tour-controls .button {
+            background-color: rgb(0, 166, 255);
+            color: white;
+            border: none;
+            padding: 5px 17px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tour-controls .button:hover {
+            background-color: rgb(69, 133, 254);
+        }
+
+        #prev-step {
+            background-color: rgb(255, 165, 0);
+        }
+
+        #skip-tour {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .overlay-content .button-container {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Responsive styles for tablets and mobile devices */
+        @media screen and (max-width: 768px) {
+            .tour-step {
+                width: 80%;
+                padding: 15px;
+            }
+
+            .tour-step h3 {
+                font-size: 1.2em;
+            }
+
+            .tour-step p {
+                font-size: 0.9em;
+            }
+
+            .tour-controls .button {
+                padding: 5px 10px;
+                font-size: 0.9em;
+            }
+
+            .tour-controls {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+
+            #timer-container {
+                position: fixed;
+                right: 146px;
+                top: 86%;
+                height: 70px;
+                width: 72px;
+                transform: translateY(-50%);
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 15px;
+                padding: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                z-index: 1000;
+                margin-right: -36vw;
+            }
+
+            #timer {
+                font-size: 33px;
+                font-weight: bold;
+                margin-top: -15px;
+                color: #333;
+            }
+
+            #timer-label {
+                font-size: 11px;
+                color: #666;
+                margin-top: -5px;
+            }
+
+            .game-wrapper {
+                margin-top: 150px !important;
+            }
+
+            .tour-step.step-1 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+            }
+
+            .tour-step.step-2 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -39px;
+            }
+
+            .tour-step.step-3 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -392px;
+            }
+
+            .tour-step.step-7 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -339px;
+            }
+
+            .tour-step.step-4 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-bottom: 53px;
+            }
+
+            .tour-step.step-5 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -119px;
+            }
+
+            .tour-step.step-6 {
+                width: 83%;
+                padding: 10px;
+                left: 41%;
+                margin-left: -32%;
+                margin-top: -193px;
+            }
+
+            .tour-step h3 {
+                font-size: 1em;
+            }
+
+            .tour-step p {
+                font-size: 0.8em;
+            }
+
+            .tour-controls .button {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+
+            .tour-controls {
+                flex-direction: column;
+                gap: 3px;
+                margin-bottom: -15%;
+                margin-left: 8px;
+
+                /* Responsive styles for tablets and mobile devices */
+                @media screen and (max-width: 768px) {
+                    .tour-step {
+                        width: 80%;
+                        padding: 15px;
+                    }
+
+                    .tour-step h3 {
+                        font-size: 1.2em;
+                    }
+
+                    .tour-step p {
+                        font-size: 0.9em;
+                    }
+
+                    .tour-controls .button {
+                        padding: 5px 10px;
+                        font-size: 0.9em;
+                    }
+
+                    .tour-controls {
+                        flex-direction: column;
+                        gap: 5px;
+                    }
+                }
+
+                @media screen and (max-width: 480px) {
+                    .tour-step.step-1 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                    }
+
+                    .tour-step.step-2 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                        margin-top: -39px;
+
+                    }
+
+                    .tour-step.step-3 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                        margin-top: -392px;
+                    }
+
+                    .tour-step.step-7 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 65%;
+                        margin-left: -32%;
+                        margin-top: -339px;
+                    }
+
+                    .tour-step.step-4 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                        margin-bottom: 53px;
+                    }
+
+                    .tour-step.step-5 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                        margin-top: -119px;
+                    }
+
+                    .tour-step.step-6 {
+                        width: 83%;
+                        padding: 10px;
+                        left: 41%;
+                        margin-left: -32%;
+                        margin-top: -193px;
+                    }
+
+                    .tour-step .step-8 {
+                        top: 20%;
+                        right: 59%;
+                        margin-top: -32%;
+                        width: 399px;
+                        padding: 20px;
+                    }
+
+                    .tour-step h3 {
+                        font-size: 1em;
+                    }
+
+                    .tour-step p {
+                        font-size: 0.8em;
+                    }
+
+                    .tour-controls .button {
+                        padding: 5px 10px;
+                        font-size: 0.8em;
+                    }
+
+                    .tour-controls {
+                        flex-direction: column;
+                        gap: 3px;
+                        margin-bottom: -15%;
+                        margin-left: 8px;
+                    }
+
+                    .circle-container {
+                        display: none;
+                    }
+                }
+
+                .circle-container {
+                    display: none;
+                }
+
+
+            }
+
+            #myVideo {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                z-index: -1;
+            }
 		</style>
 
 		<!-- Title of the game -->
@@ -650,105 +1025,103 @@
 		</div>
 
 		<!-- Game Tour -->
-		<div id="tour-overlay">
-			<div class="overlay-content">
-				<div class="tour-step step-1">
-					<h3>Game Tour</h3>
-					<p>
-						Welcome to the Dot-box game presented by Chrome Gaming! <br /><br />
-						Dot-Box is a game where players take turns drawing lines between
-						dots to create boxes. The player who completes the most boxes wins.
-						It's a simple yet strategic game enjoyed by people of all ages.
-						Click the "Next" button to start the tour.
-					</p>
-					<div class="tour-controls">
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+    <div id="tour-overlay">
+        <div class="overlay-content">
+            <div class="tour-step step-1">
+                <h3>Game Tour</h3>
+                <p>
+                    Welcome to the Dot-box game presented by Chrome Gaming! <br /><br />
+                    Dot-Box is a game where players take turns drawing lines between
+                    dots to create boxes. The player who completes the most boxes wins.
+                    It's a simple yet strategic game enjoyed by people of all ages.
+                    Click the "Next" button to start the tour.
+                </p>
+                <div class="tour-controls">
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-2">
-					<h3>Step 1</h3>
-					<p>
-						This is Game Board! This is where the game is displayed, Play here
-						by connecting the lines.
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-2">
+                <h3>Step 1</h3>
+                <p>
+                    This is Game Board! This is where the game is displayed, Play here
+                    by connecting the lines.
+                </p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-3">
-					<h3>Step 2</h3>
-					<p>
-						Here's where the player's score is displayed, Keep track of your
-						score as you play the game
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-3">
+                <h3>Step 2</h3>
+                <p>
+                    Here's where the player's score is displayed, Keep track of your
+                    score as you play the game
+                </p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-4">
-					<h3>Step 3</h3>
-					<p>Here you can see the player's turn indicator.</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-4">
+                <h3>Step 3</h3>
+                <p>Here you can see the player's turn indicator.</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-5">
-					<h3>Step 4</h3>
-					<p>
-						This is the live draggable scoreboard. Hold and move to your desired
-						place
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-5">
+                <h3>Step 4</h3>
+                <p>This is the live draggable scoreboard. Hold and move to your desired place</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-6">
-					<h3>Step 5</h3>
-					<p>This is the home button. Click to go back to the homepage.</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-6">
+                <h3>Step 5</h3>
+                <p>This is the home button. Click to go back to the homepage. Besides it there is a 30s timer for each
+                    player turn, you have to make a move before time gets up!</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-7">
-					<h3>Step 6</h3>
-					<p>
-						This is the sound toggle button. Click to mute/unmute the sound.
-						Besides it there is a reset/restart button.
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
+            <div class="tour-step step-7">
+                <h3>Step 6</h3>
+                <p>
+                    This is the sound toggle button. Click to mute/unmute the sound.
+                    Besides it there is a reset/restart button.
+                </p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="next-step" class="button">Next</button>
+                    <button id="skip-tour" class="button">Skip Tour</button>
+                </div>
+            </div>
 
-				<div class="tour-step step-8">
-					<h3>Step 7</h3>
-					<p>Now you are ready to start the game. Have fun!</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="close-tour" class="button">Close Tour</button>
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="tour-step step-1">
+                <h3>Step 7</h3>
+                <p>Now you are ready to start the game. Have fun!</p>
+                <div class="tour-controls">
+                    <button id="prev-step" class="button">Previous</button>
+                    <button id="close-tour" class="button">Close Tour</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 		<!-- tour steps -->
 		<script>
