@@ -22,526 +22,497 @@
 			type="image/x-icon"
 		/>
 		<style>
-			  .back-home:visited {
-			    color: white;
-			  }
-
-			  .button-container {
-			    display: flex;
-			    justify-content: center;
-			    gap: 10px;
-			    margin-top: 20px;
-			  }
-
-			  .button-container button,
-			  .button-container a {
-			    background-color: rgb(0, 166, 255);
-			    color: white;
-			    border: none;
-			    padding: 13px 13px;
-			    font-size: 14px;
-			    cursor: pointer;
-			    border-radius: 50%;
-			    display: flex;
-			    align-items: center;
-			    justify-content: center;
-			    text-decoration: none;
-			    position: relative;
-			    transition: background-color 0.3s ease;
-			  }
-
-			  .button-container #sound-toggle {
-			    background-color: rgb(12, 1, 1);
-			    border-radius: 4px;
-			    padding: 10px 20px;
-			  }
-
-			  .button-container svg {
-			    width: 30px;
-			    height: 30px;
-			    fill: white;
-			  }
-
-			  .button-container a {
-			    text-decoration: none;
-			  }
-
-			  .button-container button:hover,
-			  .button-container a:hover {
-			    background-color: rgb(69, 133, 254);
-			  }
-
-			  .button-container #sound-toggle:hover {
-			    background-color: rgb(21, 39, 77);
-			  }
-
-			  .button-container [title]:hover::after {
-			    opacity: 1;
-			  }
-
-			   .circle {
-			     position: absolute;
-			     width: 25px;
-			     height: 25px;
-			     border-radius: 50%;
-			     pointer-events: none;
-			     background: radial-gradient(circle, #ff6600, #ffb584a5);
-			     transition: transform 0.1s, left 0.1s, top 0.1s;
-			   }
-
-			  .circle-container {
-			    position: fixed;
-			    top: 0;
-			    left: 0;
-			    width: 100%;
-			    height: 100%;
-			    pointer-events: none;
-			    z-index: 99999;
-			  }
-
-			  /* Timer */
-			  #timer-container {
-			    position: fixed;
-			    right: 20px;
-			    top: 50%;
-			    transform: translateY(-50%);
-			    background-color: rgba(255, 255, 255, 0.9);
-			    border-radius: 15px;
-			    padding: 20px;
-			    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			    text-align: center;
-			    z-index: 1000;
-			    margin-right: 10vw;
-			  }
-
-			  #timer {
-			    font-size: 48px;
-			    font-weight: bold;
-			    color: #333;
-			  }
-
-			  #timer-label {
-			    font-size: 18px;
-			    color: #666;
-			    margin-top: 10px;
-			  }
-			  /* Score board */
-			  .game-wrapper {
-			    position: relative;
-			    display: flex;
-			    justify-content: center;
-			    align-items: flex-start;
-			    padding: 20px;
-			  }
-
-			  .game-container {
-			    display: flex;
-			    justify-content: center;
-			    align-items: center;
-			    width: 100%;
-			  }
-
-			  .scoreboard-container {
-			    position: absolute;
-			    left: 20px;
-			    top: 20px;
-			    background-color: rgba(255, 255, 255, 0.9);
-			    border-radius: 15px;
-			    padding: 20px;
-			    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			    width: 250px;
-			    cursor: move;
-			    z-index: 1000;
-			  }
-
-			  .scoreboard-container h2 {
-			    text-align: center;
-			    margin-bottom: 20px;
-			    color: #333;
-			  }
-
-			  .scoreboard {
-			    display: flex;
-			    flex-direction: column;
-			    gap: 15px;
-			  }
-
-			  .score {
-			    font-size: 22px;
-			    font-weight: bold;
-			    padding: 15px;
-			    border-radius: 10px;
-			    text-align: center;
-			    display: flex;
-			    justify-content: space-between;
-			    align-items: center;
-			  }
-
-			  .player1-score {
-			    background-color: rgba(255, 192, 203, 0.7);
-			  }
-			  .player2-score {
-			    background-color: rgba(173, 216, 230, 0.7);
-			  }
-			  .player3-score {
-			    background-color: rgba(144, 238, 144, 0.7);
-			  }
-			  .player4-score {
-			    background-color: rgba(255, 0, 255, 0.7);
-			  }
-			  .player5-score {
-			    background-color: rgba(255, 255, 0, 0.7);
-			  }
-			  .player6-score {
-			    background-color: rgba(255, 165, 0, 0.7);
-			  }
-
-			  /* Tour */
-			  #tour-overlay {
-			    position: fixed;
-			    top: 0;
-			    left: 0;
-			    width: 100%;
-			    height: 100%;
-			    background: rgba(0, 0, 0, 0.3);
-			    display: none;
-			    align-items: center;
-			    justify-content: center;
-			    z-index: 10000;
-			  }
-
-			  .overlay-content ul {
-			    text-align: left;
-			    margin: 20px 0;
-			  }
-
-			  .tour-step {
-			    position: absolute;
-			    display: none;
-			    padding: 20px;
-			    border-radius: 8px;
-			    background: #fff0f5;
-			    color: #000;
-			    width: 314px;
-			  }
-
-			  .tour-step.step-1 {
-			    top: 20%;
-			    left: 40%;
-			    margin-top: -268px;
-			  }
-
-			  .tour-step.step-2 {
-			    top: 80%;
-			    left: 15%;
-			    margin-top: -16%;
-			  }
-
-			  .tour-step.step-3 {
-			    top: 20%;
-			    right: 59%;
-			    margin-top: -32%;
-			    width: 399px;
-			    padding: 20px;
-			  }
-
-			  .tour-step.step-4 {
-			    bottom: 30%;
-			    left: 58%;
-			    margin-bottom: -94px;
-			  }
-
-			  .tour-step.step-5 {
-			    top: 20%;
-			    left: 34%;
-			    margin-top: -67px;
-			    width: 340px;
-			  }
-
-			  .tour-step.step-6 {
-			    top: 20%;
-			    left: 37%;
-			    margin-top: -201px;
-			    width: 392px;
-			  }
-
-			  .tour-step.step-7 {
-			    top: 20%;
-			    right: 58%;
-			    margin-top: -31%;
-			    width: 399px;
-			    padding: 20px;
-			  }
-
-			  .tour-controls {
-			    position: absolute;
-			    bottom: -40px;
-			    width: 86%;
-			    display: flex;
-			    justify-content: center;
-			    gap: 10px;
-			  }
-
-			  .tour-controls .button {
-			    background-color: rgb(0, 166, 255);
-			    color: white;
-			    border: none;
-			    padding: 5px 17px;
-			    border-radius: 4px;
-			    cursor: pointer;
-			    transition: background-color 0.3s ease;
-			  }
-
-			  .tour-controls .button:hover {
-			    background-color: rgb(69, 133, 254);
-			  }
-
-			  #prev-step {
-			    background-color: rgb(255, 165, 0);
-			  }
-
-			  #skip-tour {
-			    background-color: rgb(255, 0, 0);
-			  }
-
-			  .overlay-content .button-container {
-			    position: absolute;
-			    bottom: 10px;
-			    width: 100%;
-			    display: flex;
-			    justify-content: center;
-			    gap: 10px;
-			  }
-
-			  /* Responsive styles for tablets and mobile devices */
-			  @media screen and (max-width: 768px) {
-			    .tour-step {
-			      width: 80%;
-			      padding: 15px;
-			    }
-
-			    .tour-step h3 {
-			      font-size: 1.2em;
-			    }
-
-			    .tour-step p {
-			      font-size: 0.9em;
-			    }
-
-			    .tour-controls .button {
-			      padding: 5px 10px;
-			      font-size: 0.9em;
-			    }
-
-			    .tour-controls {
-			      flex-direction: column;
-			      gap: 5px;
-			    }
-			  }
-
-			  @media screen and (max-width: 480px) {
-			    .tour-step.step-1 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			    }
-
-			    .tour-step.step-2 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-top: -39px;
-			    }
-
-			    .tour-step.step-3 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-top: -392px;
-			    }
-
-			    .tour-step.step-7 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-top: -339px;
-			    }
-
-			    .tour-step.step-4 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-bottom: 53px;
-			    }
-
-			    .tour-step.step-5 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-top: -119px;
-			    }
-
-			    .tour-step.step-6 {
-			      width: 83%;
-			      padding: 10px;
-			      left: 41%;
-			      margin-left: -32%;
-			      margin-top: -193px;
-			    }
-
-			    .tour-step h3 {
-			      font-size: 1em;
-			    }
-
-			    .tour-step p {
-			      font-size: 0.8em;
-			    }
-
-			    .tour-controls .button {
-			      padding: 5px 10px;
-			      font-size: 0.8em;
-			    }
-
-			    .tour-controls {
-			      flex-direction: column;
-			      gap: 3px;
-			      margin-bottom: -15%;
-			      margin-left: 8px;
-			    /* Responsive styles for tablets and mobile devices */
-			    @media screen and (max-width: 768px) {
-			        .tour-step {
-			            width: 80%;
-			            padding: 15px;
-			        }
-
-			        .tour-step h3 {
-			            font-size: 1.2em;
-			        }
-
-			        .tour-step p {
-			            font-size: 0.9em;
-			        }
-
-			        .tour-controls .button {
-			            padding: 5px 10px;
-			            font-size: 0.9em;
-			        }
-
-			        .tour-controls {
-			            flex-direction: column;
-			            gap: 5px;
-			        }
-			    }
-
-			    @media screen and (max-width: 480px) {
-			        .tour-step.step-1 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			        }
-
-			        .tour-step.step-2 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			            margin-top: -39px;
-
-			        }
-
-			        .tour-step.step-3 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			            margin-top: -392px;
-			        }
-
-			        .tour-step.step-7 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 65%;
-			            margin-left: -32%;
-			            margin-top: -339px;
-			        }
-
-			        .tour-step.step-4 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			            margin-bottom: 53px;
-			        }
-
-			        .tour-step.step-5 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			            margin-top: -119px;
-			        }
-
-			        .tour-step.step-6 {
-			            width: 83%;
-			            padding: 10px;
-			            left: 41%;
-			            margin-left: -32%;
-			            margin-top: -193px;
-			        }
-
-			        .tour-step .step-8 {
-			            top: 20%;
-			right: 59%;
-			margin-top: -32%;
-			width: 399px;
-			padding: 20px;
-			        }
-
-			.tour-step h3 {
-				font-size: 1em;
+			.back-home:visited {
+				color: white;
 			}
 
-			.tour-step p {
-				font-size: 0.8em;
+			.button-container {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+				margin-top: 20px;
+			}
+
+			.button-container button,
+			.button-container a {
+				background-color: rgb(0, 166, 255);
+				color: white;
+				border: none;
+				padding: 13px 13px;
+				font-size: 14px;
+				cursor: pointer;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				position: relative;
+				transition: background-color 0.3s ease;
+			}
+
+			.button-container #sound-toggle {
+				background-color: rgb(12, 1, 1);
+				border-radius: 4px;
+				padding: 10px 20px;
+			}
+
+			.button-container svg {
+				width: 30px;
+				height: 30px;
+				fill: white;
+			}
+
+			.button-container a {
+				text-decoration: none;
+			}
+
+			.button-container button:hover,
+			.button-container a:hover {
+				background-color: rgb(69, 133, 254);
+			}
+
+			.button-container #sound-toggle:hover {
+				background-color: rgb(21, 39, 77);
+			}
+
+			.button-container [title]:hover::after {
+				opacity: 1;
+			}
+
+			.circle {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				pointer-events: none;
+				background: radial-gradient(circle, #ff6600, #ffb584a5);
+				transition: transform 0.1s, left 0.1s, top 0.1s;
+			}
+
+			.circle-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 99999;
+			}
+
+			/* Timer */
+			#timer-container {
+				position: fixed;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				background-color: rgba(255, 255, 255, 0.9);
+				border-radius: 15px;
+				padding: 20px;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+				text-align: center;
+				z-index: 1000;
+				margin-right: 10vw;
+			}
+
+			#timer {
+				font-size: 48px;
+				font-weight: bold;
+				color: #333;
+			}
+
+			#timer-label {
+				font-size: 18px;
+				color: #666;
+				margin-top: 10px;
+			}
+			/* Score board */
+			.game-wrapper {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+				padding: 20px;
+			}
+
+			.game-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
+
+			.scoreboard-container {
+				position: absolute;
+				left: 20px;
+				top: 20px;
+				background-color: rgba(255, 255, 255, 0.9);
+				border-radius: 15px;
+				padding: 20px;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+				width: 250px;
+				cursor: move;
+				z-index: 1000;
+			}
+
+			.scoreboard-container h2 {
+				text-align: center;
+				margin-bottom: 20px;
+				color: #333;
+			}
+
+			.scoreboard {
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
+
+			.score {
+				font-size: 22px;
+				font-weight: bold;
+				padding: 15px;
+				border-radius: 10px;
+				text-align: center;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.player1-score {
+				background-color: rgba(255, 192, 203, 0.7);
+			}
+			.player2-score {
+				background-color: rgba(173, 216, 230, 0.7);
+			}
+			.player3-score {
+				background-color: rgba(144, 238, 144, 0.7);
+			}
+			.player4-score {
+				background-color: rgba(255, 0, 255, 0.7);
+			}
+			.player5-score {
+				background-color: rgba(255, 255, 0, 0.7);
+			}
+			.player6-score {
+				background-color: rgba(255, 165, 0, 0.7);
+			}
+
+			/* Tour */
+			#tour-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+				display: none;
+				align-items: center;
+				justify-content: center;
+				z-index: 10000;
+			}
+
+			.overlay-content ul {
+				text-align: left;
+				margin: 20px 0;
+			}
+
+			.tour-step {
+				position: absolute;
+				display: none;
+				padding: 20px;
+				border-radius: 8px;
+				background: #fff0f5;
+				color: #000;
+				width: 314px;
+			}
+
+			.tour-step.step-1 {
+				top: 20%;
+				left: 40%;
+				margin-top: -268px;
+			}
+
+			.tour-step.step-2 {
+				top: 80%;
+				left: 15%;
+				margin-top: -16%;
+			}
+
+			.tour-step.step-3 {
+				top: 20%;
+				right: 59%;
+				margin-top: -32%;
+				width: 399px;
+				padding: 20px;
+			}
+
+			.tour-step.step-4 {
+				bottom: 30%;
+				left: 58%;
+				margin-bottom: -94px;
+			}
+
+			.tour-step.step-5 {
+				top: 20%;
+				left: 34%;
+				margin-top: -67px;
+				width: 340px;
+			}
+
+			.tour-step.step-6 {
+				top: 20%;
+				left: 37%;
+				margin-top: -201px;
+				width: 392px;
+			}
+
+			.tour-step.step-7 {
+				top: 20%;
+				right: 58%;
+				margin-top: -31%;
+				width: 399px;
+				padding: 20px;
+			}
+
+			.tour-controls {
+				position: absolute;
+				bottom: -40px;
+				width: 86%;
+				display: flex;
+				justify-content: center;
+				gap: 10px;
 			}
 
 			.tour-controls .button {
-				padding: 5px 10px;
-				font-size: 0.8em;
+				background-color: rgb(0, 166, 255);
+				color: white;
+				border: none;
+				padding: 5px 17px;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
 			}
 
-			        .tour-controls {
-			            flex-direction: column;
-			            gap: 3px;
-			            margin-bottom: -15%;
-			            margin-left: 8px;
-			        }
+			.tour-controls .button:hover {
+				background-color: rgb(69, 133, 254);
+			}
 
-			        .circle-container {
-			            display: none;
-			        }
-			    }
+			#prev-step {
+				background-color: rgb(255, 165, 0);
+			}
 
-			    .circle-container {
-			      display: none;
-			    }
-			  }
+			#skip-tour {
+				background-color: rgb(255, 0, 0);
+			}
 
-			  #myVideo {
-			    position: fixed;
-			    right: 0;
-			    bottom: 0;
-			    min-width: 100%;
-			    min-height: 100%;
-			    z-index: -1;
-			  }
+			.overlay-content .button-container {
+				position: absolute;
+				bottom: 10px;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+			}
+
+			@media screen and (max-width: 480px) {
+				.tour-step.step-1 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+				}
+
+				.tour-step.step-2 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -39px;
+				}
+
+				.tour-step.step-3 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -392px;
+				}
+
+				.tour-step.step-7 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -339px;
+				}
+
+				.tour-step.step-4 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-bottom: 53px;
+				}
+
+				.tour-step.step-5 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -119px;
+				}
+
+				.tour-step.step-6 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -193px;
+				}
+
+				.tour-step h3 {
+					font-size: 1em;
+				}
+
+				.tour-step p {
+					font-size: 0.8em;
+				}
+
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.8em;
+				}
+
+				.tour-controls {
+					flex-direction: column;
+					gap: 3px;
+					margin-bottom: -15%;
+					margin-left: 8px;
+				}
+			}
+
+			/* Responsive styles for tablets and mobile devices */
+			@media screen and (max-width: 768px) {
+				.tour-step {
+					width: 80%;
+					padding: 15px;
+				}
+
+				.tour-step h3 {
+					font-size: 1.2em;
+				}
+
+				.tour-step p {
+					font-size: 0.9em;
+				}
+
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.9em;
+				}
+
+				.tour-controls {
+					flex-direction: column;
+					gap: 5px;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.tour-step.step-1 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+				}
+
+				.tour-step.step-2 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -39px;
+				}
+
+				.tour-step.step-3 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -392px;
+				}
+
+				.tour-step.step-7 {
+					width: 83%;
+					padding: 10px;
+					left: 65%;
+					margin-left: -32%;
+					margin-top: -339px;
+				}
+
+				.tour-step.step-4 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-bottom: 53px;
+				}
+
+				.tour-step.step-5 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -119px;
+				}
+
+				.tour-step.step-6 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -193px;
+				}
+
+				.tour-step .step-8 {
+					top: 20%;
+					right: 59%;
+					margin-top: -32%;
+					width: 399px;
+					padding: 20px;
+				}
+
+				.tour-step h3 {
+					font-size: 1em;
+				}
+
+				.tour-step p {
+					font-size: 0.8em;
+				}
+
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.8em;
+				}
+
+				.tour-controls {
+					flex-direction: column;
+					gap: 3px;
+					margin-bottom: -15%;
+					margin-left: 8px;
+				}
+
+				.circle-container {
+					display: none;
+				}
+			}
+
+			#myVideo {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%;
+				min-height: 100%;
+				z-index: -1;
+			}
 		</style>
 
 		<!-- Title of the game -->
@@ -658,8 +629,7 @@
 		</div>
 
 		<div class="button-container">
-			<button id="sound-toggle" title="Toggle Sound">Sound Off</button>
-			<button id="music-toggle" title="Toggle Music">Music Off</button>
+			<button id="sound-toggle" title="Toggle Sound">Music Off</button>
 
 			<a href="../pages/game.html" id="reset-button" title="Reset Game">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -797,112 +767,53 @@
 				let currentStep = 0;
 			});
 
-			const showStep = (index) => {
-				tourSteps.forEach((step, i) => {
-					step.style.display = i === index ? "block" : "none";
-				});
-			};
-
-			const nextStep = () => {
-				if (currentStep < tourSteps.length - 1) {
-					currentStep++;
-					showStep(currentStep);
-				}
-			};
-
-			const prevStep = () => {
-				if (currentStep > 0) {
-					currentStep--;
-					showStep(currentStep);
-				}
-			};
-
-			const skipTour = () => {
-				document.getElementById("tour-overlay").style.display = "none";
-			};
-
-			const closeTour = () => {
-				document.getElementById("tour-overlay").style.display = "none";
-			};
-
-			document.querySelectorAll("#next-step").forEach((button) => {
-				button.addEventListener("click", nextStep);
-			});
-
-			document.querySelectorAll("#prev-step").forEach((button) => {
-				button.addEventListener("click", prevStep);
-			});
-		</script>
-		<button id="sound-toggle">
-			<svg
-				id="sound-icon"
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-			>
-				<path
-					d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z"
-				/>
-			</svg>
-		</button>
-
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const soundToggle = document.getElementById("sound-toggle");
-				const soundIcon = document.getElementById("sound-icon");
-				const bgMusic = new Audio("/assets/sounds/bgMusic.mp3");
-				const clickSound = new Audio("/assets/sounds/click.mp3");
-
-				bgMusic.loop = true;
-
-				// Play background music by default and set the initial icon
-				bgMusic
-					.play()
-					.then(() => {
-						soundIcon.innerHTML =
-							'<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-					})
-					.catch((error) => {
-						console.error("Audio playback failed:", error);
+				const showStep = (index) => {
+					tourSteps.forEach((step, i) => {
+						step.style.display = i === index ? "block" : "none";
 					});
+				};
 
-				soundToggle.addEventListener("click", () => {
-					if (bgMusic.paused || bgMusic.volume === 0) {
-						bgMusic.play();
-						bgMusic.volume = 1; // Ensure volume is set back to normal
-						soundIcon.innerHTML =
-							'<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12z" />';
-					} else {
-						bgMusic.pause();
-						bgMusic.currentTime = 0; // Reset the audio to the beginning
-						bgMusic.volume = 0; // Set the volume to 0
-						soundIcon.innerHTML =
-							'<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 2.89-1.54 5.38-3.86 6.71l1.43 1.43C19.16 18.84 21 15.61 21 12s-1.84-6.84-4.43-8.14l-1.43 1.43C17.46 6.62 19 9.11 19 12zM3.27 2L2 3.27 5.73 7H3v10h4l5 5V12.73l3 3V20h.73l3.73 3.73 1.27-1.27L3.27 2z" />';
+				const nextStep = () => {
+					if (currentStep < tourSteps.length - 1) {
+						currentStep++;
+						showStep(currentStep);
 					}
+				};
+
+				const prevStep = () => {
+					if (currentStep > 0) {
+						currentStep--;
+						showStep(currentStep);
+					}
+				};
+
+				const skipTour = () => {
+					document.getElementById("tour-overlay").style.display = "none";
+				};
+
+				const closeTour = () => {
+					document.getElementById("tour-overlay").style.display = "none";
+				};
+
+				document.querySelectorAll("#next-step").forEach((button) => {
+					button.addEventListener("click", nextStep);
 				});
 
-				// Example function to play click sound
-				function playClickSound() {
-					clickSound.currentTime = 0; // Reset to start
-					clickSound.play();
-				}
-
-				// Attach the click sound effect to relevant elements
-				const clickableElements = document.querySelectorAll(".clickable");
-				clickableElements.forEach((element) => {
-					element.addEventListener("click", playClickSound);
+				document.querySelectorAll("#prev-step").forEach((button) => {
+					button.addEventListener("click", prevStep);
 				});
-			});
 
-			document.querySelectorAll("#skip-tour").forEach((button) => {
-				button.addEventListener("click", skipTour);
-			});
+				document.querySelectorAll("#skip-tour").forEach((button) => {
+					button.addEventListener("click", skipTour);
+				});
 
-			document.querySelectorAll("#close-tour").forEach((button) => {
-				button.addEventListener("click", closeTour);
-			});
+				document.querySelectorAll("#close-tour").forEach((button) => {
+					button.addEventListener("click", closeTour);
+				});
 
-			document.getElementById("tour-overlay").style.display = "flex";
-			showStep(currentStep);
+				document.getElementById("tour-overlay").style.display = "flex";
+				showStep(currentStep);
+			});
 		</script>
 	</body>
 </html>

@@ -10,7 +10,7 @@ var players_dict = [
 class Game {
 	static instance; // Singleton instance of Game class
 
-	constructor(rows, columns, playersInfo) {
+	constructor(rows, columns, playersCount) {
 		if (Game.instance == null) Game.instance = this;
 
 		this.playersUI = document.querySelector(".players");
@@ -362,11 +362,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
-	const storedTheme = localStorage.getItem("selectedTheme");
-	const video = document.getElementById("myVideo");
-	video.src = `/assets/videos/${storedTheme}.mp4`;
 
-	const musicToggleBtn = document.getElementById("music-toggle");
+	const musicToggleBtn = document.getElementById("sound-toggle");
 	musicToggleBtn.addEventListener("click", () => {
 		if (bgMusic.paused) {
 			bgMusic.play();
@@ -462,3 +459,91 @@ playBtn.addEventListener("click", () => {
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	game = new Game(rows, columns, playersInfo);
 });
+
+function showPlayerTextBox() {
+	playersCount = Number(document.getElementById("players-count").value);
+
+	console.log(playersCount);
+
+	var settingsElements = document.getElementsByClassName("PlayerTextBox");
+	settingsElements[0].style.display = "flex";
+
+	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+	for (var i = 0; i < PlayerNamesElements.length; i++) {
+		PlayerNamesElements[i].style.display = "none";
+	}
+
+	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
+	for (var i = 0; i < playersCount; i++) {
+		PlayerNamesElements[i].style.display = "flex";
+	}
+
+	hideInstructions();
+}
+
+// readyBtn.addEventListener("click", () => {
+// 	const playersCount = calculate(playersInput.value, 2, 6);
+// 	bgMusic.volume = 0.1;
+// 	bgMusic.play();
+// 	showPlayerTextBox(playersCount);
+// });
+
+function startGame() {
+	const rows = calculate(rowsInput.value, 5, 30);
+	const columns = calculate(columnsInput.value, 5, 30);
+	const playersCount = calculate(playersInput.value, 2, 6);
+
+	// for (let i = 0; i < playersCount; i++) {
+	//     const playerNum = i + 1;
+	//     const playerId = "#player" + playerNum;
+	//     const playerInput = document.querySelector(playerId);
+
+	//     if (playerInput) {
+	//         players_dict[i].name = playerInput.value;
+	//     }
+	// }
+
+	try {
+		players_dict[0].name = document.querySelector("#player1").value;
+		players_dict[1].name = document.querySelector("#player2").value;
+		players_dict[2].name = document.querySelector("#player3").value;
+		players_dict[3].name = document.querySelector("#player4").value;
+		players_dict[4].name = document.querySelector("#player5").value;
+		players_dict[5].name = document.querySelector("#player6").value;
+	} catch (TypeError) {}
+
+	try {
+		localStorage.setItem("NameChanged", "yes");
+		localStorage.setItem("name1", players_dict[0].name);
+		localStorage.setItem("name2", players_dict[1].name);
+		localStorage.setItem("name3", players_dict[2].name);
+		localStorage.setItem("name4", players_dict[3].name);
+		localStorage.setItem("name5", players_dict[4].name);
+		localStorage.setItem("name6", players_dict[5].name);
+	} catch (TypeError) {}
+
+	printDict();
+
+	// Store the updated players_dict and game settings in localStorage
+	// localStorage.setItem('players_dicts', JSON.stringify(players_dict));
+	// localStorage.setItem('game_settings', JSON.stringify({ rows, columns, playersCount }));
+
+	game = new Game(rows, columns, playersCount);
+	window.location.href = "./pages/game.html";
+	game.makeBoard(rows, columns);
+	settingsUI.style.display = "none";
+	heading.style.display = "none";
+}
+
+function hideInstructions() {
+	console.log("Inside Hide Instructs");
+	document.getElementById("instructions").style.display = "none";
+}
+
+function hidePlayerTextBox() {
+	document.getElementsByClassName("settings").style.visibility = "visible";
+}
+
+function printDict() {
+	console.log("Here's the", players_dict);
+}
