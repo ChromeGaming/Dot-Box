@@ -193,7 +193,7 @@ class Game {
                 <span>${player.name}</span>
                 <span id="player${index + 1}-score">0</span>
             `;
-			scoreDiv.style.backgroundColor = player.color;
+			// scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
 	}
