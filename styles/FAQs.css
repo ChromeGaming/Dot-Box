@@ -1,6 +1,6 @@
 /* General Body Styles */
 body {
-    background-color: #e7b537; /* New background color */
+    background: linear-gradient(135deg, #f7b42c, #fc575e); /* Gradient background from orange to pink */
     margin: 0;
     padding: 0;
     font-family: 'WorkSans-Regular', Arial, sans-serif;
@@ -10,6 +10,7 @@ body {
     overflow: auto !important;
 }
 
+/* FAQ Container Styles */
 .faqcontainer {
     background-color: white;
     border-radius: 10px;
@@ -17,9 +18,9 @@ body {
     max-width: 600px;
     width: 90%;
     box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-    margin: 100px auto 20px; /* Increased margin-top to avoid content being hidden under navbar */
+    margin: 100px auto 20px;
     flex: 1;
-    z-index: 0; /* Ensure it's below the fixed elements */
+    z-index: 0;
 }
 
 /* Heading Styles */
@@ -27,6 +28,10 @@ h1 {
     font-family: 'WorkSans-Bold', Arial, sans-serif;
     display: flex;
     align-items: center;
+}
+
+h1:hover{
+    text-shadow:#ca2cff !important;
 }
 
 /* FAQ Image Styles */
@@ -39,14 +44,18 @@ h1 {
     font-family: 'WorkSans-SemiBold', Arial, sans-serif;
     padding: 20px;
     font-size: 1.25rem; /* 20px */
-    border-bottom: 0.5px solid rgb(243, 218, 171);
-    transition: background-color 0.3s, transform 0.3s;
+    border-bottom: 0.5px solid rgba(243, 218, 171, 0.5);
+    background: linear-gradient(135deg, #f7f7f7, #eaeaea); /* Subtle gradient for questions */
+    transition: background-color 0.3s, transform 0.3s, text-shadow 0.3s; /* Added text-shadow transition */
+    border-radius: 8px;
 }
 
 /* Hover Effect */
 .question:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.06);
+    background: linear-gradient(135deg, #ffbff2, #d34eff); /* Bright gradient on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    border-radius: 12px; /* Slight rounding for emphasis */
+    text-shadow: 2px 2px 5px rgba(255, 114, 79, 0.844); /* Text shadow effect on hover */
 }
 
 /* Summary Styles */
@@ -54,10 +63,11 @@ h1 {
     cursor: pointer;
     padding: 7px;
     transition: color 0.3s;
+    outline: none; /* Remove default focus outline */
 }
 
 .question summary:hover {
-    color: #555353;
+    color: #333; /* Darker text on hover */
 }
 
 .question summary img {
@@ -66,13 +76,19 @@ h1 {
 }
 
 .question summary:hover img {
-    transform: rotate(90deg);
+    transform: rotate(90deg); /* Rotate icon on hover */
 }
 
+/* Answer Styles */
 .question p {
     font-family: 'WorkSans-Regular', Arial, sans-serif;
     font-size: 1.0625rem; /* 17px */
-    color: #767676;
+    color: #555; /* Slightly darker text */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 /* Remove bottom-background video styles */
