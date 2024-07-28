@@ -27,7 +27,7 @@ body {
 .instructions-container h1 {
     margin-bottom: 20px;
     color: #25254a;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .instructions-container p,
@@ -44,12 +44,17 @@ body {
 
 .instructions-container strong{
     color: #25254a;
-    font-size: 26px;
+    font-size: 22px;
     text-decoration: underline;
 }
 
 .instructions-container ol strong {
     font-weight: 800;
+}
+
+.heading2{
+    font-size: 29px;
+    text-align: center;
 }
 
 .gameplay-container {
