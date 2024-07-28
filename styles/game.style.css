@@ -297,9 +297,130 @@ body {
 }
 
 #playerForm {
+	height: 85%;
+	width: 90%;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	background: rgba(214, 0, 0, 0.329);
+	/* box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829); */
 	transition: background-color 0.5s ease;
 }
 
-#playerForm:hover {
-	background: rgba(236, 66, 109, 0.329);
+#playerInputs {
+	width: 100%;
+	height: 80%;
+	padding: 20px;
+	border-radius: 12px;
+	font-family: monospace;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.player-input {
+	width: 30%;
+	margin-bottom: 1rem;
+}
+
+.player-input label {
+	display: block;
+	color: #6b7280;
+	font-size: 0.875rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.player-input input {
+	font-size: 0.875rem;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid #d1d5db;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+	background-color: #f3f4f6;
+}
+
+.player-input input:focus {
+	transform: translateY(-1px);
+	outline: 2px solid #60a5fa;
+}
+
+.player-input input:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-color: #60a5fa;
+}
+
+/* Play Button  */
+#play-btn {
+	cursor: pointer;
+	padding: 15px 40px 15px 40px;
+	border-radius: 10px;
+	border-style: double;
+	font-weight: 600;
+	background-image: linear-gradient(
+		rgb(54, 53, 53),
+		rgb(0, 0, 0),
+		rgb(54, 54, 54)
+	);
+	color: rgb(164, 164, 162);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border-color: rgb(0, 0, 0);
+	transition: 400ms;
+	margin: 0 5px;
+}
+
+#play-btn:hover {
+	transition: 400ms;
+	border-style: double;
+	border-color: rgb(208, 207, 207);
+	color: rgb(219, 216, 216);
+	font-size: 16px;
+	text-shadow: 1px 10px 5px rgb(61, 61, 61);
+	margin: 0;
+}
+
+/* Back Button */
+#back-btn {
+	display: flex;
+	height: 3em;
+	width: 100px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	transition: all 0.2s linear;
+	cursor: pointer;
+	border: none;
+	color: #000;
+	background: #fff;
+}
+
+#back-btn > svg {
+	margin-right: 5px;
+	margin-left: 5px;
+	font-size: 20px;
+	transition: all 0.4s ease-in;
+}
+
+#back-btn:hover > svg {
+	font-size: 1.2em;
+	transform: translateX(-5px);
+}
+
+#back-btn:hover {
+	box-shadow: 9px 9px 22px #555, -9px -9px 22px #555;
+	transform: translateY(-2px);
+}
+
+#btn-contain {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
+	gap: 3rem;
 }

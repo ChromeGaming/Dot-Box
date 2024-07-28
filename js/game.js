@@ -193,6 +193,7 @@ class Game {
                 <span>${player.name}</span>
                 <span id="player${index + 1}-score">0</span>
             `;
+			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
 	}
@@ -321,8 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const playersCount = calculate(playersInput, 2, 6);
 	renderPlayerInputs(playersCount);
 
-	game = new Game(rows, columns, playersCount);
-	game.makeBoard(rows, columns);
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
@@ -345,7 +344,7 @@ function calculate(value, min, max) {
 
 function renderPlayerInputs(count) {
 	const playerInputsDiv = document.getElementById("playerInputs");
-	playerInputsDiv.innerHTML = ""; // Clear existing inputs
+	playerInputsDiv.innerHTML = "";
 	const colors = [
 		"pink",
 		"skyblue",
@@ -360,7 +359,6 @@ function renderPlayerInputs(count) {
 		div.innerHTML = `
 			<label for="playerName${i}">Player ${i} Name:</label>
 			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}">
-			<label for="playerColor${i}">Color:</label>
 			<select id="playerColor${i}" onchange="validateColors()">
 			${colors
 				.map(
@@ -418,12 +416,3 @@ playBtn.addEventListener("click", () => {
 	settingsUI.style.display = "none";
 	heading.style.display = "none";
 });
-
-function hideInstructions() {
-	console.log("Inside Hide Instructs");
-	document.getElementById("instructions").style.display = "none";
-}
-
-function hidePlayerTextBox() {
-	document.getElementsByClassName("settings").style.visibility = "visible";
-}
