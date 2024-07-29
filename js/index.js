@@ -3,13 +3,14 @@ let columns = document.querySelector("#columns");
 let players = document.querySelector("#players-count");
 let startBtn = document.querySelector("#start-btn");
 let selectedTheme = 1;
+let selectedDifficulty = "Easy";
 
 startBtn.addEventListener("click", function () {
 	localStorage.setItem("rows", rows.value);
 	localStorage.setItem("columns", columns.value);
 	localStorage.setItem("players", players.value);
 	localStorage.setItem("selectedTheme", selectedTheme);
-	console.log(selectedTheme);
+	localStorage.setItem("selectedDifficulty", selectedDifficulty);
 });
 document.addEventListener("DOMContentLoaded", function () {
 	// Add event listener for the reset button
@@ -46,4 +47,12 @@ const themeSelect = document.getElementById("theme-select");
 themeSelect.addEventListener("change", () => {
 	selectedTheme = themeSelect.value;
 	video.src = `/assets/videos/${selectedTheme}.mp4`; // Update video source based on theme
+});
+
+const difficulty = document.querySelectorAll(".d-type");
+
+difficulty.forEach((item) => {
+	item.addEventListener("click", () => {
+		selectedDifficulty = item.innerText;
+	});
 });
