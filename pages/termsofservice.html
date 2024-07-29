@@ -1,275 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Terms Of Service - Dot Box</title>
+		<link rel="stylesheet" href="../styles/mainstyle.css" />
+		<link rel="stylesheet" href="../styles/termsofservice.css" />
+		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+		<script src="/js/loader.js"></script>
+	</head>
+	<style>
+		.circle {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			pointer-events: none;
+			background: radial-gradient(circle, #ff6600, #ffb584a5);
+			transition: transform 0.1s, left 0.1s, top 0.1s;
+		}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms Of Service - Dot Box</title>
-    <link rel="stylesheet" href="../styles/mainstyle.css">
-    <link rel="stylesheet" href="../styles/termsofservice.css">
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+		.circle-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 9999;
+		}
 
-</head>
-<style>
-  .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, #ff6600, #ffb584a5);
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+		::-webkit-scrollbar-thumb {
+			background-color: rgba(231, 181, 55, 0.979);
+			border-radius: 15px;
+		}
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        } 
+		@media (max-width: 768px) {
+			.circle-container {
+				display: none;
+			}
+		}
 
-        ::-webkit-scrollbar
-        {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-thumb{
-            background-color: rgba(231, 181, 55, 0.979);
-            border-radius: 15px;
-        }
+		.scroll-to-top {
+			position: fixed;
+			bottom: 30px;
+			left: 30px;
+			width: 50px;
+			height: 50px;
+			background: radial-gradient(circle, #ff7920, #dd5900);
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			font-size: 24px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: none;
+			z-index: 1000;
+			transition: transform 0.3s ease, background-color 0.3s ease,
+				bottom 0.3s ease;
+		}
 
-        @media (max-width : 768px){
-      .circle-container{
-        display: none;
-      }
-    }
-    
-    .scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #ff7920, #dd5900);
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; 
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease, bottom 0.3s ease;
-}
+		.scroll-to-top:hover {
+			background-color: #dd5900;
+			transform: scale(1.1);
+			bottom: 35px;
+		}
+		.scroll-to-top svg {
+			vertical-align: middle;
+			fill: white;
+			transition: transform 0.3s ease;
+			margin-bottom: 10px;
+		}
 
-.scroll-to-top:hover {
-    background-color: #dd5900; 
-    transform: scale(1.1);
-    bottom: 35px; 
-}
-.scroll-to-top svg {
-    vertical-align: middle;
-    fill: white; 
-    transition: transform 0.3s ease;
-    margin-bottom: 10px;
-}
+		.scroll-to-top:hover svg {
+			transform: translateY(-5px);
+		}
 
-.scroll-to-top:hover svg {
-    transform: translateY(-5px); 
-}
+		.back-button {
+			display: inline-block;
+			padding: 6px 16px;
+			background-color: rgb(255, 120, 30);
+			color: white;
+			text-decoration: none;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			transition: background-color 0.3s, transform 0.3s;
+		}
 
-.back-button {
-            display: inline-block;
-            padding: 6px 16px;
-            background-color: rgb(255, 120, 30);
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+		.back-button:hover {
+			background-color: rgb(236, 94, 0);
+			transform: scale(1.1);
+		}
+	</style>
 
-        .back-button:hover {
-            background-color: rgb(236, 94, 0);
-            transform: scale(1.1);
-        }
-</style>
+	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
 
-<body>
-   
-    <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z" fill="#fff"/>
-            <path d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z" fill="#fff"/>
-        </svg>
-    </div>
-    
-    <script>
-       
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+		<div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+			>
+				<path
+					d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z"
+					fill="#fff"
+				/>
+				<path
+					d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z"
+					fill="#fff"
+				/>
+			</svg>
+		</div>
 
-window.onscroll = function() {
-    let scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-};
+		<script>
+			function scrollToTop() {
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth",
+				});
+			}
 
+			window.onscroll = function () {
+				let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+				if (
+					document.body.scrollTop > 100 ||
+					document.documentElement.scrollTop > 100
+				) {
+					scrollToTopBtn.style.display = "block";
+				} else {
+					scrollToTopBtn.style.display = "none";
+				}
+			};
+		</script>
+		<div class="center">
+			<div class="circle-container">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const coords = { x: 0, y: 0 };
+					const circles = document.querySelectorAll(".circle");
 
-    </script>
-    <div class="center">
-        
-    
-    <div class="circle-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const coords = { x: 0, y: 0 };
-            const circles = document.querySelectorAll(".circle");
+					circles.forEach(function (circle) {
+						circle.x = 0;
+						circle.y = 0;
+					});
 
-            circles.forEach(function (circle) {
-                circle.x = 0;
-                circle.y = 0;
-            });
+					window.addEventListener("mousemove", function (e) {
+						coords.x = e.pageX;
+						coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+					});
 
-            window.addEventListener("mousemove", function (e) {
-                coords.x = e.pageX;
-                coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-            });
+					function animateCircles() {
+						let x = coords.x;
+						let y = coords.y;
 
-            function animateCircles() {
-                let x = coords.x;
-                let y = coords.y;
+						circles.forEach(function (circle, index) {
+							circle.style.left = `${x - 12}px`;
+							circle.style.top = `${y - 12}px`;
+							circle.style.transform = `scale(${
+								(circles.length - index) / circles.length
+							})`;
 
-                circles.forEach(function (circle, index) {
-                    circle.style.left = `${x - 12}px`;
-                    circle.style.top = `${y - 12}px`;
-                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+							const nextCircle = circles[index + 1] || circles[0];
+							circle.x = x;
+							circle.y = y;
 
-                    const nextCircle = circles[index + 1] || circles[0];
-                    circle.x = x;
-                    circle.y = y;
+							x += (nextCircle.x - x) * 0.3;
+							y += (nextCircle.y - y) * 0.3;
+						});
 
-                    x += (nextCircle.x - x) * 0.3;
-                    y += (nextCircle.y - y) * 0.3;
-                });
+						requestAnimationFrame(animateCircles);
+					}
 
-                requestAnimationFrame(animateCircles);
-            }
+					animateCircles();
+				});
+			</script>
+			<div class="video-container">
+				<video
+					style="object-fit: cover"
+					autoplay
+					muted
+					class="video"
+					loop
+					id="myVideo"
+				>
+					<source src="../assets/videos/default.mp4" type="video/mp4" />
+				</video>
+			</div>
 
-            animateCircles();
-        });
+			<div class="container" id="terms-conditions-container">
+				<header class="header">
+					<h1 class="title" id="terms-conditions-title">Terms Of Services</h1>
+				</header>
+				<main class="main-content" id="terms-conditions-main">
+					<section class="section">
+						<h2 class="section-title">Introduction</h2>
+						<p class="section-content">
+							These terms and conditions outline the rules and regulations for
+							the use of Dot Box Website. By accessing this website we assume
+							you accept these terms and conditions. Do not continue to use Dot
+							Box if you do not agree to take all of the terms and conditions
+							stated on this page.
+						</p>
+					</section>
 
-    </script>
-    <div class="video-container">
-        <video style="object-fit: cover;" autoplay muted class="video" loop id="myVideo">
-            <source src="../assets/videos/default.mp4" type="video/mp4">
-        </video>
-    </div>
+					<section class="section" id="terms-conditions-privacy">
+						<h2 class="section-title">Privacy</h2>
+						<p class="section-content">
+							We are committed to protecting your privacy. Please refer to our
+							Privacy Policy for information on how we collect, use, and
+							disclose your personal information.
+						</p>
+					</section>
 
-    <div class="container" id="terms-conditions-container">
-        <header class="header">
-            <h1 class="title" id="terms-conditions-title">Terms Of Services</h1>
-        </header>
-        <main class="main-content" id="terms-conditions-main">
-            <section class="section">
-                <h2 class="section-title">Introduction</h2>
-                <p class="section-content">These terms and conditions outline the rules and regulations for the use of
-                    Dot Box Website. By accessing this website we assume you accept these terms and conditions. Do not
-                    continue to use Dot Box if you do not agree to take all of the terms and conditions stated on this
-                    page.</p>
-            </section>
+					<section class="section" id="terms-conditions-license">
+						<h2 class="section-title">License</h2>
+						<p class="section-content">
+							Unless otherwise stated, Dot Box and/or its licensors own the
+							intellectual property rights for all material on Dot Box. All
+							intellectual property rights are reserved. You may access this
+							from Dot Box for your own personal use subjected to restrictions
+							set in these terms and conditions.
+						</p>
+					</section>
 
-            <section class="section" id="terms-conditions-privacy">
-                <h2 class="section-title">Privacy</h2>
-                <p class="section-content">We are committed to protecting your privacy. Please refer to our Privacy
-                    Policy for information on how we collect, use, and disclose your personal information.</p>
-            </section>
+					<section class="section" id="terms-conditions-conduct">
+						<h2 class="section-title">User Conduct</h2>
+						<div class="section-list">
+							<p class="list-item">
+								You must not use this website in any way that causes, or may
+								cause, damage to the website or impairment of the availability
+								or accessibility of the website.
+							</p>
+							<p class="list-item">
+								You must not use this website in any way which is unlawful,
+								illegal, fraudulent or harmful, or in connection with any
+								unlawful, illegal, fraudulent or harmful purpose or activity.
+							</p>
+							<p class="list-item">
+								You must not use this website to copy, store, host, transmit,
+								send, use, publish or distribute any material which consists of
+								(or is linked to) any spyware, computer virus, Trojan horse,
+								worm, keystroke logger, rootkit or other malicious computer
+								software.
+							</p>
+						</div>
+					</section>
 
-            <section class="section" id="terms-conditions-license">
-                <h2 class="section-title">License</h2>
-                <p class="section-content">Unless otherwise stated, Dot Box and/or its licensors own the intellectual
-                    property rights for all material on Dot Box. All intellectual property rights are reserved. You may
-                    access this from Dot Box for your own personal use subjected to restrictions set in these terms and
-                    conditions.</p>
-            </section>
+					<section class="section" id="terms-conditions-changes">
+						<h2 class="section-title">Changes to These Terms</h2>
+						<p class="section-content">
+							We may update our Terms and Conditions from time to time. We will
+							notify you of any changes by posting the new Terms and Conditions
+							on this page. You are advised to review this Terms and Conditions
+							periodically for any changes. Changes to this Terms and Conditions
+							are effective when they are posted on this page.
+						</p>
+					</section>
 
-            <section class="section" id="terms-conditions-conduct">
-                <h2 class="section-title">User Conduct</h2>
-                <div class="section-list">
-                    <p class="list-item">You must not use this website in any way that causes, or may cause, damage to
-                        the website or impairment of the availability or accessibility of the website.</p>
-                    <p class="list-item">You must not use this website in any way which is unlawful, illegal, fraudulent
-                        or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or
-                        activity.</p>
-                    <p class="list-item">You must not use this website to copy, store, host, transmit, send, use,
-                        publish or distribute any material which consists of (or is linked to) any spyware, computer
-                        virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software.</p>
-                </div>
-            </section>
-
-            <section class="section" id="terms-conditions-changes">
-                <h2 class="section-title">Changes to These Terms</h2>
-                <p class="section-content">We may update our Terms and Conditions from time to time. We will notify you
-                    of any changes by posting the new Terms and Conditions on this page. You are advised to review this
-                    Terms and Conditions periodically for any changes. Changes to this Terms and Conditions are
-                    effective when they are posted on this page.</p>
-            </section>
-
-            <section class="section" id="terms-conditions-contact">
-                <h2 class="section-title">Contact Information</h2>
-                <p class="section-content">If you have any questions about these Terms and Conditions, please contact us
-                    at dotbox@mail.com.</p>
-            </section>
-        </main>
-        <center>
-            <button class="back-button"><a href="../index.html" class="back-button">Back to Home</a></button>
-        </center>
-    </div>
-
-    </div>
-    </div>
-
-</body>
-
+					<section class="section" id="terms-conditions-contact">
+						<h2 class="section-title">Contact Information</h2>
+						<p class="section-content">
+							If you have any questions about these Terms and Conditions, please
+							contact us at dotbox@mail.com.
+						</p>
+					</section>
+				</main>
+				<center>
+					<button class="back-button">
+						<a href="../index.html" class="back-button">Back to Home</a>
+					</button>
+				</center>
+			</div>
+		</div>
+	</body>
 </html>

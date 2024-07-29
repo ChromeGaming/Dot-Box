@@ -1,170 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404:Page not found</title>
-    <link
-      rel="shortcut icon"
-      href="../assets/favicon.ico"
-      type="image/x-icon"
-    />
-  </head>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f6f6f6;
-    }
-    .center {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 90vh;
-    }
-    .pic {
-      width: 700px;
-      height: 700px;
-      animation: updown 2s ease-in-out infinite alternate;
-    }
-    @keyframes updown {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(20px);
-      }
-    }
-    a {
-      text-decoration: none;
-      color: #353535;
-    }
-    .btn {
-      position: absolute;
-      padding: 10px 20px;
-      background-color: #32ddaac9;
-      border-radius: 5px;
-      font-size: 20px;
-      font-weight: bold;
-      border: none;
-      top: 600px;
-    }
-    @media screen and (max-width: 600px) {
-      .pic {
-        width: 300px;
-        height: 300px;
-      }
-      .btn {
-        top: 400px;
-      }
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>404:Page not found</title>
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<script src="/js/loader.js"></script>
 
-    .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            pointer-events: none;
-            background: radial-gradient(circle, #ff6600, #ffb584a5);
-            transition: transform 0.1s, left 0.1s, top 0.1s;
-        }
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				background-color: #f6f6f6;
+			}
+			.center {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 90vh;
+			}
+			.pic {
+				width: 700px;
+				height: 700px;
+				animation: updown 2s ease-in-out infinite alternate;
+			}
+			@keyframes updown {
+				from {
+					transform: translateY(0);
+				}
+				to {
+					transform: translateY(20px);
+				}
+			}
+			a {
+				text-decoration: none;
+				color: #353535;
+			}
+			.btn {
+				position: absolute;
+				padding: 10px 20px;
+				background-color: #32ddaac9;
+				border-radius: 5px;
+				font-size: 20px;
+				font-weight: bold;
+				border: none;
+				top: 600px;
+			}
+			@media screen and (max-width: 600px) {
+				.pic {
+					width: 300px;
+					height: 300px;
+				}
+				.btn {
+					top: 400px;
+				}
+			}
 
-        .circle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        } 
+			.circle {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				pointer-events: none;
+				background: radial-gradient(circle, #ff6600, #ffb584a5);
+				transition: transform 0.1s, left 0.1s, top 0.1s;
+			}
 
-        @media (max-width : 768px){
-      .circle-container{
-        display: none;
-      }
-    }
-</style>
+			.circle-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 9999;
+			}
 
-<body>
+			@media (max-width: 768px) {
+				.circle-container {
+					display: none;
+				}
+			}
+		</style>
+	</head>
 
-    <div class="center">
-      <img src="../assets/images/404pic.png" alt="404 pic" class="pic" />
-      <button class="btn"><a href="../index.html">Home</a></button>
-    </div>
-    <div class="circle-container">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-  </div>
-  <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const coords = { x: 0, y: 0 };
-          const circles = document.querySelectorAll(".circle");
+	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
 
-          circles.forEach(function (circle) {
-              circle.x = 0;
-              circle.y = 0;
-          });
+		<div class="center">
+			<img src="../assets/images/404pic.png" alt="404 pic" class="pic" />
+			<button class="btn"><a href="../index.html">Home</a></button>
+		</div>
+		<div class="circle-container">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const coords = { x: 0, y: 0 };
+				const circles = document.querySelectorAll(".circle");
 
-          window.addEventListener("mousemove", function (e) {
-              coords.x = e.pageX;
-              coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-          });
+				circles.forEach(function (circle) {
+					circle.x = 0;
+					circle.y = 0;
+				});
 
-          function animateCircles() {
-              let x = coords.x;
-              let y = coords.y;
+				window.addEventListener("mousemove", function (e) {
+					coords.x = e.pageX;
+					coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+				});
 
-              circles.forEach(function (circle, index) {
-                  circle.style.left = `${x - 12}px`;
-                  circle.style.top = `${y - 12}px`;
-                  circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+				function animateCircles() {
+					let x = coords.x;
+					let y = coords.y;
 
-                  const nextCircle = circles[index + 1] || circles[0];
-                  circle.x = x;
-                  circle.y = y;
+					circles.forEach(function (circle, index) {
+						circle.style.left = `${x - 12}px`;
+						circle.style.top = `${y - 12}px`;
+						circle.style.transform = `scale(${
+							(circles.length - index) / circles.length
+						})`;
 
-                  x += (nextCircle.x - x) * 0.3;
-                  y += (nextCircle.y - y) * 0.3;
-              });
+						const nextCircle = circles[index + 1] || circles[0];
+						circle.x = x;
+						circle.y = y;
 
-              requestAnimationFrame(animateCircles);
-          }
+						x += (nextCircle.x - x) * 0.3;
+						y += (nextCircle.y - y) * 0.3;
+					});
 
-          animateCircles();
-      });
+					requestAnimationFrame(animateCircles);
+				}
 
-  </script>
-</body>
+				animateCircles();
+			});
+		</script>
+	</body>
 </html>
-
