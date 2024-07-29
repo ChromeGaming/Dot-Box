@@ -15,20 +15,7 @@ class Game {
 			playerWin: [],
 		};
 
-		// Retrieve the players_dict and game settings from localStorage
-		// const players_dicts = JSON.parse(localStorage.getItem('players_dict'));
-		// const { rows, columns, playersCount } = JSON.parse(localStorage.getItem('game_settings'));
-		// name1 = localStorage.getItem("name1");
-
 		this.players = playersInfo;
-		// this.players = [
-		// 	{ name: "Player 1", color: "pink", filledBoxes: 0 },
-		// 	{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-		// 	{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-		// 	{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-		// 	{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-		// 	{ name: "Player 6", color: "orange", filledBoxes: 0 },
-		// ];
 
 		this.currentPlayerIndex = 0;
 		this.currentPlayer = this.players[this.currentPlayerIndex];
@@ -193,7 +180,7 @@ class Game {
                 <span>${player.name}</span>
                 <span id="player${index + 1}-score">0</span>
             `;
-			// scoreDiv.style.backgroundColor = player.color;
+			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
 	}
@@ -357,15 +344,18 @@ function renderPlayerInputs(count) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
 		div.innerHTML = `
-			<label for="playerName${i}">Player ${i} Name:</label>
-			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}">
-			<select id="playerColor${i}" onchange="validateColors()">
+			<label for="playerName${i}" class="player-label ${
+			colors[i - 1]
+		}">Player ${i}</label>
+			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
 			${colors
 				.map(
 					(color, index) =>
-						`<option value="${color}" ${
-							index === i - 1 ? "selected" : ""
-						}>${color}</option>`
+						`<label class="rad-label">
+						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
+							index === i - 1 ? "checked" : ""
+						} onclick="validateColor(this)">
+						<div class="rad-design ${color}"></div></label>`
 				)
 				.join("")}
 
@@ -374,19 +364,32 @@ function renderPlayerInputs(count) {
 	}
 }
 
-function validateColors() {
-	const playersCount = calculate(playersInput, 2, 6);
-	const selectedColors = new Set();
-	for (let i = 1; i <= playersCount; i++) {
-		const colorSelect = document.getElementById(`playerColor${i}`);
-		const color = colorSelect.value;
-		if (selectedColors.has(color)) {
-			alert(
-				`Color ${color} is already selected. Please choose a different color.`
-			);
-			colorSelect.value = "";
-		} else {
-			selectedColors.add(color);
+function validateColor(selectedRadio) {
+	const selectedColors = document.querySelectorAll(
+		'input[type="radio"]:checked'
+	);
+
+	// Check if the selected color is already chosen by another player
+	let isValid = true;
+	selectedColors.forEach((colorRadio) => {
+		if (
+			colorRadio !== selectedRadio &&
+			colorRadio.value === selectedRadio.value
+		) {
+			isValid = false;
+			alert("This color is already selected by another player");
+		}
+	});
+
+	if (!isValid) {
+		// Set the default color
+		selectedRadio.checked = false;
+
+		const defaultRadio = document.querySelector(
+			`input[name="${selectedRadio.name}"][checked]`
+		);
+		if (defaultRadio) {
+			defaultRadio.checked = true;
 		}
 	}
 }
@@ -396,11 +399,12 @@ function savePlayers() {
 	const playerData = [];
 	for (let i = 1; i <= playersCount; i++) {
 		const name = document.getElementById(`playerName${i}`).value;
-		const color = document.getElementById(`playerColor${i}`).value;
+		const color = document.querySelectorAll(
+			`input[name="color${i}"]:checked`
+		)[0].value;
 		const filledBoxes = 0;
 		playerData.push({ name, color, filledBoxes });
 	}
-	console.log(playerData);
 	localStorage.setItem("playerData", JSON.stringify(playerData));
 }
 
@@ -413,6 +417,4 @@ playBtn.addEventListener("click", () => {
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	game = new Game(rows, columns, playersInfo);
 	game.makeBoard(rows, columns);
-	settingsUI.style.display = "none";
-	heading.style.display = "none";
 });
