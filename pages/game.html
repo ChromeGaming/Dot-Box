@@ -22,155 +22,155 @@
 			type="image/x-icon"
 		/>
 		<style>
-			     .back-home:visited {
-			         color: white;
-			     }
+			.back-home:visited {
+				color: white;
+			}
 
-			     .button-container {
-			         display: flex;
-			         justify-content: center;
-			         gap: 8px;
-			         margin-top: -13px;
-			         left: 20%;
-			         margin-right: 122px;
-			     }
+			.button-container {
+				display: flex;
+				justify-content: center;
+				gap: 8px;
+				margin-top: -13px;
+				left: 20%;
+				margin-right: 122px;
+			}
 
-			     .button-container button,
-			     .button-container a {
-			         background-color: rgb(0, 166, 255);
-			         color: white;
-			         border: none;
-			         padding: 13px 13px;
-			         font-size: 14px;
-			         cursor: pointer;
-			         border-radius: 50%;
-			         display: flex;
-			         align-items: center;
-			         justify-content: center;
-			         text-decoration: none;
-			         position: relative;
-			         transition: background-color 0.3s ease;
-			     }
+			.button-container button,
+			.button-container a {
+				background-color: rgb(0, 166, 255);
+				color: white;
+				border: none;
+				padding: 13px 13px;
+				font-size: 14px;
+				cursor: pointer;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				position: relative;
+				transition: background-color 0.3s ease;
+			}
 
-			     .button-container #sound-toggle {
-			         background-color: rgb(12, 1, 1);
-			         border-radius: 4px;
-			         padding: 10px 20px;
-			     }
+			.button-container #sound-toggle {
+				background-color: rgb(12, 1, 1);
+				border-radius: 4px;
+				padding: 10px 20px;
+			}
 
-			     .button-container svg {
-			         width: 30px;
-			         height: 30px;
-			         fill: white;
-			     }
+			.button-container svg {
+				width: 30px;
+				height: 30px;
+				fill: white;
+			}
 
-			     .button-container a {
-			         text-decoration: none;
-			     }
+			.button-container a {
+				text-decoration: none;
+			}
 
-			     .button-container button:hover,
-			     .button-container a:hover {
-			         background-color: rgb(69, 133, 254);
-			     }
+			.button-container button:hover,
+			.button-container a:hover {
+				background-color: rgb(69, 133, 254);
+			}
 
-			     .button-container #sound-toggle:hover {
-			         background-color: rgb(21, 39, 77);
-			     }
+			.button-container #sound-toggle:hover {
+				background-color: rgb(21, 39, 77);
+			}
 
-			     .button-container [title]:hover::after {
-			         opacity: 1;
-			     }
+			.button-container [title]:hover::after {
+				opacity: 1;
+			}
 
-			     .circle {
-			         position: absolute;
-			         width: 25px;
-			         height: 25px;
-			         border-radius: 50%;
-			         pointer-events: none;
-			         background: radial-gradient(circle, #ff6600, #ffb584a5);
-			         transition: transform 0.1s, left 0.1s, top 0.1s;
-			     }
+			.circle {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				pointer-events: none;
+				background: radial-gradient(circle, #ff6600, #ffb584a5);
+				transition: transform 0.1s, left 0.1s, top 0.1s;
+			}
 
-			     .circle-container {
-			         position: fixed;
-			         top: 0;
-			         left: 0;
-			         width: 100%;
-			         height: 100%;
-			         pointer-events: none;
-			         z-index: 99999;
-			     }
+			.circle-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 99999;
+			}
 
-			     /* Timer */
-			     #timer-container {
-			         position: fixed;
-			         right: 208px;
-			         top: 93%;
-			         height: 77px;
-			         width: 96px;
-			         transform: translateY(-50%);
-			         background-color: rgba(255, 255, 255, 0.9);
-			         border-radius: 15px;
-			         padding: 20px;
-			         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			         text-align: center;
-			         z-index: 1000;
-			         margin-right: 26vw;
-			     }
+			/* Timer */
+			#timer-container {
+				position: fixed;
+				right: 208px;
+				top: 93%;
+				height: 77px;
+				width: 96px;
+				transform: translateY(-50%);
+				background-color: rgba(255, 255, 255, 0.9);
+				border-radius: 15px;
+				padding: 20px;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+				text-align: center;
+				z-index: 1000;
+				margin-right: 26vw;
+			}
 
-			     #timer {
-			         font-size: 38px;
-			         font-weight: bold;
-			         margin-top: -19px;
-			         color: #333;
-			     }
+			#timer {
+				font-size: 38px;
+				font-weight: bold;
+				margin-top: -19px;
+				color: #333;
+			}
 
-			     #timer-label {
-			         font-size: 14px;
-			         color: #666;
-			         margin-top: -6px;
-			     }
+			#timer-label {
+				font-size: 14px;
+				color: #666;
+				margin-top: -6px;
+			}
 
-			     /* Score board */
-			     .game-wrapper {
-			         position: relative;
-			         display: flex;
-			         justify-content: center;
-			         align-items: flex-start;
-			         padding: 20px;
-			     }
+			/* Score board */
+			.game-wrapper {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+				padding: 20px;
+			}
 
-			     .game-container {
-			         display: flex;
-			         justify-content: center;
-			         align-items: center;
-			         width: 100%;
-			     }
+			.game-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
 
-			     .scoreboard-container {
-			         position: absolute;
-			         left: -65%;
-			         top: 39%;
-			         background-color: rgba(255, 255, 255, 0.9);
-			         border-radius: 15px;
-			         padding: 20px;
-			         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			         width: 250px;
-			         cursor: move;
-			         z-index: 1000;
-			     }
+			.scoreboard-container {
+				position: absolute;
+				left: -65%;
+				top: 39%;
+				background-color: rgba(255, 255, 255, 0.9);
+				border-radius: 15px;
+				padding: 20px;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+				width: 250px;
+				cursor: move;
+				z-index: 1000;
+			}
 
-			     .scoreboard-container h2 {
-			         text-align: center;
-			         margin-bottom: 20px;
-			         color: #333;
-			     }
+			.scoreboard-container h2 {
+				text-align: center;
+				margin-bottom: 20px;
+				color: #333;
+			}
 
-			     .scoreboard {
-			         display: flex;
-			         flex-direction: column;
-			         gap: 15px;
-			     }
+			.scoreboard {
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
 
 			.score {
 				font-size: 22px;
@@ -183,285 +183,285 @@
 				align-items: center;
 			}
 
-			     /* Tour */
-			     #tour-overlay {
-			         position: fixed;
-			         top: 0;
-			         left: 0;
-			         width: 100%;
-			         height: 100%;
-			         background: rgba(0, 0, 0, 0.3);
-			         display: none;
-			         align-items: center;
-			         justify-content: center;
-			         z-index: 10000;
-			     }
+			/* Tour */
+			#tour-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+				display: none;
+				align-items: center;
+				justify-content: center;
+				z-index: 10000;
+			}
 
-			     .overlay-content ul {
-			         text-align: left;
-			         margin: 20px 0;
-			     }
+			.overlay-content ul {
+				text-align: left;
+				margin: 20px 0;
+			}
 
-			     .tour-step {
-			         position: absolute;
-			         display: none;
-			         padding: 20px;
-			         border-radius: 8px;
-			         background: #fff0f5;
-			         color: #000;
-			         width: 314px;
-			     }
+			.tour-step {
+				position: absolute;
+				display: none;
+				padding: 20px;
+				border-radius: 8px;
+				background: #fff0f5;
+				color: #000;
+				width: 314px;
+			}
 
-			     .tour-step.step-1 {
-			         top: 20%;
-			         left: 40%;
-			         margin-top: -268px;
-			     }
+			.tour-step.step-1 {
+				top: 20%;
+				left: 40%;
+				margin-top: -268px;
+			}
 
-			     .tour-step.step-2 {
-			         top: 80%;
-			         left: 66%;
-			         margin-top: -16%;
-			     }
+			.tour-step.step-2 {
+				top: 80%;
+				left: 66%;
+				margin-top: -16%;
+			}
 
-			     .tour-step.step-3 {
-			         top: 20%;
-			         right: 59%;
-			         margin-top: -32%;
-			         width: 399px;
-			         padding: 20px;
-			     }
+			.tour-step.step-3 {
+				top: 20%;
+				right: 59%;
+				margin-top: -32%;
+				width: 399px;
+				padding: 20px;
+			}
 
-			     .tour-step.step-4 {
-			         top: 27%;
-			         right: 57%;
-			         margin-top: -30%;
-			         width: 399px;
-			         padding: 20px;
-			     }
+			.tour-step.step-4 {
+				top: 27%;
+				right: 57%;
+				margin-top: -30%;
+				width: 399px;
+				padding: 20px;
+			}
 
-			     .tour-step.step-5 {
-			         top: 10%;
-			         left: 13%;
-			         margin-top: -28%;
-			         width: 340px;
-			     }
+			.tour-step.step-5 {
+				top: 10%;
+				left: 13%;
+				margin-top: -28%;
+				width: 340px;
+			}
 
-			     .tour-step.step-6 {
-			         top: 20%;
-			         left: 42%;
-			         margin-top: -103px;
-			         width: 392px;
-			     }
+			.tour-step.step-6 {
+				top: 20%;
+				left: 42%;
+				margin-top: -103px;
+				width: 392px;
+			}
 
-			     .tour-step.step-7 {
-			         top: 20%;
-			         left: 31%;
-			         margin-top: -80px;
-			         width: 392px;
-			     }
+			.tour-step.step-7 {
+				top: 20%;
+				left: 31%;
+				margin-top: -80px;
+				width: 392px;
+			}
 
-			     .tour-controls {
-			         position: absolute;
-			         bottom: -40px;
-			         width: 86%;
-			         display: flex;
-			         justify-content: center;
-			         gap: 10px;
-			     }
+			.tour-controls {
+				position: absolute;
+				bottom: -40px;
+				width: 86%;
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+			}
 
-			     .tour-controls .button {
-			         background-color: rgb(0, 166, 255);
-			         color: white;
-			         border: none;
-			         padding: 5px 17px;
-			         border-radius: 4px;
-			         cursor: pointer;
-			         transition: background-color 0.3s ease;
-			     }
+			.tour-controls .button {
+				background-color: rgb(0, 166, 255);
+				color: white;
+				border: none;
+				padding: 5px 17px;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
 
-			     .tour-controls .button:hover {
-			         background-color: rgb(69, 133, 254);
-			     }
+			.tour-controls .button:hover {
+				background-color: rgb(69, 133, 254);
+			}
 
-			     #prev-step {
-			         background-color: rgb(255, 165, 0);
-			     }
+			#prev-step {
+				background-color: rgb(255, 165, 0);
+			}
 
-			     #skip-tour {
-			         background-color: rgb(255, 0, 0);
-			     }
+			#skip-tour {
+				background-color: rgb(255, 0, 0);
+			}
 
-			     .overlay-content .button-container {
-			         position: absolute;
-			         bottom: 10px;
-			         width: 100%;
-			         display: flex;
-			         justify-content: center;
-			         gap: 10px;
-			     }
+			.overlay-content .button-container {
+				position: absolute;
+				bottom: 10px;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+			}
 
-			     /* Responsive styles for tablets and mobile devices */
-			     @media screen and (max-width: 768px) {
-			         .tour-step {
-			             width: 80%;
-			             padding: 15px;
+			/* Responsive styles for tablets and mobile devices */
+			@media screen and (max-width: 768px) {
+				.tour-step {
+					width: 80%;
+					padding: 15px;
+				}
 
-			         }
+				.circle-container {
+					display: none;
+				}
 
-			         .circle-container{
-			             display: none;
-			         }
+				.button-container {
+					display: flex;
+					justify-content: center;
+					gap: 10px;
+					margin-top: 20px;
+					margin-left: 34px;
+				}
 
-			         .button-container {
-			             display: flex;
-			     justify-content: center;
-			     gap: 10px;
-			     margin-top: 20px;
-			     margin-left: 34px;
+				.button-container button,
+				.button-container a {
+					background-color: rgb(0, 166, 255);
+					color: white;
+					border: none;
+					padding: 13px 13px;
+					font-size: 14px;
+					cursor: pointer;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-decoration: none;
+					position: relative;
+					transition: background-color 0.3s ease;
+				}
 
-			         }
+				.button-container #sound-toggle {
+					background-color: rgb(12, 1, 1);
+					border-radius: 4px;
+					padding: 10px 20px;
+				}
 
-			         .button-container button,
-			         .button-container a {
-			             background-color: rgb(0, 166, 255);
-			             color: white;
-			             border: none;
-			             padding: 13px 13px;
-			             font-size: 14px;
-			             cursor: pointer;
-			             border-radius: 50%;
-			             display: flex;
-			             align-items: center;
-			             justify-content: center;
-			             text-decoration: none;
-			             position: relative;
-			             transition: background-color 0.3s ease;
-			         }
+				.button-container svg {
+					width: 30px;
+					height: 30px;
+					fill: white;
+				}
 
-			         .button-container #sound-toggle {
-			             background-color: rgb(12, 1, 1);
-			             border-radius: 4px;
-			             padding: 10px 20px;
-			         }
+				.button-container a {
+					text-decoration: none;
+				}
 
-			         .button-container svg {
-			             width: 30px;
-			             height: 30px;
-			             fill: white;
-			         }
+				.button-container button:hover,
+				.button-container a:hover {
+					background-color: rgb(69, 133, 254);
+				}
 
-			         .button-container a {
-			             text-decoration: none;
-			         }
+				.button-container #sound-toggle:hover {
+					background-color: rgb(21, 39, 77);
+				}
 
-			         .button-container button:hover,
-			         .button-container a:hover {
-			             background-color: rgb(69, 133, 254);
-			         }
+				.button-container [title]:hover::after {
+					opacity: 1;
+				}
 
-			         .button-container #sound-toggle:hover {
-			             background-color: rgb(21, 39, 77);
-			         }
+				.circle {
+					position: absolute;
+					width: 25px;
+					height: 25px;
+					border-radius: 50%;
+					pointer-events: none;
+					background: radial-gradient(
+						circle,
+						rgba(73, 232, 247, 0.466),
+						rgba(141, 38, 172, 0.5)
+					);
+					transition: transform 0.1s, left 0.1s, top 0.1s;
+				}
 
-			         .button-container [title]:hover::after {
-			             opacity: 1;
-			         }
+				.circle-container {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					pointer-events: none;
+					z-index: 99999;
+				}
 
-			         .circle {
-			             position: absolute;
-			             width: 25px;
-			             height: 25px;
-			             border-radius: 50%;
-			             pointer-events: none;
-			             background: radial-gradient(circle,
-			                     rgba(73, 232, 247, 0.466),
-			                     rgba(141, 38, 172, 0.5));
-			             transition: transform 0.1s, left 0.1s, top 0.1s;
-			         }
+				/* Timer */
+				#timer-container {
+					position: fixed;
+					right: 171px;
+					top: 92%;
+					height: 90px;
+					width: 103px;
+					transform: translateY(-50%);
+					background-color: rgba(255, 255, 255, 0.9);
+					border-radius: 15px;
+					padding: 20px;
+					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+					text-align: center;
+					z-index: 1000;
+					margin-right: 26vw;
+				}
 
-			         .circle-container {
-			             position: fixed;
-			             top: 0;
-			             left: 0;
-			             width: 100%;
-			             height: 100%;
-			             pointer-events: none;
-			             z-index: 99999;
-			         }
+				#timer {
+					font-size: 38px;
+					font-weight: bold;
+					margin-top: -11px;
+					color: #333;
+				}
 
-			         /* Timer */
-			         #timer-container {
-			             position: fixed;
-			             right: 171px;
-			             top: 92%;
-			             height: 90px;
-			             width: 103px;
-			             transform: translateY(-50%);
-			             background-color: rgba(255, 255, 255, 0.9);
-			             border-radius: 15px;
-			             padding: 20px;
-			             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			             text-align: center;
-			             z-index: 1000;
-			             margin-right: 26vw;
-			         }
+				#timer-label {
+					font-size: 14px;
+					color: #666;
+					margin-top: -6px;
+				}
 
-			         #timer {
-			             font-size: 38px;
-			             font-weight: bold;
-			             margin-top: -11px;
-			             color: #333;
-			         }
+				/* Score board */
+				.game-wrapper {
+					position: relative;
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					padding: 20px;
+				}
 
-			         #timer-label {
-			             font-size: 14px;
-			             color: #666;
-			             margin-top: -6px;
-			         }
+				.game-container {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					margin-top: -156px;
+				}
 
-			         /* Score board */
-			         .game-wrapper {
-			             position: relative;
-			             display: flex;
-			             justify-content: center;
-			             align-items: flex-start;
-			             padding: 20px;
-			         }
+				.scoreboard-container {
+					position: absolute;
+					left: 20px;
+					top: 20px;
+					background-color: rgba(255, 255, 255, 0.9);
+					border-radius: 15px;
+					padding: 20px;
+					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+					width: 250px;
+					cursor: move;
+					z-index: 1000;
+					display: none;
+				}
 
-			         .game-container {
-			             display: flex;
-			             justify-content: center;
-			             align-items: center;
-			             width: 100%;
-			             margin-top: -156px;
-			         }
+				.scoreboard-container h2 {
+					text-align: center;
+					margin-bottom: 20px;
+					color: #333;
+				}
 
-			         .scoreboard-container {
-			             position: absolute;
-			             left: 20px;
-			             top: 20px;
-			             background-color: rgba(255, 255, 255, 0.9);
-			             border-radius: 15px;
-			             padding: 20px;
-			             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			             width: 250px;
-			             cursor: move;
-			             z-index: 1000;
-			             display: none;
-			         }
-
-			         .scoreboard-container h2 {
-			             text-align: center;
-			             margin-bottom: 20px;
-			             color: #333;
-			         }
-
-			         .scoreboard {
-			             display: flex;
-			             flex-direction: column;
-			             gap: 15px;
-			         }
+				.scoreboard {
+					display: flex;
+					flex-direction: column;
+					gap: 15px;
+				}
 
 				.score {
 					font-size: 22px;
@@ -474,395 +474,388 @@
 					align-items: center;
 				}
 
-			         /* Tour */
-			         #tour-overlay {
-			             position: fixed;
-			             top: 0;
-			             left: 0;
-			             width: 100%;
-			             height: 100%;
-			             background: rgba(0, 0, 0, 0.3);
-			             display: none;
-			             align-items: center;
-			             justify-content: center;
-			             z-index: 10000;
-			         }
+				/* Tour */
+				#tour-overlay {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba(0, 0, 0, 0.3);
+					display: none;
+					align-items: center;
+					justify-content: center;
+					z-index: 10000;
+				}
 
-			         .overlay-content ul {
-			             text-align: left;
-			             margin: 20px 0;
-			         }
+				.overlay-content ul {
+					text-align: left;
+					margin: 20px 0;
+				}
 
-			         .tour-step {
-			             position: absolute;
-			             display: none;
-			             padding: 20px;
-			             border-radius: 8px;
-			             background: #fff0f5;
-			             color: #000;
-			             width: 314px;
-			         }
+				.tour-step {
+					position: absolute;
+					display: none;
+					padding: 20px;
+					border-radius: 8px;
+					background: #fff0f5;
+					color: #000;
+					width: 314px;
+				}
 
-			         .tour-step.step-1 {
-			             top: 20%;
-			             left: 40%;
-			             margin-top: -268px;
-			         }
+				.tour-step.step-1 {
+					top: 20%;
+					left: 40%;
+					margin-top: -268px;
+				}
 
-			         .tour-step.step-2 {
-			             top: 80%;
-			             left: 15%;
-			             margin-top: -16%;
-			         }
+				.tour-step.step-2 {
+					top: 80%;
+					left: 15%;
+					margin-top: -16%;
+				}
 
-			         .tour-step.step-3 {
-			             top: 20%;
-			             right: 59%;
-			             margin-top: -32%;
-			             width: 399px;
-			             padding: 20px;
-			         }
+				.tour-step.step-3 {
+					top: 20%;
+					right: 59%;
+					margin-top: -32%;
+					width: 399px;
+					padding: 20px;
+				}
 
-			         .tour-step.step-4 {
-			             top: 20%;
-			             right: 59%;
-			             margin-top: -32%;
-			             width: 399px;
-			             padding: 20px;
-			         }
+				.tour-step.step-4 {
+					top: 20%;
+					right: 59%;
+					margin-top: -32%;
+					width: 399px;
+					padding: 20px;
+				}
 
-			         .tour-step.step-5 {
-			             bottom: 30%;
-			             left: 14%;
-			             margin-bottom: 230px;
-			         }
+				.tour-step.step-5 {
+					bottom: 30%;
+					left: 14%;
+					margin-bottom: 230px;
+				}
 
-			         .tour-step.step-6 {
-			             top: 20%;
-			             left: 37%;
-			             margin-top: -74px;
-			             width: 536px;
-			         }
+				.tour-step.step-6 {
+					top: 20%;
+					left: 37%;
+					margin-top: -74px;
+					width: 536px;
+				}
 
-			         .tour-step.step-7 {
-			             top: 20%;
-			             left: 32%;
-			             margin-top: -65px;
-			             width: 392px;
-			         }
+				.tour-step.step-7 {
+					top: 20%;
+					left: 32%;
+					margin-top: -65px;
+					width: 392px;
+				}
 
-			         .tour-controls {
-			             position: absolute;
-			             bottom: -40px;
-			             width: 86%;
-			             display: flex;
-			             justify-content: center;
-			             gap: 10px;
-			         }
+				.tour-controls {
+					position: absolute;
+					bottom: -40px;
+					width: 86%;
+					display: flex;
+					justify-content: center;
+					gap: 10px;
+				}
 
-			         .tour-controls .button {
-			             background-color: rgb(0, 166, 255);
-			             color: white;
-			             border: none;
-			             padding: 5px 17px;
-			             border-radius: 4px;
-			             cursor: pointer;
-			             transition: background-color 0.3s ease;
-			         }
+				.tour-controls .button {
+					background-color: rgb(0, 166, 255);
+					color: white;
+					border: none;
+					padding: 5px 17px;
+					border-radius: 4px;
+					cursor: pointer;
+					transition: background-color 0.3s ease;
+				}
 
-			         .tour-controls .button:hover {
-			             background-color: rgb(69, 133, 254);
-			         }
+				.tour-controls .button:hover {
+					background-color: rgb(69, 133, 254);
+				}
 
-			         #prev-step {
-			             background-color: rgb(255, 165, 0);
-			         }
+				#prev-step {
+					background-color: rgb(255, 165, 0);
+				}
 
-			         #skip-tour {
-			             background-color: rgb(255, 0, 0);
-			         }
+				#skip-tour {
+					background-color: rgb(255, 0, 0);
+				}
 
-			         .overlay-content .button-container {
-			             position: absolute;
-			             bottom: 10px;
-			             width: 100%;
-			             display: flex;
-			             justify-content: center;
-			             gap: 10px;
-			         }
+				.overlay-content .button-container {
+					position: absolute;
+					bottom: 10px;
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					gap: 10px;
+				}
+			}
+			/* Responsive styles for tablets and mobile devices */
+			@media screen and (max-width: 768px) {
+				.tour-step {
+					width: 80%;
+					padding: 15px;
+				}
 
-			         /* Responsive styles for tablets and mobile devices */
-			         @media screen and (max-width: 768px) {
-			             .tour-step {
-			                 width: 80%;
-			                 padding: 15px;
-			             }
+				.tour-step h3 {
+					font-size: 1.2em;
+				}
 
-			             .tour-step h3 {
-			                 font-size: 1.2em;
-			             }
+				.tour-step p {
+					font-size: 0.9em;
+				}
 
-			             .tour-step p {
-			                 font-size: 0.9em;
-			             }
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.9em;
+				}
 
-			             .tour-controls .button {
-			                 padding: 5px 10px;
-			                 font-size: 0.9em;
-			             }
+				.tour-controls {
+					flex-direction: column;
+					gap: 5px;
+				}
+			}
 
-			             .tour-controls {
-			                 flex-direction: column;
-			                 gap: 5px;
-			             }
-			         }
+			@media screen and (max-width: 1200px) {
+				.circle-container {
+					display: none;
+				}
+			}
 
-			         @media screen and (max-width: 1200px) {
-			             .circle-container{
-			                 display: none;
-			             }
-			         }
+			@media screen and (max-width: 480px) {
+				#timer-container {
+					position: fixed;
+					right: 146px;
+					top: 91%;
+					height: 70px;
+					width: 72px;
+					transform: translateY(-50%);
+					background-color: rgba(255, 255, 255, 0.9);
+					border-radius: 15px;
+					padding: 20px;
+					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+					text-align: center;
+					z-index: 1000;
+					margin-right: -36vw;
+				}
 
-			         @media screen and (max-width: 480px) {
+				#timer {
+					font-size: 33px;
+					font-weight: bold;
+					margin-top: -15px;
+					color: #333;
+				}
 
-			             #timer-container {
-			                 position: fixed;
-			                 right: 146px;
-			                 top: 91%;
-			                 height: 70px;
-			                 width: 72px;
-			                 transform: translateY(-50%);
-			                 background-color: rgba(255, 255, 255, 0.9);
-			                 border-radius: 15px;
-			                 padding: 20px;
-			                 box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			                 text-align: center;
-			                 z-index: 1000;
-			                 margin-right: -36vw;
-			             }
+				#timer-label {
+					font-size: 11px;
+					color: #666;
+					margin-top: -5px;
+				}
 
-			             #timer {
-			                 font-size: 33px;
-			                 font-weight: bold;
-			                 margin-top: -15px;
-			                 color: #333;
-			             }
+				.game-wrapper {
+					margin-top: 150px !important;
+				}
 
-			             #timer-label {
-			                 font-size: 11px;
-			                 color: #666;
-			                 margin-top: -5px;
-			             }
+				.tour-step.step-1 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+				}
 
-			             .game-wrapper {
-			                 margin-top: 150px !important;
-			             }
+				.tour-step.step-2 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -39px;
+				}
 
-			             .tour-step.step-1 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			             }
+				.tour-step.step-3 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -392px;
+				}
 
-			             .tour-step.step-2 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-top: -39px;
-			             }
+				.tour-step.step-7 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -339px;
+				}
 
-			             .tour-step.step-3 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-top: -392px;
-			             }
+				.tour-step.step-4 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-bottom: 53px;
+				}
 
-			             .tour-step.step-7 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-top: -339px;
-			             }
+				.tour-step.step-5 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -119px;
+				}
 
-			             .tour-step.step-4 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-bottom: 53px;
-			             }
+				.tour-step.step-6 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -193px;
+				}
 
-			             .tour-step.step-5 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-top: -119px;
-			             }
+				.tour-step h3 {
+					font-size: 1em;
+				}
 
-			             .tour-step.step-6 {
-			                 width: 83%;
-			                 padding: 10px;
-			                 left: 41%;
-			                 margin-left: -32%;
-			                 margin-top: -193px;
-			             }
+				.tour-step p {
+					font-size: 0.8em;
+				}
 
-			             .tour-step h3 {
-			                 font-size: 1em;
-			             }
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.8em;
+				}
 
-			             .tour-step p {
-			                 font-size: 0.8em;
-			             }
+				.tour-controls {
+					flex-direction: column;
+					gap: 3px;
+					margin-bottom: -15%;
+					margin-left: 8px;
+				}
+			}
 
-			             .tour-controls .button {
-			                 padding: 5px 10px;
-			                 font-size: 0.8em;
-			             }
+			/* Responsive styles for tablets and mobile devices */
+			@media screen and (max-width: 768px) {
+				.tour-step {
+					width: 80%;
+					padding: 15px;
+				}
 
-			             .tour-controls {
-			                 flex-direction: column;
-			                 gap: 3px;
-			                 margin-bottom: -15%;
-			                 margin-left: 8px;
+				.tour-step h3 {
+					font-size: 1.2em;
+				}
 
-			                 /* Responsive styles for tablets and mobile devices */
-			                 @media screen and (max-width: 768px) {
-			                     .tour-step {
-			                         width: 80%;
-			                         padding: 15px;
-			                     }
+				.tour-step p {
+					font-size: 0.9em;
+				}
 
-			                     .tour-step h3 {
-			                         font-size: 1.2em;
-			                     }
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.9em;
+				}
 
-			                     .tour-step p {
-			                         font-size: 0.9em;
-			                     }
+				.tour-controls {
+					flex-direction: column;
+					gap: 5px;
+				}
+			}
 
-			                     .tour-controls .button {
-			                         padding: 5px 10px;
-			                         font-size: 0.9em;
-			                     }
+			@media screen and (max-width: 480px) {
+				.tour-step.step-1 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+				}
 
-			                     .tour-controls {
-			                         flex-direction: column;
-			                         gap: 5px;
-			                     }
-			                 }
+				.tour-step.step-2 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -39px;
+				}
 
-			                 @media screen and (max-width: 480px) {
-			                     .tour-step.step-1 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                     }
+				.tour-step.step-3 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -392px;
+				}
 
-			                     .tour-step.step-2 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                         margin-top: -39px;
+				.tour-step.step-7 {
+					width: 83%;
+					padding: 10px;
+					left: 65%;
+					margin-left: -32%;
+					margin-top: -339px;
+				}
 
-			                     }
+				.tour-step.step-4 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-bottom: 53px;
+				}
 
-			                     .tour-step.step-3 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                         margin-top: -392px;
-			                     }
+				.tour-step.step-5 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -119px;
+				}
 
-			                     .tour-step.step-7 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 65%;
-			                         margin-left: -32%;
-			                         margin-top: -339px;
-			                     }
+				.tour-step.step-6 {
+					width: 83%;
+					padding: 10px;
+					left: 41%;
+					margin-left: -32%;
+					margin-top: -193px;
+				}
 
-			                     .tour-step.step-4 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                         margin-bottom: 53px;
-			                     }
+				.tour-step .step-8 {
+					top: 20%;
+					right: 59%;
+					margin-top: -32%;
+					width: 399px;
+					padding: 20px;
+				}
 
-			                     .tour-step.step-5 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                         margin-top: -119px;
-			                     }
+				.tour-step h3 {
+					font-size: 1em;
+				}
 
-			                     .tour-step.step-6 {
-			                         width: 83%;
-			                         padding: 10px;
-			                         left: 41%;
-			                         margin-left: -32%;
-			                         margin-top: -193px;
-			                     }
+				.tour-step p {
+					font-size: 0.8em;
+				}
 
-			                     .tour-step .step-8 {
-			                         top: 20%;
-			                         right: 59%;
-			                         margin-top: -32%;
-			                         width: 399px;
-			                         padding: 20px;
-			                     }
+				.tour-controls .button {
+					padding: 5px 10px;
+					font-size: 0.8em;
+				}
 
-			                     .tour-step h3 {
-			                         font-size: 1em;
-			                     }
+				.tour-controls {
+					flex-direction: column;
+					gap: 3px;
+					margin-bottom: -15%;
+					margin-left: 8px;
+				}
 
-			                     .tour-step p {
-			                         font-size: 0.8em;
-			                     }
+				.circle-container {
+					display: none;
+				}
+			}
 
-			                     .tour-controls .button {
-			                         padding: 5px 10px;
-			                         font-size: 0.8em;
-			                     }
-
-			                     .tour-controls {
-			                         flex-direction: column;
-			                         gap: 3px;
-			                         margin-bottom: -15%;
-			                         margin-left: 8px;
-			                     }
-
-			                     .circle-container {
-			                         display: none;
-			                     }
-			                 }
-
-			                 .circle-container {
-			                     display: none;
-			                 }
-
-
-			             }
-
-			             #myVideo {
-			                 position: fixed;
-			                 right: 0;
-			                 bottom: 0;
-			                 min-width: 100%;
-			                 min-height: 100%;
-			                 z-index: -1;
-			             }
+			#myVideo {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%;
+				min-height: 100%;
+				z-index: -1;
+			}
 		</style>
 
 		<!-- Title of the game -->
