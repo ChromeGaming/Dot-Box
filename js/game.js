@@ -1,16 +1,7 @@
-var players_dict = [
-	{ name: "Player 1", color: "pink", filledBoxes: 0 },
-	{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
-	{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-	{ name: "Player 4", color: "magenta", filledBoxes: 0 },
-	{ name: "Player 5", color: "yellow", filledBoxes: 0 },
-	{ name: "Player 6", color: "orange", filledBoxes: 0 },
-];
-
 class Game {
 	static instance; // Singleton instance of Game class
 
-	constructor(rows, columns, playersCount) {
+	constructor(rows, columns, playersInfo) {
 		if (Game.instance == null) Game.instance = this;
 
 		this.playersUI = document.querySelector(".players");
@@ -23,19 +14,8 @@ class Game {
 			playerSwitch: [],
 			playerWin: [],
 		};
-		console.log("The original player dict: ");
-		printDict();
 
-		// Retrieve the players_dict and game settings from localStorage
-		// const players_dicts = JSON.parse(localStorage.getItem('players_dict'));
-		// const { rows, columns, playersCount } = JSON.parse(localStorage.getItem('game_settings'));
-		// name1 = localStorage.getItem("name1");
-
-		this.players = players_dict;
-		console.log("The game's player dict: ", this.players);
-
-		let p = this.players.length - playersCount;
-		for (let i = 0; i < p; i++) this.players.pop();
+		this.players = playersInfo;
 
 		this.currentPlayerIndex = 0;
 		this.currentPlayer = this.players[this.currentPlayerIndex];
@@ -200,6 +180,7 @@ class Game {
                 <span>${player.name}</span>
                 <span id="player${index + 1}-score">0</span>
             `;
+			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
 	}
@@ -317,7 +298,7 @@ class Game {
 // Declaring Global Variables
 const rowsInput = Number(localStorage.getItem("rows"));
 const columnsInput = Number(localStorage.getItem("columns"));
-const playersInput = Number(localStorage.getItem("players"));
+const playersInput = Number(localStorage.getItem("playersCount"));
 const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
 var game = null;
 
@@ -325,21 +306,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	bgMusic.volume = 0.1;
 	bgMusic.play();
 
-	console.log("Inside Dom Loader", players_dict);
-	if (localStorage.getItem("NameChanged")) {
-		players_dict[0].name = localStorage.getItem("name1");
-		players_dict[1].name = localStorage.getItem("name2");
-		players_dict[2].name = localStorage.getItem("name3");
-		players_dict[3].name = localStorage.getItem("name4");
-		players_dict[4].name = localStorage.getItem("name5");
-		players_dict[5].name = localStorage.getItem("name6");
-	}
-	const rows = calculate(rowsInput, 5, 30);
-	const columns = calculate(columnsInput, 5, 30);
 	const playersCount = calculate(playersInput, 2, 6);
+	renderPlayerInputs(playersCount);
 
-	game = new Game(rows, columns, playersCount);
-	game.makeBoard(rows, columns);
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
@@ -360,90 +329,92 @@ function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max);
 }
 
-function showPlayerTextBox() {
-	playersCount = Number(document.getElementById("players-count").value);
+function renderPlayerInputs(count) {
+	const playerInputsDiv = document.getElementById("playerInputs");
+	playerInputsDiv.innerHTML = "";
+	const colors = [
+		"pink",
+		"skyblue",
+		"lightgreen",
+		"yellow",
+		"magenta",
+		"orange",
+	];
+	for (let i = 1; i <= count; i++) {
+		const div = document.createElement("div");
+		div.classList.add("player-input");
+		div.innerHTML = `
+			<label for="playerName${i}" class="player-label ${
+			colors[i - 1]
+		}">Player ${i}</label>
+			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
+			${colors
+				.map(
+					(color, index) =>
+						`<label class="rad-label">
+						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
+							index === i - 1 ? "checked" : ""
+						} onclick="validateColor(this)">
+						<div class="rad-design ${color}"></div></label>`
+				)
+				.join("")}
 
-	console.log(playersCount);
-
-	var settingsElements = document.getElementsByClassName("PlayerTextBox");
-	settingsElements[0].style.display = "flex";
-
-	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
-	for (var i = 0; i < PlayerNamesElements.length; i++) {
-		PlayerNamesElements[i].style.display = "none";
+		`;
+		playerInputsDiv.appendChild(div);
 	}
-
-	var PlayerNamesElements = document.getElementsByClassName("playerNameField");
-	for (var i = 0; i < playersCount; i++) {
-		PlayerNamesElements[i].style.display = "flex";
-	}
-
-	hideInstructions();
 }
 
-// readyBtn.addEventListener("click", () => {
-// 	const playersCount = calculate(playersInput.value, 2, 6);
-// 	bgMusic.volume = 0.1;
-// 	bgMusic.play();
-// 	showPlayerTextBox(playersCount);
-// });
+function validateColor(selectedRadio) {
+	const selectedColors = document.querySelectorAll(
+		'input[type="radio"]:checked'
+	);
 
-function startGame() {
-	const rows = calculate(rowsInput.value, 5, 30);
-	const columns = calculate(columnsInput.value, 5, 30);
-	const playersCount = calculate(playersInput.value, 2, 6);
+	// Check if the selected color is already chosen by another player
+	let isValid = true;
+	selectedColors.forEach((colorRadio) => {
+		if (
+			colorRadio !== selectedRadio &&
+			colorRadio.value === selectedRadio.value
+		) {
+			isValid = false;
+			alert("This color is already selected by another player");
+		}
+	});
 
-	// for (let i = 0; i < playersCount; i++) {
-	//     const playerNum = i + 1;
-	//     const playerId = "#player" + playerNum;
-	//     const playerInput = document.querySelector(playerId);
+	if (!isValid) {
+		// Set the default color
+		selectedRadio.checked = false;
 
-	//     if (playerInput) {
-	//         players_dict[i].name = playerInput.value;
-	//     }
-	// }
+		const defaultRadio = document.querySelector(
+			`input[name="${selectedRadio.name}"][checked]`
+		);
+		if (defaultRadio) {
+			defaultRadio.checked = true;
+		}
+	}
+}
 
-	try {
-		players_dict[0].name = document.querySelector("#player1").value;
-		players_dict[1].name = document.querySelector("#player2").value;
-		players_dict[2].name = document.querySelector("#player3").value;
-		players_dict[3].name = document.querySelector("#player4").value;
-		players_dict[4].name = document.querySelector("#player5").value;
-		players_dict[5].name = document.querySelector("#player6").value;
-	} catch (TypeError) {}
+function savePlayers() {
+	const playersCount = calculate(playersInput, 2, 6);
+	const playerData = [];
+	for (let i = 1; i <= playersCount; i++) {
+		const name = document.getElementById(`playerName${i}`).value;
+		const color = document.querySelectorAll(
+			`input[name="color${i}"]:checked`
+		)[0].value;
+		const filledBoxes = 0;
+		playerData.push({ name, color, filledBoxes });
+	}
+	localStorage.setItem("playerData", JSON.stringify(playerData));
+}
 
-	try {
-		localStorage.setItem("NameChanged", "yes");
-		localStorage.setItem("name1", players_dict[0].name);
-		localStorage.setItem("name2", players_dict[1].name);
-		localStorage.setItem("name3", players_dict[2].name);
-		localStorage.setItem("name4", players_dict[3].name);
-		localStorage.setItem("name5", players_dict[4].name);
-		localStorage.setItem("name6", players_dict[5].name);
-	} catch (TypeError) {}
-
-	printDict();
-
-	// Store the updated players_dict and game settings in localStorage
-	// localStorage.setItem('players_dicts', JSON.stringify(players_dict));
-	// localStorage.setItem('game_settings', JSON.stringify({ rows, columns, playersCount }));
-
-	game = new Game(rows, columns, playersCount);
-	window.location.href = "./pages/game.html";
+// Start the game
+playBtn.addEventListener("click", () => {
+	savePlayers();
+	document.getElementById("playerSetup").style.display = "none";
+	const rows = calculate(rowsInput, 5, 30);
+	const columns = calculate(columnsInput, 5, 30);
+	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
+	game = new Game(rows, columns, playersInfo);
 	game.makeBoard(rows, columns);
-	settingsUI.style.display = "none";
-	heading.style.display = "none";
-}
-
-function hideInstructions() {
-	console.log("Inside Hide Instructs");
-	document.getElementById("instructions").style.display = "none";
-}
-
-function hidePlayerTextBox() {
-	document.getElementsByClassName("settings").style.visibility = "visible";
-}
-
-function printDict() {
-	console.log("Here's the", players_dict);
-}
+});

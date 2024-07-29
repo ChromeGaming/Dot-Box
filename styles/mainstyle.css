@@ -920,14 +920,12 @@ button a {
 	margin-right: 10px;
 }
 
+.navbarr .nav-links {
+	display: none;
+}
 
-	.navbarr .nav-links {
-		display: none;
-	}
-
-	.navbar-toggler {
-		display: inline !important;
-	}
+.navbar-toggler {
+	display: inline !important;
 }
 
 .navbar-toggler {
