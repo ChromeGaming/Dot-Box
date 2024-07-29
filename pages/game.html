@@ -13,6 +13,7 @@
 		<script defer src="../js/box.js"></script>
 		<script defer src="../js/board.js"></script>
 		<script defer src="../js/game.js"></script>
+		<script src="/js/loader.js"></script>
 
 		<!-- Logo of the game -->
 		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
@@ -591,6 +592,7 @@
 					gap: 10px;
 				}
 			}
+
 			/* Responsive styles for tablets and mobile devices */
 			@media screen and (max-width: 768px) {
 				.tour-step {
@@ -863,6 +865,10 @@
 	</head>
 
 	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
+
 		<div class="circle-container">
 			<div class="circle"></div>
 			<div class="circle"></div>

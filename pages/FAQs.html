@@ -1,439 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- displays site properly based on user's device -->
+		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../styles/mainstyle.css" />
+		<link rel="stylesheet" href="../styles/FAQs.css" />
+		<link rel="stylesheet" href="../styles/mainstyle.css" />
+		<script src="/js/loader.js"></script>
 
-  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../styles/FAQs.css" />
-  <link rel="stylesheet" href="../styles/mainstyle.css">
-  <title>FAQs</title>
+		<title>FAQs</title>
 
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
 
-    .circle {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, #ff6600, #ffb584a5);
-      transition: transform 0.1s, left 0.1s, top 0.1s;
-    }
+			.circle {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				pointer-events: none;
+				background: radial-gradient(circle, #ff6600, #ffb584a5);
+				transition: transform 0.1s, left 0.1s, top 0.1s;
+			}
 
-    .circle-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
+			.circle-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 9999;
+			}
 
-    @media (max-width : 768px) {
-      .circle-container {
-        display: none;
-      }
-    }
+			@media (max-width: 768px) {
+				.circle-container {
+					display: none;
+				}
+			}
 
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				overflow: auto !important;
+				/* Allow scrolling */
+				height: 105%;
+			}
 
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      overflow: auto !important;
-      /* Allow scrolling */
-      height: 105%;
-    }
+			body {
+				background-color: #e7b537;
+				display: flex;
+				flex-direction: column;
+				font-family: "WorkSans-Regular", Arial, sans-serif;
+			}
 
-    body {
-      background-color: #e7b537;
-      display: flex;
-      flex-direction: column;
-      font-family: 'WorkSans-Regular', Arial, sans-serif;
-    }
-    @media screen and (max-width: 450px) {
-      .contributor-card {
-        max-width: 90%;
-      }
+			@media screen and (max-width: 450px) {
+				.contributor-card {
+					max-width: 90%;
+				}
 
-      .navbar {
-        flex-direction: column;
-        padding: 5px !important;
-      }
+				.navbar {
+					flex-direction: column;
+					padding: 5px !important;
+				}
 
-    .faqcontainer {
-      background-color: white;
-      border-radius: 20px;
-      padding: 20px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-      margin: 100px auto 20px;
-      /* Increased margin-top to avoid content being hidden under navbar */
-      flex: 1;
-      z-index: 0;
-      /* Ensure it's below the fixed elements */
-      margin-top: 54px;
-    }
+				.faqcontainer {
+					background-color: white;
+					border-radius: 20px;
+					padding: 20px;
+					max-width: 600px;
+					width: 90%;
+					box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
+					margin: 100px auto 20px;
+					/* Increased margin-top to avoid content being hidden under navbar */
+					flex: 1;
+					z-index: 0;
+					/* Ensure it's below the fixed elements */
+					margin-top: 54px;
+				}
 
-    .author {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(to right, #00093c, #2d0b00);
-      color: #fff;
-      padding: 0px;
-      position: fixed;
-      bottom: 0;
-      z-index: 1000;
-      height: 67px;
-      flex-shrink: 0;
-      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-      /* Added shadow for better visibility */
-    }
+				.author {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background: linear-gradient(to right, #00093c, #2d0b00);
+					color: #fff;
+					padding: 0px;
+					position: fixed;
+					bottom: 0;
+					z-index: 1000;
+					height: 67px;
+					flex-shrink: 0;
+					box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+					/* Added shadow for better visibility */
+				}
 
-    .author .fotbar {
-      display: flex;
-      gap: -22px;
-    }
+				.author .fotbar {
+					display: flex;
+					gap: -22px;
+				}
 
-    .author .fotbar a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 18px;
-      background-color: transparent;
-    }
+				.author .fotbar a {
+					color: white;
+					text-decoration: none;
+					padding: 10px;
+					border-radius: 5px;
+					font-size: 18px;
+					background-color: transparent;
+				}
 
-    .author p {
-      color: white;
-      padding: 10px;
-      margin-right: -550px;
-      font-size: 20px;
-      font-weight: 600;
-    }
+				.author p {
+					color: white;
+					padding: 10px;
+					margin-right: -550px;
+					font-size: 20px;
+					font-weight: 600;
+				}
 
-    .author .social-icons {
-      display: flex;
-      gap: 10px;
-      margin-right: 20px;
-    }
+				.author .social-icons {
+					display: flex;
+					gap: 10px;
+					margin-right: 20px;
+				}
 
-    .author a {
-      color: white !important;
-    }
+				.author a {
+					color: white !important;
+				}
 
-    .author .social-icons a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-    }
+				.author .social-icons a {
+					color: white;
+					text-decoration: none;
+					font-size: 20px;
+				}
+			}
 
-    @media screen and (max-width:1190px) {
-      .author a {
-        font-size: small;
-      }
-    }
+			@media screen and (max-width: 1190px) {
+				.author a {
+					font-size: small;
+				}
+			}
 
-    @media screen and (max-width:1065px) {
-      .author .fotbar {
-        display: grid;
-      }
+			@media screen and (max-width: 1065px) {
+				.author .fotbar {
+					display: grid;
+				}
 
-      .author .fotbar a {
-        font-size: 14px;
-      }
-    }
+				.author .fotbar a {
+					font-size: 14px;
+				}
+			}
 
-    @media screen and (max-width:550px) {
-      .author {
-        display: none !important;
-      }
+			@media screen and (max-width: 550px) {
+				.author {
+					display: none !important;
+				}
 
-      .navbar {
-        display: none !important;
-      }
+				.navbar {
+					display: none !important;
+				}
 
-      .author p {
-        font-size: 16px;
-        padding: 0;
-      }
+				.author p {
+					font-size: 16px;
+					padding: 0;
+				}
 
-      .author .fotbar a {
-        font-size: 12px;
-      }
+				.author .fotbar a {
+					font-size: 12px;
+				}
 
-      .author .social-icons a {
-        font-size: 15px;
-      }
+				.author .social-icons a {
+					font-size: 15px;
+				}
 
-      .faqcontainer {
-        margin-top: 49px;
-      }
-    }
+				.faqcontainer {
+					margin-top: 49px;
+				}
+			}
 
+			@media (max-width: 768px) {
+				.author {
+					position: relative !important;
+				}
+			}
 
-    @media (max-width: 768px) {
-      .author {
-        position: relative !important;
-      }
-    }
+			::-webkit-scrollbar {
+				width: 8px;
+			}
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
+			::-webkit-scrollbar-thumb {
+				background-color: rgba(255, 220, 131, 0.979);
+				border-radius: 15px;
+			}
+			::-webkit-scrollbar-track {
+				background-color: rgba(46, 33, 0, 0.979);
+			}
+		</style>
+	</head>
 
-    ::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 220, 131, 0.979);
-      border-radius: 15px;
-    }
-    ::-webkit-scrollbar-track{
-      background-color: rgba(46, 33, 0, 0.979);
+	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
 
-    }
-  </style>
-</head>
+		<div class="circle-container">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const coords = { x: 0, y: 0 };
+				const circles = document.querySelectorAll(".circle");
 
-<body>
+				circles.forEach(function (circle) {
+					circle.x = 0;
+					circle.y = 0;
+				});
 
-  <div class="circle-container">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
+				window.addEventListener("mousemove", function (e) {
+					coords.x = e.pageX;
+					coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+				});
 
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
+				function animateCircles() {
+					let x = coords.x;
+					let y = coords.y;
 
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
+					circles.forEach(function (circle, index) {
+						circle.style.left = `${x - 12}px`;
+						circle.style.top = `${y - 12}px`;
+						circle.style.transform = `scale(${
+							(circles.length - index) / circles.length
+						})`;
 
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
+						const nextCircle = circles[index + 1] || circles[0];
+						circle.x = x;
+						circle.y = y;
 
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`;
-          circle.style.top = `${y - 12}px`;
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+						x += (nextCircle.x - x) * 0.3;
+						y += (nextCircle.y - y) * 0.3;
+					});
 
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
+					requestAnimationFrame(animateCircles);
+				}
 
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
-        });
+				animateCircles();
+			});
+		</script>
 
-        requestAnimationFrame(animateCircles);
-      }
+		<div class="bottom-background">
+			<video autoplay muted loop>
+				<source src="../assets/videos/FAQ.mp4" />
+			</video>
+		</div>
 
-      animateCircles();
-    });
+		<div class="whole-background">
+			<nav class="navbarr" style="color: white">
+				<div class="logo">
+					<a href="../index.html">Dots & Boxes ⚄</a>
+				</div>
 
-  </script>
-
-  <div class="bottom-background">
-    <video autoplay muted loop>
-      <source src="../assets/videos/FAQ.mp4" />
-    </video>
-  </div>
-
-  
-  <div class="whole-background">
-    <nav class="navbarr" style="color: white;">
-        <div class="logo">
-            <a href="../index.html">Dots & Boxes ⚄</a>
-        </div>
-        
-        <ul class="nav-links" id="nav-links-toggled">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About Us</a></li>
-            <li><a href="../pages/FAQs.html">FAQs</a></li>
-            <li><a href="../pages/contributors.html">Contributors</a></li>
-            <button class="start"><a href="../pages/game.html">Let's Go</a></button>
-        </ul>
-        <!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+				<ul class="nav-links" id="nav-links-toggled">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../pages/about.html">About Us</a></li>
+					<li><a href="../pages/FAQs.html">FAQs</a></li>
+					<li><a href="../pages/contributors.html">Contributors</a></li>
+					<button class="start">
+						<a href="../pages/game.html">Let's Go</a>
+					</button>
+				</ul>
+				<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
           </button> -->
 
-          <!-- Hamburger Menu -->
+				<!-- Hamburger Menu -->
 
-          <nav class="mobile-menu ">
-            <div class="mobile-menu__trigger"><span></span></div>
-            <a class="page-scroll active-link" href="./index.html">Home </a>
-            <a class="page-scroll" href="./about.html">About Us </a>
-            <a class="page-scroll" href="./trends.html">FAQs</a>
-            <a class="page-scroll" href="./tools/sip.html">Contributors</a>
-          </nav>
-          
-          <!-- Js and CSS files for hamburger-menu -->
-            <link href="../styles/navbar.css" rel="stylesheet">
-            <script type="text/javascript" src="../js/navbar.js"></script>
+				<nav class="mobile-menu">
+					<div class="mobile-menu__trigger"><span></span></div>
+					<a class="page-scroll active-link" href="./index.html">Home </a>
+					<a class="page-scroll" href="./about.html">About Us </a>
+					<a class="page-scroll" href="./trends.html">FAQs</a>
+					<a class="page-scroll" href="./tools/sip.html">Contributors</a>
+				</nav>
 
-    </nav>
-</div>
+				<!-- Js and CSS files for hamburger-menu -->
+				<link href="../styles/navbar.css" rel="stylesheet" />
+				<script type="text/javascript" src="../js/navbar.js"></script>
+			</nav>
+		</div>
 
-  <!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
-  <div class="faqcontainer">
-    <h1><img src="../assets/images/icon-star.svg" />Frequently Asked Questions!</h1>
+		<!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
+		<div class="faqcontainer">
+			<h1>
+				<img src="../assets/images/icon-star.svg" />Frequently Asked Questions!
+			</h1>
 
-    <div class="question">
-        <details>
-            <summary class="drop1">
-                <img src="../assets/images/icon-plus.svg" />How do I win the game?
-            </summary>
-            <p>
-                The objective is to capture more boxes than your opponent. Each box you complete by drawing lines
-                between adjacent dots scores you a point. The player with the most points when all boxes are claimed
-                wins the game.
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop1">
+						<img src="../assets/images/icon-plus.svg" />How do I win the game?
+					</summary>
+					<p>
+						The objective is to capture more boxes than your opponent. Each box
+						you complete by drawing lines between adjacent dots scores you a
+						point. The player with the most points when all boxes are claimed
+						wins the game.
+					</p>
+				</details>
+			</div>
 
-    <div class="question">
-        <details>
-            <summary class="drop2">
-                <img src="../assets/images/icon-plus.svg" />How do I set up the game?
-            </summary>
-            <p>
-                Choose your desired grid size to customize the game's difficulty. Start by connecting the dots on the
-                grid, taking turns with your opponent.
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop2">
+						<img src="../assets/images/icon-plus.svg" />How do I set up the
+						game?
+					</summary>
+					<p>
+						Choose your desired grid size to customize the game's difficulty.
+						Start by connecting the dots on the grid, taking turns with your
+						opponent.
+					</p>
+				</details>
+			</div>
 
-    <div class="question">
-        <details>
-            <summary class="drop3">
-                <img src="../assets/images/icon-plus.svg" />What happens if I complete a box?
-            </summary>
-            <p>
-                Completing a box by drawing its final line scores you a point and grants you an extra turn. This
-                strategic element adds depth to gameplay.
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop3">
+						<img src="../assets/images/icon-plus.svg" />What happens if I
+						complete a box?
+					</summary>
+					<p>
+						Completing a box by drawing its final line scores you a point and
+						grants you an extra turn. This strategic element adds depth to
+						gameplay.
+					</p>
+				</details>
+			</div>
 
-    <div class="question">
-        <details>
-            <summary class="drop4">
-                <img src="../assets/images/icon-plus.svg" />When does the game end?
-            </summary>
-            <p>
-                The game ends when all boxes on the grid have been claimed by drawing lines. At this point, the player
-                with the highest score, based on the number of boxes captured, wins.
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop4">
+						<img src="../assets/images/icon-plus.svg" />When does the game end?
+					</summary>
+					<p>
+						The game ends when all boxes on the grid have been claimed by
+						drawing lines. At this point, the player with the highest score,
+						based on the number of boxes captured, wins.
+					</p>
+				</details>
+			</div>
 
-    <div class="question">
-        <details>
-            <summary class="drop5">
-                <img src="../assets/images/icon-plus.svg" />Is there a strategy involved in playing this game?
-            </summary>
-            <p>
-                Yes, strategic line selection is crucial. Thinking ahead to maximize the number of boxes you can capture
-                while preventing your opponent from doing the same is key to winning.
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop5">
+						<img src="../assets/images/icon-plus.svg" />Is there a strategy
+						involved in playing this game?
+					</summary>
+					<p>
+						Yes, strategic line selection is crucial. Thinking ahead to maximize
+						the number of boxes you can capture while preventing your opponent
+						from doing the same is key to winning.
+					</p>
+				</details>
+			</div>
 
-    <div class="question">
-        <details>
-            <summary class="drop6">
-                <img src="../assets/images/icon-plus.svg" />What if I need help or have more questions about gameplay?
-            </summary>
-            <p>
-                If you have any more questions or need assistance with the rules, feel free to refer to the instructions
-                or ask your opponent for clarification. You can also add suggestions in Feedback Form. Enjoy the game!
-            </p>
-        </details>
-    </div>
+			<div class="question">
+				<details>
+					<summary class="drop6">
+						<img src="../assets/images/icon-plus.svg" />What if I need help or
+						have more questions about gameplay?
+					</summary>
+					<p>
+						If you have any more questions or need assistance with the rules,
+						feel free to refer to the instructions or ask your opponent for
+						clarification. You can also add suggestions in Feedback Form. Enjoy
+						the game!
+					</p>
+				</details>
+			</div>
+		</div>
 
-  
-   
+		<div class="author">
+			<div class="fotbar">
+				<a href="howtoplay.html"> HowToPlay?</a>
+				<a href="termsofservice.html"> TermsOfService</a>
+				<a href="privacypolicy.html"> PrivacyPolicy</a>
+				<a href="licensing.html"> Licensing</a>
+			</div>
+			<p>
+				Created with ❤️ by
+				<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+			</p>
+			<div class="social-icons">
+				<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
+					><i class="fab fa-github"></i
+				></a>
+				<a href="https://discord.gg/2HTCFrSvPB" target="_blank"
+					><i class="fab fa-discord"></i
+				></a>
+			</div>
+		</div>
 
-</div>
-
-  <div class="author">
-    <div class="fotbar">
-      <a href="howtoplay.html">
-        HowToPlay?</a>
-      <a href="termsofservice.html">
-        TermsOfService</a>
-      <a href="privacypolicy.html">
-        PrivacyPolicy</a>
-      <a href="licensing.html">
-        Licensing</a>
-    </div>
-    <p>
-      Created with ❤️ by
-      <a href="https://github.com/ChromeGaming">Chrome Gaming</a>
-    </p>
-    <div class="social-icons">
-      <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
-    </div>
-  </div>
-  </div>
-
-
-
-  <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
-  <script src="../js/FAQs.js"></script>
-
-</body>
-
+		<script
+			src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
+			async
+		></script>
+		<script src="../js/FAQs.js"></script>
+	</body>
 </html>

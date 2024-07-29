@@ -1,189 +1,190 @@
 class Game {
-    static instance // Singleton instance of Game class
+	static instance; // Singleton instance of Game class
 
-    constructor(rows, columns, playersCount) {
-        if (Game.instance == null) Game.instance = this
+	constructor(rows, columns, playersCount) {
+		if (Game.instance == null) Game.instance = this;
 
-        this.playersUI = document.querySelector(".players")
-        this.playerNameUI = document.querySelector(".player-turn .name")
-        this.playerTurnBgUI = document.querySelector(".player-turn .bg")
+		this.playersUI = document.querySelector(".players");
+		this.playerNameUI = document.querySelector(".player-turn .name");
+		this.playerTurnBgUI = document.querySelector(".player-turn .bg");
 
-        this.events = {
-            edgeFill: [],
-            boxFill: [],
-            playerSwitch: [],
-            playerWin: [],
-        }
+		this.events = {
+			edgeFill: [],
+			boxFill: [],
+			playerSwitch: [],
+			playerWin: [],
+		};
 
-        this.players = [
-            { name: "Player 1", color: "pink", filledBoxes: 0 },
-            { name: "Player 2", color: "skyblue", filledBoxes: 0 },
-            { name: "Player 3", color: "lightgreen", filledBoxes: 0 },
-            { name: "Player 4", color: "magenta", filledBoxes: 0 },
-            { name: "Player 5", color: "yellow", filledBoxes: 0 },
-            { name: "Player 6", color: "orange", filledBoxes: 0 }
-        ]
+		this.players = [
+			{ name: "Player 1", color: "pink", filledBoxes: 0 },
+			{ name: "Player 2", color: "skyblue", filledBoxes: 0 },
+			{ name: "Player 3", color: "lightgreen", filledBoxes: 0 },
+			{ name: "Player 4", color: "magenta", filledBoxes: 0 },
+			{ name: "Player 5", color: "yellow", filledBoxes: 0 },
+			{ name: "Player 6", color: "orange", filledBoxes: 0 },
+		];
 
-        let p = this.players.length - playersCount
-        for (let i = 0; i < p; i++)
-            this.players.pop()
+		let p = this.players.length - playersCount;
+		for (let i = 0; i < p; i++) this.players.pop();
 
-        this.currentPlayerIndex = 0
-        this.currentPlayer = this.players[this.currentPlayerIndex]
+		this.currentPlayerIndex = 0;
+		this.currentPlayer = this.players[this.currentPlayerIndex];
 
-        this.board = new Board(rows, columns)
+		this.board = new Board(rows, columns);
 
-        this.isGameover = false
+		this.isGameover = false;
 
-        this.addPlayersUI()
-        this.updatePlayerNameUI()
-        this.updateRankingsUI() // Initial call to update the rankings UI
+		this.addPlayersUI();
+		this.updatePlayerNameUI();
+		this.updateRankingsUI(); // Initial call to update the rankings UI
 
-        // Adding event listeners for filling box, switching player and winning
-        this.addEventListener("boxFill", () => this.onBoxFill())
-        this.addEventListener("playerSwitch", () => this.onPlayerSwitch())
-        this.addEventListener("playerWin", () => this.onPlayerWin())
-    }
+		// Adding event listeners for filling box, switching player and winning
+		this.addEventListener("boxFill", () => this.onBoxFill());
+		this.addEventListener("playerSwitch", () => this.onPlayerSwitch());
+		this.addEventListener("playerWin", () => this.onPlayerWin());
+	}
 
-    // End Game
-    onPlayerWin() {
-        this.isGameover = true
+	// End Game
+	onPlayerWin() {
+		this.isGameover = true;
 
-        bgMusic.pause();
-        let winSound = new Audio('../assets/sounds/win.mp3');
-        winSound.play();
-        
-        const player = this.players.reduce((prev, current) => {
-            return prev.filledBoxes > current.filledBoxes ? prev : current
-        });
+		bgMusic.pause();
+		let winSound = new Audio("../assets/sounds/win.mp3");
+		winSound.play();
 
-        setTimeout(() => {
-            let play = this.players[0].filledBoxes
+		const player = this.players.reduce((prev, current) => {
+			return prev.filledBoxes > current.filledBoxes ? prev : current;
+		});
 
-            // Check for winner
-            if (this.players.every((p) => p.filledBoxes == play)) {
-                this.playerNameUI.parentElement.textContent = "Nobody wins"
-                this.playerTurnBgUI.classList.add("no-win")
-                this.playerTurnBgUI.style.background = "#eaeaea"
-            } else {
-                this.playerNameUI.parentElement.textContent = `${player.name} wins`
-                this.playerTurnBgUI.classList.add("win")
-                this.playerTurnBgUI.style.background = player.color
-            }
-        }, 500);
-    }
+		setTimeout(() => {
+			let play = this.players[0].filledBoxes;
 
-    onPlayerSwitch() {
-        this.updatePlayerNameUI();
-    }
+			// Check for winner
+			if (this.players.every((p) => p.filledBoxes == play)) {
+				this.playerNameUI.parentElement.textContent = "Nobody wins";
+				this.playerTurnBgUI.classList.add("no-win");
+				this.playerTurnBgUI.style.background = "#eaeaea";
+			} else {
+				this.playerNameUI.parentElement.textContent = `${player.name} wins`;
+				this.playerTurnBgUI.classList.add("win");
+				this.playerTurnBgUI.style.background = player.color;
+			}
+		}, 500);
+	}
 
-    // If a box is filled, increment player's score with number of boxes filled by him/her and update UI
-    onBoxFill() {
-        this.currentPlayer.filledBoxes++
-        this.updatePlayerScoreUI();
-        this.updateRankingsUI(); // Update the rankings whenever a box is filled
-    }
+	onPlayerSwitch() {
+		this.updatePlayerNameUI();
+	}
 
-    // Add players to UI
-    addPlayersUI() {
-        this.players.forEach((player, index) => {
-            const div = document.createElement("div")
-            div.classList.add("player")
+	// If a box is filled, increment player's score with number of boxes filled by him/her and update UI
+	onBoxFill() {
+		this.currentPlayer.filledBoxes++;
+		this.updatePlayerScoreUI();
+		this.updateRankingsUI(); // Update the rankings whenever a box is filled
+	}
 
-            // Maintain filled boxes
-            const b = document.createElement("b")
-            b.classList.add("filled-boxes")
-            b.textContent = player.filledBoxes
-            b.style.background = player.color
-            this.players[index]["filledBoxesUI"] = b
+	// Add players to UI
+	addPlayersUI() {
+		this.players.forEach((player, index) => {
+			const div = document.createElement("div");
+			div.classList.add("player");
 
-            // Maintain player name
-            const span = document.createElement("span")
-            span.textContent = player.name
+			// Maintain filled boxes
+			const b = document.createElement("b");
+			b.classList.add("filled-boxes");
+			b.textContent = player.filledBoxes;
+			b.style.background = player.color;
+			this.players[index]["filledBoxesUI"] = b;
 
-            div.appendChild(b)
-            div.appendChild(span)
+			// Maintain player name
+			const span = document.createElement("span");
+			span.textContent = player.name;
 
-            // Adding score and name to the element
-            this.playersUI.appendChild(div)
-        });
-    }
+			div.appendChild(b);
+			div.appendChild(span);
 
-    // Update player score UI used while switching player
-    updatePlayerScoreUI() {
-        this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes
-    }
+			// Adding score and name to the element
+			this.playersUI.appendChild(div);
+		});
+	}
 
-    // Update player name UI used while switching player
-    updatePlayerNameUI() {
-        this.playerNameUI.innerText = this.currentPlayer.name
-        this.playerTurnBgUI.style.background = this.currentPlayer.color
-    }
+	// Update player score UI used while switching player
+	updatePlayerScoreUI() {
+		this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes;
+	}
 
-    updateRankingsUI() {
-        const rankingBody = document.getElementById('ranking-body');
-        rankingBody.innerHTML = '';
+	// Update player name UI used while switching player
+	updatePlayerNameUI() {
+		this.playerNameUI.innerText = this.currentPlayer.name;
+		this.playerTurnBgUI.style.background = this.currentPlayer.color;
+	}
 
-        // Sort players by filledBoxes in descending order
-        const sortedPlayers = [...this.players].sort((a, b) => b.filledBoxes - a.filledBoxes);
+	updateRankingsUI() {
+		const rankingBody = document.getElementById("ranking-body");
+		rankingBody.innerHTML = "";
 
-        sortedPlayers.forEach((player, index) => {
-            const row = document.createElement('tr');
-            const rankCell = document.createElement('td');
-            const playerCell = document.createElement('td');
-            const boxesCell = document.createElement('td');
+		// Sort players by filledBoxes in descending order
+		const sortedPlayers = [...this.players].sort(
+			(a, b) => b.filledBoxes - a.filledBoxes
+		);
 
-            rankCell.textContent = index + 1;
-            playerCell.textContent = player.name;
-            boxesCell.textContent = player.filledBoxes;
+		sortedPlayers.forEach((player, index) => {
+			const row = document.createElement("tr");
+			const rankCell = document.createElement("td");
+			const playerCell = document.createElement("td");
+			const boxesCell = document.createElement("td");
 
-            row.appendChild(rankCell);
-            row.appendChild(playerCell);
-            row.appendChild(boxesCell);
-            rankingBody.appendChild(row);
-        });
-    }
+			rankCell.textContent = index + 1;
+			playerCell.textContent = player.name;
+			boxesCell.textContent = player.filledBoxes;
 
-    eventExist(event) {
-        return this.events.hasOwnProperty(event)
-    }
+			row.appendChild(rankCell);
+			row.appendChild(playerCell);
+			row.appendChild(boxesCell);
+			rankingBody.appendChild(row);
+		});
+	}
 
-    // Add event listeners
-    addEventListener(event, callback) {
-        if (!this.eventExist(event)) {
-            console.error(`${event} event is not defined`)
-            return
-        }
+	eventExist(event) {
+		return this.events.hasOwnProperty(event);
+	}
 
-        this.events[event].push(callback)
-    }
+	// Add event listeners
+	addEventListener(event, callback) {
+		if (!this.eventExist(event)) {
+			console.error(`${event} event is not defined`);
+			return;
+		}
 
-    // Remove event listeners
-    removeEventListener(event, callback) {
-        if (!this.eventExist(event)) {
-            console.error(`${event} event is not defined`)
-            return
-        }
-        this.events[event].splice(this.events[event].indexOf(callback), 1)
-    }
+		this.events[event].push(callback);
+	}
 
-    // Invoke event listeners
-    invokeEvent(event, args) {
-        if (!this.eventExist(event)) {
-            console.error(`${event} event is not defined`)
-            return
-        }
-        this.events[event].forEach((callback) => callback(args))
-    }
+	// Remove event listeners
+	removeEventListener(event, callback) {
+		if (!this.eventExist(event)) {
+			console.error(`${event} event is not defined`);
+			return;
+		}
+		this.events[event].splice(this.events[event].indexOf(callback), 1);
+	}
 
-    // Switch player
-    switchPlayer() {
-        if (!this.isGameover) {
-            this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length
-            this.currentPlayer = this.players[this.currentPlayerIndex]
-            this.invokeEvent("playerSwitch")
-        }
-    }
+	// Invoke event listeners
+	invokeEvent(event, args) {
+		if (!this.eventExist(event)) {
+			console.error(`${event} event is not defined`);
+			return;
+		}
+		this.events[event].forEach((callback) => callback(args));
+	}
+
+	// Switch player
+	switchPlayer() {
+		if (!this.isGameover) {
+			this.currentPlayerIndex = ++this.currentPlayerIndex % this.players.length;
+			this.currentPlayer = this.players[this.currentPlayerIndex];
+			this.invokeEvent("playerSwitch");
+		}
+	}
 }
 
 // Selecting the mute button and icon
@@ -192,93 +193,92 @@ const muteIcon = document.querySelector(".mute-btn i");
 
 // Event listener for mute button
 muteBtn.addEventListener("click", () => {
-    if (bgMusic.paused) {
-        bgMusic.play();
-        muteIcon.classList.remove("fa-volume-off"); // Remove mute icon
-        muteIcon.classList.add("fa-volume-up");    // Add unmute icon
-    } else {
-        bgMusic.pause();
-        muteIcon.classList.remove("fa-volume-up");  // Remove unmute icon
-        muteIcon.classList.add("fa-volume-off");   // Add mute icon
-    }
+	if (bgMusic.paused) {
+		bgMusic.play();
+		muteIcon.classList.remove("fa-volume-off"); // Remove mute icon
+		muteIcon.classList.add("fa-volume-up"); // Add unmute icon
+	} else {
+		bgMusic.pause();
+		muteIcon.classList.remove("fa-volume-up"); // Remove unmute icon
+		muteIcon.classList.add("fa-volume-off"); // Add mute icon
+	}
 });
 
 // Declaring Global Variables
 
-const settingsUI = document.querySelector(".settings")
-const rowsInput = document.querySelector("#rows")
-const columnsInput = document.querySelector("#columns")
-const playersInput = document.querySelector("#players-count")
-const startBtn = document.querySelector(".start-btn")
-const heading = document.querySelector(".heading")
-const bgMusic = new Audio('./sounds/bgMusic.mp3');
+const settingsUI = document.querySelector(".settings");
+const rowsInput = document.querySelector("#rows");
+const columnsInput = document.querySelector("#columns");
+const playersInput = document.querySelector("#players-count");
+const startBtn = document.querySelector(".start-btn");
+const heading = document.querySelector(".heading");
+const bgMusic = new Audio("./sounds/bgMusic.mp3");
 const rowsWarning = document.querySelector("#rows-warning");
 const columnsWarning = document.querySelector("#columns-warning");
 const playersWarning = document.querySelector("#players-warning");
-var game = null
+var game = null;
 
 // Get warning elements
 const warnings = [rowsWarning, columnsWarning, playersWarning];
 
 // Add event listeners to input fields to remove warnings when user starts entering input again
 rowsInput.addEventListener("focus", () => {
-    rowsWarning.style.display = "none";
+	rowsWarning.style.display = "none";
 });
 
 columnsInput.addEventListener("focus", () => {
-    columnsWarning.style.display = "none";
+	columnsWarning.style.display = "none";
 });
 
 playersInput.addEventListener("focus", () => {
-    playersWarning.style.display = "none";
+	playersWarning.style.display = "none";
 });
 
 startBtn.addEventListener("click", () => {
+	// Get values of inputs
+	const rows = parseInt(rowsInput.value);
+	const columns = parseInt(columnsInput.value);
+	const playersCount = parseInt(playersInput.value);
 
-    // Get values of inputs
-    const rows = parseInt(rowsInput.value);
-    const columns = parseInt(columnsInput.value);
-    const playersCount = parseInt(playersInput.value);
+	const inputValues = [rows, columns, playersCount];
 
-    const inputValues = [rows, columns, playersCount];
+	// Getting validity of inputs
+	let validGame = validateForm(inputValues);
 
-    // Getting validity of inputs
-    let validGame = validateForm(inputValues);
+	// If any input is invalid, prevent starting the game
+	if (validGame === true) {
+		// Set background music volume and play
+		bgMusic.volume = 0.1;
+		bgMusic.play();
 
-    // If any input is invalid, prevent starting the game
-    if (validGame === true) {
-        // Set background music volume and play
-        bgMusic.volume = 0.1;
-        bgMusic.play();
-
-        // Start game with valid inputs
-        game = new Game(rows, columns, playersCount);
-        settingsUI.style.display = "none";
-        heading.style.display = "none";
-        document.getElementById("theme-options").style.display = "none";
-        document.getElementById("theme-button").style.display = "none";
-    }
+		// Start game with valid inputs
+		game = new Game(rows, columns, playersCount);
+		settingsUI.style.display = "none";
+		heading.style.display = "none";
+		document.getElementById("theme-options").style.display = "none";
+		document.getElementById("theme-button").style.display = "none";
+	}
 });
 
 function validateForm(inputValues) {
-    let valid = true;
+	let valid = true;
 
-    for (let i = 0; i < 3; i++) {
-        let value = inputValues[i];
-        let warning = warnings[i];
+	for (let i = 0; i < 3; i++) {
+		let value = inputValues[i];
+		let warning = warnings[i];
 
-        let min = (i === 2) ? 2 : 5;
-        let max = (i === 2) ? 6 : 30;
+		let min = i === 2 ? 2 : 5;
+		let max = i === 2 ? 6 : 30;
 
-        if (value == null || value < min || value > max) {
-            warning.style.display = "block";
-            valid = false;
-        }
-    }
+		if (value == null || value < min || value > max) {
+			warning.style.display = "block";
+			valid = false;
+		}
+	}
 
-    return valid;
+	return valid;
 }
 
 function exitGame() {
-    window.location.reload();
-};
+	window.location.reload();
+}
