@@ -68,6 +68,9 @@ a {
 	.board {
 		width: 80vw;
 	}
+	.navbarr .nav-links {
+		display: none;
+	}
 }
 
 .box {
@@ -920,9 +923,9 @@ button a {
 	margin-right: 10px;
 }
 
-.navbarr .nav-links {
+/* .navbarr .nav-links {
 	display: none;
-}
+} */
 
 .navbar-toggler {
 	display: inline !important;
