@@ -362,6 +362,7 @@ body {
 	75% {
 		transform: translateY(-100%);
 	}
+}
 
 #playerSetup {
 	display: flex;
