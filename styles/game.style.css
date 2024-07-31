@@ -297,7 +297,7 @@ body {
 }
 
 .spinner {
-	--size: 30px;
+	--size: 50px;
 	--first-block-clr: #005bba;
 	--second-block-clr: #fed500;
 	--clr: #111;
@@ -362,6 +362,7 @@ body {
 	75% {
 		transform: translateY(-100%);
 	}
+}
 
 #playerSetup {
 	display: flex;
