@@ -1,7 +1,7 @@
 class Game {
 	static instance; // Singleton instance of Game class
 
-	constructor(rows, columns, playersInfo) {
+	constructor(playersInfo) {
 		if (Game.instance == null) Game.instance = this;
 
 		this.playersUI = document.querySelector(".players");
@@ -296,8 +296,6 @@ class Game {
 }
 
 // Declaring Global Variables
-const rowsInput = Number(localStorage.getItem("rows"));
-const columnsInput = Number(localStorage.getItem("columns"));
 const playersInput = Number(localStorage.getItem("playersCount"));
 const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
 var game = null;
@@ -412,9 +410,20 @@ function savePlayers() {
 playBtn.addEventListener("click", () => {
 	savePlayers();
 	document.getElementById("playerSetup").style.display = "none";
-	const rows = calculate(rowsInput, 5, 30);
-	const columns = calculate(columnsInput, 5, 30);
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
-	game = new Game(rows, columns, playersInfo);
-	game.makeBoard(rows, columns);
+	const size = difficultyCalc();
+	game = new Game(playersInfo);
+	game.makeBoard(size[0], size[1]);
 });
+
+const difficultyCalc = () => {
+	const difficulty = localStorage.getItem("selectedDifficulty");
+	const dimensions = {
+		easy: [5, 5],
+		normal: [10, 10],
+		hard: [20, 20],
+		expert: [30, 30],
+	};
+	const result = dimensions[difficulty.toLowerCase()];
+	return result;
+};
