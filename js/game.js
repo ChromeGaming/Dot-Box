@@ -343,22 +343,26 @@ function renderPlayerInputs(count) {
 	for (let i = 1; i <= count; i++) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
-		div.innerHTML = `
-			<label for="playerName${i}" class="player-label ${
+		div.innerHTML = `<label for="playerName${i}" class="player-label ${
 			colors[i - 1]
 		}">Player ${i}</label>
-			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
-			${colors
-				.map(
-					(color, index) =>
-						`<label class="rad-label">
+		<div class="avatar">
+		<img src="/assets/avatars/${i}.jpg" alt="player${i} avatar" class="player-avatar">
+		<span id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></span>
+		</div>
+		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
+		<div class="player-colors">
+		${colors
+			.map(
+				(color, index) =>
+					`<label class="rad-label">
 						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
-							index === i - 1 ? "checked" : ""
-						} onclick="validateColor(this)">
-						<div class="rad-design ${color}"></div></label>`
-				)
-				.join("")}
-
+						index === i - 1 ? "checked" : ""
+					} onclick="validateColor(this)">
+					<div class="rad-design ${color}"></div></label>`
+			)
+			.join("")}
+			</div>
 		`;
 		playerInputsDiv.appendChild(div);
 	}
