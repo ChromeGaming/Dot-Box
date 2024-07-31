@@ -647,3 +647,10 @@ body {
 .edit-avatar:hover {
 	opacity: 1;
 }
+
+.avatar-sm {
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	padding: 0.1rem 0;
+}

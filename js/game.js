@@ -177,9 +177,10 @@ class Game {
 			const scoreDiv = document.createElement("div");
 			scoreDiv.classList.add("score", `player${index + 1}-score`);
 			scoreDiv.innerHTML = `
-                <span>${player.name}</span>
-                <span id="player${index + 1}-score">0</span>
-            `;
+				<img src="/assets/avatars/${1}.jpg" class="avatar-sm">
+				<span>${player.name}</span>
+				<span id="player${index + 1}-score">0</span>
+			`;
 			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
