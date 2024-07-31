@@ -1,462 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/mainstyle.css">
-
-  <!-- Logo of the game -->
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
-
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #e7b537;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    ::-webkit-scrollbar
-        {
-            width: 8px !important;
-        }
-        ::-webkit-scrollbar-thumb{
-            background-color: rgba(231, 181, 55, 0.979) !important;
-            border-radius: 15px !important;
-        }
-        ::-webkit-scrollbar-track{
-            background-color: black !important;
-        }
-
-    main {
-      flex: 1;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-
-
-    .circle {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, #ff6600, #ffb584a5);
-      transition: transform 0.1s, left 0.1s, top 0.1s;
-    }
-
-    .circle-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    @media (max-width: 768px) {
-      .circle-container {
-        display: none;
-      }
-    }
-
-
-  </style>
-
-  <style>
-    /* Adding style.css here beacuse after deployment server is not loading it */
-
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #e7b537;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .about-header {
-      font-family: "Anton", sans-serif;
-      background-color: transparent;
-      color: #0e0e0e;
-      padding: 15px;
-      text-shadow: 2px 2px 10px white;
-      text-align: center;
-      font-size: 2.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .about-header:hover {
-      background-color: #e59253;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    main {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    p {
-      color: #333;
-      line-height: 1.6;
-      text-align: justify;
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 16px;
-    }
-
-    .functionalities,
-    .how-to-play {
-      flex: 1 1 320px;
-      max-width: 320px;
-      height: 350px;
-      margin: 10px;
-      color: #ffffff;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #5f4c9b, #3540e3);
-      border-radius: 10px;
-      padding: 0px 204px;
-      box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-      transition: all 0.3s ease;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 352px;
-    }
-
-    .functionalities h2,
-    .how-to-play h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-
-    .functionalities .content,
-    .how-to-play .content {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      font-weight: 500;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 20px;
-    }
-
-    .functionalities::after,
-    .how-to-play::after {
-      content: "(Hover here to know more)";
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-
-    .functionalities:hover::after,
-    .how-to-play:hover::after {
-      opacity: 0;
-    }
-
-    .functionalities:hover h2,
-    .how-to-play:hover h2 {
-      top: 10px;
-      transform: translateX(-50%);
-    }
-
-    .functionalities:hover .content,
-    .how-to-play:hover .content {
-      opacity: 1;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      margin-right: 29px;
-    margin-left: 33px;
-    margin-top: -40px;
-    }
-
-    li {
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    .functionalities ul,
-    .how-to-play p {
-      color: #ffffff;
-      font-size: 14px;
-    }
-
-    .author {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(to right, #00093c, #2d0b00);
-      color: #fff;
-      padding: 15px;
-      position: sticky;
-      bottom: 0;
-      z-index: 1000;
-    }
-
-    .author .fotbar {
-      display: flex;
-      gap: -10px;
-    }
-
-    .author .fotbar a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 18px;
-      background-color: transparent;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    .author p {
-      color: white;
-      padding: 10px;
-      margin-right: 10px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .author .social-icons {
-      display: flex;
-      gap: 10px;
-      margin-right: 20px;
-    }
-
-    .author a {
-      color: white !important;
-    }
-
-    .author .social-icons a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    /* Responsive Styles */
-    @media screen and (max-width: 769px) {
-      .navbar {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .logo a {
-        font-size: 20px;
-      }
-
-      .navlinks {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-      }
-
-      .navlinks a {
-        font-size: 16px;
-        margin: 5px 0;
-      }
-    }
-
-    @media screen and (max-width: 450px) {
-      .logo a {
-        font-size: 18px;
-      }
-
-      .functionalities,
-      .how-to-play{
-        padding: -1px;
-      }
-    }
-    
-    .scroll-to-top {
-    position: fixed;
-    bottom: 90px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #ff7920, #dd5900);
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; 
-    z-index: 1000;
-    transition:  background-color 0.3s ease;
-}
-
-
-.scroll-to-top svg {
-    vertical-align: middle;
-    fill: white; 
-    transition: transform 0.3s ease;
-    margin-bottom: 10px;
-}
-
-
-  </style>
-
-</head>
-
-<body>
-  <div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z" fill="#fff"/>
-        <path d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z" fill="#fff"/>
-    </svg>
-</div>
-
-<script>
-   
-function scrollToTop() {
-window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-});
-}
-
-window.onscroll = function() {
-let scrollToTopBtn = document.getElementById('scrollToTopBtn');
-if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    scrollToTopBtn.style.display = 'block';
-} else {
-    scrollToTopBtn.style.display = 'none';
-}
-};
-
-</script>
-  <div class="circle-container">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
-
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
-
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`;
-          circle.style.top = `${y - 12}px`;
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
-
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
-        });
-
-        requestAnimationFrame(animateCircles);
-      }
-
-      animateCircles();
-    });
-
-  </script>
-
-  <!-- <nav class="navbar">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About Us</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../styles/mainstyle.css" />
+
+		<!-- Logo of the game -->
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<script src="/js/loader.js"></script>
+
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				background-color: #e7b537;
+				scroll-behavior: smooth;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+
+			::-webkit-scrollbar {
+				width: 8px !important;
+			}
+			::-webkit-scrollbar-thumb {
+				background-color: rgba(231, 181, 55, 0.979) !important;
+				border-radius: 15px !important;
+			}
+			::-webkit-scrollbar-track {
+				background-color: black !important;
+			}
+
+			main {
+				flex: 1;
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.circle {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				pointer-events: none;
+				background: radial-gradient(circle, #ff6600, #ffb584a5);
+				transition: transform 0.1s, left 0.1s, top 0.1s;
+			}
+
+			.circle-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 9999;
+			}
+
+			@media (max-width: 768px) {
+				.circle-container {
+					display: none;
+				}
+			}
+		</style>
+
+		<style>
+			/* Adding style.css here beacuse after deployment server is not loading it */
+
+			@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				background-color: #e7b537;
+				scroll-behavior: smooth;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.about-header {
+				font-family: "Anton", sans-serif;
+				background-color: transparent;
+				color: #0e0e0e;
+				padding: 15px;
+				text-shadow: 2px 2px 10px white;
+				text-align: center;
+				font-size: 2.5rem;
+				transition: background-color 0.3s ease;
+			}
+
+			.about-header:hover {
+				background-color: #e59253;
+			}
+
+			h1 {
+				margin: 0;
+			}
+
+			main {
+				padding: 20px;
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			p {
+				color: #333;
+				line-height: 1.6;
+				text-align: justify;
+				max-width: 750px;
+				margin: 0 auto;
+				font-size: 16px;
+			}
+
+			.functionalities,
+			.how-to-play {
+				flex: 1 1 320px;
+				max-width: 320px;
+				height: 350px;
+				margin: 10px;
+				color: #ffffff;
+				font-family: "Poppins", sans-serif;
+				background: linear-gradient(135deg, #5f4c9b, #3540e3);
+				border-radius: 10px;
+				padding: 0px 204px;
+				box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+				transition: all 0.3s ease;
+				overflow: hidden;
+				position: relative;
+				cursor: pointer;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 352px;
+			}
+
+			.functionalities h2,
+			.how-to-play h2 {
+				font-size: 24px;
+				margin-bottom: 10px;
+				font-family: "Poppins", sans-serif;
+				font-weight: 700;
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				transition: all 0.3s ease;
+			}
+
+			.functionalities .content,
+			.how-to-play .content {
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				font-weight: 500;
+				position: absolute;
+				top: 60px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: 20px;
+			}
+
+			.functionalities::after,
+			.how-to-play::after {
+				content: "(Hover here to know more)";
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				right: 0;
+				text-align: center;
+				opacity: 0.7;
+				transition: opacity 0.3s ease;
+			}
+
+			.functionalities:hover::after,
+			.how-to-play:hover::after {
+				opacity: 0;
+			}
+
+			.functionalities:hover h2,
+			.how-to-play:hover h2 {
+				top: 10px;
+				transform: translateX(-50%);
+			}
+
+			.functionalities:hover .content,
+			.how-to-play:hover .content {
+				opacity: 1;
+			}
+
+			ul {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+				margin-right: 29px;
+				margin-left: 33px;
+				margin-top: -40px;
+			}
+
+			li {
+				margin-bottom: 8px;
+				line-height: 1.6;
+			}
+
+			.functionalities ul,
+			.how-to-play p {
+				color: #ffffff;
+				font-size: 14px;
+			}
+
+			.author {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background: linear-gradient(to right, #00093c, #2d0b00);
+				color: #fff;
+				padding: 15px;
+				position: sticky;
+				bottom: 0;
+				z-index: 1000;
+			}
+
+			.author .fotbar {
+				display: flex;
+				gap: -10px;
+			}
+
+			.author .fotbar a {
+				color: white;
+				text-decoration: none;
+				padding: 10px;
+				border-radius: 5px;
+				font-size: 18px;
+				background-color: transparent;
+			}
+
+			::-webkit-scrollbar {
+				display: none;
+			}
+
+			.author p {
+				color: white;
+				padding: 10px;
+				margin-right: 10px;
+				font-size: 20px;
+				font-weight: 600;
+			}
+
+			.author .social-icons {
+				display: flex;
+				gap: 10px;
+				margin-right: 20px;
+			}
+
+			.author a {
+				color: white !important;
+			}
+
+			.author .social-icons a {
+				color: white;
+				text-decoration: none;
+				font-size: 20px;
+			}
+
+			/* Responsive Styles */
+			@media screen and (max-width: 769px) {
+				.navbar {
+					flex-direction: column;
+					padding: 20px;
+				}
+
+				.logo a {
+					font-size: 20px;
+				}
+
+				.navlinks {
+					flex-direction: column;
+					align-items: center;
+					margin-top: 10px;
+				}
+
+				.navlinks a {
+					font-size: 16px;
+					margin: 5px 0;
+				}
+			}
+
+			@media screen and (max-width: 450px) {
+				.logo a {
+					font-size: 18px;
+				}
+
+				.functionalities,
+				.how-to-play {
+					padding: -1px;
+				}
+			}
+
+			.scroll-to-top {
+				position: fixed;
+				bottom: 90px;
+				left: 30px;
+				width: 50px;
+				height: 50px;
+				background: radial-gradient(circle, #ff7920, #dd5900);
+				color: white;
+				text-align: center;
+				line-height: 50px;
+				font-size: 24px;
+				border-radius: 50%;
+				cursor: pointer;
+				display: none;
+				z-index: 1000;
+				transition: background-color 0.3s ease;
+			}
+
+			.scroll-to-top svg {
+				vertical-align: middle;
+				fill: white;
+				transition: transform 0.3s ease;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
+
+		<div id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+			>
+				<path
+					d="M12 6.414l7.293 7.293 1.414-1.414L12 3.586 3.293 12.707l1.414 1.414L12 6.414z"
+					fill="#fff"
+				/>
+				<path
+					d="M3.293 18.293l1.414 1.414L12 12.414l7.293 7.293 1.414-1.414L12 9.586 3.293 18.293z"
+					fill="#fff"
+				/>
+			</svg>
+		</div>
+
+		<script>
+			function scrollToTop() {
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth",
+				});
+			}
+
+			window.onscroll = function () {
+				let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+				if (
+					document.body.scrollTop > 100 ||
+					document.documentElement.scrollTop > 100
+				) {
+					scrollToTopBtn.style.display = "block";
+				} else {
+					scrollToTopBtn.style.display = "none";
+				}
+			};
+		</script>
+		<div class="circle-container">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const coords = { x: 0, y: 0 };
+				const circles = document.querySelectorAll(".circle");
+
+				circles.forEach(function (circle) {
+					circle.x = 0;
+					circle.y = 0;
+				});
+
+				window.addEventListener("mousemove", function (e) {
+					coords.x = e.pageX;
+					coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+				});
+
+				function animateCircles() {
+					let x = coords.x;
+					let y = coords.y;
+
+					circles.forEach(function (circle, index) {
+						circle.style.left = `${x - 12}px`;
+						circle.style.top = `${y - 12}px`;
+						circle.style.transform = `scale(${
+							(circles.length - index) / circles.length
+						})`;
+
+						const nextCircle = circles[index + 1] || circles[0];
+						circle.x = x;
+						circle.y = y;
+
+						x += (nextCircle.x - x) * 0.3;
+						y += (nextCircle.y - y) * 0.3;
+					});
+
+					requestAnimationFrame(animateCircles);
+				}
+
+				animateCircles();
+			});
+		</script>
+
+		<!-- <nav class="navbar">
     <div class="logo">
       <a href="../index.html">Dots & Boxes ⚄</a>
     </div>
@@ -469,260 +487,297 @@ if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     </ul>
   </nav> -->
 
+		<div class="whole-background">
+			<nav class="navbarr" style="color: white">
+				<div class="logo">
+					<a href="../index.html">Dots & Boxes ⚄</a>
+				</div>
 
-  <div class="whole-background">
-    <nav class="navbarr" style="color: white;">
-        <div class="logo">
-            <a href="../index.html">Dots & Boxes ⚄</a>
-        </div>
-        
-        <ul class="nav-links" id="nav-links-toggled">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About Us</a></li>
-            <li><a href="../pages/FAQs.html">FAQs</a></li>
-            <li><a href="../pages/contributors.html">Contributors</a></li>
-            <button class="start"><a href="../pages/game.html">Let's Go</a></button>
-        </ul>
-        <!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+				<ul class="nav-links" id="nav-links-toggled">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../pages/about.html">About Us</a></li>
+					<li><a href="../pages/FAQs.html">FAQs</a></li>
+					<li><a href="../pages/contributors.html">Contributors</a></li>
+					<button class="start">
+						<a href="../pages/game.html">Let's Go</a>
+					</button>
+				</ul>
+				<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
             <span class="toggler-icon"></span>
           </button> -->
 
-          <!-- Hamburger Menu -->
+				<!-- Hamburger Menu -->
 
-          <nav class="mobile-menu ">
-            <div class="mobile-menu__trigger"><span></span></div>
-            <a class="page-scroll active-link" href="./index.html">Home </a>
-            <a class="page-scroll" href="./about.html">About Us </a>
-            <a class="page-scroll" href="./trends.html">FAQs</a>
-            <a class="page-scroll" href="./tools/sip.html">Contributors</a>
-          </nav>
-          
-          <!-- Js and CSS files for hamburger-menu -->
-            <link href="../styles/navbar.css" rel="stylesheet">
-            <script type="text/javascript" src="../js/navbar.js"></script>
+				<nav class="mobile-menu">
+					<div class="mobile-menu__trigger"><span></span></div>
+					<a class="page-scroll active-link" href="./index.html">Home </a>
+					<a class="page-scroll" href="./about.html">About Us </a>
+					<a class="page-scroll" href="./trends.html">FAQs</a>
+					<a class="page-scroll" href="./tools/sip.html">Contributors</a>
+				</nav>
 
-    </nav>
-</div>
-  </div>
+				<!-- Js and CSS files for hamburger-menu -->
+				<link href="../styles/navbar.css" rel="stylesheet" />
+				<script type="text/javascript" src="../js/navbar.js"></script>
+			</nav>
+		</div>
 
-  <style>
-    body>.about-header {
-      width: 100%;
-      position: relative;
-      top: 100px;
-    }
+		<style>
+			body > .about-header {
+				width: 100%;
+				position: relative;
+				top: 100px;
+			}
 
-    body>.about-header>h1 {
-      font-size: 5rem;
-    }
+			body > .about-header > h1 {
+				font-size: 5rem;
+			}
 
-    body>p {
-      position: relative;
-      top: 100px;
-    }
+			body > p {
+				position: relative;
+				top: 100px;
+			}
 
-    body>main {
-      position: relative;
-      top: 100px;
-      padding-bottom: 100px;
-    }
+			body > main {
+				position: relative;
+				top: 100px;
+				padding-bottom: 100px;
+			}
 
+			.author {
+				position: fixed;
+				bottom: 0;
+			}
 
-    .author {
-      position: fixed;
-      bottom: 0;
-    }
+			.navbarr {
+				width: 100vw;
+			}
 
-    .navbarr {
-      width: 100vw;
-    }
+			.navbar-toggler {
+				background-color: transparent;
+				border: none;
+			}
 
-    .navbar-toggler {
-      background-color: transparent;
-      border: none;
-    }
+			.navbar-toggler .toggler-icon {
+				width: 30px;
+				height: 2px;
+				background-color: #fff;
+				display: block;
+				margin: 5px 0;
+				position: relative;
+				-webkit-transition: all 0.3s ease-out 0s;
+				-moz-transition: all 0.3s ease-out 0s;
+				-ms-transition: all 0.3s ease-out 0s;
+				-o-transition: all 0.3s ease-out 0s;
+				transition: all 0.3s ease-out 0s;
+			}
 
-    .navbar-toggler .toggler-icon {
-      width: 30px;
-      height: 2px;
-      background-color: #fff;
-      display: block;
-      margin: 5px 0;
-      position: relative;
-      -webkit-transition: all 0.3s ease-out 0s;
-      -moz-transition: all 0.3s ease-out 0s;
-      -ms-transition: all 0.3s ease-out 0s;
-      -o-transition: all 0.3s ease-out 0s;
-      transition: all 0.3s ease-out 0s;
-    }
+			.nav-links {
+				letter-spacing: 4px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				list-style: none;
+				width: 50%;
+				padding: 0;
+				color: white;
+				font-family: inherit;
+			}
 
+			.nav-links li a,
+			.logo a {
+				color: white;
+			}
 
-    .nav-links {
-      letter-spacing: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style: none;
-      width: 50%;
-      padding: 0;
-      color: white;
-      font-family: inherit;
-    }
+			button a {
+				background-color: transparent;
+			}
 
-    .nav-links li a,
-    .logo a {
-      color: white;
-    }
+			.start {
+				padding: 10px 5px;
+				border-radius: 5px;
+			}
 
-    button a {
-      background-color: transparent;
-    }
+			@media screen and (max-width: 1190px) {
+				.author a {
+					margin-left: 13px;
+				}
+			}
 
-    .start {
-      padding: 10px 5px;
-      border-radius: 5px;
-    }
+			@media screen and (max-width: 1065px) {
+				.author .fotbar {
+					display: grid;
+				}
 
-    @media screen and (max-width:1190px) {
-      .author a {
-        margin-left: 13px;
-      }
-    }
+				.author .fotbar a {
+					font-size: 14px;
+				}
 
-    @media screen and (max-width:1065px) {
-      .author .fotbar {
-        display: grid;
-      }
+				body > .about-header > h1 {
+					font-size: 3rem;
+				}
+			}
 
-      .author .fotbar a {
-        font-size: 14px;
-      }
+			@media screen and (max-width: 550px) {
+				.author {
+					padding: 10px;
+				}
 
-      body>.about-header>h1 {
-        font-size: 3rem;
-      }
-    }
+				.author p {
+					font-size: 16px;
+					padding: 0;
+				}
 
-    @media screen and (max-width:550px) {
-      .author {
-        padding: 10px;
-      }
+				.author .fotbar a {
+					font-size: 12px;
+				}
 
-      .author p {
-        font-size: 16px;
-        padding: 0;
-      }
+				.author .social-icons a {
+					font-size: 15px;
+				}
 
-      .author .fotbar a {
-        font-size: 12px;
-      }
+				body > p {
+					padding: 30px;
+				}
 
-      .author .social-icons a {
-        font-size: 15px;
-      }
+				body > .about-header > h1 {
+					font-size: 2rem;
+				}
+			}
 
-      body>p {
-        padding: 30px;
-      }
+			@media (max-width: 768px) {
+				.author {
+					position: relative !important;
+				}
+			}
+		</style>
 
-      body>.about-header>h1 {
-        font-size: 2rem;
-      }
-    }
+		<script>
+			function toggleNavBar() {
+				var nav_bar = document.getElementById("nav-links-toggled");
+				if (nav_bar.style.display === "flex") {
+					nav_bar.style.display = "none";
+				} else {
+					nav_bar.style.display = "flex";
+				}
+			}
+		</script>
 
-    @media (max-width: 768px) {
-      .author {
-        position: relative !important;
-      }
-    }
-  </style>
+		<header class="about-header">
+			<h1>🕹️ About Us 🕹️</h1>
+		</header>
 
+		<p
+			style="
+				font-size: 25px;
+				font-family: EB Garamond, serif;
+				font-weight: bolder;
+				text-shadow: 2px 2px 3px white;
+			"
+		>
+			Dot-Box is a game presented by ChromeGaming where players take turns
+			drawing lines between dots to create boxes. The player who completes the
+			most boxes wins. It's a simple yet strategic game enjoyed by people of all
+			ages.
+		</p>
 
-  <script>
-    function toggleNavBar() {
-      var nav_bar = document.getElementById("nav-links-toggled");
-      if (nav_bar.style.display === "flex") {
-        nav_bar.style.display = "none";
-      } else {
-        nav_bar.style.display = "flex";
-      }
-    }
-  </script>
+		<main>
+			<section class="about-description">
+				<p></p>
+			</section>
 
-  <header class="about-header">
-    <h1>🕹️ About Us 🕹️ </h1>
-  </header>
+			<section class="functionalities">
+				<h2>History and Origin📓:</h2>
+				<div class="content">
+					<ul>
+						<li>
+							Dot and Boxes, also known as Dots and Boxes, is a classic
+							pencil-and-paper game from the late 19th century.
+						</li>
+						<li>
+							French mathematician Édouard Lucas first described it in the
+							1880s.
+						</li>
+						<li>
+							Lucas, known for his work on the Fibonacci sequence and the Tower
+							of Hanoi puzzle, introduced the game in his book "Récréations
+							Mathématiques" (Mathematical Recreations), where it quickly
+							captivated puzzle enthusiasts and gamers.
+						</li>
+					</ul>
+				</div>
+			</section>
 
-  <p style="font-size: 25px; font-family: EB Garamond,serif;font-weight: bolder; text-shadow: 2px 2px 3px white;">
-    Dot-Box is a game presented by ChromeGaming where players take turns drawing lines between dots to create boxes.
-    The player who completes the most boxes wins. It's a simple yet strategic game enjoyed by people of all ages.
-  </p>
+			<section class="functionalities">
+				<h2>Functionalities🕹️</h2>
+				<div class="content">
+					<ul>
+						<li>Multiplayer game: Challenge your friends or family!</li>
+						<li>
+							Strategic Line Selection: Think ahead to maximize your boxes.
+						</li>
+						<li>
+							Box Completion Bonus: Earn an extra turn by completing a box.
+						</li>
+						<li>
+							Adjustable Board Size: Customize the game for any difficulty.
+						</li>
+						<li>Turn Switching: Players take turns to keep things fair.</li>
+					</ul>
+				</div>
+			</section>
 
-  <main>
-    <section class="about-description">
-      <p></p>
-    </section>
+			<section class="functionalities">
+				<h2>How to Play🎮</h2>
+				<div class="content">
+					<ul>
+						<li>
+							Objective: Capture more boxes than your opponent by drawing lines
+							between adjacent dots.
+						</li>
+						<li>Setup: Choose your grid size and start connecting the dots.</li>
+						<li>
+							Rules: Take turns drawing lines. Complete a box to score a point
+							and get an extra turn. The player with the most boxes wins.
+						</li>
+						<li>
+							Scoring: Each box is worth one point. The game ends when all boxes
+							are claimed.
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
 
-    <section class="functionalities">
-      <h2>History and Origin📓:</h2>
-      <div class="content">
-        <ul>
-          <li>Dot and Boxes, also known as Dots and Boxes, is a classic pencil-and-paper game from the late 19th
-            century.</li>
-          <li>French mathematician Édouard Lucas first described it in the 1880s.</li>
-          <li>Lucas, known for his work on the Fibonacci sequence and the Tower of Hanoi puzzle, introduced the game in
-            his book "Récréations Mathématiques" (Mathematical Recreations), where it quickly captivated puzzle
-            enthusiasts and gamers.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="functionalities">
-      <h2>Functionalities🕹️</h2>
-      <div class="content">
-        <ul>
-          <li>Multiplayer game: Challenge your friends or family!</li>
-          <li>Strategic Line Selection: Think ahead to maximize your boxes.</li>
-          <li>Box Completion Bonus: Earn an extra turn by completing a box.</li>
-          <li>Adjustable Board Size: Customize the game for any difficulty.</li>
-          <li>Turn Switching: Players take turns to keep things fair.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="functionalities">
-      <h2>How to Play🎮</h2>
-      <div class="content">
-        <ul>
-          <li>Objective: Capture more boxes than your opponent by drawing lines between adjacent dots.</li>
-          <li>Setup: Choose your grid size and start connecting the dots.</li>
-          <li>Rules: Take turns drawing lines. Complete a box to score a point and get an extra turn. The player with
-            the most boxes wins.</li>
-          <li>Scoring: Each box is worth one point. The game ends when all boxes are claimed.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <div class="author">
-    <div class="fotbar">
-      <a href="howtoplay.html">HowToPlay?</a>
-      <a href="termsofservice.html">TermsOfService</a>
-      <a href="privacypolicy.html">PrivacyPolicy</a>
-      <a href="licensing.html">Licensing</a>
-    </div>
-    <p>
-      Created with ❤️ by <a href="https://github.com/ChromeGaming" style="color: white; text-decoration: none;">Chrome
-        Gaming</a>
-    </p>
-    <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
-    <div class="social-icons">
-      <a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
-    </div>
-  </div>
-</body>
-
+		<div class="author">
+			<div class="fotbar">
+				<a href="howtoplay.html">HowToPlay?</a>
+				<a href="termsofservice.html">TermsOfService</a>
+				<a href="privacypolicy.html">PrivacyPolicy</a>
+				<a href="licensing.html">Licensing</a>
+			</div>
+			<p>
+				Created with ❤️ by
+				<a
+					href="https://github.com/ChromeGaming"
+					style="color: white; text-decoration: none"
+					>Chrome Gaming</a
+				>
+			</p>
+			<script
+				src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
+				async
+			></script>
+			<div class="social-icons">
+				<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
+					><i class="fab fa-github"></i
+				></a>
+				<a href="https://discord.gg/2HTCFrSvPB" target="_blank"
+					><i class="fab fa-discord"></i
+				></a>
+			</div>
+		</div>
+	</body>
 </html>

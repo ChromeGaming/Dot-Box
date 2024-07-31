@@ -10,10 +10,10 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 		/>
-		<script defer src="./js/edge.js"></script>
-		<script defer src="./js/box.js"></script>
-		<script defer src="./js/board.js"></script>
-		<script defer src="./js/game.js"></script>
+		<!-- <script defer src="./js/edge.js"></script> -->
+		<!-- <script defer src="./js/box.js"></script> -->
+		<!-- <script defer src="./js/board.js"></script> -->
+		<!-- <script defer src="./js/game.js"></script> -->
 		<script defer src="./js/validation.js"></script>
 		<!-- JavaScript files -->
 		<script defer src="./js/index.js"></script>
@@ -24,6 +24,7 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 		/>
+		<script src="./js/loader.js"></script>
 		<script src="./js/emoji.js"></script>
 		<title>Dots & Boxes Game</title>
 		<style>
@@ -464,6 +465,10 @@
 	</head>
 
 	<body>
+		<div id="loader">
+			<div class="spinner"></div>
+		</div>
+
 		<audio id="background-music" autoplay loop>
 			<source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
 		</audio>
@@ -713,11 +718,13 @@
 					<a href="./pages/privacypolicy.html">PrivacyPolicy</a>
 					<a href="./pages/licensing.html">Licensing</a>
 				</div>
-				&copy;
-				<script>
-					document.write(new Date().getFullYear());
-				</script>
-				Made by ❤️
+				<div id="copyright">
+					&copy;
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
+					Made by ❤️
+				</div>
 				<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
 				<div class="social-icons">
 					<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
@@ -729,6 +736,11 @@
 				</div>
 			</div>
 		</div>
+		<style>
+			#copyright {
+				color: white;
+			}
+		</style>
 		<!-- <div class="flex">
 			<div class="board"></div>
 			<div class="score">
