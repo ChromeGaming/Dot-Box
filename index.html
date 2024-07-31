@@ -65,6 +65,10 @@
 				background-color: grey;
 			}
 
+			p,h3,h2{
+				font-family: 'Press Start 2P', cursive !important;
+			}
+
 			.form-container {
 				display: none;
 				position: fixed;
@@ -97,6 +101,10 @@
 				);
 				border-image-slice: 1;
 				animation: formAppear 0.5s ease-out;
+			}
+
+			.right-background{
+				font-family: 'Press Start 2P', cursive;
 			}
 
 			@keyframes formAppear {
@@ -648,14 +656,13 @@
 				<div class="form">
 					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
 					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-					<h3 class="instructions-heading">Instructions</h3>
+					<h3 class="instructions-heading" style="text-decoration: underline;">Instructions</h3>
 					<p class="instructions">
-						1. Select the number of rows, columns and players. <br />
-						2. The player who has maximum number of boxes on board is the
-						winner. <br />
-						3. Players will switch after every turn. But the player who has
-						filled the last box, will get one extra chance consecutively. <br />
+						1. 🧩 Select the number of rows, columns, and players. <br />
+						2. 🏆 The player who has the maximum number of boxes on the board is the winner. <br />
+						3. 🔄 Players will switch after every turn. But the player who fills the last box will get one extra chance consecutively. 🎉 <br />
 					</p>
+					
 					<a href="./pages/howtoplay.html" class="button"
 						>Read Detailed Instructions</a
 					>
@@ -663,7 +670,7 @@
 				<div class="form">
 					<div class="right-background">
 						<div class="form-item">
-							<label for="theme-select">Select Theme:</label>
+							<label for="theme-select" style="text-decoration: underline;">Select Theme:</label>
 							<select id="theme-select">
 								<option value="1">Default</option>
 								<option value="2">Theme 1</option>

@@ -600,7 +600,7 @@ select {
 	margin-top: 10%;
 	flex-direction: row;
 	gap: 1rem;
-	background-color: rgba(231, 181, 55, 0.979);
+	background: linear-gradient(135deg, rgba(251, 150, 26, 0.979), rgba(255, 187, 55, 0.979), rgba(252, 132, 72, 0.979));
 	border-radius: 10px;
 	padding: 10px 20px;
 	box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
@@ -609,7 +609,7 @@ select {
 .right-background {
 	padding: 20px 50px;
 	border-radius: 10px;
-	max-width: 350px;
+	max-width: 370px;
 	transition: background-color 0.5s ease;
 }
 
@@ -655,7 +655,7 @@ input[type="number"] {
 	background: rgb(50, 81, 50);
 	color: #fff;
 	text-align: center;
-	border-radius: 5px;
+	border-radius: 20px;
 	text-decoration: none;
 	font-weight: bold;
 	width: 100%;
