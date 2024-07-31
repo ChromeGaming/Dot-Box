@@ -234,11 +234,9 @@ input:out-of-range + .player::after {
 	background-color: #21262c;
 }
 
-.d-type:focus,
-.d-type:active,
 .active {
-	background-color: #1a1f24;
-	outline: none;
+	background-color: #1a1f24 !important;
+	outline: none !important;
 }
 
 .d-type::before {
@@ -253,8 +251,6 @@ input:out-of-range + .player::after {
 	opacity: 0;
 }
 
-.d-type:focus::before,
-.d-type:active::before,
 .active::before {
 	opacity: 1;
 }

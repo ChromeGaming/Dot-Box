@@ -44,13 +44,13 @@ themeSelect.addEventListener("change", () => {
 });
 
 const difficulty = document.querySelectorAll(".d-type");
-const easy = document.querySelector(".easy");
 
 difficulty.forEach((item) => {
 	item.addEventListener("click", () => {
 		selectedDifficulty = item.innerText;
-		if (easy.classList.contains("active")) {
-			easy.classList.remove("active");
-		}
+		difficulty.forEach((diff) => {
+			diff.classList.remove("active");
+		});
+		item.classList.add("active");
 	});
 });
