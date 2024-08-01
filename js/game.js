@@ -173,13 +173,17 @@ class Game {
 			// Adding score and name to the element
 			this.playersUI.appendChild(div);
 
+			// Maintain player avatar in the scoreboard
+			const avatarSrc = player.avatarID;
+
 			// Create scoreboard element
 			const scoreDiv = document.createElement("div");
 			scoreDiv.classList.add("score", `player${index + 1}-score`);
 			scoreDiv.innerHTML = `
-                <span>${player.name}</span>
-                <span id="player${index + 1}-score">0</span>
-            `;
+				<img src="${avatarSrc}" class="avatar-sm">
+				<span>${player.name}</span>
+				<span id="player${index + 1}-score">0</span>
+			`;
 			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
 		});
@@ -306,6 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const playersCount = calculate(playersInput, 2, 6);
 	renderPlayerInputs(playersCount);
+	editAvatar();
 
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
@@ -341,22 +346,26 @@ function renderPlayerInputs(count) {
 	for (let i = 1; i <= count; i++) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
-		div.innerHTML = `
-			<label for="playerName${i}" class="player-label ${
+		div.innerHTML = `<label for="playerName${i}" class="player-label ${
 			colors[i - 1]
 		}">Player ${i}</label>
-			<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
-			${colors
-				.map(
-					(color, index) =>
-						`<label class="rad-label">
+		<div class="avatar">
+		<img src="/assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
+		<button id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></button>
+		</div>
+		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
+		<div class="player-colors">
+		${colors
+			.map(
+				(color, index) =>
+					`<label class="rad-label">
 						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
-							index === i - 1 ? "checked" : ""
-						} onclick="validateColor(this)">
-						<div class="rad-design ${color}"></div></label>`
-				)
-				.join("")}
-
+						index === i - 1 ? "checked" : ""
+					} onclick="validateColor(this)">
+					<div class="rad-design ${color}"></div></label>`
+			)
+			.join("")}
+			</div>
 		`;
 		playerInputsDiv.appendChild(div);
 	}
@@ -401,7 +410,8 @@ function savePlayers() {
 			`input[name="color${i}"]:checked`
 		)[0].value;
 		const filledBoxes = 0;
-		playerData.push({ name, color, filledBoxes });
+		const avatarID = document.querySelector(`#avatar${i}`).src;
+		playerData.push({ name, color, filledBoxes, avatarID });
 	}
 	localStorage.setItem("playerData", JSON.stringify(playerData));
 }
@@ -427,3 +437,31 @@ const difficultyCalc = () => {
 	const result = dimensions[difficulty.toLowerCase()];
 	return result;
 };
+
+function editAvatar() {
+	const editButton = document.querySelectorAll(".edit-avatar");
+	const avatarWindow = document.querySelector("#avatarWindow");
+	editButton.forEach((avatar) => {
+		avatar.addEventListener("click", () => {
+			avatarWindow.style.display = "flex";
+			saveAvatar(avatar.id, avatarWindow);
+		});
+	});
+}
+
+function saveAvatar(id, tab) {
+	const selectAvatar = document.querySelectorAll(".selectAvatar");
+	selectAvatar.forEach((choice) => {
+		choice.addEventListener("click", () => {
+			const selectedAvatar = choice.children[0].src;
+			document.querySelector("#saveAvatar").addEventListener("click", () => {
+				const playerAvatar = document.querySelector(`#avatar${id}`);
+				playerAvatar.src = selectedAvatar;
+				tab.style.display = "none";
+			});
+		});
+	});
+	document.querySelector("#closeWindow").addEventListener("click", () => {
+		tab.style.display = "none";
+	});
+}
