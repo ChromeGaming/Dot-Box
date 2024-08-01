@@ -173,11 +173,14 @@ class Game {
 			// Adding score and name to the element
 			this.playersUI.appendChild(div);
 
+			// Maintain player avatar in the scoreboard
+			const avatarSrc = player.avatarID;
+
 			// Create scoreboard element
 			const scoreDiv = document.createElement("div");
 			scoreDiv.classList.add("score", `player${index + 1}-score`);
 			scoreDiv.innerHTML = `
-				<img src="/assets/avatars/${1}.jpg" class="avatar-sm">
+				<img src="${avatarSrc}" class="avatar-sm">
 				<span>${player.name}</span>
 				<span id="player${index + 1}-score">0</span>
 			`;
@@ -410,7 +413,7 @@ function savePlayers() {
 		)[0].value;
 		const filledBoxes = 0;
 		const avatarID = document.querySelector(`#avatar${i}`).src;
-		playerData.push({ name, color, filledBoxes });
+		playerData.push({ name, color, filledBoxes, avatarID });
 	}
 	localStorage.setItem("playerData", JSON.stringify(playerData));
 }
