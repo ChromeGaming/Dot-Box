@@ -13,7 +13,6 @@
 		<script defer src="../js/box.js"></script>
 		<script defer src="../js/board.js"></script>
 		<script defer src="../js/game.js"></script>
-		<script src="/js/loader.js"></script>
 
 		<!-- Logo of the game -->
 		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
@@ -21,6 +20,13 @@
 			rel="shortcut icon"
 			href="../assets/favicon.ico"
 			type="image/x-icon"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
 		/>
 		<style>
 			.back-home:visited {
@@ -148,7 +154,7 @@
 				border-radius: 15px;
 				padding: 20px;
 				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-				width: 250px;
+				width: 275px;
 				cursor: move;
 				visibility: hidden;
 			}
@@ -821,6 +827,29 @@
 						<span>Back</span>
 					</a>
 				</div>
+			</div>
+		</div>
+
+		<div id="avatarWindow">
+			<h2>Select Avatar</h2>
+			<div id="choices">
+				<script>
+					const options = document.getElementById("choices");
+					for (let i = 1; i <= 20; i++) {
+						const profile = document.createElement("button");
+						profile.classList.add("selectAvatar");
+						profile.innerHTML = `
+						<img src="/assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
+						`;
+						options.appendChild(profile);
+					}
+				</script>
+			</div>
+			<div id="buttons">
+				<button id="closeWindow">Cancel</button>
+				<button id="saveAvatar">
+					Save <i class="fa-solid fa-floppy-disk"></i>
+				</button>
 			</div>
 		</div>
 
