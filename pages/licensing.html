@@ -322,8 +322,7 @@
 						<pre>
 MIT License
 
-Copyright (c) 2024 Chrome Gaming
-
+Copyright (c) <span id="current-year"></span> Chrome Gaming
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -364,6 +363,10 @@ SOFTWARE.
             console.error("Element with ID 'loader' not found.");
         }
     }, 500);
+
+	const yearSpan = document.getElementById("current-year");
+            const currentYear = new Date().getFullYear();
+            yearSpan.textContent = currentYear;
 });
 
 	</script>
