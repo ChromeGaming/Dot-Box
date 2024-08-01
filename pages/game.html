@@ -300,6 +300,10 @@
 					margin-top: 1.5rem;
 				}
 
+				.player-turn {
+					top: 30px;
+				}
+
 				.tour-step {
 					width: 80%;
 					padding: 15px;
@@ -314,7 +318,7 @@
 					background-color: rgb(0, 166, 255);
 					color: white;
 					border: none;
-					padding: 13px 13px;
+					padding: 13px;
 					font-size: 14px;
 					cursor: pointer;
 					border-radius: 50%;
@@ -401,7 +405,7 @@
 
 				/* Score board */
 				.game-wrapper {
-					margin-top: 7.5rem;
+					margin-top: 7rem;
 				}
 
 				.game-container {
@@ -413,17 +417,9 @@
 				}
 
 				.scoreboard-container {
-					position: absolute;
-					left: 20px;
-					top: 20px;
-					background-color: rgba(255, 255, 255, 0.9);
-					border-radius: 15px;
-					padding: 20px;
-					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-					width: 250px;
-					cursor: move;
-					z-index: 1000;
-					display: none;
+					position: static;
+					z-index: 500;
+					margin: 3rem;
 				}
 
 				.scoreboard-container h2 {
@@ -574,8 +570,25 @@
 			}
 
 			@media screen and (max-width: 480px) {
+				.player-turn {
+					top: 20px;
+				}
+
 				.button-container {
 					gap: 0.5rem;
+				}
+
+				.button-container svg {
+					width: 15px;
+					height: 15px;
+				}
+
+				.button-container a {
+					padding: 0.5rem;
+				}
+
+				#game-wrapper {
+					margin-top: 5rem;
 				}
 
 				#timer-container {
@@ -597,8 +610,8 @@
 					margin-top: -5px;
 				}
 
-				.game-wrapper {
-					margin-top: 150px !important;
+				.scoreboard-container {
+					margin-top: 1rem;
 				}
 
 				.tour-step.step-1 {
@@ -822,12 +835,6 @@
 
 		<!-- Game Page -->
 		<div class="game-wrapper">
-			<div class="scoreboard-container">
-				<h2>Scoreboard</h2>
-				<div class="scoreboard">
-					<!-- Scoreboard content will be dynamically added here -->
-				</div>
-			</div>
 			<div class="game-container">
 				<div class="board"></div>
 			</div>
@@ -852,6 +859,13 @@
 					></path>
 				</svg>
 			</a>
+		</div>
+
+		<div class="scoreboard-container">
+			<h2>Scoreboard</h2>
+			<div class="scoreboard">
+				<!-- Scoreboard content will be dynamically added here -->
+			</div>
 		</div>
 
 		<!-- Winner Overlay -->
