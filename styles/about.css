@@ -1,0 +1,454 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #e7b537;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(231, 181, 55, 0.979) !important;
+    border-radius: 15px !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black !important;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, #ff6600, #ffb584a5);
+    transition: transform 0.1s, left 0.1s, top 0.1s;
+}
+
+.circle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@media (max-width: 768px) {
+    .circle-container {
+        display: none;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #e7b537;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-header {
+    font-family: "Anton", sans-serif;
+    background-color: transparent;
+    color: #0e0e0e;
+    padding: 15px;
+    text-shadow: 2px 2px 10px white;
+    text-align: center;
+    font-size: 2.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.about-header:hover {
+    background-color: #e59253;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.functionalities,
+.how-to-play {
+    flex: 1 1 320px;
+    max-width: 320px;
+    height: 350px;
+    margin: 10px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #5f4c9b, #3540e3);
+    border-radius: 10px;
+    padding: 0px 204px;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 352px;
+}
+
+.functionalities h2,
+.how-to-play h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.functionalities .content,
+.how-to-play .content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.functionalities::after,
+.how-to-play::after {
+    content: "(Hover here to know more)";
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.functionalities:hover::after,
+.how-to-play:hover::after {
+    opacity: 0;
+}
+
+.functionalities:hover h2,
+.how-to-play:hover h2 {
+    top: 10px;
+    transform: translateX(-50%);
+}
+
+.functionalities:hover .content,
+.how-to-play:hover .content {
+    opacity: 1;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    margin-right: 29px;
+    margin-left: 33px;
+    margin-top: -40px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.functionalities ul,
+.how-to-play p {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.author {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    color: #fff;
+    padding: 15px;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.author .fotbar {
+    display: flex;
+    gap: -10px;
+}
+
+.author .fotbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.author p {
+    color: white;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.author .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.author a {
+    color: white !important;
+}
+
+.author .social-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 769px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .navlinks {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .navlinks a {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .logo a {
+        font-size: 18px;
+    }
+
+    .functionalities,
+    .how-to-play {
+        padding: -1px;
+    }
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 90px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ff7920, #dd5900);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-top svg {
+    vertical-align: middle;
+    fill: white;
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+}
+
+body > .about-header {
+    width: 100%;
+    position: relative;
+    top: 100px;
+}
+
+body > .about-header > h1 {
+    font-size: 5rem;
+}
+
+body > p {
+    position: relative;
+    top: 100px;
+}
+
+body > main {
+    position: relative;
+    top: 100px;
+    padding-bottom: 100px;
+}
+
+.author {
+    position: fixed;
+    bottom: 0;
+}
+
+.navbarr {
+    width: 100vw;
+}
+
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-toggler .toggler-icon {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    display: block;
+    margin: 5px 0;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+}
+
+.nav-links {
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    padding: 0;
+    color: white;
+    font-family: inherit;
+}
+
+.nav-links li a,
+.logo a {
+    color: white;
+}
+
+button a {
+    background-color: transparent;
+}
+
+.start {
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1190px) {
+    .author a {
+        margin-left: 13px;
+    }
+}
+
+@media screen and (max-width: 1065px) {
+    .author .fotbar {
+        display: grid;
+    }
+
+    .author .fotbar a {
+        font-size: 14px;
+    }
+
+    body > .about-header > h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .author {
+        padding: 10px;
+    }
+
+    .author p {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    .author .fotbar a {
+        font-size: 12px;
+    }
+
+    .author .social-icons a {
+        font-size: 15px;
+    }
+
+    body > p {
+        padding: 30px;
+    }
+
+    body > .about-header > h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .author {
+        position: relative !important;
+    }
+}
