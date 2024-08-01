@@ -352,7 +352,7 @@ function renderPlayerInputs(count) {
 			colors[i - 1]
 		}">Player ${i}</label>
 		<div class="avatar">
-		<img src="/assets/avatars/${i}.jpg" alt="avatar" class="player-avatar" id="avatar${i}">
+		<img src="/assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
 		<button id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></button>
 		</div>
 		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">

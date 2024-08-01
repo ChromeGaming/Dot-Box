@@ -981,21 +981,17 @@
 		<div id="avatarWindow">
 			<h2>Select Avatar</h2>
 			<div id="choices">
-				<button class="selectAvatar">
-					<img src="/assets/avatars/1.jpg" alt="" class="player-avatar" />
-				</button>
-				<button class="selectAvatar">
-					<img src="/assets/avatars/2.jpg" alt="" class="player-avatar" />
-				</button>
-				<button class="selectAvatar">
-					<img src="/assets/avatars/3.jpg" alt="" class="player-avatar" />
-				</button>
-				<button class="selectAvatar">
-					<img src="/assets/avatars/4.jpg" alt="" class="player-avatar" />
-				</button>
-				<button class="selectAvatar">
-					<img src="/assets/avatars/5.jpg" alt="" class="player-avatar" />
-				</button>
+				<script>
+					const options = document.getElementById("choices");
+					for (let i = 1; i <= 21; i++) {
+						const profile = document.createElement("button");
+						profile.classList.add("selectAvatar");
+						profile.innerHTML = `
+						<img src="/assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
+						`;
+						options.appendChild(profile);
+					}
+				</script>
 			</div>
 			<div id="buttons">
 				<button id="closeWindow">Cancel</button>

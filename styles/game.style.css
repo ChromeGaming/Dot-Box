@@ -663,7 +663,7 @@ body {
 	position: absolute;
 	width: 85%;
 	height: 80%;
-	padding: 5rem;
+	padding: 3rem 5rem;
 	gap: 1rem;
 	background: #fff;
 	z-index: 1999;
@@ -675,6 +675,8 @@ body {
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 2rem;
+	height: 50%;
+	overflow: auto;
 }
 
 .selectAvatar {
