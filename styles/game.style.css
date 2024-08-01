@@ -658,9 +658,10 @@ body {
 #avatarWindow {
 	display: none;
 	justify-content: space-evenly;
-	align-items: start;
+	align-items: center;
+	flex-direction: column;
 	position: absolute;
-	width: 80%;
+	width: 85%;
 	height: 80%;
 	padding: 5rem;
 	gap: 1rem;
@@ -668,12 +669,65 @@ body {
 	z-index: 1999;
 }
 
+#choices {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
 .selectAvatar {
 	padding: 1rem;
 	border: none;
 	border-radius: 5px;
+	background-color: #ddd;
+	transition: all 0.3s;
 }
 
-/* .selectAvatar:hover {
-	background-color: #555;
-} */
+.selectAvatar:hover {
+	transform: translateY(-5px);
+	background-color: #bbb;
+	box-shadow: #0000006f 0px 10px 20px;
+}
+
+#buttons {
+	padding: 1rem;
+}
+
+#closeWindow {
+	background: #fff;
+	border: none;
+	padding: 1rem;
+	font-size: 1.1rem;
+	margin-right: 2rem;
+	cursor: pointer;
+	text-decoration: underline;
+	opacity: 0.8;
+}
+
+#closeWindow:hover {
+	opacity: 1;
+}
+
+#saveAvatar {
+	display: inline-block;
+	border-radius: 7px;
+	border: none;
+	background: #1875ff;
+	color: white;
+	font-family: inherit;
+	text-align: center;
+	font-size: 1.1rem;
+	box-shadow: 0px 14px 56px -11px #1875ff;
+	width: 9rem;
+	padding: 1rem;
+	transition: all 0.4s;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+#saveAvatar:hover {
+	box-shadow: 0px 14px 46px -8px #1875ff;
+	opacity: 1;
+}

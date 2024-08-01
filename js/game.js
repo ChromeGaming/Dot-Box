@@ -445,12 +445,12 @@ function saveAvatar(id, tab) {
 	selectAvatar.forEach((choice) => {
 		choice.addEventListener("click", () => {
 			const selectedAvatar = choice.children[0].src;
-			const playerAvatar = document.querySelector(`#avatar${id}`);
-			playerAvatar.src = selectedAvatar;
+			document.querySelector("#saveAvatar").addEventListener("click", () => {
+				const playerAvatar = document.querySelector(`#avatar${id}`);
+				playerAvatar.src = selectedAvatar;
+				tab.style.display = "none";
+			});
 		});
-	});
-	document.querySelector("#saveAvatar").addEventListener("click", () => {
-		tab.style.display = "none";
 	});
 	document.querySelector("#closeWindow").addEventListener("click", () => {
 		tab.style.display = "none";
