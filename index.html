@@ -781,21 +781,13 @@ form {
 							</select>
 						</div>
 						<div class="form-item">
-							<label for="rows"
-								>Rows : <span class="details">(between 5 and 30)</span></label
-							>
-
-							<input type="number" id="rows" min="5" max="30" value="6" />
-							<span class="error"></span>
-						</div>
-
-						<div class="form-item">
-							<label for="columns"
-								>Columns :
-								<span class="details">(between 5 and 30)</span></label
-							>
-							<input type="number" id="columns" min="5" max="30" value="6" />
-							<span class="error"></span>
+							<label for="difficulty">Select Difficulty:</label>
+							<div class="difficulty">
+								<button class="d-type active easy">Easy</button>
+								<button class="d-type">Normal</button>
+								<button class="d-type">Hard</button>
+								<button class="d-type">Expert</button>
+							</div>
 						</div>
 
 						<div class="form-item">
@@ -836,7 +828,7 @@ form {
 					<a href="./pages/privacypolicy.html">PrivacyPolicy</a>
 					<a href="./pages/licensing.html">Licensing</a>
 				</div>
-				<div id = "copyright">
+				<div id="copyright">
 					&copy;
 					<script>
 						document.write(new Date().getFullYear());
