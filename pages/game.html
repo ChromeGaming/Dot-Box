@@ -30,10 +30,8 @@
 			.button-container {
 				display: flex;
 				justify-content: center;
-				gap: 8px;
-				margin-top: -13px;
-				left: 20%;
-				margin-right: 122px;
+				align-items: center;
+				gap: 1.5rem;
 			}
 
 			.button-container button,
@@ -56,7 +54,7 @@
 			.button-container #sound-toggle {
 				background-color: rgb(12, 1, 1);
 				border-radius: 4px;
-				padding: 10px 20px;
+				padding: 1rem 1.2rem;
 			}
 
 			.button-container svg {
@@ -104,19 +102,13 @@
 
 			/* Timer */
 			#timer-container {
-				position: fixed;
-				right: 208px;
-				top: 93%;
 				height: 77px;
 				width: 96px;
-				transform: translateY(-50%);
 				background-color: rgba(255, 255, 255, 0.9);
 				border-radius: 15px;
 				padding: 20px;
 				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 				text-align: center;
-				z-index: 1000;
-				margin-right: 26vw;
 			}
 
 			#timer {
@@ -148,18 +140,18 @@
 				width: 100%;
 			}
 
-			.scoreboard-container {
+			/* .scoreboard-container {
 				position: absolute;
-				left: -65%;
-				top: 39%;
+				right: -65%;
+				top: 25%;
 				background-color: rgba(255, 255, 255, 0.9);
 				border-radius: 15px;
 				padding: 20px;
 				box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 				width: 250px;
 				cursor: move;
-				z-index: 1000;
-			}
+				visibility: hidden;
+			} */
 
 			.scoreboard-container h2 {
 				text-align: center;
@@ -1186,19 +1178,18 @@
 				showStep(currentStep);
 			});
 		</script>
-        <!-- Loader.js -->
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        const loader = document.getElementById("loader");
-        if (loader) {
-            loader.style.display = "none";
-        } else {
-            console.error("Element with ID 'loader' not found.");
-        }
-    }, 500);
-});
-
-	</script>
+		<!-- Loader.js -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				setTimeout(() => {
+					const loader = document.getElementById("loader");
+					if (loader) {
+						loader.style.display = "none";
+					} else {
+						console.error("Element with ID 'loader' not found.");
+					}
+				}, 500);
+			});
+		</script>
 	</body>
 </html>
