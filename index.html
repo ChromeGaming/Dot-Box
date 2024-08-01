@@ -68,36 +68,106 @@
 				font-family: 'Press Start 2P', cursive !important;
 			}
 
+
+			/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 150%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(5px); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 650px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.685);
+}
+.form-group-1 {
+	display: flex;
+}
+
+
+.submitbtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
 			.form-container {
 				display: none;
 				position: fixed;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				/* border: 5px solid transparent; */
 				z-index: 999;
-				background-color: rgba(255, 255, 255, 0.9);
+				/* background-color: rgba(255, 255, 255, 0.9); */
 			}
+
 
 			.form-content {
 				position: relative;
 				cursor: move;
-				background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2);
+				background: linear-gradient(135deg, #8ce3fd, #0059ce);
 				padding: 20px;
-				border-radius: 20px;
 				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 				text-align: left;
+				border-radius: 9px;
 				width: 400px;
-				max-height: 80vh;
-				overflow-y: auto;
+				max-height: 90vh;
+				/* overflow-y: auto; */
 				color: #333;
-				border: 5px solid transparent;
-				border-image: linear-gradient(
-					45deg,
-					#ff9a9e,
-					#fad0c4,
-					#ffecd2,
-					#ff9a9e
-				);
+				/* border: 5px solid transparent; */
 				border-image-slice: 1;
 				animation: formAppear 0.5s ease-out;
 			}
@@ -110,6 +180,7 @@
 				from {
 					opacity: 0;
 					transform: scale(0.8);
+					
 				}
 				to {
 					opacity: 1;
@@ -120,23 +191,28 @@
 			.sub {
 				margin-top: 5px;
 				display: flex;
-				justify-content: space-between;
+				justify-content: center;
 				align-items: center;
 			}
 
+
 			.sub h5 {
-				font-size: 24px;
-				color: #ff6b6b;
+				font-size: 27px;
+				color: #fffefe;
 				margin: 0;
-				font-family: "Comic Sans MS", cursive, sans-serif;
-				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+				font-family:Tahoma, Geneva, Verdana, sans-serif;
+				text-align: center;
+				text-shadow: 2px 2px 2px rgba(0, 20, 123, 0.87),2px 2px 4px rgba(157, 0, 255, 0.81), 2px 6px 7px rgba(248, 112, 255, 0.81);
 			}
 
 			.close-button {
-				font-size: 24px;
-				color: #ff6b6b;
+				font-size: 30px;
+				color: #00fbff;
 				cursor: pointer;
 				transition: transform 0.3s ease;
+				position: relative;
+				bottom:16px;
+				left:6px
 			}
 
 			.close-button:hover {
@@ -144,13 +220,14 @@
 			}
 
 			.wrapper {
-				background: linear-gradient(45deg, #f6d365, #fda085);
-				border-radius: 15px;
+				/* background: linear-gradient(45deg, #f6d365, #fda085); */
+				/* border-radius: 15px; */
 				padding: 15px;
-				margin-bottom: 15px;
-				max-width: 340px;
+				/* margin-bottom: 0px; */
+				max-width:400px;
 				width: 100%;
-				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				
+				/* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
 			}
 
 			.content {
@@ -180,8 +257,8 @@
 			}
 
 			.emojis li img {
-				height: 100%;
-				width: 100%;
+				height: 80%;
+				width: 80%;
 			}
 
 			#star-2:checked ~ .content .emojis .slideImg {
@@ -201,12 +278,13 @@
 			}
 
 			.stars {
-				margin-top: 20px;
+				position: relative;
+				bottom: 5px;
 			}
 
 			.stars label {
 				font-size: 32px;
-				margin: 0 3px;
+				margin: 0 6px;
 				color: #ccc;
 				cursor: pointer;
 				transition: color 0.3s ease, transform 0.3s ease;
@@ -246,8 +324,8 @@
 			#star-5:checked ~ .content .stars .star-3,
 			#star-5:checked ~ .content .stars .star-4,
 			#star-5:checked ~ .content .stars .star-5 {
-				color: #ffd700;
-				text-shadow: 0 0 5px #ffd700;
+				color: gold;
+				text-shadow: 0 0 5px #ff8800;
 				animation: starPulse 0.5s infinite alternate;
 			}
 
@@ -261,38 +339,49 @@
 			}
 
 			.footer {
-				border-top: 2px dashed #ff6b6b;
-				background: linear-gradient(45deg, #ffecd2, #fcb69f);
+				/* border-top: 2px dashed #ff6b6b; */
+				/* background: linear-gradient(125deg, #ffecd2, #ffece5); */
 				width: 100%;
+				border-radius: 3px;
 				height: 40px;
 				padding: 0 15px;
-				border-radius: 0 0 15px 15px;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 			}
 
 			.footer span {
-				font-size: 14px;
+				font-size: 18px;
 				font-weight: 600;
-				color: #333;
-				font-family: "Comic Sans MS", cursive, sans-serif;
+				color: #eeeeee;
+				font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+				text-shadow: 1px 1px 2px rgb(48, 158, 209), 0 0 1em rgb(7, 0, 109), 0 0 0.4em rgb(7, 0, 109);
 			}
 
 			input[type="radio"] {
 				display: none;
 			}
 
-			textarea,
+			
 			input[type="text"],
 			input[type="email"] {
 				background-color: #fff;
-				border: 2px solid #ff9a9e;
+				border: 2px solid #0168ce;
+				border-radius: 10px;
+				color: #333;
+				padding: 10px;
+				width: 90%;
+				box-sizing: border-box;
+				font-size: 14px;
+				transition: all 0.3s ease;
+			}
+			textarea {
+				background-color: #fff;
+				border: 2px solid #0168ce;
 				border-radius: 10px;
 				color: #333;
 				padding: 10px;
 				width: 100%;
-				margin-bottom: 10px;
 				box-sizing: border-box;
 				font-size: 14px;
 				transition: all 0.3s ease;
@@ -301,9 +390,28 @@
 			textarea:focus,
 			input[type="text"]:focus,
 			input[type="email"]:focus {
-				border-color: #ff6b6b;
+				border-color: #00438e;
 				outline: none;
-				transform: scale(1.02);
+			}
+			.buttons { 
+				/* background: linear-gradient(45deg, #4ecdc4, #45b7aa); */
+				background: linear-gradient(45deg, #cd4e4e, #fe165f);
+				color: #fff;
+				border: none;
+				padding: 10px 15px;
+				border-radius: 25px;
+				margin: 7px;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: bold;
+				transition: all 0.3s ease;
+				
+			}
+
+			.buttons:hover {
+				background: linear-gradient(135deg, #fe165f, #cd4e4e);
+				transform: scale(1.05);
+				box-shadow: 2px 2px 10px rgba(58, 242, 255, 0.5);
 			}
 
 			.main {
@@ -317,8 +425,8 @@
 
 			.submitbtn {
 				display: flex;
-				justify-content: space-between;
-				margin-top: 15px;
+				justify-content: center;
+				margin-top: 5px;
 			}
 
 			.button {
@@ -337,11 +445,11 @@
 			.button:hover {
 				background: linear-gradient(45deg, #45b7aa, #4ecdc4);
 				transform: scale(1.05);
-				box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+				box-shadow: 0 0 10px rgba(255, 58, 140, 0.5);
 			}
 
 			.footer .text::before {
-				content: "Rate your experience";
+				content: "Rate Your Experience! 🚀";
 			}
 
 			.footer .numb::before {
@@ -349,7 +457,7 @@
 			}
 
 			#star-1:checked ~ .footer .text::before {
-				content: "I just hate it";
+				content: "I just hate it 😣";
 			}
 
 			#star-1:checked ~ .footer .numb::before {
@@ -357,7 +465,7 @@
 			}
 
 			#star-2:checked ~ .footer .text::before {
-				content: "I don't like it";
+				content: "I don't like it 😓";
 			}
 
 			#star-2:checked ~ .footer .numb::before {
@@ -365,7 +473,7 @@
 			}
 
 			#star-3:checked ~ .footer .text::before {
-				content: "This is awesome";
+				content: "This is awesome 😄";
 			}
 
 			#star-3:checked ~ .footer .numb::before {
@@ -373,7 +481,7 @@
 			}
 
 			#star-4:checked ~ .footer .text::before {
-				content: "I just like it";
+				content: "I just like it 😃";
 			}
 
 			#star-4:checked ~ .footer .numb::before {
@@ -381,7 +489,7 @@
 			}
 
 			#star-5:checked ~ .footer .text::before {
-				content: "I just love it";
+				content: "I just love it ❤️";
 			}
 
 			#star-5:checked ~ .footer .numb::before {
@@ -414,6 +522,7 @@
 					padding: 8px 12px;
 				}
 			}
+			
 			.button1 {
 				display: block;
 				font-size: 0.7em;
@@ -499,11 +608,18 @@
 						<i class="fas fa-bars"></i>
 					</div>
 				</nav>
+				<style>
+					.sub {
+						text-align: center;
+
+					}
+				</style>
 				<button class="sticky-button" onclick="openForm()">Feedback</button>
+				<div class="feed-bg">
 				<div id="formContainer" class="form-container">
 					<div class="form-content">
 						<div class="sub">
-							<h5>Feedback Form</h5>
+							<h5>We'd Love Your Feedback!</h5>
 							<span class="close-button" onclick="closeForm()">&times;</span>
 						</div>
 						<div class="wrapper">
@@ -516,19 +632,19 @@
 								<div class="outer">
 									<div class="emojis">
 										<li class="slideImg">
-											<img src="./assets/images/emojis/emoji-1.png" alt="" />
+											<img src="./assets/images/emojis/emoji-1-bg.png" alt="emoji" />
 										</li>
 										<li>
-											<img src="./assets/images/emojis/emoji-2.png" alt="" />
+											<img src="./assets/images/emojis/emoji-2-bg.png" alt="emoji" />
 										</li>
 										<li>
-											<img src="./assets/images/emojis/emoji-3.png" alt="" />
+											<img src="./assets/images/emojis/emoji-3.png" alt="emoji" />
 										</li>
 										<li>
-											<img src="./assets/images/emojis/emoji-4.png" alt="" />
+											<img src="./assets/images/emojis/emoji-4-bg.png" alt="emoji" />
 										</li>
 										<li>
-											<img src="./assets/images/emojis/emoji-5.png" alt="" />
+											<img src="./assets/images/emojis/emoji-5-bg.png" alt="emoji" />
 										</li>
 									</div>
 								</div>
@@ -546,41 +662,29 @@
 							</div>
 						</div>
 
-						<br /><br />
 						<form id="feedbackForm">
-							<label for="feedback">Describe your feedback:</label><br />
-							<textarea
-								id="feedback"
-								required
-								name="feedback"
-								rows="4"
-								cols="55"
-							></textarea
-							><br /><br />
-							<label for="firstName">Name</label><br />
-							<div class="main">
-								<input
-									type="text"
-									required
-									id="firstName"
-									name="firstName"
-									placeholder="First Name"
-								/><br /><br />
-								<input
-									type="email"
-									required
-									id="email"
-									name="email"
-									placeholder="Email"
-								/><br /><br />
+							<div class="form-group-1">
+							<div class="form-group">
+								<label for="firstName">Name</label>
+								<input type="text" required id="firstName" name="firstName" placeholder="Enter Name">
+							</div>
+							<div class="form-group ">
+								<label for="email">Email</label>
+								<input type="email" required id="email" name="email" placeholder="Enter Email">
+							</div>
+						</div>
+							<div class="form-group">
+								<label for="feedback">Describe your feedback</label>
+								<textarea id="feedback" required name="feedback" rows="4" placeholder="Tell us how we can improve ..."></textarea>
 							</div>
 							<div class="submitbtn">
-								<input type="submit" value="Submit" class="button" />
-								<input type="reset" value="Reset" class="button" />
+								<input type="submit" value="Submit" class="buttons">
+								<input type="reset" value="Reset" class="buttons">
 							</div>
 						</form>
 					</div>
 				</div>
+			</div>
 				<div id="thankYouPopup" class="popup hidden">
 					<div class="popup-content">
 						<span class="close-button" onclick="closeThankYouPopup()"
