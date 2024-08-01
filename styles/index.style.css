@@ -811,3 +811,6 @@ input[type="email"]:focus {
 		top: -33px;
 	}
 }
+#copyright {
+	color: white;
+}
