@@ -447,5 +447,20 @@
 			async
 		></script>
 		<script src="../js/FAQs.js"></script>
+
+		<!-- Loader.js -->
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            loader.style.display = "none";
+        } else {
+            console.error("Element with ID 'loader' not found.");
+        }
+    }, 500);
+});
+
+	</script>
 	</body>
 </html>

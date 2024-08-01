@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="../styles/mainstyle.css" />
 		<link rel="stylesheet" href="../styles/licensing.css" />
 		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<script src="/js/loader.js"></script>
 
 		<style>
 			.circle {
@@ -353,5 +352,20 @@ SOFTWARE.
 				</center>
 			</div>
 		</div>
+
+		<!-- Loader.js -->
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            loader.style.display = "none";
+        } else {
+            console.error("Element with ID 'loader' not found.");
+        }
+    }, 500);
+});
+
+	</script>
 	</body>
 </html>
