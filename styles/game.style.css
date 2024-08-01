@@ -674,9 +674,10 @@ body {
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 2rem;
-	height: 50%;
+	gap: 4rem;
+	height: 60%;
 	overflow: auto;
+	padding: 1rem;
 }
 
 .selectAvatar {
@@ -691,6 +692,14 @@ body {
 	transform: translateY(-5px);
 	background-color: #bbb;
 	box-shadow: #0000006f 0px 10px 20px;
+}
+
+.selectAvatar:focus,
+.selectAvatar:active {
+	transform: translateY(-5px);
+	background-color: #bbb;
+	box-shadow: #0000006f 0px 10px 20px;
+	outline: 2px solid #60a5fa;
 }
 
 #buttons {
