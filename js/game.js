@@ -309,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const playersCount = calculate(playersInput, 2, 6);
 	renderPlayerInputs(playersCount);
+	editAvatar();
 
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
@@ -348,8 +349,8 @@ function renderPlayerInputs(count) {
 			colors[i - 1]
 		}">Player ${i}</label>
 		<div class="avatar">
-		<img src="/assets/avatars/${i}.jpg" alt="player${i} avatar" class="player-avatar">
-		<span id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></span>
+		<img src="/assets/avatars/${i}.jpg" alt="avatar" class="player-avatar" id="avatar${i}">
+		<button id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></button>
 		</div>
 		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
 		<div class="player-colors">
@@ -408,6 +409,7 @@ function savePlayers() {
 			`input[name="color${i}"]:checked`
 		)[0].value;
 		const filledBoxes = 0;
+		const avatarID = document.querySelector(`#avatar${i}`).src;
 		playerData.push({ name, color, filledBoxes });
 	}
 	localStorage.setItem("playerData", JSON.stringify(playerData));
@@ -423,3 +425,31 @@ playBtn.addEventListener("click", () => {
 	game = new Game(rows, columns, playersInfo);
 	game.makeBoard(rows, columns);
 });
+
+function editAvatar() {
+	const editButton = document.querySelectorAll(".edit-avatar");
+	const avatarWindow = document.querySelector("#avatarWindow");
+	editButton.forEach((avatar) => {
+		avatar.addEventListener("click", () => {
+			avatarWindow.style.display = "flex";
+			saveAvatar(avatar.id, avatarWindow);
+		});
+	});
+}
+
+function saveAvatar(id, tab) {
+	const selectAvatar = document.querySelectorAll(".selectAvatar");
+	selectAvatar.forEach((choice) => {
+		choice.addEventListener("click", () => {
+			const selectedAvatar = choice.children[0].src;
+			const playerAvatar = document.querySelector(`#avatar${id}`);
+			playerAvatar.src = selectedAvatar;
+		});
+	});
+	document.querySelector("#saveAvatar").addEventListener("click", () => {
+		tab.style.display = "none";
+	});
+	document.querySelector("#closeWindow").addEventListener("click", () => {
+		tab.style.display = "none";
+	});
+}

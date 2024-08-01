@@ -13,7 +13,6 @@
 		<script defer src="../js/box.js"></script>
 		<script defer src="../js/board.js"></script>
 		<script defer src="../js/game.js"></script>
-		<script src="/js/loader.js"></script>
 
 		<!-- Logo of the game -->
 		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
@@ -979,6 +978,26 @@
 			</div>
 		</div>
 
+		<div id="avatarWindow">
+			<button class="selectAvatar">
+				<img src="/assets/avatars/1.jpg" alt="" class="player-avatar" />
+			</button>
+			<button class="selectAvatar">
+				<img src="/assets/avatars/2.jpg" alt="" class="player-avatar" />
+			</button>
+			<button class="selectAvatar">
+				<img src="/assets/avatars/3.jpg" alt="" class="player-avatar" />
+			</button>
+			<button class="selectAvatar">
+				<img src="/assets/avatars/4.jpg" alt="" class="player-avatar" />
+			</button>
+			<button class="selectAvatar">
+				<img src="/assets/avatars/5.jpg" alt="" class="player-avatar" />
+			</button>
+			<button id="closeWindow">X</button>
+			<button id="saveAvatar">Save</button>
+		</div>
+
 		<!-- Players -->
 		<div class="players"></div>
 
@@ -1193,19 +1212,18 @@
 				showStep(currentStep);
 			});
 		</script>
-        <!-- Loader.js -->
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        const loader = document.getElementById("loader");
-        if (loader) {
-            loader.style.display = "none";
-        } else {
-            console.error("Element with ID 'loader' not found.");
-        }
-    }, 500);
-});
-
-	</script>
+		<!-- Loader.js -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				setTimeout(() => {
+					const loader = document.getElementById("loader");
+					if (loader) {
+						loader.style.display = "none";
+					} else {
+						console.error("Element with ID 'loader' not found.");
+					}
+				}, 500);
+			});
+		</script>
 	</body>
 </html>
