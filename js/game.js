@@ -150,8 +150,8 @@ class Game {
 
 	// Add players to UI
 	addPlayersUI() {
-		// const scoreboardContainer = document.querySelector(".scoreboard-container");
-		// scoreboardContainer.style.visibility = "visible";
+		const scoreboardContainer = document.querySelector(".scoreboard-container");
+		scoreboardContainer.style.visibility = "visible";
 
 		const scoreboard = document.querySelector(".scoreboard");
 		scoreboard.innerHTML = ""; // Clear existing content
