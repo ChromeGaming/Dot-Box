@@ -296,6 +296,10 @@
 
 			/* Responsive styles for tablets and mobile devices */
 			@media screen and (max-width: 768px) {
+				.players {
+					margin-top: 1.5rem;
+				}
+
 				.tour-step {
 					width: 80%;
 					padding: 15px;
@@ -303,14 +307,6 @@
 
 				.circle-container {
 					display: none;
-				}
-
-				.button-container {
-					display: flex;
-					justify-content: center;
-					gap: 10px;
-					margin-top: 20px;
-					margin-left: 34px;
 				}
 
 				.button-container button,
@@ -385,19 +381,9 @@
 
 				/* Timer */
 				#timer-container {
-					position: fixed;
-					right: 171px;
-					top: 92%;
 					height: 90px;
 					width: 103px;
-					transform: translateY(-50%);
-					background-color: rgba(255, 255, 255, 0.9);
-					border-radius: 15px;
-					padding: 20px;
-					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-					text-align: center;
-					z-index: 1000;
-					margin-right: 26vw;
+					padding: 15px;
 				}
 
 				#timer {
@@ -415,11 +401,7 @@
 
 				/* Score board */
 				.game-wrapper {
-					position: relative;
-					display: flex;
-					justify-content: center;
-					align-items: flex-start;
-					padding: 20px;
+					margin-top: 7.5rem;
 				}
 
 				.game-container {
@@ -585,32 +567,6 @@
 				}
 			}
 
-			/* Responsive styles for tablets and mobile devices */
-			@media screen and (max-width: 768px) {
-				.tour-step {
-					width: 80%;
-					padding: 15px;
-				}
-
-				.tour-step h3 {
-					font-size: 1.2em;
-				}
-
-				.tour-step p {
-					font-size: 0.9em;
-				}
-
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.9em;
-				}
-
-				.tour-controls {
-					flex-direction: column;
-					gap: 5px;
-				}
-			}
-
 			@media screen and (max-width: 1200px) {
 				.circle-container {
 					display: none;
@@ -618,20 +574,14 @@
 			}
 
 			@media screen and (max-width: 480px) {
+				.button-container {
+					gap: 0.5rem;
+				}
+
 				#timer-container {
-					position: fixed;
-					right: 146px;
-					top: 91%;
 					height: 70px;
 					width: 72px;
-					transform: translateY(-50%);
-					background-color: rgba(255, 255, 255, 0.9);
-					border-radius: 15px;
-					padding: 20px;
-					box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-					text-align: center;
-					z-index: 1000;
-					margin-right: -36vw;
+					padding: 15px;
 				}
 
 				#timer {
@@ -674,14 +624,6 @@
 					margin-top: -392px;
 				}
 
-				.tour-step.step-7 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -339px;
-				}
-
 				.tour-step.step-4 {
 					width: 83%;
 					padding: 10px;
@@ -704,77 +646,6 @@
 					left: 41%;
 					margin-left: -32%;
 					margin-top: -193px;
-				}
-
-				.tour-step h3 {
-					font-size: 1em;
-				}
-
-				.tour-step p {
-					font-size: 0.8em;
-				}
-
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.8em;
-				}
-
-				.tour-controls {
-					flex-direction: column;
-					gap: 3px;
-					margin-bottom: -15%;
-					margin-left: 8px;
-				}
-			}
-
-			/* Responsive styles for tablets and mobile devices */
-			@media screen and (max-width: 768px) {
-				.tour-step {
-					width: 80%;
-					padding: 15px;
-				}
-
-				.tour-step h3 {
-					font-size: 1.2em;
-				}
-
-				.tour-step p {
-					font-size: 0.9em;
-				}
-
-				.tour-controls .button {
-					padding: 5px 10px;
-					font-size: 0.9em;
-				}
-
-				.tour-controls {
-					flex-direction: column;
-					gap: 5px;
-				}
-			}
-
-			@media screen and (max-width: 480px) {
-				.tour-step.step-1 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-				}
-
-				.tour-step.step-2 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -39px;
-				}
-
-				.tour-step.step-3 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -392px;
 				}
 
 				.tour-step.step-7 {
@@ -783,30 +654,6 @@
 					left: 65%;
 					margin-left: -32%;
 					margin-top: -339px;
-				}
-
-				.tour-step.step-4 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-bottom: 53px;
-				}
-
-				.tour-step.step-5 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -119px;
-				}
-
-				.tour-step.step-6 {
-					width: 83%;
-					padding: 10px;
-					left: 41%;
-					margin-left: -32%;
-					margin-top: -193px;
 				}
 
 				.tour-step .step-8 {
