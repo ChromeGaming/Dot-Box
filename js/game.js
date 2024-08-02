@@ -332,6 +332,7 @@ function calculate(value, min, max) {
 	return Math.min(Math.max(value, min), max);
 }
 
+// Render player inputs based on the number of players
 function renderPlayerInputs(count) {
 	const playerInputsDiv = document.getElementById("playerInputs");
 	playerInputsDiv.innerHTML = "";
@@ -371,6 +372,7 @@ function renderPlayerInputs(count) {
 	}
 }
 
+// Validate the selected color
 function validateColor(selectedRadio) {
 	const selectedColors = document.querySelectorAll(
 		'input[type="radio"]:checked'
@@ -401,6 +403,7 @@ function validateColor(selectedRadio) {
 	}
 }
 
+// Save player data to local storage
 function savePlayers() {
 	const playersCount = calculate(playersInput, 2, 6);
 	const playerData = [];
@@ -417,8 +420,11 @@ function savePlayers() {
 }
 
 // Start the game
+const playBtn = document.getElementById("play-btn");
+
 playBtn.addEventListener("click", () => {
 	savePlayers();
+	tourGuide();
 	document.getElementById("playerSetup").style.display = "none";
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	const size = difficultyCalc();
@@ -426,6 +432,7 @@ playBtn.addEventListener("click", () => {
 	game.makeBoard(size[0], size[1]);
 });
 
+// Calculate the dimensions based on the selected difficulty
 const difficultyCalc = () => {
 	const difficulty = localStorage.getItem("selectedDifficulty");
 	const dimensions = {
@@ -438,6 +445,7 @@ const difficultyCalc = () => {
 	return result;
 };
 
+// Avatar selection -->
 function editAvatar() {
 	const editButton = document.querySelectorAll(".edit-avatar");
 	const avatarWindow = document.querySelector("#avatarWindow");
@@ -449,6 +457,7 @@ function editAvatar() {
 	});
 }
 
+// Save the selected avatar
 function saveAvatar(id, tab) {
 	const selectAvatar = document.querySelectorAll(".selectAvatar");
 	selectAvatar.forEach((choice) => {
@@ -465,3 +474,122 @@ function saveAvatar(id, tab) {
 		tab.style.display = "none";
 	});
 }
+
+// Cursor -->
+document.addEventListener("DOMContentLoaded", function () {
+	const coords = { x: 0, y: 0 };
+	const circles = document.querySelectorAll(".circle");
+
+	circles.forEach(function (circle) {
+		circle.x = 0;
+		circle.y = 0;
+	});
+
+	window.addEventListener("mousemove", function (e) {
+		coords.x = e.pageX;
+		coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+	});
+
+	function animateCircles() {
+		let x = coords.x;
+		let y = coords.y;
+
+		circles.forEach(function (circle, index) {
+			circle.style.left = `${x - 12}px`;
+			circle.style.top = `${y - 12}px`;
+			circle.style.transform = `scale(${
+				(circles.length - index) / circles.length
+			})`;
+
+			const nextCircle = circles[index + 1] || circles[0];
+			circle.x = x;
+			circle.y = y;
+
+			x += (nextCircle.x - x) * 0.3;
+			y += (nextCircle.y - y) * 0.3;
+		});
+
+		requestAnimationFrame(animateCircles);
+	}
+
+	animateCircles();
+});
+
+// Avatar selection -->
+const options = document.getElementById("choices");
+for (let i = 1; i <= 20; i++) {
+	const profile = document.createElement("button");
+	profile.classList.add("selectAvatar");
+	profile.innerHTML = `
+	<img src="/assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
+	`;
+	options.appendChild(profile);
+}
+
+// tour steps -->
+const scoreboard = document.querySelector(".scoreboard-container");
+
+function tourGuide() {
+	const tourSteps = document.querySelectorAll(".tour-step");
+	let currentStep = 0;
+	scoreboard.style.display = "block";
+
+	const showStep = (index) => {
+		tourSteps.forEach((step, i) => {
+			step.style.display = i === index ? "block" : "none";
+		});
+	};
+
+	const nextStep = () => {
+		if (currentStep < tourSteps.length - 1) {
+			currentStep++;
+			showStep(currentStep);
+		}
+	};
+
+	const prevStep = () => {
+		if (currentStep > 0) {
+			currentStep--;
+			showStep(currentStep);
+		}
+	};
+
+	const skipTour = () => {
+		document.getElementById("tour-overlay").style.display = "none";
+	};
+
+	const closeTour = () => {
+		document.getElementById("tour-overlay").style.display = "none";
+	};
+
+	document.querySelectorAll("#next-step").forEach((button) => {
+		button.addEventListener("click", nextStep);
+	});
+
+	document.querySelectorAll("#prev-step").forEach((button) => {
+		button.addEventListener("click", prevStep);
+	});
+
+	document.querySelectorAll("#skip-tour").forEach((button) => {
+		button.addEventListener("click", skipTour);
+	});
+
+	document.querySelectorAll("#close-tour").forEach((button) => {
+		button.addEventListener("click", closeTour);
+	});
+
+	document.getElementById("tour-overlay").style.display = "flex";
+	showStep(currentStep);
+}
+
+// Loader.js -->
+document.addEventListener("DOMContentLoaded", () => {
+	setTimeout(() => {
+		const loader = document.getElementById("loader");
+		if (loader) {
+			loader.style.display = "none";
+		} else {
+			console.error("Element with ID 'loader' not found.");
+		}
+	}, 500);
+});

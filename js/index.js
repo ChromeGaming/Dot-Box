@@ -135,7 +135,7 @@ window.onload = function () {
 	button.textContent = "Music Off";
 };
 
-// Cursor.js -->
+// Cursor -->
 document.addEventListener("DOMContentLoaded", function () {
 	const coords = { x: 0, y: 0 };
 	const circles = document.querySelectorAll(".circle");
