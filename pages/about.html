@@ -26,6 +26,7 @@
 			href="../assets/favicon.ico"
 			type="image/x-icon"
 		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	</head>
 
 	<body>
@@ -45,7 +46,6 @@
     </ul>
   </nav> -->
 
-		<div class="whole-background">
 			<nav class="navbarr" style="color: white">
 				<div class="logo">
 					<a href="../index.html">Dots & Boxes ⚄</a>
@@ -80,105 +80,80 @@
 				<link href="../styles/navbar.css" rel="stylesheet" />
 				<script type="text/javascript" src="../js/navbar.js"></script>
 			</nav>
-		</div>
-
-		<script>
-			function toggleNavBar() {
-				var nav_bar = document.getElementById("nav-links-toggled");
-				if (nav_bar.style.display === "flex") {
-					nav_bar.style.display = "none";
-				} else {
-					nav_bar.style.display = "flex";
-				}
-			}
-		</script>
-
-		<header class="about-header">
-			<h1>🕹️ About Us 🕹️</h1>
-		</header>
-
-		<p
-			style="
-				font-size: 25px;
-				font-family: EB Garamond, serif;
-				font-weight: bolder;
-				text-shadow: 2px 2px 3px white;
-			"
-		>
-			Dot-Box is a game presented by ChromeGaming where players take turns
-			drawing lines between dots to create boxes. The player who completes the
-			most boxes wins. It's a simple yet strategic game enjoyed by people of all
-			ages.
-		</p>
-
-		<main>
-			<section class="about-description">
-				<p></p>
-			</section>
-
-			<section class="functionalities">
-				<h2>History and Origin📓:</h2>
-				<div class="content">
-					<ul>
-						<li>
-							Dot and Boxes, also known as Dots and Boxes, is a classic
-							pencil-and-paper game from the late 19th century.
-						</li>
-						<li>
-							French mathematician Édouard Lucas first described it in the
-							1880s.
-						</li>
-						<li>
-							Lucas, known for his work on the Fibonacci sequence and the Tower
-							of Hanoi puzzle, introduced the game in his book "Récréations
-							Mathématiques" (Mathematical Recreations), where it quickly
-							captivated puzzle enthusiasts and gamers.
-						</li>
-					</ul>
+		
+			
+			<header class="header">
+				<div class="hero">
+					<h1 class="main-heading">Dot-Box - The Strategy Game🎮</h1>
+					<p class="intro-text">Dot-Box is a game where players take turns drawing lines between dots to create boxes. <br> The player who completes the most boxes wins ⚔️</p>
+					<a href="https://github.com/ChromeGaming/Dot-Box" class="cta-button">Star us ᯓ★</a>
 				</div>
-			</section>
-
-			<section class="functionalities">
-				<h2>Functionalities🕹️</h2>
-				<div class="content">
-					<ul>
-						<li>Multiplayer game: Challenge your friends or family!</li>
-						<li>
-							Strategic Line Selection: Think ahead to maximize your boxes.
-						</li>
-						<li>
-							Box Completion Bonus: Earn an extra turn by completing a box.
-						</li>
-						<li>
-							Adjustable Board Size: Customize the game for any difficulty.
-						</li>
-						<li>Turn Switching: Players take turns to keep things fair.</li>
-					</ul>
-				</div>
-			</section>
-
-			<section class="functionalities">
-				<h2>How to Play🎮</h2>
-				<div class="content">
-					<ul>
-						<li>
-							Objective: Capture more boxes than your opponent by drawing lines
-							between adjacent dots.
-						</li>
-						<li>Setup: Choose your grid size and start connecting the dots.</li>
-						<li>
-							Rules: Take turns drawing lines. Complete a box to score a point
-							and get an extra turn. The player with the most boxes wins.
-						</li>
-						<li>
-							Scoring: Each box is worth one point. The game ends when all boxes
-							are claimed.
-						</li>
-					</ul>
-				</div>
-			</section>
-		</main>
-
+			</header>
+			<main>
+				<section id="about" class="about-section">
+					<div class="about-content">
+						<h2 class="section-heading">🕹️ About Dot-Box⚡</h2>
+						<p class="section-subtext">Dive into the origins, gameplay, and exciting features of Dot-Box🎯.</p>
+						<div class="cards-container">
+							<div class="about-card">
+								<div class="card-content">
+									<i class="fas fa-history card-icon"></i>
+									<h3 class="card-title">History and Origin</h3>
+						
+									<div class="card-expanded-content">
+										<ul>
+											<li><strong>Dot and Boxes</strong> is a classic pencil-and-paper game from the late 19th century.</li> <br>
+											<li>First described by French mathematician <strong>Édouard Lucas</strong> in the 1880s.</li> <br>
+											<li>Introduced in <strong>"Récréations Mathématiques"</strong> (Mathematical Recreations).</li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="about-card">
+								<div class="card-content">
+									<i class="fas fa-cogs card-icon"></i>
+									<h3 class="card-title">Functionalities</h3>
+									
+									
+									<div class="card-expanded-content">
+										<ul>
+											<li> <strong>Multiplayer game:</strong> Challenge friends or family!</li> <br>
+											<li> <strong>Strategic Line Selection:</strong> Think ahead to maximize your boxes.</li> <br>
+											<li><strong>Box Completion Bonus: </strong>Earn an extra turn by completing a box.</li> <br>
+											<li>Adjustable Board Size: Customize for any difficulty.</li>
+											<br>
+											<li><strong>Turn Switching:</strong> Players take turns to keep things fair.</li>
+											<br>
+											<br>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="about-card">
+								<div class="card-content">
+									<i class="fas fa-play card-icon"></i>
+									<h3 class="card-title">How to Play</h3>
+									
+								
+									<div class="card-expanded-content">
+										<ul>
+											<li><strong>Objective:</strong>Capture more boxes than your opponent by drawing lines between adjacent dots.</li>
+											<br>
+											<li><strong>Setup:</strong> Choose grid size and start connecting dots.</li> <br>
+											<li><strong>Rules: </strong>Take turns drawing lines. Complete a box to score a point and get an extra turn.</li> <br>
+											<li><strong>Scoring:</strong> Each box is worth one point. The game ends when all boxes are claimed.</li>
+											<br>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			
+		
 		<div class="author">
 			<div class="fotbar">
 				<a href="howtoplay.html">HowToPlay?</a>
@@ -207,5 +182,47 @@
 				></a>
 			</div>
 		</div>
+
+		<script>
+			function toggleNavBar() {
+				var nav_bar = document.getElementById("nav-links-toggled");
+				if (nav_bar.style.display === "flex") {
+					nav_bar.style.display = "none";
+				} else {
+					nav_bar.style.display = "flex";
+				}
+			}
+
+		</script>
+		<script>
+			
+			document.addEventListener('DOMContentLoaded', () => {
+    const expandButtons = document.querySelectorAll('.card-expand-button');
+
+    expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const expandedContent = button.nextElementSibling;
+            const isExpanded = expandedContent.style.display === 'block';
+
+            // Close all other expanded contents
+            document.querySelectorAll('.card-expanded-content').forEach(content => {
+                content.style.display = 'none';
+                content.style.maxHeight = '0';
+                content.style.padding = '0 15px';
+            });
+
+            // Toggle current card
+            if (!isExpanded) {
+                expandedContent.style.display = 'block';
+                expandedContent.style.maxHeight = expandedContent.scrollHeight + 'px';
+                expandedContent.style.padding = '15px';
+            }
+        });
+    });
+});
+
+
+		</script>
+			
 	</body>
 </html>
