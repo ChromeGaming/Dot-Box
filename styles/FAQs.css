@@ -1,351 +1,325 @@
 /* General Body Styles */
 body {
-    background: linear-gradient(135deg, #f7b42c, #fc575e); /* Gradient background from orange to pink */
-    margin: 0;
-    padding: 0;
-    font-family: 'WorkSans-Regular', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    overflow: auto !important;
+	background: linear-gradient(
+		135deg,
+		#f7b42c,
+		#fc575e
+	); /* Gradient background from orange to pink */
+	margin: 0;
+	padding: 0;
+	font-family: "WorkSans-Regular", Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	overflow: auto !important;
 }
 
 /* FAQ Container Styles */
 .faqcontainer {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-    margin: 100px auto 20px;
-    flex: 1;
-    z-index: 0;
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px;
+	max-width: 600px;
+	width: 90%;
+	box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
+	margin: 100px auto 20px;
+	flex: 1;
+	z-index: 0;
 }
 
 /* Heading Styles */
 h1 {
-    font-family: 'WorkSans-Bold', Arial, sans-serif;
-    display: flex;
-    align-items: center;
+	font-family: "WorkSans-Bold", Arial, sans-serif;
+	display: flex;
+	align-items: center;
 }
 
-h1:hover{
-    text-shadow:#ca2cff !important;
+h1:hover {
+	text-shadow: #ca2cff !important;
 }
 
 /* FAQ Image Styles */
 .faqcontainer img {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 /* Question Styles */
 .question {
-    font-family: 'WorkSans-SemiBold', Arial, sans-serif;
-    padding: 20px;
-    font-size: 1.25rem; /* 20px */
-    border-bottom: 0.5px solid rgba(243, 218, 171, 0.5);
-    background: linear-gradient(135deg, #f7f7f7, #eaeaea); /* Subtle gradient for questions */
-    transition: background-color 0.3s, transform 0.3s, text-shadow 0.3s; /* Added text-shadow transition */
-    border-radius: 8px;
+	font-family: "WorkSans-SemiBold", Arial, sans-serif;
+	padding: 20px;
+	font-size: 1.25rem; /* 20px */
+	border-bottom: 0.5px solid rgba(243, 218, 171, 0.5);
+	background: linear-gradient(
+		135deg,
+		#f7f7f7,
+		#eaeaea
+	); /* Subtle gradient for questions */
+	transition: background-color 0.3s, transform 0.3s, text-shadow 0.3s; /* Added text-shadow transition */
+	border-radius: 8px;
 }
 
 /* Hover Effect */
 .question:hover {
-    background: linear-gradient(135deg, #ffbff2, #d34eff); /* Bright gradient on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-    border-radius: 12px; /* Slight rounding for emphasis */
-    text-shadow: 2px 2px 5px rgba(255, 114, 79, 0.844); /* Text shadow effect on hover */
+	background: linear-gradient(
+		135deg,
+		#ffbff2,
+		#d34eff
+	); /* Bright gradient on hover */
+	transform: scale(1.05); /* Slight zoom effect */
+	border-radius: 12px; /* Slight rounding for emphasis */
+	text-shadow: 2px 2px 5px rgba(255, 114, 79, 0.844); /* Text shadow effect on hover */
 }
 
 /* Summary Styles */
 .question summary {
-    cursor: pointer;
-    padding: 7px;
-    transition: color 0.3s;
-    outline: none; /* Remove default focus outline */
+	cursor: pointer;
+	padding: 7px;
+	transition: color 0.3s;
+	outline: none; /* Remove default focus outline */
 }
 
 .question summary:hover {
-    color: #333; /* Darker text on hover */
+	color: #333; /* Darker text on hover */
 }
 
 .question summary img {
-    float: right;
-    transition: transform 0.3s;
+	float: right;
+	transition: transform 0.3s;
 }
 
 .question summary:hover img {
-    transform: rotate(90deg); /* Rotate icon on hover */
+	transform: rotate(90deg); /* Rotate icon on hover */
 }
 
 /* Answer Styles */
 .question p {
-    font-family: 'WorkSans-Regular', Arial, sans-serif;
-    font-size: 1.0625rem; /* 17px */
-    color: #555; /* Slightly darker text */
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+	font-family: "WorkSans-Regular", Arial, sans-serif;
+	font-size: 1.0625rem; /* 17px */
+	color: #555; /* Slightly darker text */
+	background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 /* Remove bottom-background video styles */
 .bottom-background {
-    display: none;
+	display: none;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    .faqcontainer {
-        width: 95%;
-        padding: 15px;
-    }
+	.faqcontainer {
+		width: 95%;
+		padding: 15px;
+	}
 
-    h1 {
-        font-size: 1.5rem; /* Responsive font size */
-    }
+	h1 {
+		font-size: 1.5rem; /* Responsive font size */
+	}
 
-    .question {
-        font-size: 1.125rem; /* 18px */
-    }
+	.question {
+		font-size: 1.125rem; /* 18px */
+	}
 
-    .question p {
-        font-size: 1rem; /* 16px */
-    }
+	.question p {
+		font-size: 1rem; /* 16px */
+	}
 
-    .back-to-home {
-        font-size: 14px;
-        padding: 8px 16px;
-        bottom: 10px;
-        right: 10px;
-    }
+	.back-to-home {
+		font-size: 14px;
+		padding: 8px 16px;
+		bottom: 10px;
+		right: 10px;
+	}
 
-    .back-to-home img {
-        width: 18px;
-    }
+	.back-to-home img {
+		width: 18px;
+	}
 }
 
 @media (max-width: 480px) {
-    .faqcontainer {
-        width: 100%;
-        padding: 10px;
-    }
+	.faqcontainer {
+		width: 100%;
+		padding: 10px;
+	}
 
-    h1 {
-        font-size: 1.25rem; /* Responsive font size */
-    }
+	h1 {
+		font-size: 1.25rem; /* Responsive font size */
+	}
 
-    .question {
-        font-size: 1rem; /* 16px */
-    }
+	.question {
+		font-size: 1rem; /* 16px */
+	}
 
-    .question p {
-        font-size: 0.875rem; /* 14px */
-    }
+	.question p {
+		font-size: 0.875rem; /* 14px */
+	}
 
-    .back-to-home {
-        font-size: 12px;
-        padding: 6px 12px;
-        bottom: 5px;
-        right: 5px;
-    }
+	.back-to-home {
+		font-size: 12px;
+		padding: 6px 12px;
+		bottom: 5px;
+		right: 5px;
+	}
 
-    .back-to-home img {
-        width: 16px;
-    }
+	.back-to-home img {
+		width: 16px;
+	}
 }
 
 .attribution {
-    font-size: 11px;
-    text-align: center;
+	font-size: 11px;
+	text-align: center;
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
-}
-
-.circle {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle, #ff6600, #ffb584a5);
-    transition: transform 0.1s, left 0.1s, top 0.1s;
-}
-
-.circle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-@media (max-width: 768px) {
-    .circle-container {
-        display: none;
-    }
+	color: hsl(228, 45%, 44%);
 }
 
 html,
 body {
-    height: 100%;
-    margin: 0;
-    overflow: auto !important;
-    /* Allow scrolling */
-    height: 105%;
+	height: 100%;
+	margin: 0;
+	overflow: auto !important;
+	/* Allow scrolling */
+	height: 105%;
 }
 
 body {
-    background-color: #e7b537;
-    display: flex;
-    flex-direction: column;
-    font-family: "WorkSans-Regular", Arial, sans-serif;
+	background-color: #e7b537;
+	display: flex;
+	flex-direction: column;
+	font-family: "WorkSans-Regular", Arial, sans-serif;
 }
 
 @media screen and (max-width: 450px) {
-    .contributor-card {
-        max-width: 90%;
-    }
+	.contributor-card {
+		max-width: 90%;
+	}
 
-    .navbar {
-        flex-direction: column;
-        padding: 5px !important;
-    }
+	.navbar {
+		flex-direction: column;
+		padding: 5px !important;
+	}
 
-    .faqcontainer {
-        background-color: white;
-        border-radius: 20px;
-        padding: 20px;
-        max-width: 600px;
-        width: 90%;
-        box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-        margin: 100px auto 20px;
-        /* Increased margin-top to avoid content being hidden under navbar */
-        flex: 1;
-        z-index: 0;
-        /* Ensure it's below the fixed elements */
-        margin-top: 54px;
-    }
+	.faqcontainer {
+		background-color: white;
+		border-radius: 20px;
+		padding: 20px;
+		max-width: 600px;
+		width: 90%;
+		box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
+		margin: 100px auto 20px;
+		/* Increased margin-top to avoid content being hidden under navbar */
+		flex: 1;
+		z-index: 0;
+		/* Ensure it's below the fixed elements */
+		margin-top: 54px;
+	}
 
-    .author {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: linear-gradient(to right, #00093c, #2d0b00);
-        color: #fff;
-        padding: 0px;
-        position: fixed;
-        bottom: 0;
-        z-index: 1000;
-        height: 67px;
-        flex-shrink: 0;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        /* Added shadow for better visibility */
-    }
+	.author {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: linear-gradient(to right, #00093c, #2d0b00);
+		color: #fff;
+		padding: 0px;
+		position: fixed;
+		bottom: 0;
+		z-index: 1000;
+		height: 67px;
+		flex-shrink: 0;
+		box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+		/* Added shadow for better visibility */
+	}
 
-    .author .fotbar {
-        display: flex;
-        gap: -22px;
-    }
+	.author .fotbar {
+		display: flex;
+		gap: -22px;
+	}
 
-    .author .fotbar a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 18px;
-        background-color: transparent;
-    }
+	.author .fotbar a {
+		color: white;
+		text-decoration: none;
+		padding: 10px;
+		border-radius: 5px;
+		font-size: 18px;
+		background-color: transparent;
+	}
 
-    .author p {
-        color: white;
-        padding: 10px;
-        margin-right: -550px;
-        font-size: 20px;
-        font-weight: 600;
-    }
+	.author p {
+		color: white;
+		padding: 10px;
+		margin-right: -550px;
+		font-size: 20px;
+		font-weight: 600;
+	}
 
-    .author .social-icons {
-        display: flex;
-        gap: 10px;
-        margin-right: 20px;
-    }
+	.author .social-icons {
+		display: flex;
+		gap: 10px;
+		margin-right: 20px;
+	}
 
-    .author a {
-        color: white !important;
-    }
+	.author a {
+		color: white !important;
+	}
 
-    .author .social-icons a {
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-    }
+	.author .social-icons a {
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+	}
 }
 
 @media screen and (max-width: 1190px) {
-    .author a {
-        font-size: small;
-    }
+	.author a {
+		font-size: small;
+	}
 }
 
 @media screen and (max-width: 1065px) {
-    .author .fotbar {
-        display: grid;
-    }
+	.author .fotbar {
+		display: grid;
+	}
 
-    .author .fotbar a {
-        font-size: 14px;
-    }
+	.author .fotbar a {
+		font-size: 14px;
+	}
 }
 
 @media screen and (max-width: 550px) {
-    .author {
-        display: none !important;
-    }
+	.author {
+		display: none !important;
+	}
 
-    .navbar {
-        display: none !important;
-    }
+	.navbar {
+		display: none !important;
+	}
 
-    .author p {
-        font-size: 16px;
-        padding: 0;
-    }
+	.author p {
+		font-size: 16px;
+		padding: 0;
+	}
 
-    .author .fotbar a {
-        font-size: 12px;
-    }
+	.author .fotbar a {
+		font-size: 12px;
+	}
 
-    .author .social-icons a {
-        font-size: 15px;
-    }
+	.author .social-icons a {
+		font-size: 15px;
+	}
 
-    .faqcontainer {
-        margin-top: 49px;
-    }
+	.faqcontainer {
+		margin-top: 49px;
+	}
 }
 
 @media (max-width: 768px) {
-    .author {
-        position: relative !important;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 220, 131, 0.979);
-    border-radius: 15px;
-}
-::-webkit-scrollbar-track {
-    background-color: rgba(46, 33, 0, 0.979);
+	.author {
+		position: relative !important;
+	}
 }
