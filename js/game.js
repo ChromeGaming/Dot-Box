@@ -64,13 +64,17 @@ class Game {
 		this.timeLeft = 30;
 		this.updateTimerDisplay();
 		this.timer = setInterval(() => {
-			this.timeLeft--;
-			this.updateTimerDisplay();
-			if (this.timeLeft <= 0) {
-				clearInterval(this.timer);
-				this.switchPlayer();
-			}
+			this.dropTime();
 		}, 1000);
+	}
+
+	dropTime() {
+		this.timeLeft--;
+		this.updateTimerDisplay();
+		if (this.timeLeft <= 0) {
+			clearInterval(this.timer);
+			this.switchPlayer();
+		}
 	}
 
 	// Update timer display
@@ -309,7 +313,7 @@ const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
 var game = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-	bgMusic.volume = 0.1;
+	bgMusic.volume = 1;
 	bgMusic.play();
 
 	const playersCount = calculate(playersInput, 2, 6);
@@ -319,17 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
-
-	const musicToggleBtn = document.getElementById("sound-toggle");
-	musicToggleBtn.addEventListener("click", () => {
-		if (bgMusic.paused) {
-			bgMusic.play();
-			musicToggleBtn.innerText = "Music On";
-		} else {
-			bgMusic.pause();
-			musicToggleBtn.innerText = "Music Off";
-		}
-	});
 });
 
 function calculate(value, min, max) {
@@ -469,3 +462,38 @@ function saveAvatar(id, tab) {
 		tab.style.display = "none";
 	});
 }
+
+// ---------------- Menu --->
+
+// Restart Game
+const restart = document.getElementById("restart");
+restart.addEventListener("click", () => {
+	window.location.reload();
+});
+
+// Pause-Resume Game
+const state = document.getElementById("state");
+state.addEventListener("click", () => {
+	if (pause) {
+		state.children[0].classList.add("fa-play");
+		state.children[0].classList.remove("fa-pause");
+	} else {
+		state.children[0].classList.remove("fa-play");
+		state.children[0].classList.add("fa-pause");
+	}
+});
+
+// Music Toggle
+
+const toggleMusic = document.getElementById("music-toggle");
+toggleMusic.addEventListener("click", () => {
+	if (bgMusic.paused) {
+		bgMusic.play();
+		toggleMusic.children[0].classList.add("fa-volume-high");
+		toggleMusic.children[0].classList.remove("fa-volume-xmark");
+	} else {
+		bgMusic.pause();
+		toggleMusic.children[0].classList.add("fa-volume-xmark");
+		toggleMusic.children[0].classList.remove("fa-volume-high");
+	}
+});
