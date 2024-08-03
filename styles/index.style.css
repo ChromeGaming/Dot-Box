@@ -755,6 +755,57 @@ input[type="email"]:focus {
 		font-size: 14px;
 		padding: 8px 12px;
 	}
+
+	body {
+		max-width: 100vw !important;
+		overflow-x: hidden !important;
+	}
+	.settings {
+		max-width: 100vw !important;
+	}
+
+	.whole-background {
+		top: 15vh !important;
+		margin-right: 0;
+		width: 100% !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		overflow-x: hidden !important;
+	}
+
+	.whole-background .form {
+		width: 100% !important;
+		margin-left: 0 !important;
+		padding-left: 0px !important;
+		margin-right: 0px !important;
+	}
+
+	.heading {
+		width: max-content;
+    	font-size: 1.2rem;
+	}
+
+	button.d-type {
+		width: 100% !important;
+		font-size: small !important;
+	}
+
+	.button-container {
+		width: 100% !important;
+		flex-wrap: wrap !important;
+	}
+	.button-container button{
+		width: 100% !important;
+	}
+
+	.form .right-background {
+		margin-bottom: 300px !important;
+	}
+
+	.author, .author .fotbar {
+		max-width: 100vw !important;
+		flex-wrap: wrap !important;
+	}
 }
 
 .button1 {
