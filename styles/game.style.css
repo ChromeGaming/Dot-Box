@@ -676,7 +676,7 @@ body {
 	background-color: rgb(0, 166, 255);
 	color: white;
 	border: none;
-	padding: 13px 13px;
+	padding: 13px;
 	font-size: 14px;
 	cursor: pointer;
 	border-radius: 50%;
@@ -715,26 +715,6 @@ body {
 
 .button-container [title]:hover::after {
 	opacity: 1;
-}
-
-.circle {
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	pointer-events: none;
-	background: radial-gradient(circle, #ff6600, #ffb584a5);
-	transition: transform 0.1s, left 0.1s, top 0.1s;
-}
-
-.circle-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: 99999;
 }
 
 /* Timer */
@@ -950,74 +930,8 @@ body {
 		display: none;
 	}
 
-	.button-container button,
-	.button-container a {
-		background-color: rgb(0, 166, 255);
-		color: white;
-		border: none;
-		padding: 13px;
-		font-size: 14px;
-		cursor: pointer;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-decoration: none;
-		position: relative;
-		transition: background-color 0.3s ease;
-	}
-
 	.button-container #sound-toggle {
-		background-color: rgb(12, 1, 1);
-		border-radius: 4px;
 		padding: 10px 20px;
-	}
-
-	.button-container svg {
-		width: 30px;
-		height: 30px;
-		fill: white;
-	}
-
-	.button-container a {
-		text-decoration: none;
-	}
-
-	.button-container button:hover,
-	.button-container a:hover {
-		background-color: rgb(69, 133, 254);
-	}
-
-	.button-container #sound-toggle:hover {
-		background-color: rgb(21, 39, 77);
-	}
-
-	.button-container [title]:hover::after {
-		opacity: 1;
-	}
-
-	.circle {
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		pointer-events: none;
-		background: radial-gradient(
-			circle,
-			rgba(73, 232, 247, 0.466),
-			rgba(141, 38, 172, 0.5)
-		);
-		transition: transform 0.1s, left 0.1s, top 0.1s;
-	}
-
-	.circle-container {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		z-index: 99999;
 	}
 
 	/* Timer */
@@ -1028,16 +942,7 @@ body {
 	}
 
 	#timer {
-		font-size: 38px;
-		font-weight: bold;
 		margin-top: -11px;
-		color: #333;
-	}
-
-	#timer-label {
-		font-size: 14px;
-		color: #666;
-		margin-top: -6px;
 	}
 
 	/* Score board */
@@ -1046,10 +951,6 @@ body {
 	}
 
 	.game-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
 		margin-top: -156px;
 	}
 
@@ -1059,84 +960,15 @@ body {
 		margin: 2rem;
 	}
 
-	.scoreboard-container h2 {
-		text-align: center;
-		margin-bottom: 20px;
-		color: #333;
-	}
-
-	.scoreboard {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
-
-	.score {
-		font-size: 22px;
-		font-weight: bold;
-		padding: 15px;
-		border-radius: 10px;
-		text-align: center;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
 	/* Tour */
-	#tour-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.3);
-		display: none;
-		align-items: center;
-		justify-content: center;
-		z-index: 10000;
-	}
-
-	.overlay-content ul {
-		text-align: left;
-		margin: 20px 0;
-	}
-
-	.tour-step {
-		position: absolute;
-		display: none;
-		padding: 20px;
-		border-radius: 8px;
-		background: #fff0f5;
-		color: #000;
-		width: 314px;
-	}
-
-	.tour-step.step-1 {
-		top: 20%;
-		left: 40%;
-		margin-top: -268px;
-	}
-
 	.tour-step.step-2 {
-		top: 80%;
 		left: 15%;
-		margin-top: -16%;
-	}
-
-	.tour-step.step-3 {
-		top: 20%;
-		right: 59%;
-		margin-top: -32%;
-		width: 399px;
-		padding: 20px;
 	}
 
 	.tour-step.step-4 {
 		top: 20%;
 		right: 59%;
 		margin-top: -32%;
-		width: 399px;
-		padding: 20px;
 	}
 
 	.tour-step.step-5 {
@@ -1146,57 +978,14 @@ body {
 	}
 
 	.tour-step.step-6 {
-		top: 20%;
 		left: 37%;
 		margin-top: -74px;
 		width: 536px;
 	}
 
 	.tour-step.step-7 {
-		top: 20%;
 		left: 32%;
 		margin-top: -65px;
-		width: 392px;
-	}
-
-	.tour-controls {
-		position: absolute;
-		bottom: -40px;
-		width: 86%;
-		display: flex;
-		justify-content: center;
-		gap: 10px;
-	}
-
-	.tour-controls .button {
-		background-color: rgb(0, 166, 255);
-		color: white;
-		border: none;
-		padding: 5px 17px;
-		border-radius: 4px;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-	}
-
-	.tour-controls .button:hover {
-		background-color: rgb(69, 133, 254);
-	}
-
-	#prev-step {
-		background-color: rgb(255, 165, 0);
-	}
-
-	#skip-tour {
-		background-color: rgb(255, 0, 0);
-	}
-
-	.overlay-content .button-container {
-		position: absolute;
-		bottom: 10px;
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		gap: 10px;
 	}
 }
 
@@ -1228,6 +1017,11 @@ body {
 		margin-top: 5rem;
 	}
 
+	.scoreboard-container {
+		margin-top: 1rem;
+	}
+
+	/* Timer */
 	#timer-container {
 		height: 70px;
 		width: 72px;
@@ -1236,21 +1030,15 @@ body {
 
 	#timer {
 		font-size: 33px;
-		font-weight: bold;
 		margin-top: -15px;
-		color: #333;
 	}
 
 	#timer-label {
 		font-size: 11px;
-		color: #666;
 		margin-top: -5px;
 	}
 
-	.scoreboard-container {
-		margin-top: 1rem;
-	}
-
+	/* Tour */
 	.tour-step.step-1 {
 		width: 83%;
 		padding: 10px;
@@ -1337,13 +1125,4 @@ body {
 	.circle-container {
 		display: none;
 	}
-}
-
-#myVideo {
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
-	z-index: -1;
 }
