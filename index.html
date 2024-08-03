@@ -5,15 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="./styles/mainstyle.css" />
 		<link rel="stylesheet" href="./styles/default.style.css" />
+		<link rel="stylesheet" href="/styles/global.css" />
 		<link rel="stylesheet" href="./styles/index.style.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 		/>
-		<!-- <script defer src="./js/edge.js"></script> -->
-		<!-- <script defer src="./js/box.js"></script> -->
-		<!-- <script defer src="./js/board.js"></script> -->
-		<!-- <script defer src="./js/game.js"></script> -->
 		<script defer src="./js/validation.js"></script>
 		<!-- JavaScript files -->
 		<script defer src="./js/index.js"></script>
@@ -29,9 +26,7 @@
 	</head>
 
 	<body>
-		<div id="loader">
-			<div class="spinner"></div>
-		</div>
+		<script src="/js/global.js"></script>
 
 		<audio id="background-music" autoplay loop>
 			<source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
@@ -58,75 +53,108 @@
 				</nav>
 				<button class="sticky-button" onclick="openForm()">Feedback</button>
 				<div class="feed-bg">
-				<div id="formContainer" class="form-container">
-					<div class="form-content">
-						<div class="sub">
-							<h5>We'd Love Your Feedback!</h5>
-							<span class="close-button" onclick="closeForm()">&times;</span>
-						</div>
-						<div class="wrapper">
-							<input type="radio" name="rate" id="star-1" />
-							<input type="radio" name="rate" id="star-2" />
-							<input type="radio" name="rate" id="star-3" />
-							<input type="radio" name="rate" id="star-4" />
-							<input type="radio" name="rate" id="star-5" />
-							<div class="content">
-								<div class="outer">
-									<div class="emojis">
-										<li class="slideImg">
-											<img src="./assets/images/emojis/emoji-1-bg.png" alt="emoji" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-2-bg.png" alt="emoji" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-3.png" alt="emoji" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-4-bg.png" alt="emoji" />
-										</li>
-										<li>
-											<img src="./assets/images/emojis/emoji-5-bg.png" alt="emoji" />
-										</li>
+					<div id="formContainer" class="form-container">
+						<div class="form-content">
+							<div class="sub">
+								<h5>We'd Love Your Feedback!</h5>
+								<span class="close-button" onclick="closeForm()">&times;</span>
+							</div>
+							<div class="wrapper">
+								<input type="radio" name="rate" id="star-1" />
+								<input type="radio" name="rate" id="star-2" />
+								<input type="radio" name="rate" id="star-3" />
+								<input type="radio" name="rate" id="star-4" />
+								<input type="radio" name="rate" id="star-5" />
+								<div class="content">
+									<div class="outer">
+										<div class="emojis">
+											<li class="slideImg">
+												<img
+													src="./assets/images/emojis/emoji-1-bg.png"
+													alt="emoji"
+												/>
+											</li>
+											<li>
+												<img
+													src="./assets/images/emojis/emoji-2-bg.png"
+													alt="emoji"
+												/>
+											</li>
+											<li>
+												<img
+													src="./assets/images/emojis/emoji-3.png"
+													alt="emoji"
+												/>
+											</li>
+											<li>
+												<img
+													src="./assets/images/emojis/emoji-4-bg.png"
+													alt="emoji"
+												/>
+											</li>
+											<li>
+												<img
+													src="./assets/images/emojis/emoji-5-bg.png"
+													alt="emoji"
+												/>
+											</li>
+										</div>
+									</div>
+									<div class="stars">
+										<label for="star-1" class="star-1 fas fa-star"></label>
+										<label for="star-2" class="star-2 fas fa-star"></label>
+										<label for="star-3" class="star-3 fas fa-star"></label>
+										<label for="star-4" class="star-4 fas fa-star"></label>
+										<label for="star-5" class="star-5 fas fa-star"></label>
 									</div>
 								</div>
-								<div class="stars">
-									<label for="star-1" class="star-1 fas fa-star"></label>
-									<label for="star-2" class="star-2 fas fa-star"></label>
-									<label for="star-3" class="star-3 fas fa-star"></label>
-									<label for="star-4" class="star-4 fas fa-star"></label>
-									<label for="star-5" class="star-5 fas fa-star"></label>
+								<div class="footer">
+									<span class="text"></span>
+									<span class="numb"></span>
 								</div>
 							</div>
-							<div class="footer">
-								<span class="text"></span>
-								<span class="numb"></span>
-							</div>
-						</div>
 
-						<form id="feedbackForm">
-							<div class="form-group-1">
-							<div class="form-group">
-								<label for="firstName">Name</label>
-								<input type="text" required id="firstName" name="firstName" placeholder="Enter Name">
-							</div>
-							<div class="form-group ">
-								<label for="email">Email</label>
-								<input type="email" required id="email" name="email" placeholder="Enter Email">
-							</div>
+							<form id="feedbackForm">
+								<div class="form-group-1">
+									<div class="form-group">
+										<label for="firstName">Name</label>
+										<input
+											type="text"
+											required
+											id="firstName"
+											name="firstName"
+											placeholder="Enter Name"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input
+											type="email"
+											required
+											id="email"
+											name="email"
+											placeholder="Enter Email"
+										/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="feedback">Describe your feedback</label>
+									<textarea
+										id="feedback"
+										required
+										name="feedback"
+										rows="4"
+										placeholder="Tell us how we can improve ..."
+									></textarea>
+								</div>
+								<div class="submitbtn">
+									<input type="submit" value="Submit" class="buttons" />
+									<input type="reset" value="Reset" class="buttons" />
+								</div>
+							</form>
 						</div>
-							<div class="form-group">
-								<label for="feedback">Describe your feedback</label>
-								<textarea id="feedback" required name="feedback" rows="4" placeholder="Tell us how we can improve ..."></textarea>
-							</div>
-							<div class="submitbtn">
-								<input type="submit" value="Submit" class="buttons">
-								<input type="reset" value="Reset" class="buttons">
-							</div>
-						</form>
 					</div>
 				</div>
-			</div>
 				<div id="thankYouPopup" class="popup hidden">
 					<div class="popup-content">
 						<span class="close-button" onclick="closeThankYouPopup()"
@@ -201,13 +229,17 @@
 				<div class="form">
 					<!-- <h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1> -->
 					<h1 class="heading">▂ ▄ █ MAXIMISE BOXES!! █ ▄ ▂</h1>
-					<h3 class="instructions-heading" style="text-decoration: underline;">Instructions</h3>
+					<h3 class="instructions-heading" style="text-decoration: underline">
+						Instructions
+					</h3>
 					<p class="instructions">
 						1. 🧩 Select the number of rows, columns, and players. <br />
-						2. 🏆 The player who has the maximum number of boxes on the board is the winner. <br />
-						3. 🔄 Players will switch after every turn. But the player who fills the last box will get one extra chance consecutively. 🎉 <br />
+						2. 🏆 The player who has the maximum number of boxes on the board is
+						the winner. <br />
+						3. 🔄 Players will switch after every turn. But the player who fills
+						the last box will get one extra chance consecutively. 🎉 <br />
 					</p>
-					
+
 					<a href="./pages/howtoplay.html" class="button"
 						>Read Detailed Instructions</a
 					>
@@ -215,7 +247,9 @@
 				<div class="form">
 					<div class="right-background">
 						<div class="form-item">
-							<label for="theme-select" style="text-decoration: underline;">Select Theme:</label>
+							<label for="theme-select" style="text-decoration: underline"
+								>Select Theme:</label
+							>
 							<select id="theme-select">
 								<option value="1">Default</option>
 								<option value="2">Theme 1</option>
@@ -337,78 +371,6 @@
 				});
 		</script>
 
-		<div class="circle-container">
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-		</div>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const coords = { x: 0, y: 0 };
-				const circles = document.querySelectorAll(".circle");
-
-				circles.forEach(function (circle) {
-					circle.x = 0;
-					circle.y = 0;
-				});
-
-				window.addEventListener("mousemove", function (e) {
-					coords.x = e.pageX;
-					coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-				});
-
-				function animateCircles() {
-					let x = coords.x;
-					let y = coords.y;
-
-					circles.forEach(function (circle, index) {
-						circle.style.left = `${x - 12}px`;
-						circle.style.top = `${y - 12}px`;
-						circle.style.transform = `scale(${
-							(circles.length - index) / circles.length
-						})`;
-
-						const nextCircle = circles[index + 1] || circles[0];
-						circle.x = x;
-						circle.y = y;
-
-						x += (nextCircle.x - x) * 0.3;
-						y += (nextCircle.y - y) * 0.3;
-					});
-
-					requestAnimationFrame(animateCircles);
-				}
-
-				animateCircles();
-			});
-		</script>
 		<script
 			src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
 			async
@@ -416,19 +378,4 @@
 	</body>
 
 	<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-
-	<!-- Loader.js -->
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        const loader = document.getElementById("loader");
-        if (loader) {
-            loader.style.display = "none";
-        } else {
-            console.error("Element with ID 'loader' not found.");
-        }
-    }, 500);
-});
-
-	</script>
 </html>

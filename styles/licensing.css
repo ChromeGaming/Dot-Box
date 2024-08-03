@@ -1,279 +1,135 @@
 body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #ffd700;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    overflow-x: hidden;
-}
-
-.circle {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle, #ff6600, #ffb584a5);
-    transition: transform 0.1s, left 0.1s, top 0.1s;
-}
-
-.circle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(231, 181, 55, 0.979);
-    border-radius: 15px;
-}
-
-@media (max-width: 768px) {
-    .circle-container {
-        display: none;
-    }
-}
-
-.scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #ff7920, #dd5900);
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease,
-        bottom 0.3s ease;
-}
-
-.scroll-to-top:hover {
-    background-color: #dd5900;
-    transform: scale(1.1);
-    bottom: 35px;
-}
-.scroll-to-top svg {
-    vertical-align: middle;
-    fill: white;
-    transition: transform 0.3s ease;
-    margin-bottom: 10px;
-}
-
-.scroll-to-top:hover svg {
-    transform: translateY(-5px);
-}
-
-.back-button {
-    display: inline-block;
-    padding: 6px 16px;
-    background-color: rgb(255, 120, 30);
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.back-button:hover {
-    background-color: rgb(236, 94, 0);
-    transform: scale(1.1);
+	font-family: "Press Start 2P", cursive;
+	background-color: #ffd700;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	overflow-x: hidden;
 }
 
 .video-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    text-align: center;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
 }
 
 .video {
-    width: 100%;
-    height: auto;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.title {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.section {
-    margin-bottom: 20px;
-}
-
-.section-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.section-content {
-    font-size: 1em;
-    line-height: 1.6;
-}
-
-pre {
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
+	width: 100%;
+	height: auto;
 }
 
 @media (max-width: 768px) {
-    .title {
-        font-size: 1.5em;
-    }
+	.title {
+		font-size: 1.5em;
+	}
 
-    .section-title {
-        font-size: 1.2em;
-    }
+	.section-title {
+		font-size: 1.2em;
+	}
 
-    .section-content {
-        font-size: 0.9em;
-    }
+	.section-content {
+		font-size: 0.9em;
+	}
 
-    .back-button {
-        font-size: 14px;
-        padding: 5px 14px;
-    }
+	.back-button {
+		font-size: 14px;
+		padding: 5px 14px;
+	}
 
-    .container {
-        padding: 11px;
-        max-width: 100vw;
-    }
+	.container {
+		padding: 11px;
+		max-width: 100vw;
+	}
 }
 
 .container {
-    max-width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    background: linear-gradient(45deg, #ffc400, #ff8c00);
-    border-radius: 15px;
-    box-shadow: 0 0 20px #ff6600;
-    text-align: left;
-    line-height: 1.6;
+	max-width: 80%;
+	margin: 50px auto;
+	padding: 20px;
+	background: linear-gradient(45deg, #ffc400, #ff8c00);
+	border-radius: 15px;
+	box-shadow: 0 0 20px #ff6600;
+	text-align: left;
+	line-height: 1.6;
 }
 
 .header {
-    text-align: center;
-    margin-bottom: 30px;
+	text-align: center;
+	margin-bottom: 30px;
 }
 
 .title {
-    color: #d9ff00;
-    font-size: 48px;
-    text-shadow: 3px 3px #ffe066;
-    animation: glow 2s ease-in-out infinite alternate;
+	color: #d9ff00;
+	font-size: 48px;
+	text-shadow: 3px 3px #ffe066;
+	animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from {
-        text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 15px #ff6600;
-    }
-    to {
-        text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff6600;
-    }
+	from {
+		text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 15px #ff6600;
+	}
+	to {
+		text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff6600;
+	}
 }
 
 .main-content {
-    text-align: left;
+	text-align: left;
 }
 
 .section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+	margin-bottom: 30px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+	transition: transform 0.3s ease;
 }
 
 .section:hover {
-    transform: scale(1.03);
+	transform: scale(1.03);
 }
 
 .section-title {
-    color: #ff4500;
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+	color: #ff4500;
+	font-size: 24px;
+	margin-bottom: 15px;
+	text-transform: uppercase;
 }
 
 .section-content,
 .list-item {
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #4d2600;
+	margin-bottom: 15px;
+	font-size: 14px;
+	color: #4d2600;
 }
 
 pre {
-    background-color: #ffe066;
-    color: #4d2600;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    font-family: 'Courier New', monospace;
-}
-
-.back-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    background: #ff4500;
-    color: #fff;
-    text-align: center;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.back-btn:hover {
-    background: #ff8c00;
-    color: #4d2600;
-    transform: scale(1.1);
+	background-color: #ffe066;
+	color: #4d2600;
+	padding: 15px;
+	border-radius: 8px;
+	overflow-x: auto;
+	font-family: "Courier New", monospace;
 }
 
 @media (max-width: 767px) {
-    .container {
-        max-width: 95%;
-        padding: 15px;
-    }
+	.container {
+		max-width: 95%;
+		padding: 15px;
+	}
 
-    .title {
-        font-size: 36px;
-    }
+	.title {
+		font-size: 36px;
+	}
 
-    .section-title {
-        font-size: 20px;
-    }
+	.section-title {
+		font-size: 20px;
+	}
 
-    .back-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+	.back-btn {
+		padding: 10px 20px;
+		font-size: 14px;
+	}
 }
