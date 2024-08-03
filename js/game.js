@@ -48,12 +48,13 @@ class Game {
 	// Create timer UI
 	createTimerUI() {
 		const timerContainer = document.createElement("div");
+		const misc = document.querySelector(".button-container");
 		timerContainer.id = "timer-container";
 		timerContainer.innerHTML = `
             <div id="timer">30</div>
             <div id="timer-label">seconds left</div>
         `;
-		document.body.appendChild(timerContainer);
+		misc.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
 	}
 
@@ -149,6 +150,9 @@ class Game {
 
 	// Add players to UI
 	addPlayersUI() {
+		const scoreboardContainer = document.querySelector(".scoreboard-container");
+		scoreboardContainer.style.visibility = "visible";
+
 		const scoreboard = document.querySelector(".scoreboard");
 		scoreboard.innerHTML = ""; // Clear existing content
 
