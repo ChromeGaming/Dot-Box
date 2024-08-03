@@ -1,5 +1,31 @@
-// Cursor.js -->
 document.addEventListener("DOMContentLoaded", function () {
+	// Render Loader
+	const loader = document.createElement("div");
+	loader.id = "loader";
+	loader.innerHTML = `<div class="spinner"></div>`;
+	document.body.appendChild(loader);
+
+	// Loader.js-->
+	setTimeout(() => {
+		const loader = document.getElementById("loader");
+		if (loader) {
+			loader.style.display = "none";
+		} else {
+			console.error("Element with ID 'loader' not found.");
+		}
+	}, 500);
+
+	//Render Cursor effect
+	const circleContainer = document.createElement("div");
+	circleContainer.className = "circle-container";
+	for (let i = 0; i < 30; i++) {
+		let circle = document.createElement("div");
+		circle.className = "circle";
+		circleContainer.appendChild(circle);
+	}
+	document.body.appendChild(circleContainer);
+
+	// Cursor.js -->
 	const coords = { x: 0, y: 0 };
 	const circles = document.querySelectorAll(".circle");
 
@@ -36,16 +62,4 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	animateCircles();
-});
-
-// Loader.js-->
-document.addEventListener("DOMContentLoaded", () => {
-	setTimeout(() => {
-		const loader = document.getElementById("loader");
-		if (loader) {
-			loader.style.display = "none";
-		} else {
-			console.error("Element with ID 'loader' not found.");
-		}
-	}, 500);
 });
