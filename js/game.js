@@ -585,15 +585,3 @@ function tourGuide() {
 	document.getElementById("tour-overlay").style.display = "flex";
 	showStep(currentStep);
 }
-
-// Loader.js -->
-document.addEventListener("DOMContentLoaded", () => {
-	setTimeout(() => {
-		const loader = document.getElementById("loader");
-		if (loader) {
-			loader.style.display = "none";
-		} else {
-			console.error("Element with ID 'loader' not found.");
-		}
-	}, 500);
-});
