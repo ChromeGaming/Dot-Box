@@ -720,7 +720,7 @@ body {
 }
 
 /* Timer */
-#timer-container {
+/* #timer-container {
 	position: fixed;
 	right: 208px;
 	top: 93%;
@@ -747,7 +747,7 @@ body {
 	font-size: 14px;
 	color: #666;
 	margin-top: -6px;
-}
+} */
 
 /* Score board */
 .game-wrapper {
@@ -1529,7 +1529,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 1.5rem;
-	margin: 1rem 0;
+	margin: 2rem 0;
 }
 
 .icon-btn {
