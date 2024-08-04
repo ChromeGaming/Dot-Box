@@ -48,13 +48,13 @@ class Game {
 	// Create timer UI
 	createTimerUI() {
 		const timerContainer = document.createElement("div");
-		const misc = document.querySelector(".button-container");
+		const menu = document.querySelector("#menu");
 		timerContainer.id = "timer-container";
 		timerContainer.innerHTML = `
+			<i class="fa-solid fa-stopwatch"></i>
             <div id="timer">30</div>
-            <div id="timer-label">seconds left</div>
         `;
-		misc.appendChild(timerContainer);
+		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
 	}
 
