@@ -1456,9 +1456,9 @@ body {
 
 #menu {
 	position: absolute;
-	top: 4rem;
+	top: 3.5rem;
 	left: 0;
-	padding: 2rem 3rem;
+	padding: 2rem 2.5rem;
 	background: #222;
 	color: #fff;
 	text-align: center;

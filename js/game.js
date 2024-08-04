@@ -60,6 +60,7 @@ class Game {
 
 	// Start or restart the timer
 	startTimer() {
+		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
 		this.updateTimerDisplay();
@@ -74,6 +75,9 @@ class Game {
 		if (this.timeLeft <= 0) {
 			clearInterval(this.timer);
 			this.switchPlayer();
+		}
+		if (this.timeLeft <= 10) {
+			this.timerDisplay.style.color = "red";
 		}
 	}
 
