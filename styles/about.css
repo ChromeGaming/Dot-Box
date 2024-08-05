@@ -16,7 +16,6 @@ main {
 	flex: 1;
 	padding: 20px;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -60,7 +59,6 @@ main {
 	padding: 20px;
 	flex: 1;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 }
 
@@ -247,6 +245,9 @@ li {
 	.navlinks a {
 		font-size: 16px;
 		margin: 5px 0;
+	}
+	main{
+		flex-direction: column;
 	}
 }
 

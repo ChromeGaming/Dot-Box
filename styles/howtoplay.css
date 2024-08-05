@@ -99,6 +99,7 @@ body {
 	width: 100%;
 	max-width: 800px;
 	transition: transform 0.2s;
+	border: 1px solid #ff6933;
 }
 
 .gameplay-item:hover {
