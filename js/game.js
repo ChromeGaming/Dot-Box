@@ -312,6 +312,25 @@ class Game {
 			this.invokeEvent("playerSwitch");
 		}
 	}
+
+	surrender() {
+		if (confirm("Are you sure you want to surrender?")) {
+			this.players.splice(this.currentPlayerIndex, 1);
+
+			if (this.currentPlayerIndex >= this.players.length) {
+				this.currentPlayerIndex = 0;
+			}
+
+			// Update the UI
+			this.switchPlayer();
+			this.addPlayersUI();
+			this.updatePlayerNameUI();
+
+			if (this.players.length == 1) {
+				this.invokeEvent("playerWin");
+			}
+		}
+	}
 }
 
 // Declaring Global Variables
@@ -571,22 +590,9 @@ document.getElementById("setting-btn").addEventListener("click", () => {
 });
 
 // Surrender Button
-const surrender = document.getElementById("surrender");
-surrender.addEventListener("click", () => {
-	if (confirm("Are you sure you want to surrender?")) {
-		const players = game.players;
-		const currentPlayer = game.currentPlayer;
-		const index = players.indexOf(currentPlayer);
-		players.splice(index, 1);
-		game.switchPlayer();
-		game.currentPlayer = game.players[game.currentPlayerIndex + 1];
-		game.updateScoreboard();
-		game.updatePlayerNameUI();
-
-		if (players.length == 1) {
-			game.invokeEvent("playerWin");
-		}
-	}
+const flag = document.getElementById("surrender");
+flag.addEventListener("click", () => {
+	game.surrender();
 });
 
 // Help Button
