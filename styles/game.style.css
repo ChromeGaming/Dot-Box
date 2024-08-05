@@ -324,7 +324,7 @@ body {
 }
 
 .player-input {
-	width: 40%;
+	width: 45%;
 	margin-bottom: 1rem;
 	display: grid;
 	grid-template-areas:
@@ -339,18 +339,21 @@ body {
 	font-size: 1rem;
 	font-weight: bold;
 	grid-area: head;
+	padding: 15px;
+	border-radius: 10px;
 }
 
 .playerNames {
 	font-size: 0.875rem;
 	width: 100%;
-	padding: 0.5rem 1rem;
+	padding: 0.7rem 1rem;
 	border: 1px solid #d1d5db;
 	border-radius: 12px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease-in-out;
 	background-color: #f3f4f6;
 	grid-area: main;
+	margin-top: 15px;
 }
 
 .playerNames:focus {
