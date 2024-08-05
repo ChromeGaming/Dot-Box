@@ -278,7 +278,7 @@ body {
 	bottom: 0;
 	min-width: 100%;
 	min-height: 100%;
-	z-index: -1;
+	z-index: 100;
 }
 
 #playerSetup {
@@ -660,85 +660,165 @@ body {
 	opacity: 1;
 }
 
-.back-home:visited {
-	color: white;
+/* Menu */
+
+#menu {
+	height: fit-content;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto 0;
+	padding: 2rem 2.5rem;
+	background: #222;
+	color: #fff;
+	text-align: center;
+	border-bottom-right-radius: 25px;
+	border-top-right-radius: 25px;
+	z-index: 99;
+	transition: all 1s ease;
 }
 
-.button-container {
+.menu-header {
+	font-size: 1.5rem;
+}
+
+.menu-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 1.25rem;
+	margin: 2rem 0;
+}
+
+.link-btn {
+	height: 3.75rem;
+	width: 12.5rem;
+	padding: 1em 1rem;
+	cursor: pointer;
+	font-size: 1.4em;
+	font-family: monospace;
+	font-weight: bold;
+	border-radius: 30px;
+	text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+	background: linear-gradient(
+			15deg,
+			#880088,
+			#aa2068,
+			#cc3f47,
+			#de6f3d,
+			#f09f33,
+			#de6f3d,
+			#cc3f47,
+			#aa2068,
+			#880088
+		)
+		no-repeat;
+	background-size: 300%;
+	color: #fff;
+	border: none;
+	background-position: left center;
+	box-shadow: 0 30px 10px -20px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+	background-size: 320%;
+	background-position: right center;
+}
+
+.link-btn:hover i {
+	color: #fff;
+}
+
+.link-btn i {
+	color: #f09f33;
+	transition: 0.3s ease;
+}
+
+.menu-buttons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 1.5rem;
+	margin: 2rem 0;
 }
 
-.button-container button,
-.button-container a {
-	background-color: rgb(0, 166, 255);
-	color: white;
+.icon-btn {
+	background-color: #fff;
+	color: #b53389;
 	border: none;
-	padding: 13px;
-	font-size: 14px;
+	padding: 0.75rem;
+	font-size: 1.5rem;
 	cursor: pointer;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	border-radius: 50px;
 	text-decoration: none;
-	position: relative;
-	transition: background-color 0.3s ease;
+	width: 3.5rem;
+	transition: all 0.5s ease;
 }
 
-.button-container #sound-toggle {
-	background-color: rgb(12, 1, 1);
-	border-radius: 4px;
-	padding: 1rem 1.2rem;
+.icon-btn:hover {
+	background-color: #b53389;
+	color: #fff;
+	box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.5);
 }
 
-.button-container svg {
-	width: 30px;
-	height: 30px;
-	fill: white;
+#restart:hover i {
+	animation: rotate 1s ease 0.1s;
 }
 
-.button-container a {
-	text-decoration: none;
+.fa-play {
+	padding: 0 0.5rem;
 }
 
-.button-container button:hover,
-.button-container a:hover {
-	background-color: rgb(69, 133, 254);
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
 
-.button-container #sound-toggle:hover {
-	background-color: rgb(21, 39, 77);
+#setting-btn {
+	display: none;
+	background-color: #222;
+	color: #fff;
+	font-size: 1.75rem;
+	padding: 0.75rem;
+	border-bottom-right-radius: 25px;
+	border-top-right-radius: 25px;
+	position: absolute;
+	top: 45%;
+	right: -15%;
 }
 
-.button-container [title]:hover::after {
-	opacity: 1;
+#setting-btn:hover i {
+	animation: rotate 2s infinite;
+}
+
+.menu-open {
+	transform: translateX(-100%);
 }
 
 /* Timer */
 #timer-container {
-	height: 77px;
-	width: 96px;
 	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 15px;
-	padding: 20px;
+	padding: 0.5rem 1rem;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 	text-align: center;
 }
 
+#timer-container i,
 #timer {
-	font-size: 38px;
+	display: inline-block;
+	width: 4rem;
+	font-size: 2rem;
 	font-weight: bold;
-	margin-top: -19px;
 	color: #333;
-}
-
-#timer-label {
-	font-size: 14px;
-	color: #666;
-	margin-top: -6px;
 }
 
 /* Score board */
@@ -804,7 +884,7 @@ body {
 	display: none;
 	align-items: center;
 	justify-content: center;
-	z-index: 10000;
+	z-index: 5000;
 }
 
 .overlay-content ul {
@@ -902,15 +982,6 @@ body {
 	background-color: rgb(255, 0, 0);
 }
 
-.overlay-content .button-container {
-	position: absolute;
-	bottom: 10px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	gap: 10px;
-}
-
 /* Responsive styles for tablets and mobile devices */
 @media screen and (max-width: 768px) {
 	.players {
@@ -930,21 +1001,6 @@ body {
 		display: none;
 	}
 
-	.button-container #sound-toggle {
-		padding: 10px 20px;
-	}
-
-	/* Timer */
-	#timer-container {
-		height: 90px;
-		width: 103px;
-		padding: 15px;
-	}
-
-	#timer {
-		margin-top: -11px;
-	}
-
 	/* Score board */
 	.game-wrapper {
 		margin-top: 7rem;
@@ -956,7 +1012,7 @@ body {
 
 	.scoreboard-container {
 		position: static;
-		z-index: 500;
+		z-index: 89;
 		margin: 2rem;
 	}
 
@@ -987,6 +1043,10 @@ body {
 		left: 32%;
 		margin-top: -65px;
 	}
+
+	#setting-btn {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 1200px) {
@@ -1000,42 +1060,12 @@ body {
 		top: 20px;
 	}
 
-	.button-container {
-		gap: 0.5rem;
-	}
-
-	.button-container svg {
-		width: 15px;
-		height: 15px;
-	}
-
-	.button-container a {
-		padding: 0.5rem;
-	}
-
 	#game-wrapper {
 		margin-top: 5rem;
 	}
 
 	.scoreboard-container {
 		margin-top: 1rem;
-	}
-
-	/* Timer */
-	#timer-container {
-		height: 70px;
-		width: 72px;
-		padding: 15px;
-	}
-
-	#timer {
-		font-size: 33px;
-		margin-top: -15px;
-	}
-
-	#timer-label {
-		font-size: 11px;
-		margin-top: -5px;
 	}
 
 	/* Tour */
@@ -1124,5 +1154,55 @@ body {
 
 	.circle-container {
 		display: none;
+	}
+
+	/* Menu */
+
+	#menu {
+		padding: 1rem 1.5rem;
+		top: -30%;
+	}
+
+	.menu-header {
+		font-size: 1.2rem;
+	}
+
+	.menu-links {
+		gap: 1rem;
+		margin: 1rem 0;
+	}
+
+	.link-btn {
+		height: 3rem;
+		width: 10rem;
+		padding: 0.75em 0.5rem;
+		font-size: 1.2em;
+	}
+
+	.menu-buttons {
+		gap: 1rem;
+		margin: 1rem 0;
+	}
+
+	.icon-btn {
+		padding: 0.5rem;
+		font-size: 1rem;
+		width: 2.5rem;
+	}
+
+	#setting-btn {
+		font-size: 1.2rem;
+		padding: 0.6rem;
+		right: -10%;
+	}
+
+	/* Timer */
+	#timer-container {
+		padding: 0.3rem 0.5rem;
+	}
+
+	#timer-container i,
+	#timer {
+		font-size: 1.5rem;
 	}
 }

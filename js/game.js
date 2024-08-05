@@ -48,29 +48,40 @@ class Game {
 	// Create timer UI
 	createTimerUI() {
 		const timerContainer = document.createElement("div");
-		const misc = document.querySelector(".button-container");
+		const menu = document.querySelector("#menu");
 		timerContainer.id = "timer-container";
 		timerContainer.innerHTML = `
+			<i class="fa-solid fa-stopwatch"></i>
             <div id="timer">30</div>
-            <div id="timer-label">seconds left</div>
         `;
-		misc.appendChild(timerContainer);
+		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
+		// this.stateIcon = document.getElementById("state").children[0];
 	}
 
 	// Start or restart the timer
 	startTimer() {
+		// this.stateIcon.classList.add("fa-pause");
+		// this.stateIcon.classList.remove("fa-play");
+		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
 		this.updateTimerDisplay();
 		this.timer = setInterval(() => {
-			this.timeLeft--;
-			this.updateTimerDisplay();
-			if (this.timeLeft <= 0) {
-				clearInterval(this.timer);
-				this.switchPlayer();
-			}
+			this.dropTime();
 		}, 1000);
+	}
+
+	dropTime() {
+		this.timeLeft--;
+		this.updateTimerDisplay();
+		if (this.timeLeft <= 0) {
+			clearInterval(this.timer);
+			this.switchPlayer();
+		}
+		if (this.timeLeft <= 10) {
+			this.timerDisplay.style.color = "red";
+		}
 	}
 
 	// Update timer display
@@ -309,7 +320,7 @@ const bgMusic = new Audio("../assets/sounds/bgMusic.mp3");
 var game = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-	bgMusic.volume = 0.1;
+	bgMusic.volume = 1;
 	bgMusic.play();
 
 	const playersCount = calculate(playersInput, 2, 6);
@@ -319,17 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const storedTheme = localStorage.getItem("selectedTheme");
 	const video = document.getElementById("myVideo");
 	video.src = `/assets/videos/${storedTheme}.mp4`;
-
-	const musicToggleBtn = document.getElementById("sound-toggle");
-	musicToggleBtn.addEventListener("click", () => {
-		if (bgMusic.paused) {
-			bgMusic.play();
-			musicToggleBtn.innerText = "Music On";
-		} else {
-			bgMusic.pause();
-			musicToggleBtn.innerText = "Music Off";
-		}
-	});
 });
 
 function calculate(value, min, max) {
@@ -429,6 +429,7 @@ const playBtn = document.getElementById("play-btn");
 playBtn.addEventListener("click", () => {
 	savePlayers();
 	tourGuide();
+	document.querySelector("video").style.zIndex = "-1";
 	document.getElementById("playerSetup").style.display = "none";
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	const size = difficultyCalc();
@@ -479,46 +480,6 @@ function saveAvatar(id, tab) {
 	});
 }
 
-// Cursor -->
-document.addEventListener("DOMContentLoaded", function () {
-	const coords = { x: 0, y: 0 };
-	const circles = document.querySelectorAll(".circle");
-
-	circles.forEach(function (circle) {
-		circle.x = 0;
-		circle.y = 0;
-	});
-
-	window.addEventListener("mousemove", function (e) {
-		coords.x = e.pageX;
-		coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-	});
-
-	function animateCircles() {
-		let x = coords.x;
-		let y = coords.y;
-
-		circles.forEach(function (circle, index) {
-			circle.style.left = `${x - 12}px`;
-			circle.style.top = `${y - 12}px`;
-			circle.style.transform = `scale(${
-				(circles.length - index) / circles.length
-			})`;
-
-			const nextCircle = circles[index + 1] || circles[0];
-			circle.x = x;
-			circle.y = y;
-
-			x += (nextCircle.x - x) * 0.3;
-			y += (nextCircle.y - y) * 0.3;
-		});
-
-		requestAnimationFrame(animateCircles);
-	}
-
-	animateCircles();
-});
-
 // Avatar selection -->
 const options = document.getElementById("choices");
 for (let i = 1; i <= 20; i++) {
@@ -529,6 +490,22 @@ for (let i = 1; i <= 20; i++) {
 	`;
 	options.appendChild(profile);
 }
+
+// Pause Play State
+const stateChange = (state) => {
+	let timeLeft = game.timeLeft;
+	if (state == "pause") {
+		clearInterval(game.timer);
+		game.updateTimerDisplay();
+		game.isTimerStarted = false;
+	} else {
+		game.timeLeft = timeLeft;
+		game.isTimerStarted = true;
+		game.timer = setInterval(() => {
+			game.dropTime();
+		}, 1000);
+	}
+};
 
 // tour steps -->
 const scoreboard = document.querySelector(".scoreboard-container");
@@ -585,3 +562,54 @@ function tourGuide() {
 	document.getElementById("tour-overlay").style.display = "flex";
 	showStep(currentStep);
 }
+
+// ---------------- Menu --->
+
+// Settings Button
+document.getElementById("setting-btn").addEventListener("click", () => {
+	menu.classList.toggle("menu-open");
+});
+
+// Help Button
+const help = document.getElementById("help");
+help.addEventListener("click", () => {
+	tourGuide();
+	stateChange("pause");
+});
+
+// Restart Game
+const restart = document.getElementById("restart");
+restart.addEventListener("click", () => {
+	window.location.reload();
+});
+
+// Pause-Resume Game
+
+// const state = document.getElementById("state");
+// state.addEventListener("click", () => {
+// 	if (game.isTimerStarted) {
+// 		game.stateIcon.classList.add("fa-play");
+// 		game.stateIcon.classList.remove("fa-pause");
+// 		stateChange("pause");
+// 	} else {
+// 		game.stateIcon.classList.remove("fa-play");
+// 		game.stateIcon.classList.add("fa-pause");
+// 		stateChange("resume");
+// 	}
+// });
+
+// Music Toggle
+
+const toggleMusic = document.getElementById("music-toggle");
+const musicIcon = toggleMusic.children[0];
+toggleMusic.addEventListener("click", () => {
+	if (bgMusic.paused) {
+		bgMusic.play();
+		musicIcon.classList.add("fa-volume-high");
+		musicIcon.classList.remove("fa-volume-xmark");
+	} else {
+		bgMusic.pause();
+		musicIcon.classList.add("fa-volume-xmark");
+		musicIcon.classList.remove("fa-volume-high");
+	}
+});
