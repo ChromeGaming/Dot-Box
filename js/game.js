@@ -56,13 +56,13 @@ class Game {
         `;
 		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
-		this.stateIcon = document.getElementById("state").children[0];
+		// this.stateIcon = document.getElementById("state").children[0];
 	}
 
 	// Start or restart the timer
 	startTimer() {
-		this.stateIcon.classList.add("fa-pause");
-		this.stateIcon.classList.remove("fa-play");
+		// this.stateIcon.classList.add("fa-pause");
+		// this.stateIcon.classList.remove("fa-play");
 		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
