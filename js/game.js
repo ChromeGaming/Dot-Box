@@ -585,18 +585,18 @@ restart.addEventListener("click", () => {
 
 // Pause-Resume Game
 
-// const state = document.getElementById("state");
-// state.addEventListener("click", () => {
-// 	if (game.isTimerStarted) {
-// 		game.stateIcon.classList.add("fa-play");
-// 		game.stateIcon.classList.remove("fa-pause");
-// 		stateChange("pause");
-// 	} else {
-// 		game.stateIcon.classList.remove("fa-play");
-// 		game.stateIcon.classList.add("fa-pause");
-// 		stateChange("resume");
-// 	}
-// });
+const state = document.getElementById("state");
+state.addEventListener("click", () => {
+	if (game.isTimerStarted) {
+		game.stateIcon.classList.add("fa-play");
+		game.stateIcon.classList.remove("fa-pause");
+		stateChange("pause");
+	} else {
+		game.stateIcon.classList.remove("fa-play");
+		game.stateIcon.classList.add("fa-pause");
+		stateChange("resume");
+	}
+});
 
 // Music Toggle
 
