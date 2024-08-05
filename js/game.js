@@ -56,10 +56,13 @@ class Game {
         `;
 		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
+		this.stateIcon = document.getElementById("state").children[0];
 	}
 
 	// Start or restart the timer
 	startTimer() {
+		this.stateIcon.classList.add("fa-pause");
+		this.stateIcon.classList.remove("fa-play");
 		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
@@ -426,6 +429,7 @@ const playBtn = document.getElementById("play-btn");
 playBtn.addEventListener("click", () => {
 	savePlayers();
 	tourGuide();
+	document.querySelector("video").style.zIndex = "-1";
 	document.getElementById("playerSetup").style.display = "none";
 	const playersInfo = JSON.parse(localStorage.getItem("playerData"));
 	const size = difficultyCalc();
@@ -476,46 +480,6 @@ function saveAvatar(id, tab) {
 	});
 }
 
-// Cursor -->
-document.addEventListener("DOMContentLoaded", function () {
-	const coords = { x: 0, y: 0 };
-	const circles = document.querySelectorAll(".circle");
-
-	circles.forEach(function (circle) {
-		circle.x = 0;
-		circle.y = 0;
-	});
-
-	window.addEventListener("mousemove", function (e) {
-		coords.x = e.pageX;
-		coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-	});
-
-	function animateCircles() {
-		let x = coords.x;
-		let y = coords.y;
-
-		circles.forEach(function (circle, index) {
-			circle.style.left = `${x - 12}px`;
-			circle.style.top = `${y - 12}px`;
-			circle.style.transform = `scale(${
-				(circles.length - index) / circles.length
-			})`;
-
-			const nextCircle = circles[index + 1] || circles[0];
-			circle.x = x;
-			circle.y = y;
-
-			x += (nextCircle.x - x) * 0.3;
-			y += (nextCircle.y - y) * 0.3;
-		});
-
-		requestAnimationFrame(animateCircles);
-	}
-
-	animateCircles();
-});
-
 // Avatar selection -->
 const options = document.getElementById("choices");
 for (let i = 1; i <= 20; i++) {
@@ -526,6 +490,22 @@ for (let i = 1; i <= 20; i++) {
 	`;
 	options.appendChild(profile);
 }
+
+// Pause Play State
+const stateChange = (state) => {
+	let timeLeft = game.timeLeft;
+	if (state == "pause") {
+		clearInterval(game.timer);
+		game.updateTimerDisplay();
+		game.isTimerStarted = false;
+	} else {
+		game.timeLeft = timeLeft;
+		game.isTimerStarted = true;
+		game.timer = setInterval(() => {
+			game.dropTime();
+		}, 1000);
+	}
+};
 
 // tour steps -->
 const scoreboard = document.querySelector(".scoreboard-container");
@@ -585,6 +565,18 @@ function tourGuide() {
 
 // ---------------- Menu --->
 
+// Settings Button
+document.getElementById("setting-btn").addEventListener("click", () => {
+	menu.classList.toggle("menu-open");
+});
+
+// Help Button
+const help = document.getElementById("help");
+help.addEventListener("click", () => {
+	tourGuide();
+	stateChange("pause");
+});
+
 // Restart Game
 const restart = document.getElementById("restart");
 restart.addEventListener("click", () => {
@@ -592,28 +584,32 @@ restart.addEventListener("click", () => {
 });
 
 // Pause-Resume Game
-const state = document.getElementById("state");
-state.addEventListener("click", () => {
-	if (pause) {
-		state.children[0].classList.add("fa-play");
-		state.children[0].classList.remove("fa-pause");
-	} else {
-		state.children[0].classList.remove("fa-play");
-		state.children[0].classList.add("fa-pause");
-	}
-});
+
+// const state = document.getElementById("state");
+// state.addEventListener("click", () => {
+// 	if (game.isTimerStarted) {
+// 		game.stateIcon.classList.add("fa-play");
+// 		game.stateIcon.classList.remove("fa-pause");
+// 		stateChange("pause");
+// 	} else {
+// 		game.stateIcon.classList.remove("fa-play");
+// 		game.stateIcon.classList.add("fa-pause");
+// 		stateChange("resume");
+// 	}
+// });
 
 // Music Toggle
 
 const toggleMusic = document.getElementById("music-toggle");
+const musicIcon = toggleMusic.children[0];
 toggleMusic.addEventListener("click", () => {
 	if (bgMusic.paused) {
 		bgMusic.play();
-		toggleMusic.children[0].classList.add("fa-volume-high");
-		toggleMusic.children[0].classList.remove("fa-volume-xmark");
+		musicIcon.classList.add("fa-volume-high");
+		musicIcon.classList.remove("fa-volume-xmark");
 	} else {
 		bgMusic.pause();
-		toggleMusic.children[0].classList.add("fa-volume-xmark");
-		toggleMusic.children[0].classList.remove("fa-volume-high");
+		musicIcon.classList.add("fa-volume-xmark");
+		musicIcon.classList.remove("fa-volume-high");
 	}
 });
