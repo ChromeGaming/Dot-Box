@@ -321,10 +321,11 @@ class Game {
 				this.currentPlayerIndex = 0;
 			}
 
-			// Update the UI
-			this.switchPlayer();
+			this.currentPlayer = this.players[this.currentPlayerIndex];
+
 			this.addPlayersUI();
 			this.updatePlayerNameUI();
+			this.updatePlayerScoreUI();
 
 			if (this.players.length == 1) {
 				this.invokeEvent("playerWin");
