@@ -1,17 +1,18 @@
 /* General Body Styles */
 body {
-	background: linear-gradient(
-		135deg,
-		#f7b42c,
-		#fc575e
-	); /* Gradient background from orange to pink */
+	background: transparent;
 	margin: 0;
 	padding: 0;
 	font-family: "WorkSans-Regular", Arial, sans-serif;
-	display: flex;
-	justify-content: center;
-	padding-top: 10px;
-	overflow: auto !important;
+}
+
+#myVideo {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
 }
 
 /* FAQ Container Styles */
@@ -19,23 +20,20 @@ body {
 	background-color: white;
 	border-radius: 10px;
 	padding: 20px;
-	max-width: 600px;
-	width: 90%;
 	box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-	margin: 100px auto 20px;
-	flex: 1;
-	z-index: 0;
+	width: 60%;
+	margin: 6rem auto;
 }
 
 /* Heading Styles */
-h1 {
+#faq-head {
 	font-family: "WorkSans-Bold", Arial, sans-serif;
 	display: flex;
+	justify-content: center;
 	align-items: center;
-}
-
-h1:hover {
-	text-shadow: #ca2cff !important;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	text-shadow: #ca2cff 1px 1px 5px;
 }
 
 /* FAQ Image Styles */
@@ -52,7 +50,7 @@ h1:hover {
 	background: linear-gradient(
 		135deg,
 		#f7f7f7,
-		#eaeaea
+		#bababa
 	); /* Subtle gradient for questions */
 	transition: background-color 0.3s, transform 0.3s, text-shadow 0.3s; /* Added text-shadow transition */
 	border-radius: 8px;
@@ -61,51 +59,102 @@ h1:hover {
 /* Hover Effect */
 .question:hover {
 	background: linear-gradient(
-		135deg,
-		#ffbff2,
-		#d34eff
+		15deg,
+		#cc3f47,
+		#de6f3d,
+		#f09f33,
+		#de6f3d,
+		#cc3f47
 	); /* Bright gradient on hover */
 	transform: scale(1.05); /* Slight zoom effect */
 	border-radius: 12px; /* Slight rounding for emphasis */
-	text-shadow: 2px 2px 5px rgba(255, 114, 79, 0.844); /* Text shadow effect on hover */
+	text-shadow: #fff 3px 3px 5px; /* Text shadow effect on hover */
 }
 
 /* Summary Styles */
-.question summary {
+.drop {
 	cursor: pointer;
-	padding: 7px;
+	display: flex;
+	align-items: center;
+	padding: 0.5rem 1rem;
 	transition: color 0.3s;
 	outline: none; /* Remove default focus outline */
 }
 
-.question summary:hover {
+.drop:hover {
 	color: #333; /* Darker text on hover */
 }
 
-.question summary img {
-	float: right;
+.drop img {
 	transition: transform 0.3s;
 }
 
-.question summary:hover img {
+.drop:hover img {
 	transform: rotate(90deg); /* Rotate icon on hover */
 }
 
 /* Answer Styles */
 .question p {
 	font-family: "WorkSans-Regular", Arial, sans-serif;
-	font-size: 1.0625rem; /* 17px */
-	color: #555; /* Slightly darker text */
-	background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+	font-size: 1.25rem;
+	line-height: 1.2;
+	color: #555;
+	background: rgba(255, 255, 255, 0.8);
 	padding: 10px;
 	border-radius: 5px;
 	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
-/* Remove bottom-background video styles */
-.bottom-background {
-	display: none;
+.author {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(to right, #00093c, #2d0b00);
+	color: #fff;
+	padding: 15px;
+	position: fixed;
+	bottom: 0;
+	z-index: 1000;
+}
+
+.fotbar {
+	display: flex;
+	gap: -22px;
+}
+
+.fotbar a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: transparent;
+}
+
+.author p {
+	color: white;
+	padding: 10px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.social-icons {
+	display: flex;
+	gap: 10px;
+	margin-right: 20px;
+}
+
+.author a {
+	color: white !important;
+}
+
+.social-icons a {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
 }
 
 /* Mobile Styles */
@@ -136,6 +185,10 @@ h1:hover {
 
 	.back-to-home img {
 		width: 18px;
+	}
+
+	.author {
+		position: relative !important;
 	}
 }
 
@@ -169,112 +222,6 @@ h1:hover {
 	}
 }
 
-.attribution {
-	font-size: 11px;
-	text-align: center;
-}
-
-.attribution a {
-	color: hsl(228, 45%, 44%);
-}
-
-html,
-body {
-	height: 100%;
-	margin: 0;
-	overflow: auto !important;
-	/* Allow scrolling */
-	height: 105%;
-}
-
-body {
-	background-color: #e7b537;
-	display: flex;
-	flex-direction: column;
-	font-family: "WorkSans-Regular", Arial, sans-serif;
-}
-
-@media screen and (max-width: 450px) {
-	.contributor-card {
-		max-width: 90%;
-	}
-
-	.navbar {
-		flex-direction: column;
-		padding: 5px !important;
-	}
-
-	.faqcontainer {
-		background-color: white;
-		border-radius: 20px;
-		padding: 20px;
-		max-width: 600px;
-		width: 90%;
-		box-shadow: 10px 10px 15px rgba(101, 99, 99, 0.5);
-		margin: 100px auto 20px;
-		/* Increased margin-top to avoid content being hidden under navbar */
-		flex: 1;
-		z-index: 0;
-		/* Ensure it's below the fixed elements */
-		margin-top: 54px;
-	}
-
-	.author {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background: linear-gradient(to right, #00093c, #2d0b00);
-		color: #fff;
-		padding: 0px;
-		position: fixed;
-		bottom: 0;
-		z-index: 1000;
-		height: 67px;
-		flex-shrink: 0;
-		box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-		/* Added shadow for better visibility */
-	}
-
-	.author .fotbar {
-		display: flex;
-		gap: -22px;
-	}
-
-	.author .fotbar a {
-		color: white;
-		text-decoration: none;
-		padding: 10px;
-		border-radius: 5px;
-		font-size: 18px;
-		background-color: transparent;
-	}
-
-	.author p {
-		color: white;
-		padding: 10px;
-		margin-right: -550px;
-		font-size: 20px;
-		font-weight: 600;
-	}
-
-	.author .social-icons {
-		display: flex;
-		gap: 10px;
-		margin-right: 20px;
-	}
-
-	.author a {
-		color: white !important;
-	}
-
-	.author .social-icons a {
-		color: white;
-		text-decoration: none;
-		font-size: 20px;
-	}
-}
-
 @media screen and (max-width: 1190px) {
 	.author a {
 		font-size: small;
@@ -293,11 +240,7 @@ body {
 
 @media screen and (max-width: 550px) {
 	.author {
-		display: none !important;
-	}
-
-	.navbar {
-		display: none !important;
+		padding: 10px;
 	}
 
 	.author p {
@@ -311,15 +254,5 @@ body {
 
 	.author .social-icons a {
 		font-size: 15px;
-	}
-
-	.faqcontainer {
-		margin-top: 49px;
-	}
-}
-
-@media (max-width: 768px) {
-	.author {
-		position: relative !important;
 	}
 }
