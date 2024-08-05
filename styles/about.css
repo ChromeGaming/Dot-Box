@@ -86,10 +86,10 @@ body, html {
 .about-card {
     background-color: #101239;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     width:25%;
     min-width: 160px;
-	height: 350px;
+	height: 370px;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     color: #fff;
@@ -102,8 +102,6 @@ ul li {
 	list-style: none;
 }
 
-	
-
 .about-card:hover {
     transform: scale(1.05) translateY(2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -112,13 +110,14 @@ ul li {
 }
 
 .about-card:hover .card-title, .about-card:hover .card-icon {
-    text-shadow: 1px 1px 2px rgba(255, 213, 0, 0.564), 0 0 1em rgba(34, 93, 255, 0.91), 0 0 0.2em rgba(47, 47, 253, 0.63);
+    text-shadow: 1px 1px 2px rgba(0, 26, 255, 0.564), 0 0 1em rgba(34, 93, 255, 0.91), 0 0 0.2em rgba(47, 47, 253, 0.63);
 	
 }
 
 .about-card:hover strong  {
 	text-shadow: rgb(3, 172, 194) 1px 0 10px;
 }
+
 .card-content {
     position: relative;
     z-index: 1;
@@ -129,17 +128,18 @@ ul li {
     margin-bottom: 10px;
     color: #39a2d3;
 	transition: all 0.3s ease-in;
-
 }
 
 .card-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+	color: orange;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	transition: all 0.3s ease-in;
 }
 
 .card-description {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #ccc;
 }
 
