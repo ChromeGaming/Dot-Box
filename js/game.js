@@ -312,6 +312,26 @@ class Game {
 			this.invokeEvent("playerSwitch");
 		}
 	}
+
+	surrender() {
+		if (confirm("Are you sure you want to surrender?")) {
+			this.players.splice(this.currentPlayerIndex, 1);
+
+			if (this.currentPlayerIndex >= this.players.length) {
+				this.currentPlayerIndex = 0;
+			}
+
+			this.currentPlayer = this.players[this.currentPlayerIndex];
+
+			this.addPlayersUI();
+			this.updatePlayerNameUI();
+			this.updatePlayerScoreUI();
+
+			if (this.players.length == 1) {
+				this.invokeEvent("playerWin");
+			}
+		}
+	}
 }
 
 // Declaring Global Variables
@@ -568,6 +588,12 @@ function tourGuide() {
 // Settings Button
 document.getElementById("setting-btn").addEventListener("click", () => {
 	menu.classList.toggle("menu-open");
+});
+
+// Surrender Button
+const flag = document.getElementById("surrender");
+flag.addEventListener("click", () => {
+	game.surrender();
 });
 
 // Help Button
