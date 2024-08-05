@@ -56,13 +56,13 @@ class Game {
         `;
 		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
-		this.stateIcon = document.getElementById("state").children[0];
+		// this.stateIcon = document.getElementById("state").children[0];
 	}
 
 	// Start or restart the timer
 	startTimer() {
-		this.stateIcon.classList.add("fa-pause");
-		this.stateIcon.classList.remove("fa-play");
+		// this.stateIcon.classList.add("fa-pause");
+		// this.stateIcon.classList.remove("fa-play");
 		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
@@ -568,6 +568,25 @@ function tourGuide() {
 // Settings Button
 document.getElementById("setting-btn").addEventListener("click", () => {
 	menu.classList.toggle("menu-open");
+});
+
+// Surrender Button
+const surrender = document.getElementById("surrender");
+surrender.addEventListener("click", () => {
+	if (confirm("Are you sure you want to surrender?")) {
+		const players = game.players;
+		const currentPlayer = game.currentPlayer;
+		const index = players.indexOf(currentPlayer);
+		players.splice(index, 1);
+		game.switchPlayer();
+		game.currentPlayer = game.players[game.currentPlayerIndex + 1];
+		game.updateScoreboard();
+		game.updatePlayerNameUI();
+
+		if (players.length == 1) {
+			game.invokeEvent("playerWin");
+		}
+	}
 });
 
 // Help Button
