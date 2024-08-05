@@ -94,7 +94,12 @@
 
 ## **Screenshots 📸**
 
-![Screenshot](https://github.com/GameSphere-MultiPlayer/GameSphere/assets/114330097/0dbdfbc6-7a84-48e4-ad34-2185f790a146)
+Before Starting Game
+![Screenshot](./assets/images/Screenshot-Before-Start.png)
+<br>
+
+After Winning Game
+![Screenshot](./assets/images/Screenshot-After-Win.png)
 
 <br>
 

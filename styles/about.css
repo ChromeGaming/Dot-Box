@@ -16,9 +16,11 @@ body, html {
     overflow: hidden;
 }
 
+
 .hero {
     max-width: 870px;
     margin: 0px auto;
+
 }
 
 .main-heading {
@@ -60,10 +62,12 @@ body, html {
     margin: 200px auto;
 }
 
+
 .section-heading {
     font-size: 2.8rem;
     margin-bottom: 30px;
     text-shadow: 1px 1px 2px rgb(255, 98, 0), 0 0 1em rgba(47, 219, 253, 0.618), 0 0 0.2em rgba(47, 219, 253, 0.382);
+
 }
 
 .section-subtext {
@@ -216,6 +220,9 @@ ul li {
 	.navlinks a {
 		font-size: 16px;
 		margin: 5px 0;
+	}
+	main{
+		flex-direction: column;
 	}
 }
 
