@@ -121,7 +121,7 @@ body {
 	padding: 15px;
 	position: fixed;
 	bottom: 0;
-	z-index: 1000;
+	z-index: 100;
 }
 
 .fotbar {
@@ -165,8 +165,8 @@ body {
 /* Mobile Styles */
 @media (max-width: 768px) {
 	.faqcontainer {
-		width: 95%;
-		padding: 15px;
+		width: 80%;
+		padding: 1rem;
 	}
 
 	h1 {
