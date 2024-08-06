@@ -1,176 +1,149 @@
-html,
-body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	background-color: #e7b537;
-	scroll-behavior: smooth;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-}
-
-main {
-	flex: 1;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	background-color: #e7b537;
-	scroll-behavior: smooth;
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0c27;
+    color: #fff;
+    text-align: center;
 }
 
-body {
-	display: flex;
-	flex-direction: column;
+/* Hero section styles */
+.header {
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.about-header {
-	font-family: "Anton", sans-serif;
-	background-color: transparent;
-	color: #0e0e0e;
-	padding: 15px;
-	text-shadow: 2px 2px 10px white;
-	text-align: center;
-	font-size: 2.5rem;
-	transition: background-color 0.3s ease;
+
+.hero {
+    max-width: 870px;
+    margin: 0px auto;
+
 }
 
-.about-header:hover {
-	background-color: #e59253;
+.main-heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: rgb(245, 153, 5);
+    margin-top: 370px;
+    text-shadow: 1px 1px 2px rgb(255, 98, 0), 0 0 1em rgba(47, 219, 253, 0.618), 0 0 0.2em rgba(47, 219, 253, 0.382);
 }
 
-h1 {
-	margin: 0;
+.intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-main {
-	padding: 20px;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.cta-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease-in, transform 0.2s ease;
 }
 
-p {
-	color: #333;
-	line-height: 1.6;
-	text-align: justify;
-	max-width: 750px;
-	margin: 0 auto;
-	font-size: 16px;
+.cta-button:hover {
+    background-color: #0764c7;
+    color: rgb(255, 255, 170);
+    transform: translateY(2px) !important;
 }
 
-.functionalities,
-.how-to-play {
-	flex: 1 1 320px;
-	max-width: 320px;
-	height: 350px;
-	margin: 10px;
-	color: #ffffff;
-	font-family: "Poppins", sans-serif;
-	background: linear-gradient(135deg, #5f4c9b, #3540e3);
-	border-radius: 10px;
-	padding: 0px 204px;
-	box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-	transition: all 0.3s ease;
-	overflow: hidden;
-	position: relative;
-	cursor: pointer;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 352px;
+/* About section styles */
+.about-section {
+    background-color: #0a0c27;
 }
 
-.functionalities h2,
-.how-to-play h2 {
-	font-size: 24px;
-	margin-bottom: 10px;
-	font-family: "Poppins", sans-serif;
-	font-weight: 700;
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-	transition: all 0.3s ease;
+.about-content {
+    max-width: 1400px;
+    margin: 200px auto;
 }
 
-.functionalities .content,
-.how-to-play .content {
-	opacity: 0;
-	transition: opacity 0.3s ease;
-	font-weight: 500;
-	position: absolute;
-	top: 60px;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 20px;
+
+.section-heading {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgb(255, 98, 0), 0 0 1em rgba(47, 219, 253, 0.618), 0 0 0.2em rgba(47, 219, 253, 0.382);
+
 }
 
-.functionalities::after,
-.how-to-play::after {
-	content: "(Hover here to know more)";
-	position: absolute;
-	bottom: 20px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	opacity: 0.7;
-	transition: opacity 0.3s ease;
+.section-subtext {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #bbb;
 }
 
-.functionalities:hover::after,
-.how-to-play:hover::after {
-	opacity: 0;
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.functionalities:hover h2,
-.how-to-play:hover h2 {
-	top: 10px;
-	transform: translateX(-50%);
+
+.about-card {
+    background-color: #101239;
+    border-radius: 10px;
+    padding: 20px;
+    width:25%;
+    min-width: 160px;
+	height: 370px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
 }
 
-.functionalities:hover .content,
-.how-to-play:hover .content {
-	opacity: 1;
-}
-
-ul {
+ul li {
 	list-style: none;
-	padding-left: 0;
-	margin: 0;
-	margin-right: 29px;
-	margin-left: 33px;
-	margin-top: -40px;
 }
 
-li {
-	margin-bottom: 8px;
-	line-height: 1.6;
+.about-card:hover {
+    transform: scale(1.05) translateY(2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	background-color: #007bff82;
+	
 }
 
-.functionalities ul,
-.how-to-play p {
-	color: #ffffff;
-	font-size: 14px;
+.about-card:hover .card-title, .about-card:hover .card-icon {
+    text-shadow: 1px 1px 2px rgba(0, 26, 255, 0.564), 0 0 1em rgba(34, 93, 255, 0.91), 0 0 0.2em rgba(47, 47, 253, 0.63);
+	
 }
+
+.about-card:hover strong  {
+	text-shadow: rgb(3, 172, 194) 1px 0 10px;
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #39a2d3;
+	transition: all 0.3s ease-in;
+}
+
+.card-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+	color: orange;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	transition: all 0.3s ease-in;
+}
+
+.card-description {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+
 
 .author {
 	width: 100%;
@@ -247,6 +220,9 @@ li {
 	.navlinks a {
 		font-size: 16px;
 		margin: 5px 0;
+	}
+	main{
+		flex-direction: column;
 	}
 }
 
