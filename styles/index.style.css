@@ -740,7 +740,16 @@ input[type="email"]:focus {
 @media (max-width: 480px) {
 	.form-content {
 		width: 90%;
-		max-width: 350px;
+		max-width: 300px;
+		max-height: 500px;
+	}
+	.emojis li img{
+		width: 60%;
+		height: 60%;
+		margin-left: 20%;
+	}
+	.stars{
+		display: flex;
 	}
 
 	.sub h5 {
@@ -779,6 +788,14 @@ input[type="email"]:focus {
 		padding-left: 0px !important;
 		margin-right: 0px !important;
 	}
+     .footer .text, .footer .numb{
+		display: flex;
+		margin-right: 15px;
+		font-size: 15px !important;
+	 }
+	 .form-group textarea{
+		resize: none;
+	 }
 
 	.heading {
 		width: max-content;
