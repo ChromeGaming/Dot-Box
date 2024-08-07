@@ -17,7 +17,7 @@ body {
 
 /* FAQ Container Styles */
 .faqcontainer {
-	background-color: white;
+	background-color: rgb(11, 19, 48);
 	border-radius: 10px;
 	padding: 20px;
 	box-shadow: 15px 15px 20px rgb(0, 0, 0, 0.5);
@@ -230,6 +230,7 @@ body {
 @media screen and (max-width: 1190px) {
 	.author a {
 		font-size: small;
+		color: white;
 	}
 }
 
@@ -255,6 +256,7 @@ body {
 
 	.author .fotbar a {
 		font-size: 12px;
+		color: white;
 	}
 
 	.author .social-icons a {

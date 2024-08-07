@@ -376,8 +376,7 @@ function renderPlayerInputs(count) {
 			}">Player ${i}</label>
 
 		<div class="avatar">
-		<img src="/assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
-
+		<img src="../assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
 		<button id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></button>
 		</div>
 
@@ -508,7 +507,7 @@ for (let i = 1; i <= 20; i++) {
 	const profile = document.createElement("button");
 	profile.classList.add("selectAvatar");
 	profile.innerHTML = `
-	<img src="/assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
+	<img src="../assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
 	`;
 	options.appendChild(profile);
 }
