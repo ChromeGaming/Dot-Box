@@ -4,7 +4,6 @@ class Game {
 	constructor(playersInfo) {
 		if (Game.instance == null) Game.instance = this;
 
-		this.playersUI = document.querySelector(".players");
 		this.playerNameUI = document.querySelector(".player-turn .name");
 		this.playerTurnBgUI = document.querySelector(".player-turn .bg");
 
@@ -142,7 +141,6 @@ class Game {
 	// If a box is filled, increment players' score with the number of boxes filled by him/her and update UI
 	onBoxFill() {
 		this.currentPlayer.filledBoxes++;
-		this.updatePlayerScoreUI();
 		this.updateScoreboard();
 		if (this.isTimerStarted) {
 			this.startTimer(); // Restart timer when a move is made
@@ -168,25 +166,11 @@ class Game {
 		scoreboard.innerHTML = ""; // Clear existing content
 
 		this.players.forEach((player, index) => {
-			const div = document.createElement("div");
-			div.classList.add("player");
-
 			// Maintain filled boxes.
-			const b = document.createElement("b");
-			b.classList.add("filled-boxes");
-			b.textContent = player.filledBoxes;
-			b.style.background = player.color;
-			this.players[index]["filledBoxesUI"] = b;
-
-			// Maintain player name.
-			const span = document.createElement("span");
-			span.textContent = player.name;
-
-			div.appendChild(b);
-			div.appendChild(span);
-
-			// Adding score and name to the element
-			this.playersUI.appendChild(div);
+			const scoreUI = document.createElement("span");
+			scoreUI.textContent = player.filledBoxes;
+			scoreUI.classList.add("player-score");
+			this.players[index]["score"] = scoreUI;
 
 			// Maintain player avatar in the scoreboard
 			const avatarSrc = player.avatarID;
@@ -197,16 +181,12 @@ class Game {
 			scoreDiv.innerHTML = `
 				<img src="${avatarSrc}" class="avatar-sm">
 				<span>${player.name}</span>
-				<span id="player${index + 1}-score">0</span>
 			`;
+
 			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
+			scoreDiv.appendChild(scoreUI);
 		});
-	}
-
-	// Update player score UI used while switching player
-	updatePlayerScoreUI() {
-		this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes;
 	}
 
 	// Update player name UI used while switching player
@@ -216,12 +196,7 @@ class Game {
 	}
 
 	updateScoreboard() {
-		this.players.forEach((player, index) => {
-			const scoreElement = document.getElementById(`player${index + 1}-score`);
-			if (scoreElement) {
-				scoreElement.textContent = player.filledBoxes;
-			}
-		});
+		this.currentPlayer.score.innerText = this.currentPlayer.filledBoxes;
 	}
 
 	makeScoreboardDraggable() {
@@ -323,9 +298,8 @@ class Game {
 
 			this.currentPlayer = this.players[this.currentPlayerIndex];
 
-			this.addPlayersUI();
+			this.updateScoreboard();
 			this.updatePlayerNameUI();
-			this.updatePlayerScoreUI();
 
 			if (this.players.length == 1) {
 				this.invokeEvent("playerWin");
