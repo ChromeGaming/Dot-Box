@@ -106,7 +106,8 @@ After Winning Game
 ## **Working video 📹**
 **Watch this tutorial** to learn how to play Dots & Boxes effectively!
 
-<video controls src="DotBox Tutorial new.mp4" ></video>
+https://github.com/user-attachments/assets/6bd3d7e5-854d-4460-aef2-90efe3728e22
+
 
 <br>
 
