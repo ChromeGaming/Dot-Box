@@ -159,9 +159,6 @@ class Game {
 
 	// Add players to UI
 	addPlayersUI() {
-		const scoreboardContainer = document.querySelector(".scoreboard-container");
-		scoreboardContainer.style.visibility = "visible";
-
 		const scoreboard = document.querySelector(".scoreboard");
 		scoreboard.innerHTML = ""; // Clear existing content
 
@@ -291,6 +288,10 @@ class Game {
 	surrender() {
 		if (confirm("Are you sure you want to surrender?")) {
 			this.players.splice(this.currentPlayerIndex, 1);
+
+			document
+				.querySelector(`.player${this.currentPlayerIndex + 1}-score`)
+				.classList.add("defeated");
 
 			if (this.currentPlayerIndex >= this.players.length) {
 				this.currentPlayerIndex = 0;
@@ -510,7 +511,6 @@ const scoreboard = document.querySelector(".scoreboard-container");
 function tourGuide() {
 	const tourSteps = document.querySelectorAll(".tour-step");
 	let currentStep = 0;
-	scoreboard.style.display = "block";
 
 	const showStep = (index) => {
 		tourSteps.forEach((step, i) => {
@@ -564,7 +564,11 @@ function tourGuide() {
 
 // Settings Button
 document.getElementById("setting-btn").addEventListener("click", () => {
-	menu.classList.toggle("menu-open");
+	menu.style.display = "block";
+});
+
+document.getElementById("close-menu").addEventListener("click", () => {
+	menu.style.display = "none";
 });
 
 // Surrender Button
@@ -578,6 +582,9 @@ const help = document.getElementById("help");
 help.addEventListener("click", () => {
 	tourGuide();
 	stateChange("pause");
+	if (window.innerWidth < 768) {
+		menu.style.display = "none";
+	}
 });
 
 // Restart Game

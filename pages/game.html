@@ -78,59 +78,62 @@
 			</div>
 		</div>
 
-		<!-- Players Turn-->
-		<div class="player-turn">
-			<div class="bg" style="margin-top: 40px">
-				<span class="name">PlayerX</span>'s turn
-			</div>
-		</div>
-
-		<!-- Game Page -->
-		<div class="game-wrapper">
-			<div class="game-container">
-				<div class="board"></div>
-			</div>
-		</div>
-
-		<!-- Menu -->
-		<div id="menu">
-			<div class="menu-header">
-				<h2>Settings</h2>
-			</div>
-			<div class="menu-body">
-				<div class="menu-links">
-					<a href="../index.html" id="home" class="link-btn">
-						<i class="fa-solid fa-house"></i> Home
-					</a>
-					<a href="../pages/404.html" id="leaderboard" class="link-btn">
-						<i class="fa-solid fa-people-group"></i> Leaderboard
-					</a>
-					<button id="help" class="link-btn">
-						Help <i class="fa-solid fa-circle-question"></i>
-					</button>
-					<button id="surrender" class="link-btn">
-						Surrender <i class="fa-solid fa-flag"></i>
-					</button>
+		<div id="layout">
+			<!-- Menu -->
+			<div id="menu">
+				<div class="menu-header">
+					<h2>Settings</h2>
 				</div>
-				<div class="menu-buttons">
-					<div id="restart" class="icon-btn">
-						<i class="fa-solid fa-arrow-rotate-right"></i>
+				<div class="menu-body">
+					<div class="menu-links">
+						<a href="../index.html" id="home" class="link-btn">
+							<i class="fa-solid fa-house"></i> Home
+						</a>
+						<a href="../pages/404.html" id="leaderboard" class="link-btn">
+							<i class="fa-solid fa-people-group"></i> Leaderboard
+						</a>
+						<button id="help" class="link-btn">
+							Help <i class="fa-solid fa-circle-question"></i>
+						</button>
+						<button id="surrender" class="link-btn">
+							Surrender <i class="fa-solid fa-flag"></i>
+						</button>
 					</div>
-					<div id="state" class="icon-btn">
-						<i class="fa-solid fa-play"></i>
-					</div>
-					<div id="music-toggle" class="icon-btn">
-						<i class="fa-solid fa-volume-high"></i>
+					<div class="menu-buttons">
+						<div id="restart" class="icon-btn">
+							<i class="fa-solid fa-arrow-rotate-right"></i>
+						</div>
+						<div id="state" class="icon-btn">
+							<i class="fa-solid fa-play"></i>
+						</div>
+						<div id="music-toggle" class="icon-btn">
+							<i class="fa-solid fa-volume-high"></i>
+						</div>
 					</div>
 				</div>
+				<i class="fas fa-xmark" id="close-menu"></i>
 			</div>
-			<div id="setting-btn"><i class="fa-solid fa-gear"></i></div>
-		</div>
 
-		<div class="scoreboard-container">
-			<h2>Scoreboard</h2>
-			<div class="scoreboard">
-				<!-- Scoreboard content will be dynamically added here -->
+			<!-- Game  -->
+			<div class="game-wrapper">
+				<!-- Players Turn-->
+				<div class="player-turn">
+					<div class="bg"><span class="name">PlayerX</span>'s turn</div>
+				</div>
+
+				<!-- Game Board -->
+				<div class="game-container">
+					<div class="board"></div>
+					<div id="setting-btn">Settings</div>
+				</div>
+			</div>
+
+			<!-- Scoreboard -->
+			<div class="scoreboard-container">
+				<h2>Scoreboard</h2>
+				<div class="scoreboard">
+					<!-- Scoreboard content will be dynamically added here -->
+				</div>
 			</div>
 		</div>
 
