@@ -741,7 +741,7 @@ input[type="email"]:focus {
 	.form-content {
 		width: 90%;
 		max-width: 300px;
-		max-height: 500px;
+		max-height: 600px;
 	}
 	.emojis li img{
 		width: 60%;
