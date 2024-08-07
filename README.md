@@ -95,17 +95,18 @@
 ## **Screenshots 📸**
 
 Before Starting Game
-![Screenshot](./assets/images/Screenshot-Before-Start.png)
+![alt text](Before-Start.jpg)
 <br>
 
 After Winning Game
-![Screenshot](./assets/images/Screenshot-After-Win.png)
+![alt text](After-Win.jpg)
 
 <br>
 
 ## **Working video 📹**
+**Watch this tutorial** to learn how to play Dots & Boxes effectively!
 
-https://github.com/GameSphere-MultiPlayer/GameSphere/assets/114330097/293120ab-b1f0-48a8-af15-c05d49c65763
+<video controls src="DotBox Tutorial new.mp4" ></video>
 
 <br>
 
