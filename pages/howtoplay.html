@@ -17,68 +17,79 @@
 			rel="stylesheet"
 		/>
 		<link
-		rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-	/>
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+		/>
 		<link rel="stylesheet" href="../styles/mainstyle.css" />
 		<link rel="stylesheet" href="/styles/global.css" />
 		<link rel="stylesheet" href="../styles/howtoplay.css" />
-		<link rel="shortcut icon" href="https://freepngimg.com/download/symbol/88562-space-purple-symbol-question-mark-threedimensional.png" type="image/x-icon">
+		<link
+			rel="shortcut icon"
+			href="https://freepngimg.com/download/symbol/88562-space-purple-symbol-question-mark-threedimensional.png"
+			type="image/x-icon"
+		/>
 	</head>
 
 	<body>
 		<script src="/js/global.js"></script>
 		<script src="/js/scrollToTop.js"></script>
 
-		<div class="center">
-			<div class="video-container">
-				<video
-					style="object-fit: cover"
-					autoplay
-					muted
-					class="video"
-					loop
-					id="myVideo"
-				>
-					<source src="../assets/videos/default.mp4" type="video/mp4" />
-				</video>
-			</div>
-			<div class="whole-background">
-				<nav class="navbarr" style="color: white">
-					<div class="logo">
-						<a href="../index.html">Dots & Boxes ⚄</a>
-					</div>
+		<video autoplay muted class="video" loop id="myVideo">
+			<source src="/assets/videos/1.mp4" type="video/mp4" />
+		</video>
 
-					<ul class="nav-links" id="nav-links-toggled">
-						<li><a href="../index.html"><i class="fas fa-home"></i>Home</a></li>
-						<li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
-						<li><a href="../pages/FAQs.html"><i class="fas fa-question-circle"></i>FAQs</a></li>
-						<li><a href="../pages/contributors.html"><i class="fas fa-users"></i>Contributors</a></li>
-						<button class="start">
-							<a href="../pages/game.html"><i class="fas fa-gamepad"></i>Let's Go</a>
-						</button>
-					</ul>
-					<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+		<div class="center">
+			<nav class="navbarr" style="color: white">
+				<div class="logo">
+					<a href="../index.html">Dots & Boxes ⚄</a>
+				</div>
+
+				<ul class="nav-links" id="nav-links-toggled">
+					<li>
+						<a href="../index.html"><i class="fas fa-home"></i>Home</a>
+					</li>
+					<li>
+						<a href="../pages/about.html"
+							><i class="fas fa-info-circle"></i>About Us</a
+						>
+					</li>
+					<li>
+						<a href="../pages/FAQs.html"
+							><i class="fas fa-question-circle"></i>FAQs</a
+						>
+					</li>
+					<li>
+						<a href="../pages/contributors.html"
+							><i class="fas fa-users"></i>Contributors</a
+						>
+					</li>
+					<button class="start">
+						<a href="../pages/game.html"
+							><i class="fas fa-gamepad"></i>Let's Go</a
+						>
+					</button>
+				</ul>
+				<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
               </button> -->
 
-					<!-- Hamburger Menu -->
+				<!-- Hamburger Menu -->
 
-					<nav class="mobile-menu">
-						<div class="mobile-menu__trigger"><span></span></div>
-						<a class="page-scroll active-link" href="./index.html">Home </a>
-						<a class="page-scroll" href="./about.html">About Us </a>
-						<a class="page-scroll" href="./FAQs.html">FAQs</a>
-						<a class="page-scroll" href="./contributors.html">Contributors</a>
-					</nav>
-
-					<!-- Js and CSS files for hamburger-menu -->
-					<link href="../styles/navbar.css" rel="stylesheet" />
-					<script type="text/javascript" src="../js/navbar.js"></script>
+				<nav class="mobile-menu">
+					<div class="mobile-menu__trigger"><span></span></div>
+					<a class="page-scroll active-link" href="./index.html">Home </a>
+					<a class="page-scroll" href="./about.html">About Us </a>
+					<a class="page-scroll" href="./FAQs.html">FAQs</a>
+					<a class="page-scroll" href="./contributors.html">Contributors</a>
 				</nav>
-			</div>
+
+				<!-- Js and CSS files for hamburger-menu -->
+				<link href="../styles/navbar.css" rel="stylesheet" />
+				<script type="text/javascript" src="../js/navbar.js"></script>
+			</nav>
+
 			<div class="instructions-container">
 				<h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
 				<h1 class="heading2">How to Play? ⚔️</h1>
@@ -138,14 +149,18 @@
 						</div>
 					</li>
 
-					<h1 class="heading" style="text-decoration: underline">Here is a demo:</h1>
+					<h1 class="heading" style="text-decoration: underline">
+						Here is a demo:
+					</h1>
 					<h2 class="tut-head">Tutorial Video</h2>
-						<div class="tutorial-video">
-							<video controls paused>
-								<source src="../assets/videos/DotBox Tutorial new.mp4" />
-							</video>
-						</div>
-						<p class="video-caption">Watch this tutorial to learn how to play Dots & Boxes effectively!</p>
+					<div class="tutorial-video">
+						<video controls paused>
+							<source src="../assets/videos/DotBox Tutorial new.mp4" />
+						</video>
+					</div>
+					<p class="video-caption">
+						Watch this tutorial to learn how to play Dots & Boxes effectively!
+					</p>
 					<li>
 						<strong>Scoring: 🏆</strong><br />
 						- Each completed box is worth one point.<br />
@@ -154,7 +169,7 @@
 						- In case of a tie, the player who completed the last box wins.<br />
 						- Optionally, a tie can be broken by the number of consecutive boxes
 						completed.
-					</li> 
+					</li>
 					<li>
 						<strong>Strategies: 🧠</strong><br />
 						- Try to force your opponent into a position where they have to give
@@ -173,8 +188,8 @@
 					</li>
 				</ol>
 
-				<button class="home">
-					<a href="../index.html"> Go Home <span>🏡</span></a>
+				<button class="back-button">
+					<a href="../index.html" class="back-button">Back to Home</a>
 				</button>
 				<script
 					src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
