@@ -114,6 +114,14 @@ class Game {
 			this.playerTurnBgUI.style.background = winner.color;
 		}
 
+		// Storing winner data for leaderboard
+		const playerData = JSON.parse(localStorage.getItem("playerData"));
+		const player = playerData.find((player) => player.name === winner.name);
+		const playerIndex = playerData.indexOf(player);
+		playerData[playerIndex].score = winner.filledBoxes;
+		playerData[playerIndex].winner = true;
+		localStorage.setItem("winnerData", JSON.stringify(playerData));
+
 		// Open the win overlay
 		document.getElementById("win-overlay").style.height = "100%";
 	}
@@ -368,12 +376,13 @@ function renderPlayerInputs(count) {
 		"magenta",
 		"orange",
 	];
-	
+
 	for (let i = 1; i <= count; i++) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
-		div.innerHTML = `<label for="playerName${i}" class="player-label ${colors[i - 1]
-			}">Player ${i}</label>
+		div.innerHTML = `<label for="playerName${i}" class="player-label ${
+			colors[i - 1]
+		}">Player ${i}</label>
 
 		<div class="avatar">
 		<img src="../assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
@@ -383,14 +392,15 @@ function renderPlayerInputs(count) {
 		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
 		<div class="player-colors">
 		${colors
-				.map(
-					(color, index) =>
-						`<label class="rad-label">
-						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${index === i - 1 ? "checked" : ""
-						} onclick="validateColor(this)">
+			.map(
+				(color, index) =>
+					`<label class="rad-label">
+						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
+						index === i - 1 ? "checked" : ""
+					} onclick="validateColor(this)">
 					<div class="rad-design ${color}"></div></label>`
-				)
-				.join("")}
+			)
+			.join("")}
 			</div>
 		`;
 		playerInputsDiv.appendChild(div);
