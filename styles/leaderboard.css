@@ -46,7 +46,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-	padding: 1rem;
+	padding: 1.25rem 1rem;
 	border-radius: 50px;
 	overflow-x: auto;
 }
@@ -105,7 +105,7 @@ body {
 	padding: 0.25rem 2rem 0.5rem 2rem;
 	margin: 0;
 	position: relative;
-	top: -1rem;
+	top: -0.5rem;
 	border-radius: 25px;
 	border-bottom-left-radius: 100%;
 	border-bottom-right-radius: 100%;
@@ -113,6 +113,11 @@ body {
 
 #home-btn:hover {
 	background-color: #ff0000;
+}
+
+#home-btn::before {
+	content: "🏠";
+	margin-right: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
