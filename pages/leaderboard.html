@@ -3,10 +3,35 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Leaderboard</title>
+
+		<!-- Logo of the game -->
+		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+			type="image/x-icon"
+		/>
+
+		<link rel="stylesheet" href="/styles/global.css" />
 		<link rel="stylesheet" href="/styles/leaderboard.css" />
 	</head>
 	<body>
+		<script src="/js/global.js"></script>
+
+		<video autoplay muted class="video" loop id="myVideo">
+			<source src="/assets/videos/1.mp4" type="video/mp4" />
+		</video>
+
+		<div class="container">
+			<div id="leaderboard">
+				<h1>Leaderboard</h1>
+				<div id="ranking">
+					<!-- Dynamically add data from Js -->
+				</div>
+			</div>
+		</div>
+
 		<script src="/js/leaderboard.js"></script>
 	</body>
 </html>
