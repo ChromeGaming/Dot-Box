@@ -113,6 +113,14 @@ class Game {
 			this.playerTurnBgUI.style.background = winner.color;
 		}
 
+		// Storing winner data for leaderboard
+		const playerData = JSON.parse(localStorage.getItem("playerData"));
+		const player = playerData.find((player) => player.name === winner.name);
+		const playerIndex = playerData.indexOf(player);
+		playerData[playerIndex].score = winner.filledBoxes;
+		playerData[playerIndex].winner = true;
+		localStorage.setItem("winnerData", JSON.stringify(playerData));
+
 		// Open the win overlay
 		document.getElementById("win-overlay").style.height = "100%";
 	}
