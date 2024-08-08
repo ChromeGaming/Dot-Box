@@ -1,22 +1,9 @@
 body {
 	font-family: "Press Start 2P", cursive;
-	background-color: #ffd700;
 	margin: 0;
 	padding: 0;
 	color: #333;
 	overflow-x: hidden;
-}
-
-.video-container {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	text-align: center;
-}
-
-.video {
-	width: 100%;
-	height: auto;
 }
 
 @media (max-width: 768px) {
@@ -47,9 +34,9 @@ body {
 	max-width: 80%;
 	margin: 50px auto;
 	padding: 20px;
-	background: linear-gradient(45deg, #ffc400, #ff8c00);
+	background-color: rgb(66, 61, 142);
 	border-radius: 15px;
-	box-shadow: 0 0 20px #ff6600;
+	box-shadow: 5px 5px 30px #000;
 	text-align: left;
 	line-height: 1.6;
 }
