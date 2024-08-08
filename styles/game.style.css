@@ -375,9 +375,11 @@ body {
 	border-radius: 10px;
 	border-style: double;
 	font-weight: 600;
-	background-image: linear-gradient(rgb(54, 53, 53),
-			rgb(0, 0, 0),
-			rgb(54, 54, 54));
+	background-image: linear-gradient(
+		rgb(54, 53, 53),
+		rgb(0, 0, 0),
+		rgb(54, 54, 54)
+	);
 	color: rgb(164, 164, 162);
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	border-color: rgb(0, 0, 0);
@@ -411,14 +413,14 @@ body {
 	background: #fff;
 }
 
-#back-btn>svg {
+#back-btn > svg {
 	margin-right: 5px;
 	margin-left: 5px;
 	font-size: 20px;
 	transition: all 0.4s ease-in;
 }
 
-#back-btn:hover>svg {
+#back-btn:hover > svg {
 	font-size: 1.2em;
 	transform: translateX(-5px);
 }
@@ -487,44 +489,56 @@ body {
 	transition: 0.3s;
 }
 
-.playerColor:checked+.rad-design::before {
+.playerColor:checked + .rad-design::before {
 	transform: scale(0);
 }
 
 .pink {
-	background: linear-gradient(to right bottom,
-			hsl(0, 97%, 62%),
-			hsl(297, 97%, 62%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(0, 97%, 62%),
+		hsl(297, 97%, 62%)
+	);
 }
 
 .skyblue {
-	background: linear-gradient(to right bottom,
-			hsl(223, 100%, 88%),
-			hsl(189, 100%, 75%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(223, 100%, 88%),
+		hsl(189, 100%, 75%)
+	);
 }
 
 .yellow {
-	background: linear-gradient(to right bottom,
-			hsl(38, 100%, 50%),
-			hsl(47, 97%, 62%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(38, 100%, 50%),
+		hsl(47, 97%, 62%)
+	);
 }
 
 .lightgreen {
-	background: linear-gradient(to right bottom,
-			hsl(136, 97%, 62%),
-			hsl(88, 97%, 62%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(136, 97%, 62%),
+		hsl(88, 97%, 62%)
+	);
 }
 
 .magenta {
-	background: linear-gradient(to right bottom,
-			hsl(286, 97%, 62%),
-			hsl(252, 97%, 62%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(286, 97%, 62%),
+		hsl(252, 97%, 62%)
+	);
 }
 
 .orange {
-	background: linear-gradient(to right bottom,
-			hsl(21, 100%, 50%),
-			hsl(20, 100%, 50%));
+	background: linear-gradient(
+		to right bottom,
+		hsl(21, 100%, 50%),
+		hsl(20, 100%, 50%)
+	);
 }
 
 /* Playar Avatars */
@@ -693,7 +707,8 @@ body {
 	font-weight: bold;
 	border-radius: 30px;
 	text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
-	background: linear-gradient(15deg,
+	background: linear-gradient(
+			15deg,
 			#880088,
 			#aa2068,
 			#cc3f47,
@@ -702,7 +717,9 @@ body {
 			#de6f3d,
 			#cc3f47,
 			#aa2068,
-			#880088) no-repeat;
+			#880088
+		)
+		no-repeat;
 	background-size: 300%;
 	color: #fff;
 	border: none;
@@ -835,7 +852,7 @@ body {
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 	width: 275px;
 	cursor: move;
-	visibility: hidden;
+	z-index: 89;
 }
 
 .scoreboard-container h2 {

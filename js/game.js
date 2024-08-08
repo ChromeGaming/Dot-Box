@@ -97,9 +97,6 @@ class Game {
 		this.removeEventListener("boxFill");
 		clearInterval(this.timer); // Stop the timer
 
-		let winSound = new Audio("../assets/sounds/win.mp3");
-		winSound.play();
-
 		// Determine winner or draw
 		const winner = this.determineWinner(this.players);
 
@@ -114,8 +111,23 @@ class Game {
 			this.playerTurnBgUI.style.background = winner.color;
 		}
 
+		let winSound = new Audio("../assets/sounds/win.mp3");
+		winSound.play();
+
 		// Open the win overlay
 		document.getElementById("win-overlay").style.height = "100%";
+
+		for (let i = 0; i < 10; i++) {
+			setTimeout(() => {
+				const pop = new Audio("../assets/sounds/pop.mp3");
+				pop.play();
+				confetti({
+					particleCount: 200,
+					spread: 100,
+					origin: { y: 0.6 },
+				});
+			}, i * 1000);
+		}
 	}
 
 	determineWinner(players) {
@@ -368,12 +380,13 @@ function renderPlayerInputs(count) {
 		"magenta",
 		"orange",
 	];
-	
+
 	for (let i = 1; i <= count; i++) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
-		div.innerHTML = `<label for="playerName${i}" class="player-label ${colors[i - 1]
-			}">Player ${i}</label>
+		div.innerHTML = `<label for="playerName${i}" class="player-label ${
+			colors[i - 1]
+		}">Player ${i}</label>
 
 		<div class="avatar">
 		<img src="../assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
@@ -383,14 +396,15 @@ function renderPlayerInputs(count) {
 		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
 		<div class="player-colors">
 		${colors
-				.map(
-					(color, index) =>
-						`<label class="rad-label">
-						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${index === i - 1 ? "checked" : ""
-						} onclick="validateColor(this)">
+			.map(
+				(color, index) =>
+					`<label class="rad-label">
+						<input type="radio" class="playerColor" name="color${i}" value="${color}" ${
+						index === i - 1 ? "checked" : ""
+					} onclick="validateColor(this)">
 					<div class="rad-design ${color}"></div></label>`
-				)
-				.join("")}
+			)
+			.join("")}
 			</div>
 		`;
 		playerInputsDiv.appendChild(div);
