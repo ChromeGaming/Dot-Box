@@ -572,24 +572,75 @@ to { opacity: 1; }
 	}
 }
 
-.footer {
-	/* border-top: 2px dashed #ff6b6b; */
-	/* background: linear-gradient(125deg, #ffecd2, #ffece5); */
-	width: 100%;
-	border-radius: 3px;
-	height: 40px;
-	padding: 0 15px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.footer span {
-	font-size: 18px;
-	font-weight: 600;
-	color: #eeeeee;
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	text-shadow: 1px 1px 2px rgb(48, 158, 209), 0 0 1em rgb(7, 0, 109), 0 0 0.4em rgb(7, 0, 109);
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+.social-icons {
+    display: flex;
+    justify-content: flex-end; /* Aligns the icons to the right */
+    gap: 10px; /* Adds space between the icons */
+}
+
+.social-icons a {
+    color: inherit; /* Ensures the icon color matches the current text color */
+    text-decoration: none; /* Removes the underline from the links */
+}
+#copyright {
+    margin-top: 20px; /* Adjust the value as needed to move it down */
+    text-align: center; /* Center-align the text if desired */
+    font-size: 14px; /* Optional: Adjust the font size */
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 input[type="radio"] {
