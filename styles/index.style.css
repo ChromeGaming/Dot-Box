@@ -950,3 +950,7 @@ input[type="email"]:focus {
 	border: none;
 	background: silver;
 }
+
+.disabled {
+	opacity: 0.75;
+}
