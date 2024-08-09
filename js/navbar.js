@@ -1,5 +1,5 @@
-const navbar = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+const navbar = `
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <nav class="navbarr" style="color: white">
     <div class="logo">
         <a href="../index.html">Dots & Boxes ⚄</a>
@@ -24,7 +24,6 @@ const navbar = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/l
 
     </ul>
 
-
     <nav class="mobile-menu">
         <div class="mobile-menu__trigger"><span></span></div>
         <a class="page-scroll active-link" href="../index.html">Home </a>
@@ -32,14 +31,49 @@ const navbar = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/l
         <a class="page-scroll" href="../pages/FAQs.html">FAQs</a>
         <a class="page-scroll" href="../pages/contributors.html">Contributors</a>
     </nav>
+</nav>
+`;
 
-
-    <link href="../styles/navbar.css" rel="stylesheet" />
-    <script type="text/javascript" src="../js/navbar.js"></script>
-</nav>`;
+const footer = `
+	<div class="author">
+		<div class="fotbar">
+			<a href="howtoplay.html">
+				<i class="fas fa-gamepad"></i> HowToPlay?
+			</a>
+			<a href="termsofservice.html">
+				<i class="fas fa-file-contract"></i> TermsOfService
+			</a>
+			<a href="privacypolicy.html">
+				<i class="fas fa-user-shield"></i> PrivacyPolicy
+			</a>
+			<a href="licensing.html">
+				<i class="fas fa-copyright"></i> Licensing
+			</a>
+		</div>
+		<p>
+			Created with ❤️ by
+			<a href="https://github.com/ChromeGaming" style="color: white; text-decoration: none" >
+				Chrome Gaming
+			</a>
+		</p>
+		<script
+			src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
+			async
+		></script>
+		<div class="social-icons">
+			<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank">
+				<i class="fab fa-github"></i>
+			</a>
+			<a href="https://discord.gg/2HTCFrSvPB" target="_blank">
+				<i class="fab fa-discord"></i>
+			</a>
+		</div>
+	</div>
+`;
 
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("nav-placeholder").innerHTML = navbar;
+	document.getElementById("footer-placeholder").innerHTML = footer;
 
 	const mobile_menu = document.querySelector(".mobile-menu"),
 		mobile_trigger = document.querySelector(".mobile-menu__trigger");
