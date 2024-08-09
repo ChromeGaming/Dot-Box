@@ -6,21 +6,6 @@ body {
 	overflow-x: hidden;
 }
 
-.navbar-toggler {
-	background-color: transparent;
-	border: none;
-}
-
-.navbar-toggler .toggler-icon {
-	width: 30px;
-	height: 2px;
-	background-color: #fff;
-	display: block;
-	margin: 5px 0;
-	position: relative;
-	transition: all 0.3s ease-out;
-}
-
 .instructions-container {
 	display: flex;
 	flex-direction: column;
@@ -124,38 +109,6 @@ body {
 	.gameplay-icon {
 		margin-bottom: 0.5rem;
 	}
-}
-
-.nav-links {
-	letter-spacing: 2px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	list-style: none;
-	width: 100%;
-	padding: 0;
-	color: #fff;
-	font-family: inherit;
-}
-
-.nav-links li a,
-.logo a {
-	color: #fff;
-	text-decoration: none;
-}
-
-button a {
-	background-color: transparent;
-}
-
-.start {
-	padding: 10px 5px;
-	border-radius: 5px;
-	background-color: #f1c40f;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-decoration: none;
 }
 
 .tutorial-video {
