@@ -37,16 +37,16 @@ const navbar = `
 const footer = `
 	<div class="author">
 		<div class="fotbar">
-			<a href="howtoplay.html">
+			<a href="../pages/howtoplay.html">
 				<i class="fas fa-gamepad"></i> HowToPlay?
 			</a>
-			<a href="termsofservice.html">
+			<a href="../pages/termsofservice.html">
 				<i class="fas fa-file-contract"></i> TermsOfService
 			</a>
-			<a href="privacypolicy.html">
+			<a href="../pages/privacypolicy.html">
 				<i class="fas fa-user-shield"></i> PrivacyPolicy
 			</a>
-			<a href="licensing.html">
+			<a href="../pages/licensing.html">
 				<i class="fas fa-copyright"></i> Licensing
 			</a>
 		</div>
