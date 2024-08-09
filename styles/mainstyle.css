@@ -26,21 +26,6 @@ a {
 	color: #333;
 }
 
-.author {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	text-align: center;
-	width: 100%;
-	color: #000;
-	background-color: white;
-	transition: all 0.3s ease;
-}
-
-.author:hover {
-	color: Black;
-}
-
 /* .setting p a{
     margin-top: 0.1rem;
     border-radius: 4px;
@@ -53,10 +38,6 @@ a {
     text-align: center;
 } */
 
-.author a {
-	color: black;
-}
-
 .board {
 	background: #fcfcfc;
 	display: grid;
@@ -67,9 +48,6 @@ a {
 @media screen and (max-width: 805px) {
 	.board {
 		width: 80vw;
-	}
-	.navbarr .nav-links {
-		display: none;
 	}
 }
 
@@ -603,12 +581,10 @@ select {
 	margin-top: 10%;
 	flex-direction: row;
 	gap: 1rem;
-	background: linear-gradient(
-		135deg,
-		rgba(251, 150, 26, 0.979),
-		rgba(255, 187, 55, 0.979),
-		rgba(252, 132, 72, 0.979)
-	);
+	background: linear-gradient(135deg,
+			rgba(251, 150, 26, 0.979),
+			rgba(255, 187, 55, 0.979),
+			rgba(252, 132, 72, 0.979));
 	border-radius: 10px;
 	padding: 10px 20px;
 	box-shadow: 0px 5px 15px rgba(6, 6, 6, 0.829);
@@ -822,122 +798,6 @@ input[type="number"] {
 		padding: 15px 25px;
 		line-height: 1.5em;
 	}
-}
-
-.navbarr {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	background-color: #333;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 300;
-}
-
-.logo a {
-	text-decoration: none;
-	font-size: 35px;
-	font-weight: bolder;
-	color: rgb(23, 13, 13);
-}
-
-.nav-links {
-	list-style: none;
-	/* Removes default bullet points from list items */
-	margin: 0;
-	padding: 0;
-}
-
-.nav-links li {
-	display: inline-flex;
-	margin-right: 20px;
-	font-size: 18px;
-}
-
-.nav-links a {
-	text-decoration: none;
-	/* Removes underline from links */
-	color: black;
-	font-weight: bold;
-	transition: color 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-	color: #f39d2c;
-}
-
-.logo a:hover {
-	color: yellow;
-}
-
-button a {
-	background-color: #fb946f;
-	text-shadow: none;
-	color: white;
-	font-weight: bold;
-	font-size: 18px;
-	padding: 5px 10px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-@media screen and (max-width: 1141px) {
-	.navbar {
-		margin-top: 20px;
-		flex-direction: column;
-	}
-
-	.logo a {
-		font-size: 25px;
-	}
-
-	.nav-links li a {
-		font-size: 16px;
-	}
-
-	.logo {
-		margin-bottom: 10px;
-	}
-
-	.nav-links {
-		text-align: center;
-		display: flex;
-	}
-
-	.nav-links li {
-		margin: 10px 0;
-	}
-
-	.author {
-		font-size: medium;
-	}
-
-	.settings a {
-		font-size: small;
-	}
-}
-
-.hamburger {
-	display: none;
-	color: white;
-	font-size: x-large;
-	margin-right: 10px;
-}
-
-/* .navbarr .nav-links {
-	display: none;
-} */
-
-.navbar-toggler {
-	display: inline !important;
-}
-
-.navbar-toggler {
-	display: none;
 }
 
 .popup {
