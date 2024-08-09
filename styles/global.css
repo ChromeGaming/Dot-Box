@@ -44,7 +44,7 @@
 
 .scroll-to-top {
 	position: fixed;
-	bottom: 30px;
+	bottom: 90px;
 	left: 30px;
 	width: 50px;
 	height: 50px;
@@ -75,23 +75,6 @@
 
 .scroll-to-top:hover svg {
 	transform: translateY(-5px);
-}
-
-.back-button {
-	display: inline-block;
-	padding: 6px 16px;
-	background-color: rgb(255, 120, 30);
-	color: white;
-	text-decoration: none;
-	font-size: 16px;
-	border-radius: 5px;
-	border: none;
-	transition: background-color 0.3s, transform 0.3s;
-}
-
-.back-button:hover {
-	background-color: rgb(236, 94, 0);
-	transform: scale(1.1);
 }
 
 /* Loader */
@@ -464,9 +447,10 @@
 	background: linear-gradient(to right, #00093c, #2d0b00);
 	color: #fff;
 	padding: 15px;
-	position: sticky;
+	position: fixed;
 	bottom: 0;
-	z-index: 1000;
+	left: 0;
+	z-index: 99;
 }
 
 .author .fotbar {
@@ -513,6 +497,12 @@
 	.author {
 		position: fixed;
 		bottom: 0;
+	}
+
+	.author,
+	.author .fotbar {
+		max-width: 100vw !important;
+		flex-wrap: wrap !important;
 	}
 }
 

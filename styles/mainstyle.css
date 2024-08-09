@@ -26,21 +26,6 @@ a {
 	color: #333;
 }
 
-.author {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	text-align: center;
-	width: 100%;
-	color: #000;
-	background-color: white;
-	transition: all 0.3s ease;
-}
-
-.author:hover {
-	color: Black;
-}
-
 /* .setting p a{
     margin-top: 0.1rem;
     border-radius: 4px;
@@ -52,10 +37,6 @@ a {
     letter-spacing: 2px;
     text-align: center;
 } */
-
-.author a {
-	color: black;
-}
 
 .board {
 	background: #fcfcfc;

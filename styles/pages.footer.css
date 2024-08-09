@@ -16,8 +16,7 @@ body {
 
 .container {
 	max-width: 900px;
-	margin: 2rem auto;
-	margin-top: 6rem;
+	margin: 6rem auto;
 	padding: 2rem;
 	background-color: rgb(66, 61, 142);
 	border-radius: 20px;
