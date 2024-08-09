@@ -1,192 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-		rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-	/>
-		<!-- <link rel="stylesheet" href="../styles/mainstyle.css" /> -->
-		<link rel="stylesheet" href="../styles/global.css" />
-		<link rel="stylesheet" href="../styles/FAQs.css" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>FAQs</title>
-	</head>
+	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+	<!-- <link rel="stylesheet" href="../styles/mainstyle.css" /> -->
+	<link rel="stylesheet" href="../styles/global.css" />
+	<link rel="stylesheet" href="../styles/FAQs.css" />
 
-	<body>
-		<script src="/js/global.js"></script>
+	<title>FAQs</title>
+</head>
 
-		<video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
-			<source src="/assets/videos/1.mp4" type="video/mp4" />
-		</video>
+<body>
+	<script src="/js/global.js"></script>
+	<script src="../js/render.js"></script>
 
-		<div>
-			<nav class="navbarr" style="color: white">
-				<div class="logo">
-					<a href="../index.html">Dots & Boxes ⚄</a>
-				</div>
+	<video autoplay muted class="video" loop id="myVideo" style="opacity: 0.95">
+		<source src="/assets/videos/1.mp4" type="video/mp4" />
+	</video>
 
-				<ul class="nav-links" id="nav-links-toggled">
-					<li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-					<li><a href="../pages/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-					<li><a href="../pages/FAQs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
-					<li><a href="../pages/contributors.html"><i class="fas fa-users"></i> Contributors</a></li>
-					<button class="start"><a href="../pages/game.html"><i class="fas fa-gamepad"></i> Let's Go</a></button>
-				</ul>
-				<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
-            <span class="toggler-icon"></span>
-            <span class="toggler-icon"></span>
-            <span class="toggler-icon"></span>
-          </button> -->
+	<div id="nav-placeholder"></div>
 
-				<!-- Hamburger Menu -->
+	<div class="faqcontainer">
+		<h1 id="faq-head">
+			<img src="../assets/images/icon-star.svg" />Frequently Asked Questions!
+		</h1>
 
-				<nav class="mobile-menu">
-					<div class="mobile-menu__trigger"><span></span></div>
-					<a class="page-scroll active-link" href="/index.html">Home </a>
-					<a class="page-scroll" href="/pages/about.html">About Us </a>
-					<a class="page-scroll" href="/pages/FAQs.html">FAQs</a>
-					<a class="page-scroll" href="/pages/contributors.html"
-						>Contributors</a
-					>
-				</nav>
-
-				<!-- Js and CSS files for hamburger-menu -->
-				<link href="../styles/navbar.css" rel="stylesheet" />
-				<script type="text/javascript" src="../js/navbar.js"></script>
-			</nav>
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />How do I win the game?
+				</summary>
+				<p>
+					The objective is to capture more boxes than your opponent. Each box
+					you complete by drawing lines between adjacent dots scores you a
+					point. The player with the most points when all boxes are claimed
+					wins the game.
+				</p>
+			</details>
 		</div>
 
-		<div class="faqcontainer">
-			<h1 id="faq-head">
-				<img src="../assets/images/icon-star.svg" />Frequently Asked Questions!
-			</h1>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />How do I win the game?
-					</summary>
-					<p>
-						The objective is to capture more boxes than your opponent. Each box
-						you complete by drawing lines between adjacent dots scores you a
-						point. The player with the most points when all boxes are claimed
-						wins the game.
-					</p>
-				</details>
-			</div>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />How do I set up the
-						game?
-					</summary>
-					<p>
-						Choose your desired grid size to customize the game's difficulty.
-						Start by connecting the dots on the grid, taking turns with your
-						opponent.
-					</p>
-				</details>
-			</div>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />What happens if I
-						complete a box?
-					</summary>
-					<p>
-						Completing a box by drawing its final line scores you a point and
-						grants you an extra turn. This strategic element adds depth to
-						gameplay.
-					</p>
-				</details>
-			</div>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />When does the game end?
-					</summary>
-					<p>
-						The game ends when all boxes on the grid have been claimed by
-						drawing lines. At this point, the player with the highest score,
-						based on the number of boxes captured, wins.
-					</p>
-				</details>
-			</div>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />Is there a strategy
-						involved in playing this game?
-					</summary>
-					<p>
-						Yes, strategic line selection is crucial. Thinking ahead to maximize
-						the number of boxes you can capture while preventing your opponent
-						from doing the same is key to winning.
-					</p>
-				</details>
-			</div>
-
-			<div class="question">
-				<details>
-					<summary class="drop">
-						<img src="../assets/images/icon-plus.svg" />What if I need help or
-						have more questions about gameplay?
-					</summary>
-					<p>
-						If you have any more questions or need assistance with the rules,
-						feel free to refer to the instructions or ask your opponent for
-						clarification. You can also add suggestions in Feedback Form. Enjoy
-						the game!
-					</p>
-				</details>
-			</div>
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />How do I set up the
+					game?
+				</summary>
+				<p>
+					Choose your desired grid size to customize the game's difficulty.
+					Start by connecting the dots on the grid, taking turns with your
+					opponent.
+				</p>
+			</details>
 		</div>
 
-		<div class="author">
-			<div class="fotbar">
-				<a href="howtoplay.html"><i class="fas fa-gamepad"></i> HowToPlay?</a>
-				<a href="termsofservice.html"><i class="fas fa-file-contract"></i> TermsOfService</a>
-				<a href="privacypolicy.html"><i class="fas fa-user-shield"></i> PrivacyPolicy</a>
-				<a href="licensing.html"><i class="fas fa-copyright"></i> Licensing</a>
-			</div>
-			<p>
-				Created with ❤️ by
-				<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
-			</p>
-			<div class="social-icons">
-				<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"
-					><i class="fab fa-github"></i
-				></a>
-				<a href="https://discord.gg/2HTCFrSvPB" target="_blank"
-					><i class="fab fa-discord"></i
-				></a>
-			</div>
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />What happens if I
+					complete a box?
+				</summary>
+				<p>
+					Completing a box by drawing its final line scores you a point and
+					grants you an extra turn. This strategic element adds depth to
+					gameplay.
+				</p>
+			</details>
 		</div>
 
-		<script
-			src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
-			async
-		></script>
-		<script src="../js/FAQs.js"></script>
-	</body>
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />When does the game end?
+				</summary>
+				<p>
+					The game ends when all boxes on the grid have been claimed by
+					drawing lines. At this point, the player with the highest score,
+					based on the number of boxes captured, wins.
+				</p>
+			</details>
+		</div>
+
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />Is there a strategy
+					involved in playing this game?
+				</summary>
+				<p>
+					Yes, strategic line selection is crucial. Thinking ahead to maximize
+					the number of boxes you can capture while preventing your opponent
+					from doing the same is key to winning.
+				</p>
+			</details>
+		</div>
+
+		<div class="question">
+			<details>
+				<summary class="drop">
+					<img src="../assets/images/icon-plus.svg" />What if I need help or
+					have more questions about gameplay?
+				</summary>
+				<p>
+					If you have any more questions or need assistance with the rules,
+					feel free to refer to the instructions or ask your opponent for
+					clarification. You can also add suggestions in Feedback Form. Enjoy
+					the game!
+				</p>
+			</details>
+		</div>
+	</div>
+
+	<div class="author">
+		<div class="fotbar">
+			<a href="howtoplay.html"><i class="fas fa-gamepad"></i> HowToPlay?</a>
+			<a href="termsofservice.html"><i class="fas fa-file-contract"></i> TermsOfService</a>
+			<a href="privacypolicy.html"><i class="fas fa-user-shield"></i> PrivacyPolicy</a>
+			<a href="licensing.html"><i class="fas fa-copyright"></i> Licensing</a>
+		</div>
+		<p>
+			Created with ❤️ by
+			<a href="https://github.com/ChromeGaming">Chrome Gaming</a>
+		</p>
+		<div class="social-icons">
+			<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank"><i class="fab fa-github"></i></a>
+			<a href="https://discord.gg/2HTCFrSvPB" target="_blank"><i class="fab fa-discord"></i></a>
+		</div>
+	</div>
+
+	<script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
+	<script src="../js/FAQs.js"></script>
+</body>
+
 </html>

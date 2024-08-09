@@ -21,6 +21,7 @@
 
 <body>
 	<script src="/js/global.js"></script>
+	<script src="./js/render.js"></script>
 
 	<audio id="background-music" autoplay loop>
 		<source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
@@ -30,21 +31,7 @@
 			<source src="/assets/videos/1.mp4" type="video/mp4" />
 		</video>
 		<div class="whole-background">
-			<nav class="navbarr">
-				<div class="logo">
-					<a href="#">Dots & Boxes ⚄</a>
-				</div>
-				<ul class="nav-links">
-					<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-					<li><a href="./pages/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-					<li><a href="./pages/FAQs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
-					<li><a href="./pages/contributors.html"><i class="fas fa-users"></i> Contributors</a></li>
-					<li><a href="./pages/game.html"><i class="fas fa-gamepad"></i> Let's Go</a></li>
-				</ul>
-				<div class="hamburger">
-					<i class="fas fa-bars"></i>
-				</div>
-			</nav>
+			<div id="nav-placeholder"></div>
 
 			<button class="sticky-button" onclick="openForm()">Feedback</button>
 			<div class="feed-bg">

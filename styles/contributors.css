@@ -66,6 +66,7 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 16px;
+	margin-top: 6rem;
 }
 
 .text-center {
@@ -180,20 +181,21 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-  }
+}
 
-  .pagination-btns button.btn {
+.pagination-btns button.btn {
 	border-radius: 5px;
 	outline: none;
 	margin: 5px 10px;
 	border: 1px solid rgb(146, 110, 110);
 	width: 50px;
 	height: 50px;
-  }
+}
 
-  .pagination-btns button.btn, .pagination-btns button.btn i.bi {
+.pagination-btns button.btn,
+.pagination-btns button.btn i.bi {
 	font-size: 2rem;
-  }
+}
 
 .text-lg {
 	font-size: 1.125rem;
