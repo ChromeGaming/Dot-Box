@@ -4,7 +4,6 @@ class Game {
 	constructor(playersInfo) {
 		if (Game.instance == null) Game.instance = this;
 
-		this.playersUI = document.querySelector(".players");
 		this.playerNameUI = document.querySelector(".player-turn .name");
 		this.playerTurnBgUI = document.querySelector(".player-turn .bg");
 
@@ -56,13 +55,13 @@ class Game {
         `;
 		menu.appendChild(timerContainer);
 		this.timerDisplay = document.getElementById("timer");
-		// this.stateIcon = document.getElementById("state").children[0];
+		this.stateIcon = document.getElementById("state").children[0];
 	}
 
 	// Start or restart the timer
 	startTimer() {
-		// this.stateIcon.classList.add("fa-pause");
-		// this.stateIcon.classList.remove("fa-play");
+		this.stateIcon.classList.add("fa-pause");
+		this.stateIcon.classList.remove("fa-play");
 		this.timerDisplay.style.color = "#333";
 		clearInterval(this.timer);
 		this.timeLeft = 30;
@@ -97,9 +96,6 @@ class Game {
 		this.removeEventListener("boxFill");
 		clearInterval(this.timer); // Stop the timer
 
-		let winSound = new Audio("../assets/sounds/win.mp3");
-		winSound.play();
-
 		// Determine winner or draw
 		const winner = this.determineWinner(this.players);
 
@@ -113,9 +109,33 @@ class Game {
 			this.playerTurnBgUI.classList.add("win");
 			this.playerTurnBgUI.style.background = winner.color;
 		}
+    
+		// Storing winner data for leaderboard
+		const playerData = JSON.parse(localStorage.getItem("playerData"));
+		const player = playerData.find((player) => player.name === winner.name);
+		const playerIndex = playerData.indexOf(player);
+		playerData[playerIndex].score = winner.filledBoxes;
+		playerData[playerIndex].winner = true;
+		localStorage.setItem("winnerData", JSON.stringify(playerData));
+    
+    // Winning Sound effect
+		let winSound = new Audio("../assets/sounds/win.mp3");
+		winSound.play();
 
 		// Open the win overlay
 		document.getElementById("win-overlay").style.height = "100%";
+
+		for (let i = 0; i < 10; i++) {
+			setTimeout(() => {
+				const pop = new Audio("../assets/sounds/pop.mp3");
+				pop.play();
+				confetti({
+					particleCount: 200,
+					spread: 100,
+					origin: { y: 0.6 },
+				});
+			}, i * 1000);
+		}
 	}
 
 	determineWinner(players) {
@@ -142,7 +162,6 @@ class Game {
 	// If a box is filled, increment players' score with the number of boxes filled by him/her and update UI
 	onBoxFill() {
 		this.currentPlayer.filledBoxes++;
-		this.updatePlayerScoreUI();
 		this.updateScoreboard();
 		if (this.isTimerStarted) {
 			this.startTimer(); // Restart timer when a move is made
@@ -161,32 +180,15 @@ class Game {
 
 	// Add players to UI
 	addPlayersUI() {
-		const scoreboardContainer = document.querySelector(".scoreboard-container");
-		scoreboardContainer.style.visibility = "visible";
-
 		const scoreboard = document.querySelector(".scoreboard");
 		scoreboard.innerHTML = ""; // Clear existing content
 
 		this.players.forEach((player, index) => {
-			const div = document.createElement("div");
-			div.classList.add("player");
-
 			// Maintain filled boxes.
-			const b = document.createElement("b");
-			b.classList.add("filled-boxes");
-			b.textContent = player.filledBoxes;
-			b.style.background = player.color;
-			this.players[index]["filledBoxesUI"] = b;
-
-			// Maintain player name.
-			const span = document.createElement("span");
-			span.textContent = player.name;
-
-			div.appendChild(b);
-			div.appendChild(span);
-
-			// Adding score and name to the element
-			this.playersUI.appendChild(div);
+			const scoreUI = document.createElement("span");
+			scoreUI.textContent = player.filledBoxes;
+			scoreUI.classList.add("player-score");
+			this.players[index]["score"] = scoreUI;
 
 			// Maintain player avatar in the scoreboard
 			const avatarSrc = player.avatarID;
@@ -197,16 +199,12 @@ class Game {
 			scoreDiv.innerHTML = `
 				<img src="${avatarSrc}" class="avatar-sm">
 				<span>${player.name}</span>
-				<span id="player${index + 1}-score">0</span>
 			`;
+
 			scoreDiv.style.backgroundColor = player.color;
 			scoreboard.appendChild(scoreDiv);
+			scoreDiv.appendChild(scoreUI);
 		});
-	}
-
-	// Update player score UI used while switching player
-	updatePlayerScoreUI() {
-		this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes;
 	}
 
 	// Update player name UI used while switching player
@@ -216,12 +214,7 @@ class Game {
 	}
 
 	updateScoreboard() {
-		this.players.forEach((player, index) => {
-			const scoreElement = document.getElementById(`player${index + 1}-score`);
-			if (scoreElement) {
-				scoreElement.textContent = player.filledBoxes;
-			}
-		});
+		this.currentPlayer.score.innerText = this.currentPlayer.filledBoxes;
 	}
 
 	makeScoreboardDraggable() {
@@ -317,15 +310,18 @@ class Game {
 		if (confirm("Are you sure you want to surrender?")) {
 			this.players.splice(this.currentPlayerIndex, 1);
 
+			document
+				.querySelector(`.player${this.currentPlayerIndex + 1}-score`)
+				.classList.add("defeated");
+
 			if (this.currentPlayerIndex >= this.players.length) {
 				this.currentPlayerIndex = 0;
 			}
 
 			this.currentPlayer = this.players[this.currentPlayerIndex];
 
-			this.addPlayersUI();
+			this.updateScoreboard();
 			this.updatePlayerNameUI();
-			this.updatePlayerScoreUI();
 
 			if (this.players.length == 1) {
 				this.invokeEvent("playerWin");
@@ -368,16 +364,19 @@ function renderPlayerInputs(count) {
 		"magenta",
 		"orange",
 	];
+
 	for (let i = 1; i <= count; i++) {
 		const div = document.createElement("div");
 		div.classList.add("player-input");
 		div.innerHTML = `<label for="playerName${i}" class="player-label ${
 			colors[i - 1]
 		}">Player ${i}</label>
+
 		<div class="avatar">
-		<img src="/assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
+		<img src="../assets/avatars/${i}.png" alt="avatar" class="player-avatar" id="avatar${i}">
 		<button id="${i}" class="edit-avatar"><i class="fa-solid fa-pencil"></i></button>
 		</div>
+
 		<input type="text" id="playerName${i}" placeholder="Player ${i}" value="Player ${i}" class="playerNames">
 		<div class="player-colors">
 		${colors
@@ -506,7 +505,7 @@ for (let i = 1; i <= 20; i++) {
 	const profile = document.createElement("button");
 	profile.classList.add("selectAvatar");
 	profile.innerHTML = `
-	<img src="/assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
+	<img src="../assets/avatars/${i}.png" alt="Avatar${i}" class="player-avatar" />
 	`;
 	options.appendChild(profile);
 }
@@ -533,7 +532,6 @@ const scoreboard = document.querySelector(".scoreboard-container");
 function tourGuide() {
 	const tourSteps = document.querySelectorAll(".tour-step");
 	let currentStep = 0;
-	scoreboard.style.display = "block";
 
 	const showStep = (index) => {
 		tourSteps.forEach((step, i) => {
@@ -587,7 +585,11 @@ function tourGuide() {
 
 // Settings Button
 document.getElementById("setting-btn").addEventListener("click", () => {
-	menu.classList.toggle("menu-open");
+	menu.style.display = "block";
+});
+
+document.getElementById("close-menu").addEventListener("click", () => {
+	menu.style.display = "none";
 });
 
 // Surrender Button
@@ -601,6 +603,9 @@ const help = document.getElementById("help");
 help.addEventListener("click", () => {
 	tourGuide();
 	stateChange("pause");
+	if (window.innerWidth < 768) {
+		menu.style.display = "none";
+	}
 });
 
 // Restart Game
