@@ -258,6 +258,17 @@ textarea {
   justify-content: center;
   gap: 5px;
 }
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+  text-align: center;
+}
 
 .socials {
   display: flex;
@@ -274,17 +285,6 @@ textarea {
   gap: 5px;
 }
 
-.popup.hidden {
-  display: none;
-}
-
-.popup-content {
-  max-width: 400px;
-  padding: 20px;
-  background-color: #333;
-  border-radius: 5px;
-  text-align: center;
-}
 
 @media (max-width: 768px) {
   .navbarr .nav-links {
@@ -297,8 +297,6 @@ textarea {
       width: 100%;
       z-index: 1000;
   }
-
-  
   .navbarr .nav-links li {
       text-align: center;
       padding: 10px 0;
