@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Licensing - Chrome Gaming</title>
-		<link rel="stylesheet" href="../styles/mainstyle.css" />
-		<link rel="stylesheet" href="/styles/global.css" />
-		<link rel="stylesheet" href="../styles/pages.footer.css" />
 
-		<!-- Logo of the game -->
-		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-	</head>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Licensing - Chrome Gaming</title>
+	<link rel="stylesheet" href="../styles/mainstyle.css" />
+	<link rel="stylesheet" href="/styles/global.css" />
+	<link rel="stylesheet" href="../styles/pages.footer.css" />
 
-	<body>
-		<script src="/js/global.js"></script>
-		<script src="/js/scrollToTop.js"></script>
+	<!-- Logo of the game -->
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+</head>
 
-		<video autoplay muted class="video" loop id="myVideo">
-			<source src="/assets/videos/1.mp4" type="video/mp4" />
-		</video>
+<body>
+	<script src="/js/global.js"></script>
+	<script src="/js/scrollToTop.js"></script>
+	<script src="../js/render.js"></script>
 
-		<div class="center">
-			<div class="container" id="licensing-container">
-				<header class="header">
-					<h1 class="title" id="licensing-title">Licensing</h1>
-				</header>
-				<main class="main-content">
-					<section class="section">
-						<h2 class="section-title">Welcome to Chrome Gaming</h2>
-						<p class="section-content">
-							This page is dedicated to licensing information for our software.
-							Below, you will find the details of the MIT License under which
-							our software is distributed.
-						</p>
-					</section>
 
-					<section class="section">
-						<h2 class="section-title">MIT License</h2>
-						<p class="section-content"></p>
-						<pre>
+	<video autoplay muted class="video" loop id="myVideo">
+		<source src="/assets/videos/1.mp4" type="video/mp4" />
+	</video>
+
+	<div class="center">
+		<div id="nav-placeholder"></div>
+		<div class="container" id="licensing-container">
+			<header class="header">
+				<h1 class="title" id="licensing-title">Licensing</h1>
+			</header>
+			<main class="main-content">
+				<section class="section">
+					<h2 class="section-title">Welcome to Chrome Gaming</h2>
+					<p class="section-content">
+						This page is dedicated to licensing information for our software.
+						Below, you will find the details of the MIT License under which
+						our software is distributed.
+					</p>
+				</section>
+
+				<section class="section">
+					<h2 class="section-title">MIT License</h2>
+					<p class="section-content"></p>
+					<pre>
 MIT License
 
 Copyright (c) <span id="current-year"></span> Chrome Gaming
@@ -61,22 +65,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
                         </pre>
-					</section>
-				</main>
-				<center>
-					<button class="back-button">
-						<a href="../index.html" class="back-button">Back to Home</a>
-					</button>
-				</center>
-			</div>
+				</section>
+			</main>
+			<center>
+				<button class="back-button">
+					<a href="../index.html" class="back-button">Back to Home</a>
+				</button>
+			</center>
 		</div>
+	</div>
 
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const yearSpan = document.getElementById("current-year");
-				const currentYear = new Date().getFullYear();
-				yearSpan.textContent = currentYear;
-			});
-		</script>
-	</body>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const yearSpan = document.getElementById("current-year");
+			const currentYear = new Date().getFullYear();
+			yearSpan.textContent = currentYear;
+		});
+	</script>
+</body>
+
 </html>
