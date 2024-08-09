@@ -1,6 +1,5 @@
 body {
 	font-family: "Comic Sans MS", "Chalkboard SE", "Arial", sans-serif;
-	background-color: #f2bf6d;
 	color: #fff;
 	margin: 0;
 	padding: 0;
@@ -28,10 +27,11 @@ body {
 	justify-content: center;
 	max-width: 900px;
 	margin: 2rem auto;
+	margin-top: 6rem;
 	padding: 2rem;
-	background: rgba(52, 152, 219, 0.8);
+	background-color: rgb(66, 61, 142);
 	border-radius: 20px;
-	box-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+	box-shadow: 5px 5px 30px #000;
 	text-align: left;
 	line-height: 1.6;
 }
@@ -126,43 +126,6 @@ body {
 	}
 }
 
-.home {
-	font-family: "Comic Sans MS", "Chalkboard SE", "Arial", sans-serif;
-	display: inline-block;
-	cursor: pointer;
-	margin-top: 2rem;
-	padding: 12px 5px;
-	background: #f16b4a;
-	color: #fff;
-	text-align: center;
-	border-radius: 50px;
-	text-decoration: none;
-	font-weight: bold;
-	transition: all 0.3s ease;
-	text-transform: uppercase;
-}
-
-.home:hover {
-	background-color: #e74c3c;
-}
-
-.home span {
-	font-size: 1.5rem;
-}
-
-.tutorial-video {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 2rem 0;
-	border-radius: 10px;
-}
-
-.tutorial-video video {
-	width: 80%;
-	border-radius: 10px;
-}
-
 .nav-links {
 	letter-spacing: 2px;
 	display: flex;
@@ -193,4 +156,38 @@ button a {
 	text-transform: uppercase;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.tutorial-video {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: -1px 5px 15px rgb(0, 13, 255);
+	background: #33333300;
+	/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+	margin: 20px 0;
+}
+
+.tutorial-video video {
+	width: 100%;
+	max-width: 800px;
+	border-radius: 15px;
+	/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.tut-head {
+	color: #ffffff;
+	margin-bottom: 15px;
+	text-shadow: 1px 1px 2px rgb(255, 217, 0), 0 0 1em blue, 0 0 0.2em blue;
+	text-align: center;
+}
+
+.video-caption {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgb(208, 178, 11), 0 0 1em rgb(238, 255, 0),
+		0 0 0.2em rgb(255, 204, 0);
 }

@@ -1,0 +1,103 @@
+body {
+	font-family: "Comic Sans MS", "Chalkboard SE", "Arial", sans-serif;
+	line-height: 1.6;
+	color: #fff;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.container {
+	max-width: 900px;
+	margin: 2rem auto;
+	padding: 2rem;
+	background-color: rgb(66, 61, 142);
+	border-radius: 20px;
+	box-shadow: 5px 5px 30px #000;
+}
+
+.title {
+	color: #f1c40f;
+	font-size: 3rem;
+	text-shadow: 3px 3px 0 #e74c3c;
+	transform: rotate(-3deg);
+	display: inline-block;
+	animation: float 3s ease-in-out infinite;
+}
+
+.section {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background-color: rgba(231, 76, 60, 0.7);
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	transform: skew(-2deg);
+}
+
+.section-title {
+	color: #f39c12;
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+	border-bottom: 3px dashed #f39c12;
+	padding-bottom: 0.5rem;
+}
+
+.section-content {
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+}
+
+.section-list {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.list-item {
+	margin-bottom: 0.5rem;
+	position: relative;
+}
+
+.list-item:before {
+	content: "🎮";
+	position: absolute;
+	left: -1.5rem;
+	top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+	.container {
+		margin: 1rem;
+		padding: 1rem;
+	}
+
+	.title {
+		font-size: 2.5rem;
+	}
+
+	.section-title {
+		font-size: 1.5rem;
+	}
+
+	.circle-container {
+		display: none;
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px) rotate(-3deg);
+	}
+	50% {
+		transform: translateY(-10px) rotate(-3deg);
+	}
+	100% {
+		transform: translateY(0px) rotate(-3deg);
+	}
+}
