@@ -1,201 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>How to Play - Dot Box</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-		/>
-		<link rel="stylesheet" href="../styles/mainstyle.css" />
-		<link rel="stylesheet" href="/styles/global.css" />
-		<link rel="stylesheet" href="../styles/howtoplay.css" />
 
-		<!-- Logo of the game -->
-		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-	</head>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>How to Play - Dot Box</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+	<link rel="stylesheet" href="../styles/mainstyle.css" />
+	<link rel="stylesheet" href="../styles/global.css" />
+	<link rel="stylesheet" href="../styles/howtoplay.css" />
 
-	<body>
-		<script src="/js/global.js"></script>
-		<script src="/js/scrollToTop.js"></script>
+	<!-- Logo of the game -->
+	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+</head>
 
-		<video autoplay muted class="video" loop id="myVideo">
-			<source src="/assets/videos/1.mp4" type="video/mp4" />
-		</video>
+<body>
+	<script src="../js/global.js"></script>
+	<script src="../js/scrollToTop.js"></script>
 
-		<div class="center">
-			<nav class="navbarr" style="color: white">
-				<div class="logo">
-					<a href="../index.html">Dots & Boxes ⚄</a>
-				</div>
+	<video autoplay muted class="video" loop id="myVideo">
+		<source src="../assets/videos/1.mp4" type="video/mp4" />
+	</video>
 
-				<ul class="nav-links" id="nav-links-toggled">
-					<li>
-						<a href="../index.html"><i class="fas fa-home"></i>Home</a>
-					</li>
-					<li>
-						<a href="../pages/about.html"
-							><i class="fas fa-info-circle"></i>About Us</a
-						>
-					</li>
-					<li>
-						<a href="../pages/FAQs.html"
-							><i class="fas fa-question-circle"></i>FAQs</a
-						>
-					</li>
-					<li>
-						<a href="../pages/contributors.html"
-							><i class="fas fa-users"></i>Contributors</a
-						>
-					</li>
-					<button class="start">
-						<a href="../pages/game.html"
-							><i class="fas fa-gamepad"></i>Let's Go</a
-						>
-					</button>
-				</ul>
-				<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
+	<div class="center">
+		<nav class="navbarr" style="color: white">
+			<div class="logo">
+				<a href="../index.html">Dots & Boxes ⚄</a>
+			</div>
+
+			<ul class="nav-links" id="nav-links-toggled">
+				<li>
+					<a href="../index.html"><i class="fas fa-home"></i>Home</a>
+				</li>
+				<li>
+					<a href="../pages/about.html"><i class="fas fa-info-circle"></i>About Us</a>
+				</li>
+				<li>
+					<a href="../pages/FAQs.html"><i class="fas fa-question-circle"></i>FAQs</a>
+				</li>
+				<li>
+					<a href="../pages/contributors.html"><i class="fas fa-users"></i>Contributors</a>
+				</li>
+				<button class="start">
+					<a href="../pages/game.html"><i class="fas fa-gamepad"></i>Let's Go</a>
+				</button>
+			</ul>
+			<!-- <button class="navbar-toggler" id="navbar-toggler" type="button" onclick="toggleNavBar()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
               </button> -->
 
-				<!-- Hamburger Menu -->
+			<!-- Hamburger Menu -->
 
-				<nav class="mobile-menu">
-					<div class="mobile-menu__trigger"><span></span></div>
-					<a class="page-scroll active-link" href="../index.html">Home </a>
-					<a class="page-scroll" href="../about.html">About Us </a>
-					<a class="page-scroll" href="../FAQs.html">FAQs</a>
-					<a class="page-scroll" href="../contributors.html">Contributors</a>
-				</nav>
-
-				<!-- Js and CSS files for hamburger-menu -->
-				<link href="../styles/navbar.css" rel="stylesheet" />
-				<script type="text/javascript" src="../js/navbar.js"></script>
+			<nav class="mobile-menu">
+				<div class="mobile-menu__trigger"><span></span></div>
+				<a class="page-scroll active-link" href="../index.html">Home </a>
+				<a class="page-scroll" href="../about.html">About Us </a>
+				<a class="page-scroll" href="../FAQs.html">FAQs</a>
+				<a class="page-scroll" href="../contributors.html">Contributors</a>
 			</nav>
 
-			<div class="instructions-container">
-				<h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
-				<h1 class="heading2">How to Play? ⚔️</h1>
-				<p>
-					Welcome to the Dots & Boxes Game! Here are the detailed instructions
-					on how to play:
-				</p>
-				<ol>
-					<li>
-						<strong>Game Setup: ⚙️</strong><br />
-						- Select the number of rows and columns (between 5 and 30).<br />
-						- Select the number of players (between 2 and 6).<br />
-						- Choose a theme from the available options.
-					</li>
-					<li>
-						<strong>Objective: 🎯</strong><br />
-						The objective of the game is to complete the maximum number of
-						boxes. <br />The player who completes the most boxes wins 👑 the
-						game.
-					</li>
-					<li>
-						<strong>Gameplay: 🎮</strong><br />
-						<div class="gameplay-container">
-							<div class="gameplay-item">
-								<span class="gameplay-icon">🕹️</span>
-								<p class="gameplay-text">
-									Players take turns to draw a line between two adjacent dots.
-								</p>
-							</div>
-							<div class="gameplay-item">
-								<span class="gameplay-icon">🕹️</span>
-								<p class="gameplay-text">
-									A player who completes the fourth side of a box gets to claim
-									that box and gets another turn.
-								</p>
-							</div>
-							<div class="gameplay-item">
-								<span class="gameplay-icon">🕹️</span>
-								<p class="gameplay-text">
-									The game continues until all the boxes are completed.
-								</p>
-							</div>
-							<div class="gameplay-item">
-								<span class="gameplay-icon">🕹️</span>
-								<p class="gameplay-text">
-									If a player completes a box, they get another turn
-									immediately.
-								</p>
-							</div>
-							<div class="gameplay-item">
-								<span class="gameplay-icon">🕹️</span>
-								<p class="gameplay-text">
-									The game can be played in rounds, and the player with the
-									highest score after a set number of rounds wins the game ✨.
-								</p>
-							</div>
-						</div>
-					</li>
+			<!-- Js and CSS files for hamburger-menu -->
+			<link href="../styles/navbar.css" rel="stylesheet" />
+			<script type="text/javascript" src="../js/navbar.js"></script>
+		</nav>
 
-					<h1 class="heading" style="text-decoration: underline">
-						Here is a demo:
-					</h1>
-					<h2 class="tut-head">Tutorial Video</h2>
-					<div class="tutorial-video">
-						<video controls paused>
-							<source src="../assets/videos/DotBox Tutorial new.mp4" />
-						</video>
+		<div class="instructions-container">
+			<h1 class="heading">▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂</h1>
+			<h1 class="heading2">How to Play? ⚔️</h1>
+			<p>
+				Welcome to the Dots & Boxes Game! Here are the detailed instructions
+				on how to play:
+			</p>
+			<ol>
+				<li>
+					<strong>Game Setup: ⚙️</strong><br />
+					- Select the number of rows and columns (between 5 and 30).<br />
+					- Select the number of players (between 2 and 6).<br />
+					- Choose a theme from the available options.
+				</li>
+				<li>
+					<strong>Objective: 🎯</strong><br />
+					The objective of the game is to complete the maximum number of
+					boxes. <br />The player who completes the most boxes wins 👑 the
+					game.
+				</li>
+				<li>
+					<strong>Gameplay: 🎮</strong><br />
+					<div class="gameplay-container">
+						<div class="gameplay-item">
+							<span class="gameplay-icon">🕹️</span>
+							<p class="gameplay-text">
+								Players take turns to draw a line between two adjacent dots.
+							</p>
+						</div>
+						<div class="gameplay-item">
+							<span class="gameplay-icon">🕹️</span>
+							<p class="gameplay-text">
+								A player who completes the fourth side of a box gets to claim
+								that box and gets another turn.
+							</p>
+						</div>
+						<div class="gameplay-item">
+							<span class="gameplay-icon">🕹️</span>
+							<p class="gameplay-text">
+								The game continues until all the boxes are completed.
+							</p>
+						</div>
+						<div class="gameplay-item">
+							<span class="gameplay-icon">🕹️</span>
+							<p class="gameplay-text">
+								If a player completes a box, they get another turn
+								immediately.
+							</p>
+						</div>
+						<div class="gameplay-item">
+							<span class="gameplay-icon">🕹️</span>
+							<p class="gameplay-text">
+								The game can be played in rounds, and the player with the
+								highest score after a set number of rounds wins the game ✨.
+							</p>
+						</div>
 					</div>
-					<p class="video-caption">
-						Watch this tutorial to learn how to play Dots & Boxes effectively!
-					</p>
-					<li>
-						<strong>Scoring: 🏆</strong><br />
-						- Each completed box is worth one point.<br />
-						- The player with the highest score at the end of the game is the
-						winner.<br />
-						- In case of a tie, the player who completed the last box wins.<br />
-						- Optionally, a tie can be broken by the number of consecutive boxes
-						completed.
-					</li>
-					<li>
-						<strong>Strategies: 🧠</strong><br />
-						- Try to force your opponent into a position where they have to give
-						you a box.<br />
-						- Plan your moves ahead and avoid creating a situation where your
-						opponent can complete a box unless you can complete the fourth
-						side.<br />
-						- Control the board by capturing multiple boxes in one turn by
-						carefully planning your moves.<br />
-						- Take advantage of the extra turn you get after completing a box to
-						create more opportunities for yourself.<br />
-						- Look for opportunities to create chains and loops of boxes that
-						can be captured in one turn.<br />
-						- Be mindful of your opponent's potential moves and try to block
-						them from completing boxes whenever possible.
-					</li>
-				</ol>
-				<center>
-					<button class="back-button">
-						<a href="../index.html" class="back-button">Back to Home</a>
-					</button>
-				</center>
-				<script
-					src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js"
-					async
-				></script>
-			</div>
+				</li>
+
+				<h1 class="heading" style="text-decoration: underline">
+					Here is a demo:
+				</h1>
+				<h2 class="tut-head">Tutorial Video</h2>
+				<div class="tutorial-video">
+					<video controls paused>
+						<source src="../assets/videos/DotBox Tutorial new.mp4" />
+					</video>
+				</div>
+				<p class="video-caption">
+					Watch this tutorial to learn how to play Dots & Boxes effectively!
+				</p>
+				<li>
+					<strong>Scoring: 🏆</strong><br />
+					- Each completed box is worth one point.<br />
+					- The player with the highest score at the end of the game is the
+					winner.<br />
+					- In case of a tie, the player who completed the last box wins.<br />
+					- Optionally, a tie can be broken by the number of consecutive boxes
+					completed.
+				</li>
+				<li>
+					<strong>Strategies: 🧠</strong><br />
+					- Try to force your opponent into a position where they have to give
+					you a box.<br />
+					- Plan your moves ahead and avoid creating a situation where your
+					opponent can complete a box unless you can complete the fourth
+					side.<br />
+					- Control the board by capturing multiple boxes in one turn by
+					carefully planning your moves.<br />
+					- Take advantage of the extra turn you get after completing a box to
+					create more opportunities for yourself.<br />
+					- Look for opportunities to create chains and loops of boxes that
+					can be captured in one turn.<br />
+					- Be mindful of your opponent's potential moves and try to block
+					them from completing boxes whenever possible.
+				</li>
+			</ol>
+			<center>
+				<button class="back-button">
+					<a href="../index.html" class="back-button">Back to Home</a>
+				</button>
+			</center>
+			<script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>
