@@ -1,256 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Stylesheet -->
-		<link rel="stylesheet" href="../styles/default.style.css" />
-		<link rel="stylesheet" href="/styles/global.css" />
-		<link rel="stylesheet" href="../styles/game.style.css" />
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- JavaScript files -->
-		<script defer src="../js/edge.js"></script>
-		<script defer src="../js/box.js"></script>
-		<script defer src="../js/board.js"></script>
-		<script defer src="../js/game.js"></script>
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="../styles/default.style.css" />
+	<link rel="stylesheet" href="/styles/global.css" />
+	<link rel="stylesheet" href="../styles/game.style.css" />
 
-		<!-- Logo of the game -->
-		<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-		<link
-			rel="shortcut icon"
-			href="../assets/favicon.ico"
-			type="image/x-icon"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
+	<!-- JavaScript files -->
+	<script defer src="../js/edge.js"></script>
+	<script defer src="../js/box.js"></script>
+	<script defer src="../js/board.js"></script>
+	<script defer src="../js/game.js"></script>
 
-		<!-- Title of the game -->
-		<title>Dots & Boxes Game</title>
-	</head>
+	<!-- Logo of the game -->
+	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<body>
-		<script src="/js/global.js"></script>
+	<!-- Title of the game -->
+	<title>Dots & Boxes Game</title>
+</head>
 
-		<video autoplay muted class="video" loop id="myVideo">
-			<source src="/assets/videos/1.mp4" type="video/mp4" />
-		</video>
+<body>
+	<script src="/js/global.js"></script>
 
-		<div id="playerSetup">
-			<div id="playerForm">
-				<div id="playerInputs">
-					<!-- Player input fields will be added here -->
-				</div>
-				<div id="btn-contain">
-					<button id="play-btn">Play Now</button>
+	<video autoplay muted class="video" loop id="myVideo">
+		<source src="/assets/videos/1.mp4" type="video/mp4" />
+	</video>
 
-					<a id="back-btn" href="../index.html">
-						<svg
-							height="16"
-							width="16"
-							xmlns="http://www.w3.org/2000/svg"
-							version="1.1"
-							viewBox="0 0 1024 1024"
-						>
-							<path
-								d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
-							></path>
-						</svg>
-						<span>Back</span>
+	<div id="playerSetup">
+		<div id="playerForm">
+			<div id="playerInputs">
+				<!-- Player input fields will be added here -->
+			</div>
+			<div id="btn-contain">
+				<button id="play-btn">Play Now</button>
+
+				<a id="back-btn" href="../index.html">
+					<svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1"
+						viewBox="0 0 1024 1024">
+						<path
+							d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+						</path>
+					</svg>
+					<span>Back</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="avatarWindow">
+		<h2>Select Avatar</h2>
+		<div id="choices"></div>
+		<div id="buttons">
+			<button id="closeWindow">Cancel</button>
+			<button id="saveAvatar">
+				Save <i class="fa-solid fa-floppy-disk"></i>
+			</button>
+		</div>
+	</div>
+
+	<div id="layout">
+		<!-- Menu -->
+		<div id="menu">
+			<div class="menu-header">
+				<h2>Settings</h2>
+			</div>
+			<div class="menu-body">
+				<div class="menu-links">
+					<a href="../index.html" id="home" class="link-btn">
+						<i class="fa-solid fa-house"></i> Home
 					</a>
+					<a href="../pages/404.html" id="leaderboard" class="link-btn">
+						<i class="fa-solid fa-people-group"></i> Leaderboard
+					</a>
+					<button id="help" class="link-btn">
+						Help <i class="fa-solid fa-circle-question"></i>
+					</button>
+					<button id="surrender" class="link-btn">
+						Surrender <i class="fa-solid fa-flag"></i>
+					</button>
 				</div>
+				<div class="menu-buttons">
+					<div id="restart" class="icon-btn">
+						<i class="fa-solid fa-arrow-rotate-right"></i>
+					</div>
+					<div id="state" class="icon-btn">
+						<i class="fa-solid fa-play"></i>
+					</div>
+					<div id="music-toggle" class="icon-btn">
+						<i class="fa-solid fa-volume-high"></i>
+					</div>
+				</div>
+			</div>
+			<i class="fas fa-xmark" id="close-menu"></i>
+		</div>
+
+		<!-- Game  -->
+		<div class="game-wrapper">
+			<!-- Players Turn-->
+			<div class="player-turn">
+				<div class="bg"><span class="name">PlayerX</span>'s turn</div>
+			</div>
+
+			<!-- Game Board -->
+			<div class="game-container">
+				<div class="board"></div>
+				<div id="setting-btn">Settings</div>
 			</div>
 		</div>
 
-		<div id="avatarWindow">
-			<h2>Select Avatar</h2>
-			<div id="choices"></div>
-			<div id="buttons">
-				<button id="closeWindow">Cancel</button>
-				<button id="saveAvatar">
-					Save <i class="fa-solid fa-floppy-disk"></i>
-				</button>
+		<!-- Scoreboard -->
+		<div class="scoreboard-container">
+			<h2>Scoreboard</h2>
+			<div class="scoreboard">
+				<!-- Scoreboard content will be dynamically added here -->
 			</div>
 		</div>
+	</div>
 
-		<div id="layout">
-			<!-- Menu -->
-			<div id="menu">
-				<div class="menu-header">
-					<h2>Settings</h2>
-				</div>
-				<div class="menu-body">
-					<div class="menu-links">
-						<a href="../index.html" id="home" class="link-btn">
-							<i class="fa-solid fa-house"></i> Home
-						</a>
-						<a href="../pages/404.html" id="leaderboard" class="link-btn">
-							<i class="fa-solid fa-people-group"></i> Leaderboard
-						</a>
-						<button id="help" class="link-btn">
-							Help <i class="fa-solid fa-circle-question"></i>
-						</button>
-						<button id="surrender" class="link-btn">
-							Surrender <i class="fa-solid fa-flag"></i>
-						</button>
-					</div>
-					<div class="menu-buttons">
-						<div id="restart" class="icon-btn">
-							<i class="fa-solid fa-arrow-rotate-right"></i>
-						</div>
-						<div id="state" class="icon-btn">
-							<i class="fa-solid fa-play"></i>
-						</div>
-						<div id="music-toggle" class="icon-btn">
-							<i class="fa-solid fa-volume-high"></i>
-						</div>
-					</div>
-				</div>
-				<i class="fas fa-xmark" id="close-menu"></i>
-			</div>
-
-			<!-- Game  -->
-			<div class="game-wrapper">
-				<!-- Players Turn-->
-				<div class="player-turn">
-					<div class="bg"><span class="name">PlayerX</span>'s turn</div>
-				</div>
-
-				<!-- Game Board -->
-				<div class="game-container">
-					<div class="board"></div>
-					<div id="setting-btn">Settings</div>
-				</div>
-			</div>
-
-			<!-- Scoreboard -->
-			<div class="scoreboard-container">
-				<h2>Scoreboard</h2>
-				<div class="scoreboard">
-					<!-- Scoreboard content will be dynamically added here -->
-				</div>
-			</div>
+	<!-- Winner Overlay -->
+	<div id="win-overlay" class="overlay">
+		<!-- Overlay content -->
+		<div class="overlay-content">
+			<a href="../index.html">Go Back to Home</a>
+			<a href="../pages/game.html">Play Again</a>
+			<a href="../pages/leaderboard.html">See Leaderboard</a>
 		</div>
+	</div>
 
-		<!-- Winner Overlay -->
-		<div id="win-overlay" class="overlay">
-			<!-- Overlay content -->
-			<div class="overlay-content">
-				<a href="../index.html">Go Back to Home</a>
-				<a href="../pages/game.html">Play Again</a>
-				<a href="../pages/leaderboard.html">See Leaderboard</a>
+	<!-- Game Tour -->
+	<div id="tour-overlay">
+		<div class="overlay-content">
+			<div class="tour-step step-1">
+				<h3>Game Tour</h3>
+				<p>
+					Welcome to the Dot-box game presented by Chrome Gaming! <br /><br />
+					Dot-Box is a game where players take turns drawing lines between
+					dots to create boxes. The player who completes the most boxes wins.
+					It's a simple yet strategic game enjoyed by people of all ages.
+					Click the "Next" button to start the tour.
+				</p>
+				<div class="tour-controls">
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
+				</div>
 			</div>
-		</div>
 
-		<!-- Game Tour -->
-		<div id="tour-overlay">
-			<div class="overlay-content">
-				<div class="tour-step step-1">
-					<h3>Game Tour</h3>
-					<p>
-						Welcome to the Dot-box game presented by Chrome Gaming! <br /><br />
-						Dot-Box is a game where players take turns drawing lines between
-						dots to create boxes. The player who completes the most boxes wins.
-						It's a simple yet strategic game enjoyed by people of all ages.
-						Click the "Next" button to start the tour.
-					</p>
-					<div class="tour-controls">
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-2">
+				<h3>Step 1</h3>
+				<p>
+					This is Game Board! This is where the game is displayed, Play here
+					by connecting the lines.
+				</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-2">
-					<h3>Step 1</h3>
-					<p>
-						This is Game Board! This is where the game is displayed, Play here
-						by connecting the lines.
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-3">
+				<h3>Step 2</h3>
+				<p>
+					Here's where the player's score is displayed, Keep track of your
+					score as you play the game
+				</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-3">
-					<h3>Step 2</h3>
-					<p>
-						Here's where the player's score is displayed, Keep track of your
-						score as you play the game
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-4">
+				<h3>Step 3</h3>
+				<p>Here you can see the player's turn indicator.</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-4">
-					<h3>Step 3</h3>
-					<p>Here you can see the player's turn indicator.</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-5">
+				<h3>Step 4</h3>
+				<p>
+					This is the live draggable scoreboard. Hold and move to your desired
+					place
+				</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-5">
-					<h3>Step 4</h3>
-					<p>
-						This is the live draggable scoreboard. Hold and move to your desired
-						place
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-6">
+				<h3>Step 5</h3>
+				<p>
+					This is the home button. Click to go back to the homepage. Besides
+					it there is a 30s timer for each player turn, you have to make a
+					move before time gets up!
+				</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-6">
-					<h3>Step 5</h3>
-					<p>
-						This is the home button. Click to go back to the homepage. Besides
-						it there is a 30s timer for each player turn, you have to make a
-						move before time gets up!
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
+			<div class="tour-step step-7">
+				<h3>Step 6</h3>
+				<p>
+					This is the sound toggle button. Click to mute/unmute the sound.
+					Besides it there is a reset/restart button.
+				</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="next-step" class="button">Next</button>
+					<button id="skip-tour" class="button">Skip Tour</button>
 				</div>
+			</div>
 
-				<div class="tour-step step-7">
-					<h3>Step 6</h3>
-					<p>
-						This is the sound toggle button. Click to mute/unmute the sound.
-						Besides it there is a reset/restart button.
-					</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="next-step" class="button">Next</button>
-						<button id="skip-tour" class="button">Skip Tour</button>
-					</div>
-				</div>
-
-				<div class="tour-step step-1">
-					<h3>Step 7</h3>
-					<p>Now you are ready to start the game. Have fun!</p>
-					<div class="tour-controls">
-						<button id="prev-step" class="button">Previous</button>
-						<button id="close-tour" class="button">Close Tour</button>
-					</div>
+			<div class="tour-step step-1">
+				<h3>Step 7</h3>
+				<p>Now you are ready to start the game. Have fun!</p>
+				<div class="tour-controls">
+					<button id="prev-step" class="button">Previous</button>
+					<button id="close-tour" class="button">Close Tour</button>
 				</div>
 			</div>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-	</body>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+</body>
+
 </html>
