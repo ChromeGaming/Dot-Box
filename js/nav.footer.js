@@ -19,7 +19,7 @@ const navbar = `
             <a href="../pages/contributors.html"><i class="fas fa-users"></i>Contributors</a>
         </li>
         <li>
-            <a href="../pages/game.html"><i class="fas fa-gamepad"></i>Let's Go</a>
+			<a href="./pages/testimonials.html"><i class="fas fa-users"></i>Testimonials</a>
         </li>
 
     </ul>
