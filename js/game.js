@@ -109,7 +109,16 @@ class Game {
 			this.playerTurnBgUI.classList.add("win");
 			this.playerTurnBgUI.style.background = winner.color;
 		}
-
+    
+		// Storing winner data for leaderboard
+		const playerData = JSON.parse(localStorage.getItem("playerData"));
+		const player = playerData.find((player) => player.name === winner.name);
+		const playerIndex = playerData.indexOf(player);
+		playerData[playerIndex].score = winner.filledBoxes;
+		playerData[playerIndex].winner = true;
+		localStorage.setItem("winnerData", JSON.stringify(playerData));
+    
+    // Winning Sound effect
 		let winSound = new Audio("../assets/sounds/win.mp3");
 		winSound.play();
 

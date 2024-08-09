@@ -1,0 +1,137 @@
+body {
+	font-family: monospace;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 50%;
+	margin: 0.5rem auto;
+}
+
+#leaderboard {
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 8px solid #3d0c02;
+	border-radius: 50px;
+	padding: 0 0.5rem;
+	background: #733635;
+}
+
+#leaderboard h1 {
+	font-size: 2rem;
+	color: #fff;
+	background-color: #ce2029;
+	padding: 1rem 1.5rem 0.25rem 1.5rem;
+	margin: 0;
+	border-radius: 25px;
+	border-top-right-radius: 100%;
+	border-top-left-radius: 100%;
+	position: relative;
+	top: 0.5rem;
+}
+
+#leaderboard h1:hover {
+	background-color: #ff0000;
+}
+
+#ranking {
+	background-color: #905d5d;
+	width: 95%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.25rem 1rem;
+	border-radius: 50px;
+	overflow-x: auto;
+}
+
+.entry {
+	width: 95%;
+	font-size: 1.5rem;
+	display: grid;
+	grid-template-columns: 3rem 2fr 0.5fr;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.25rem 1rem;
+	border-radius: 25px;
+	color: #fff;
+	background-color: #c9a394;
+	box-shadow: #824950 3px 3px 0px 2px;
+}
+
+.rank {
+	padding: 0.5rem;
+	border-radius: 5px;
+}
+
+.name {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+#gold {
+	background-color: #e6a817;
+	box-shadow: #c19a6b 3px 3px 0px 2px;
+}
+
+#silver {
+	background-color: #c0c0c0;
+	box-shadow: #848482 3px 3px 0px 2px;
+}
+
+#bronze {
+	background-color: #cd7f32;
+	box-shadow: #7b3f00 3px 3px 0px 2px;
+}
+
+#home-btn {
+	text-decoration: none;
+	font-size: 1.6rem;
+	color: #fff;
+	background-color: #ce2029;
+	padding: 0.25rem 2rem 0.5rem 2rem;
+	margin: 0;
+	position: relative;
+	top: -0.5rem;
+	border-radius: 25px;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+}
+
+#home-btn:hover {
+	background-color: #ff0000;
+}
+
+#home-btn::before {
+	content: "🏠";
+	margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.container {
+		width: 95%;
+	}
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

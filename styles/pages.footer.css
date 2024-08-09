@@ -2,7 +2,7 @@ body {
 	font-family: "Comic Sans MS", "Chalkboard SE", "Arial", sans-serif;
 	line-height: 1.6;
 	color: #fff;
-	background: linear-gradient(135deg, #f2bf6d 0%, #eb9e18 50%, #f16b4a 100%);
+	background: transparent;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
@@ -18,9 +18,9 @@ body {
 	max-width: 900px;
 	margin: 2rem auto;
 	padding: 2rem;
-	background-color: rgba(52, 152, 219, 0.8);
+	background-color: rgb(66, 61, 142);
 	border-radius: 20px;
-	box-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+	box-shadow: 5px 5px 30px #000;
 }
 
 .title {
@@ -69,28 +69,6 @@ body {
 	position: absolute;
 	left: -1.5rem;
 	top: 0.2rem;
-}
-
-.video-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	overflow: hidden;
-}
-
-.video {
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	opacity: 0.3;
 }
 
 @media (max-width: 768px) {
