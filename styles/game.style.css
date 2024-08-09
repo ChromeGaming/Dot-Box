@@ -831,6 +831,7 @@ body {
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 	width: 17rem;
 	cursor: move;
+	z-index: 89;
 }
 
 .scoreboard-container h2 {

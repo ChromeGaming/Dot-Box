@@ -96,9 +96,6 @@ class Game {
 		this.removeEventListener("boxFill");
 		clearInterval(this.timer); // Stop the timer
 
-		let winSound = new Audio("../assets/sounds/win.mp3");
-		winSound.play();
-
 		// Determine winner or draw
 		const winner = this.determineWinner(this.players);
 
@@ -112,7 +109,7 @@ class Game {
 			this.playerTurnBgUI.classList.add("win");
 			this.playerTurnBgUI.style.background = winner.color;
 		}
-
+    
 		// Storing winner data for leaderboard
 		const playerData = JSON.parse(localStorage.getItem("playerData"));
 		const player = playerData.find((player) => player.name === winner.name);
@@ -120,9 +117,25 @@ class Game {
 		playerData[playerIndex].score = winner.filledBoxes;
 		playerData[playerIndex].winner = true;
 		localStorage.setItem("winnerData", JSON.stringify(playerData));
+    
+    // Winning Sound effect
+		let winSound = new Audio("../assets/sounds/win.mp3");
+		winSound.play();
 
 		// Open the win overlay
 		document.getElementById("win-overlay").style.height = "100%";
+
+		for (let i = 0; i < 10; i++) {
+			setTimeout(() => {
+				const pop = new Audio("../assets/sounds/pop.mp3");
+				pop.play();
+				confetti({
+					particleCount: 200,
+					spread: 100,
+					origin: { y: 0.6 },
+				});
+			}, i * 1000);
+		}
 	}
 
 	determineWinner(players) {
