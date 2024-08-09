@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const rowsInput = document.getElementById("rows");
-	const columnsInput = document.getElementById("columns");
 	const playersInput = document.getElementById("players-count");
 	const startBtn = document.querySelector(".start-btn");
 	const validationMessage = document.getElementById("validation-message");
@@ -19,21 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	const validateAllInputs = () => {
-		const invalidRows = !validateInput(rowsInput, 5, 30);
-		const invalidColumns = !validateInput(columnsInput, 5, 30);
 		const invalidPlayers = !validateInput(playersInput, 2, 6);
 
-		if (invalidRows || invalidColumns || invalidPlayers) {
+		if (invalidPlayers) {
 			startBtn.disabled = true;
+			startBtn.classList.add("disabled");
 			showValidationMessage(true);
 		} else {
 			startBtn.disabled = false;
+			startBtn.classList.remove("disabled");
 			showValidationMessage(false);
 		}
 	};
 
-	rowsInput.addEventListener("input", validateAllInputs);
-	columnsInput.addEventListener("input", validateAllInputs);
 	playersInput.addEventListener("input", validateAllInputs);
 
 	startBtn.addEventListener("click", (event) => {
@@ -43,5 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	// Initial validation
+
 	validateAllInputs();
 });
