@@ -71,9 +71,54 @@ const footer = `
 	</div>
 `;
 
+const home_navbar = `
+
+<!-- Since the relative address of other pages is different for home page, so it needs its own custom path, and hence own nav-bar -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<nav class="navbarr" style="color: white">
+<div class="logo">
+	<a href="./index.html">Dots & Boxes ⚄</a>
+</div>
+
+<ul class="nav-links" id="nav-links-toggled">
+	<li>
+		<a href="./index.html"><i class="fas fa-home"></i>Home</a>
+	</li>
+	<li>
+		<a href="./pages/about.html"><i class="fas fa-info-circle"></i>About Us</a>
+	</li>
+	<li>
+		<a href="./pages/FAQs.html"><i class="fas fa-question-circle"></i>FAQs</a>
+	</li>
+	<li>
+		<a href="./pages/contributors.html"><i class="fas fa-users"></i>Contributors</a>
+	</li>
+	<li>
+		<a href="pages/testimonials.html"><i class="fas fa-users"></i>Testimonials</a>
+	</li>
+
+</ul>
+
+<nav class="mobile-menu">
+	<div class="mobile-menu__trigger"><span></span></div>
+	<a class="page-scroll active-link" href="./index.html">Home </a>
+	<a class="page-scroll" href="./pages/about.html">About Us </a>
+	<a class="page-scroll" href="./pages/FAQs.html">FAQs</a>
+	<a class="page-scroll" href="/pages/contributors.html">Contributors</a>
+</nav>
+</nav>
+`;
+
 document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("nav-placeholder").innerHTML = navbar;
 	document.getElementById("footer-placeholder").innerHTML = footer;
+	try {
+		document.getElementById("nav-placeholder").innerHTML = navbar;
+	  }
+	//   For home-page
+	  catch(err) {
+		document.getElementById("home-nav-placeholder").innerHTML = home_navbar;
+	  }
 
 	const mobile_menu = document.querySelector(".mobile-menu"),
 		mobile_trigger = document.querySelector(".mobile-menu__trigger");
