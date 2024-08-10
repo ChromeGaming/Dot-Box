@@ -13,60 +13,62 @@
 	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
 	<style>
-
 		.Lastupdate {
-			  margin-bottom: 14px;
-			  font-size: 15px;
-			  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif;
-			  font-weight: 500;
-			  margin-top: 0px;
-			}
-	
-			#last-updated-date {
-			  font-size: 15px;
-			}
+			margin-bottom: 14px;
+			font-size: 15px;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif;
+			font-weight: 500;
+			margin-top: 0px;
+		}
 
-			
-::-webkit-scrollbar {
-    width: 14px;
-  }
+		#last-updated-date {
+			font-size: 15px;
+		}
 
-  ::-webkit-scrollbar-track {
-      background: linear-gradient(180deg, #d5d5ff, #9d9dff); /* Background color */
-      border-radius: 10px;
-  }
 
-  ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #8000ff, #ffcc00, #0066ff); 
-      border-radius: 10px;
-      border: 1px solid #ccccf7;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-  }
+		::-webkit-scrollbar {
+			width: 14px;
+		}
 
-  ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, #7e14e9, #f8d420, #3388ff); 
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); 
-  }
+		::-webkit-scrollbar-track {
+			background: linear-gradient(180deg, #d5d5ff, #9d9dff);
+			/* Background color */
+			border-radius: 10px;
+		}
 
-  ::-webkit-scrollbar-thumb:active {
-      background: linear-gradient(180deg, #6600cc, #ffbb00, #0044cc); /* Darker gradient on active */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); /* Intense glow effect */
-  }
-  
+		::-webkit-scrollbar-thumb {
+			background: linear-gradient(180deg, #8000ff, #ffcc00, #0066ff);
+			border-radius: 10px;
+			border: 1px solid #ccccf7;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		}
 
-	
+		::-webkit-scrollbar-thumb:hover {
+			background: linear-gradient(180deg, #7e14e9, #f8d420, #3388ff);
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+		}
+
+		::-webkit-scrollbar-thumb:active {
+			background: linear-gradient(180deg, #6600cc, #ffbb00, #0044cc);
+			/* Darker gradient on active */
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+			/* Intense glow effect */
+		}
 	</style>
 </head>
 
 <body>
 	<script src="../js/global.js"></script>
 	<script src="../js/scrollToTop.js"></script>
+	<script src="../js/nav.footer.js"></script>
+
 
 	<video autoplay muted class="video" loop id="myVideo">
 		<source src="../assets/videos/1.mp4" type="video/mp4" />
 	</video>
 
 	<div class="center">
+		<div id="nav-placeholder"></div>
 		<div class="container" id="licensing-container">
 			<header class="header">
 				<h1 class="title" id="licensing-title">Licensing</h1>
@@ -111,13 +113,10 @@ SOFTWARE.
 					Last updated: <span id="last-updated-date"></span>
 				</div>
 			</main>
-			<center>
-				<button class="back-button">
-					<a href="../index.html" class="back-button">Back to Home</a>
-				</button>
-			</center>
 		</div>
 	</div>
+
+	<div id="footer-placeholder"></div>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
@@ -127,37 +126,37 @@ SOFTWARE.
 		});
 	</script>
 
-<script>
-		
-	document.addEventListener("DOMContentLoaded", () => {
-  function updateLastUpdatedDate() {
-	  const dateElement = document.getElementById("last-updated-date");
-	  if (dateElement) {
-		  const now = new Date();
-		  const day = now.getDate();
-		  const monthNames = [
-			  "January", "February", "March", "April", "May", "June",
-			  "July", "August", "September", "October", "November", "December"
-		  ];
-		  const month = monthNames[now.getMonth()];
-		  const year = now.getFullYear();
-		  // Use backticks for template literals
-		  dateElement.textContent = `${month} ${day}, ${year}`;
-	  }
-  }
+	<script>
 
-  // Initialize the date update
-  updateLastUpdatedDate();
-});
+		document.addEventListener("DOMContentLoaded", () => {
+			function updateLastUpdatedDate() {
+				const dateElement = document.getElementById("last-updated-date");
+				if (dateElement) {
+					const now = new Date();
+					const day = now.getDate();
+					const monthNames = [
+						"January", "February", "March", "April", "May", "June",
+						"July", "August", "September", "October", "November", "December"
+					];
+					const month = monthNames[now.getMonth()];
+					const year = now.getFullYear();
+					// Use backticks for template literals
+					dateElement.textContent = `${month} ${day}, ${year}`;
+				}
+			}
 
-window.onscroll = function () {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("progressBar").style.width = scrolled + "%";
-};
+			// Initialize the date update
+			updateLastUpdatedDate();
+		});
 
-</script>
+		window.onscroll = function () {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		};
+
+	</script>
 
 </body>
 
