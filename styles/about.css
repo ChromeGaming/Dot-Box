@@ -56,11 +56,13 @@ html {
 /* About section styles */
 .about-section {
 	background-color: #0a0c27;
+	padding-top: 2rem;
 }
 
 .about-content {
 	max-width: 1400px;
-	margin: 200px auto;
+	margin: 1rem auto;
+	margin-top: 12.5rem;
 }
 
 
@@ -79,8 +81,9 @@ html {
 
 .cards-container {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	flex-wrap: wrap;
+	align-items: center;
 }
 
 
@@ -88,9 +91,9 @@ html {
 	background-color: #101239;
 	border-radius: 10px;
 	padding: 20px;
-	width: 25%;
+	width: 30%;
 	min-width: 160px;
-	height: 370px;
+	height: fit-content;
 	margin: 20px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	color: #fff;
@@ -101,6 +104,7 @@ html {
 
 ul li {
 	list-style: none;
+	padding: 0.25rem;
 }
 
 .about-card:hover {
@@ -134,7 +138,7 @@ ul li {
 
 .card-title {
 	font-size: 1.6rem;
-	margin-bottom: 12px;
+	margin-bottom: 1.25rem;
 	color: orange;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	transition: all 0.3s ease-in;
