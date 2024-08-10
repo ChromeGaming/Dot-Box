@@ -907,6 +907,50 @@ input[type="email"]:focus {
 	color: white;
 }
 
+/* Permission box */
+
+#permission {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: auto;
+	background: #fff;
+	padding: 2rem;
+	border-radius: 25px;
+	text-align: center;
+	z-index: 10000;
+	width: fit-content;
+	height: fit-content;
+}
+
+#permission::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: -1;
+
+}
+
+#permission div {
+	font-size: 1.25rem;
+}
+
+.req1,
+.req2 {
+	font-size: 1rem;
+	margin: 2rem 1rem 0 1rem;
+	padding: 0.75rem 1.25rem;
+	border-radius: 10px;
+	border: none;
+	background: silver;
+}
+
 .disabled {
 	opacity: 0.75;
 }

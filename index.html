@@ -24,9 +24,11 @@
 <body>
 	<script src="./js/global.js"></script>
 
-	<audio id="background-music" autoplay loop>
-		<source src="./assets/sounds/bgMusic.mp3" type="audio/mpeg" />
-	</audio>
+	<div id="permission">
+		<div>🔒 This website is requesting access to autoplay music</div>
+		<button class="req1">Cancel</button>
+		<button class="req2" style="background-color: rgb(0, 200, 255);">Allow</button>
+	</div>
 	<div class="settings">
 		<video autoplay muted class="video" loop id="myVideo">
 
@@ -181,9 +183,8 @@
 							START
 						</a>
 						<button class="reset-btn button1" id="reset-btn">RESET</button>
-						<button id="music-toggle" onclick="toggleMusic()">
-							Music Off
-						</button>
+						<button id="music-toggle" style="font-size: 1.25rem;"><i
+								class="fas fa-volume-xmark"></i></button>
 					</div>
 				</div>
 			</div>
