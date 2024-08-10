@@ -831,3 +831,11 @@ input[type="number"] {
 .hidden {
 	display: none;
 }
+
+
+.author .social-icons .social:hover .fa-github{
+	color: #2b3137;
+}
+.author .social-icons .social:hover .fa-discord{
+	color: #7289da;
+}

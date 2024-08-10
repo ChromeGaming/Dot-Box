@@ -61,14 +61,22 @@ const footer = `
 			async
 		></script>
 		<div class="social-icons">
-			<a href="https://github.com/ChromeGaming/Dot-Box" target="_blank">
+			<a href="https://github.com/ChromeGaming/Dot-Box" class="social" target="_blank">
 				<i class="fab fa-github"></i>
 			</a>
-			<a href="https://discord.gg/2HTCFrSvPB" target="_blank">
+			<a href="https://discord.gg/2HTCFrSvPB" class="social" target="_blank">
 				<i class="fab fa-discord"></i>
 			</a>
 		</div>
 	</div>
+	<style>
+		.author .social-icons .social:hover .fa-github{
+			color: #2b3137;
+		}
+		.author .social-icons .social:hover .fa-discord{
+			color: #7289da;
+		}
+	</style>
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
