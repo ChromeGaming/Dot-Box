@@ -102,26 +102,37 @@ function closeThankYouPopup() {
 }
 
 // Music toggle
-var isPlaying = true;
-function toggleMusic() {
-	var audio = document.getElementById("background-music");
-	var button = document.getElementById("music-toggle");
+let isPlaying = true;
+const access = document.getElementById("permission");
+const button = document.getElementById("music-toggle").children[0];
+const audio = new Audio("/assets/sounds/bgMusic.mp3");
+
+document.querySelector(".req1").addEventListener("click", () => {
+	access.style.display = "none";
+	isPlaying = false;
+	button.classList.remove("fa-volume-high");
+	button.classList.add("fa-volume-xmark");
+});
+
+document.querySelector(".req2").addEventListener("click", () => {
+	access.style.display = "none";
+	audio.play();
+	button.classList.remove("fa-volume-xmark");
+	button.classList.add("fa-volume-high");
+});
+
+document.getElementById("music-toggle").addEventListener("click", () => {
 	if (isPlaying) {
 		audio.pause();
-		button.textContent = "Music On";
+		button.classList.add("fa-volume-xmark");
+		button.classList.remove("fa-volume-high");
 	} else {
 		audio.play();
-		button.textContent = "Music Off";
+		button.classList.add("fa-volume-high");
+		button.classList.remove("fa-volume-xmark");
 	}
 	isPlaying = !isPlaying;
-}
-
-window.onload = function () {
-	var audio = document.getElementById("background-music");
-	audio.play();
-	var button = document.getElementById("music-toggle");
-	button.textContent = "Music Off";
-};
+});
 
 // Cursor -->
 document.addEventListener("DOMContentLoaded", function () {

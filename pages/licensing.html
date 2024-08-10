@@ -6,22 +6,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Licensing - Chrome Gaming</title>
 	<link rel="stylesheet" href="../styles/mainstyle.css" />
-	<link rel="stylesheet" href="/styles/global.css" />
+	<link rel="stylesheet" href="../styles/global.css" />
 	<link rel="stylesheet" href="../styles/pages.footer.css" />
 
 	<!-- Logo of the game -->
-	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+	<style>
+		.Lastupdate {
+			margin-bottom: 14px;
+			font-size: 15px;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif;
+			font-weight: 500;
+			margin-top: 0px;
+		}
+
+		#last-updated-date {
+			font-size: 15px;
+		}
+	</style>
 </head>
 
 <body>
-	<script src="/js/global.js"></script>
-	<script src="/js/scrollToTop.js"></script>
+	<script src="../js/global.js"></script>
+	<script src="../js/scrollToTop.js"></script>
 	<script src="../js/nav.footer.js"></script>
 
 
 	<video autoplay muted class="video" loop id="myVideo">
-		<source src="/assets/videos/1.mp4" type="video/mp4" />
+		<source src="../assets/videos/1.mp4" type="video/mp4" />
 	</video>
 
 	<div class="center">
@@ -66,6 +79,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
                         </pre>
 				</section>
+				<div class="Lastupdate">
+					Last updated: <span id="last-updated-date"></span>
+				</div>
 			</main>
 		</div>
 	</div>
@@ -79,6 +95,39 @@ SOFTWARE.
 			yearSpan.textContent = currentYear;
 		});
 	</script>
+
+	<script>
+
+		document.addEventListener("DOMContentLoaded", () => {
+			function updateLastUpdatedDate() {
+				const dateElement = document.getElementById("last-updated-date");
+				if (dateElement) {
+					const now = new Date();
+					const day = now.getDate();
+					const monthNames = [
+						"January", "February", "March", "April", "May", "June",
+						"July", "August", "September", "October", "November", "December"
+					];
+					const month = monthNames[now.getMonth()];
+					const year = now.getFullYear();
+					// Use backticks for template literals
+					dateElement.textContent = `${month} ${day}, ${year}`;
+				}
+			}
+
+			// Initialize the date update
+			updateLastUpdatedDate();
+		});
+
+		window.onscroll = function () {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		};
+
+	</script>
+
 </body>
 
 </html>
