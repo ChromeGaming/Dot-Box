@@ -839,3 +839,17 @@ input[type="number"] {
 .author .social-icons .social:hover .fa-discord{
 	color: #7289da;
 }
+
+.floating-social .social-icon:hover .fa-twitter {
+	color:#1DA1F2;
+}
+
+.floating-social .social-icon:hover .fa-instagram {
+	background-color: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+.floating-social .social-icon:hover .fa-facebook {
+	color: #4267B2;
+}
+.floating-social .social-icon:hover .fa-linkedin {
+	color: #0077b5;
+}
