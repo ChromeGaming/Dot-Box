@@ -20,18 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
-// Navigation menu
-const menu = document.querySelector(".nav-links");
-const hamburger = document.querySelector(".hamburger");
-
-hamburger.addEventListener("click", () => {
-	if (menu.style.display === "none" || menu.style.display === "") {
-		menu.style.display = "flex";
-	} else {
-		menu.style.display = "none";
-	}
-});
-
 // Themes for the game
 const video = document.getElementById("myVideo");
 const themeSelect = document.getElementById("theme-select");

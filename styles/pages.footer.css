@@ -16,7 +16,7 @@ body {
 
 .container {
 	max-width: 900px;
-	margin: 2rem auto;
+	margin: 6rem auto;
 	padding: 2rem;
 	background-color: rgb(66, 61, 142);
 	border-radius: 20px;
@@ -94,9 +94,11 @@ body {
 	0% {
 		transform: translateY(0px) rotate(-3deg);
 	}
+
 	50% {
 		transform: translateY(-10px) rotate(-3deg);
 	}
+
 	100% {
 		transform: translateY(0px) rotate(-3deg);
 	}
