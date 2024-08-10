@@ -42,6 +42,14 @@
 	}
 }
 
+.center {
+	max-width: 100vw !important;
+}
+
+.section pre {
+	overflow-x: scroll;
+}
+
 .scroll-to-top {
 	position: fixed;
 	bottom: 30px;
