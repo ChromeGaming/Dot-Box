@@ -143,8 +143,27 @@
 		</section>
 	</main>
 
+	<!-- To eliminate covering of link button -->
+	<style>
+		body>main {
+			position: static !important;
+			top: 0 !important;
+			padding-top: 50px !important;
+		}
+	</style>
+
 	<div id="footer-placeholder"></div>
 
+	<script>
+		function toggleNavBar() {
+			var nav_bar = document.getElementById("nav-links-toggled");
+			if (nav_bar.style.display === "flex") {
+				nav_bar.style.display = "none";
+			} else {
+				nav_bar.style.display = "flex";
+			}
+		}
+	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 			const expandButtons = document.querySelectorAll(".card-expand-button");
