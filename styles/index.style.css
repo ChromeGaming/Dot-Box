@@ -294,6 +294,32 @@ form {
 	justify-content: space-between;
 }
 
+.floating-social {
+    position: fixed;
+    top: 50%;
+    right: 20px; 
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.social-icon {
+    background: #333; 
+    color: #fff; 
+    border-radius: 50%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 25px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: #555;
+    transform: scale(1.1);
+}
 
 
 @keyframes fadeIn {
